@@ -1,6 +1,6 @@
 # Syndesmoscope -- An instrument to observe connectivity
 
-> An interactive tool that visually surfaces topological patterns from the connectivity of networked data.
+An interactive tool that visually surfaces topological patterns from the connectivity of networked data.
 
 *"syndesmos" means bond, link, or "to bind together" and "scope" means "instrument to observe"; so "an instrument to observe connectivity".*
 
