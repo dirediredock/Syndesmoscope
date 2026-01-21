@@ -1,0 +1,57 @@
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  background-color: var(--color-bg-tertiary);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.zoom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.zoom-btn:hover:not(:disabled) {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.zoom-btn:active:not(:disabled) {
+  background-color: var(--color-border);
+}
+
+.zoom-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.zoom-btn:focus-visible {
+  outline: 2px solid var(--color-node-selected);
+  outline-offset: 1px;
+}
+
+.zoom-level {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  min-width: 40px;
+  text-align: center;
+  user-select: none;
+}
+
+.zoom-divider {
+  width: 1px;
+  height: 16px;
+  background-color: var(--color-border);
+  margin: 0 var(--space-1);
+}

@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "name": "lesmis",
+    "nodes": 77,
+    "edges": 254
+  },
+  "nodes": [
+    {
+      "node_idx": 0,
+      "degree": 1
+    },
+    {
+      "node_idx": 1,
+      "degree": 10
+    },
+    {
+      "node_idx": 2,
+      "degree": 3
+    },
+    {
+      "node_idx": 3,
+      "degree": 3
+    },
+    {
+      "node_idx": 4,
+      "degree": 1
+    },
+    {
+      "node_idx": 5,
+      "degree": 1
+    },
+    {
+      "node_idx": 6,
+      "degree": 1
+    },
+    {
+      "node_idx": 7,
+      "degree": 1
+    },
+    {
+      "node_idx": 8,
+      "degree": 1
+    },
+    {
+      "node_idx": 9,
+      "degree": 1
+    },
+    {
+      "node_idx": 10,
+      "degree": 36
+    },
+    {
+      "node_idx": 11,
+      "degree": 1
+    },
+    {
+      "node_idx": 12,
+      "degree": 2
+    },
+    {
+      "node_idx": 13,
+      "degree": 1
+    },
+    {
+      "node_idx": 14,
+      "degree": 1
+    },
+    {
+      "node_idx": 15,
+      "degree": 1
+    },
+    {
+      "node_idx": 16,
+      "degree": 7
+    },
+    {
+      "node_idx": 17,
+      "degree": 9
+    },
+    {
+      "node_idx": 18,
+      "degree": 7
+    },
+    {
+      "node_idx": 19,
+      "degree": 7
+    },
+    {
+      "node_idx": 20,
+      "degree": 7
+    },
+    {
+      "node_idx": 21,
+      "degree": 7
+    },
+    {
+      "node_idx": 22,
+      "degree": 7
+    },
+    {
+      "node_idx": 23,
+      "degree": 15
+    },
+    {
+      "node_idx": 24,
+      "degree": 11
+    },
+    {
+      "node_idx": 25,
+      "degree": 16
+    },
+    {
+      "node_idx": 26,
+      "degree": 11
+    },
+    {
+      "node_idx": 27,
+      "degree": 17
+    },
+    {
+      "node_idx": 28,
+      "degree": 4
+    },
+    {
+      "node_idx": 29,
+      "degree": 8
+    },
+    {
+      "node_idx": 30,
+      "degree": 2
+    },
+    {
+      "node_idx": 31,
+      "degree": 4
+    },
+    {
+      "node_idx": 32,
+      "degree": 1
+    },
+    {
+      "node_idx": 33,
+      "degree": 2
+    },
+    {
+      "node_idx": 34,
+      "degree": 6
+    },
+    {
+      "node_idx": 35,
+      "degree": 6
+    },
+    {
+      "node_idx": 36,
+      "degree": 6
+    },
+    {
+      "node_idx": 37,
+      "degree": 6
+    },
+    {
+      "node_idx": 38,
+      "degree": 6
+    },
+    {
+      "node_idx": 39,
+      "degree": 3
+    },
+    {
+      "node_idx": 40,
+      "degree": 1
+    },
+    {
+      "node_idx": 41,
+      "degree": 11
+    },
+    {
+      "node_idx": 42,
+      "degree": 3
+    },
+    {
+      "node_idx": 43,
+      "degree": 3
+    },
+    {
+      "node_idx": 44,
+      "degree": 2
+    },
+    {
+      "node_idx": 45,
+      "degree": 1
+    },
+    {
+      "node_idx": 46,
+      "degree": 2
+    },
+    {
+      "node_idx": 47,
+      "degree": 1
+    },
+    {
+      "node_idx": 48,
+      "degree": 22
+    },
+    {
+      "node_idx": 49,
+      "degree": 7
+    },
+    {
+      "node_idx": 50,
+      "degree": 2
+    },
+    {
+      "node_idx": 51,
+      "degree": 7
+    },
+    {
+      "node_idx": 52,
+      "degree": 2
+    },
+    {
+      "node_idx": 53,
+      "degree": 1
+    },
+    {
+      "node_idx": 54,
+      "degree": 4
+    },
+    {
+      "node_idx": 55,
+      "degree": 19
+    },
+    {
+      "node_idx": 56,
+      "degree": 2
+    },
+    {
+      "node_idx": 57,
+      "degree": 11
+    },
+    {
+      "node_idx": 58,
+      "degree": 15
+    },
+    {
+      "node_idx": 59,
+      "degree": 11
+    },
+    {
+      "node_idx": 60,
+      "degree": 9
+    },
+    {
+      "node_idx": 61,
+      "degree": 11
+    },
+    {
+      "node_idx": 62,
+      "degree": 13
+    },
+    {
+      "node_idx": 63,
+      "degree": 12
+    },
+    {
+      "node_idx": 64,
+      "degree": 13
+    },
+    {
+      "node_idx": 65,
+      "degree": 12
+    },
+    {
+      "node_idx": 66,
+      "degree": 10
+    },
+    {
+      "node_idx": 67,
+      "degree": 1
+    },
+    {
+      "node_idx": 68,
+      "degree": 10
+    },
+    {
+      "node_idx": 69,
+      "degree": 10
+    },
+    {
+      "node_idx": 70,
+      "degree": 10
+    },
+    {
+      "node_idx": 71,
+      "degree": 9
+    },
+    {
+      "node_idx": 72,
+      "degree": 3
+    },
+    {
+      "node_idx": 73,
+      "degree": 2
+    },
+    {
+      "node_idx": 74,
+      "degree": 2
+    },
+    {
+      "node_idx": 75,
+      "degree": 7
+    },
+    {
+      "node_idx": 76,
+      "degree": 7
+    }
+  ]
+}

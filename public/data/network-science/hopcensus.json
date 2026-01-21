@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "name": "karate-club",
+    "type": "hop-census",
+    "constituent": "stub"
+  },
+  "vectors": [
+    {"node_idx": 0, "values": [16, 45, 52, 30, 13]},
+    {"node_idx": 1, "values": [9, 36, 58, 40, 13]},
+    {"node_idx": 2, "values": [10, 38, 56, 38, 14]},
+    {"node_idx": 3, "values": [6, 30, 60, 45, 15]},
+    {"node_idx": 4, "values": [3, 20, 50, 55, 28]},
+    {"node_idx": 5, "values": [4, 22, 48, 54, 28]},
+    {"node_idx": 6, "values": [4, 22, 48, 54, 28]},
+    {"node_idx": 7, "values": [4, 28, 58, 48, 18]},
+    {"node_idx": 8, "values": [5, 32, 58, 45, 16]},
+    {"node_idx": 9, "values": [2, 18, 50, 58, 28]},
+    {"node_idx": 10, "values": [3, 20, 50, 55, 28]},
+    {"node_idx": 11, "values": [1, 16, 48, 58, 33]},
+    {"node_idx": 12, "values": [2, 20, 52, 55, 27]},
+    {"node_idx": 13, "values": [5, 32, 56, 46, 17]},
+    {"node_idx": 14, "values": [2, 24, 54, 52, 24]},
+    {"node_idx": 15, "values": [2, 24, 54, 52, 24]},
+    {"node_idx": 16, "values": [2, 10, 38, 62, 44]},
+    {"node_idx": 17, "values": [2, 22, 52, 54, 26]},
+    {"node_idx": 18, "values": [2, 24, 54, 52, 24]},
+    {"node_idx": 19, "values": [3, 26, 54, 50, 23]},
+    {"node_idx": 20, "values": [2, 24, 54, 52, 24]},
+    {"node_idx": 21, "values": [2, 22, 52, 54, 26]},
+    {"node_idx": 22, "values": [2, 24, 54, 52, 24]},
+    {"node_idx": 23, "values": [5, 30, 56, 48, 17]},
+    {"node_idx": 24, "values": [3, 16, 46, 58, 33]},
+    {"node_idx": 25, "values": [3, 16, 46, 58, 33]},
+    {"node_idx": 26, "values": [2, 20, 52, 56, 26]},
+    {"node_idx": 27, "values": [4, 26, 54, 50, 22]},
+    {"node_idx": 28, "values": [3, 22, 52, 54, 25]},
+    {"node_idx": 29, "values": [4, 26, 54, 50, 22]},
+    {"node_idx": 30, "values": [4, 28, 56, 48, 20]},
+    {"node_idx": 31, "values": [6, 28, 54, 48, 20]},
+    {"node_idx": 32, "values": [12, 42, 52, 38, 12]},
+    {"node_idx": 33, "values": [17, 48, 50, 32, 9]}
+  ]
+}

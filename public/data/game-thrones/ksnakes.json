@@ -1,0 +1,437 @@
+{
+  "metadata": {
+    "name": "game_thrones",
+    "nodes": 107,
+    "edges": 352
+  },
+  "nodes": [
+    {
+      "node_idx": 0,
+      "degree": 5
+    },
+    {
+      "node_idx": 1,
+      "degree": 4
+    },
+    {
+      "node_idx": 2,
+      "degree": 15
+    },
+    {
+      "node_idx": 3,
+      "degree": 2
+    },
+    {
+      "node_idx": 4,
+      "degree": 5
+    },
+    {
+      "node_idx": 5,
+      "degree": 3
+    },
+    {
+      "node_idx": 6,
+      "degree": 4
+    },
+    {
+      "node_idx": 7,
+      "degree": 6
+    },
+    {
+      "node_idx": 8,
+      "degree": 12
+    },
+    {
+      "node_idx": 9,
+      "degree": 5
+    },
+    {
+      "node_idx": 10,
+      "degree": 4
+    },
+    {
+      "node_idx": 11,
+      "degree": 24
+    },
+    {
+      "node_idx": 12,
+      "degree": 18
+    },
+    {
+      "node_idx": 13,
+      "degree": 36
+    },
+    {
+      "node_idx": 14,
+      "degree": 22
+    },
+    {
+      "node_idx": 15,
+      "degree": 6
+    },
+    {
+      "node_idx": 16,
+      "degree": 6
+    },
+    {
+      "node_idx": 17,
+      "degree": 7
+    },
+    {
+      "node_idx": 18,
+      "degree": 8
+    },
+    {
+      "node_idx": 19,
+      "degree": 5
+    },
+    {
+      "node_idx": 20,
+      "degree": 12
+    },
+    {
+      "node_idx": 21,
+      "degree": 18
+    },
+    {
+      "node_idx": 22,
+      "degree": 9
+    },
+    {
+      "node_idx": 23,
+      "degree": 7
+    },
+    {
+      "node_idx": 24,
+      "degree": 1
+    },
+    {
+      "node_idx": 25,
+      "degree": 8
+    },
+    {
+      "node_idx": 26,
+      "degree": 14
+    },
+    {
+      "node_idx": 27,
+      "degree": 5
+    },
+    {
+      "node_idx": 28,
+      "degree": 5
+    },
+    {
+      "node_idx": 29,
+      "degree": 4
+    },
+    {
+      "node_idx": 30,
+      "degree": 2
+    },
+    {
+      "node_idx": 31,
+      "degree": 1
+    },
+    {
+      "node_idx": 32,
+      "degree": 2
+    },
+    {
+      "node_idx": 33,
+      "degree": 6
+    },
+    {
+      "node_idx": 34,
+      "degree": 6
+    },
+    {
+      "node_idx": 35,
+      "degree": 3
+    },
+    {
+      "node_idx": 36,
+      "degree": 7
+    },
+    {
+      "node_idx": 37,
+      "degree": 7
+    },
+    {
+      "node_idx": 38,
+      "degree": 7
+    },
+    {
+      "node_idx": 39,
+      "degree": 5
+    },
+    {
+      "node_idx": 40,
+      "degree": 4
+    },
+    {
+      "node_idx": 41,
+      "degree": 13
+    },
+    {
+      "node_idx": 42,
+      "degree": 5
+    },
+    {
+      "node_idx": 43,
+      "degree": 7
+    },
+    {
+      "node_idx": 44,
+      "degree": 8
+    },
+    {
+      "node_idx": 45,
+      "degree": 20
+    },
+    {
+      "node_idx": 46,
+      "degree": 4
+    },
+    {
+      "node_idx": 47,
+      "degree": 8
+    },
+    {
+      "node_idx": 48,
+      "degree": 3
+    },
+    {
+      "node_idx": 49,
+      "degree": 3
+    },
+    {
+      "node_idx": 50,
+      "degree": 4
+    },
+    {
+      "node_idx": 51,
+      "degree": 2
+    },
+    {
+      "node_idx": 52,
+      "degree": 4
+    },
+    {
+      "node_idx": 53,
+      "degree": 1
+    },
+    {
+      "node_idx": 54,
+      "degree": 19
+    },
+    {
+      "node_idx": 55,
+      "degree": 2
+    },
+    {
+      "node_idx": 56,
+      "degree": 6
+    },
+    {
+      "node_idx": 57,
+      "degree": 14
+    },
+    {
+      "node_idx": 58,
+      "degree": 4
+    },
+    {
+      "node_idx": 59,
+      "degree": 26
+    },
+    {
+      "node_idx": 60,
+      "degree": 6
+    },
+    {
+      "node_idx": 61,
+      "degree": 4
+    },
+    {
+      "node_idx": 62,
+      "degree": 4
+    },
+    {
+      "node_idx": 63,
+      "degree": 4
+    },
+    {
+      "node_idx": 64,
+      "degree": 2
+    },
+    {
+      "node_idx": 65,
+      "degree": 5
+    },
+    {
+      "node_idx": 66,
+      "degree": 2
+    },
+    {
+      "node_idx": 67,
+      "degree": 4
+    },
+    {
+      "node_idx": 68,
+      "degree": 5
+    },
+    {
+      "node_idx": 69,
+      "degree": 4
+    },
+    {
+      "node_idx": 70,
+      "degree": 4
+    },
+    {
+      "node_idx": 71,
+      "degree": 1
+    },
+    {
+      "node_idx": 72,
+      "degree": 2
+    },
+    {
+      "node_idx": 73,
+      "degree": 4
+    },
+    {
+      "node_idx": 74,
+      "degree": 1
+    },
+    {
+      "node_idx": 75,
+      "degree": 4
+    },
+    {
+      "node_idx": 76,
+      "degree": 18
+    },
+    {
+      "node_idx": 77,
+      "degree": 3
+    },
+    {
+      "node_idx": 78,
+      "degree": 2
+    },
+    {
+      "node_idx": 79,
+      "degree": 10
+    },
+    {
+      "node_idx": 80,
+      "degree": 25
+    },
+    {
+      "node_idx": 81,
+      "degree": 26
+    },
+    {
+      "node_idx": 82,
+      "degree": 3
+    },
+    {
+      "node_idx": 83,
+      "degree": 3
+    },
+    {
+      "node_idx": 84,
+      "degree": 1
+    },
+    {
+      "node_idx": 85,
+      "degree": 2
+    },
+    {
+      "node_idx": 86,
+      "degree": 5
+    },
+    {
+      "node_idx": 87,
+      "degree": 1
+    },
+    {
+      "node_idx": 88,
+      "degree": 4
+    },
+    {
+      "node_idx": 89,
+      "degree": 4
+    },
+    {
+      "node_idx": 90,
+      "degree": 4
+    },
+    {
+      "node_idx": 91,
+      "degree": 14
+    },
+    {
+      "node_idx": 92,
+      "degree": 1
+    },
+    {
+      "node_idx": 93,
+      "degree": 6
+    },
+    {
+      "node_idx": 94,
+      "degree": 1
+    },
+    {
+      "node_idx": 95,
+      "degree": 2
+    },
+    {
+      "node_idx": 96,
+      "degree": 1
+    },
+    {
+      "node_idx": 97,
+      "degree": 6
+    },
+    {
+      "node_idx": 98,
+      "degree": 3
+    },
+    {
+      "node_idx": 99,
+      "degree": 1
+    },
+    {
+      "node_idx": 100,
+      "degree": 1
+    },
+    {
+      "node_idx": 101,
+      "degree": 1
+    },
+    {
+      "node_idx": 102,
+      "degree": 12
+    },
+    {
+      "node_idx": 103,
+      "degree": 1
+    },
+    {
+      "node_idx": 104,
+      "degree": 2
+    },
+    {
+      "node_idx": 105,
+      "degree": 1
+    },
+    {
+      "node_idx": 106,
+      "degree": 1
+    }
+  ]
+}

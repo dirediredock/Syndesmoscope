@@ -1,0 +1,32 @@
+/* ============================================
+   Node-Link Pane
+   ============================================ */
+
+.node {
+  cursor: pointer;
+  transition: r 100ms ease;
+}
+
+.node:hover {
+  filter: brightness(1.2);
+}
+
+.edge {
+  cursor: pointer;
+  pointer-events: stroke;
+  stroke-linecap: round;
+}
+
+.edge:hover {
+  filter: brightness(1.2);
+}
+
+/* Focus state for keyboard navigation */
+.pane-visualization:focus {
+  outline: 2px solid var(--color-node-selected);
+  outline-offset: -2px;
+}
+
+.pane-visualization:focus:not(:focus-visible) {
+  outline: none;
+}

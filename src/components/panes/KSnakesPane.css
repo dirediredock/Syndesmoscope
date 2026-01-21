@@ -1,0 +1,16 @@
+/* ============================================
+   k-Snakes Pane
+   ============================================ */
+
+.snake-line {
+  pointer-events: none;
+}
+
+.snake-node {
+  cursor: pointer;
+  transition: r 100ms ease;
+}
+
+.snake-node:hover {
+  filter: brightness(1.2);
+}

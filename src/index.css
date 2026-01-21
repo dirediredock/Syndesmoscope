@@ -1,0 +1,142 @@
+/* ============================================
+   SYNDESMOSCOPE - Global Styles
+   Aesthetic: Utilitarian/Scientific
+   ============================================ */
+
+:root {
+  /* Color palette - muted, scientific */
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-tertiary: #21262d;
+  --color-border: #30363d;
+  --color-border-muted: #21262d;
+  
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #6e7681;
+  
+  /* Selection highlight colors (from spec) */
+  --color-node-selected: #58a6ff;
+  --color-node-hover: rgba(88, 166, 255, 0.5);
+  --color-edge-selected: #f78166;
+  --color-edge-hover: rgba(247, 129, 102, 0.5);
+  
+  /* Accent colors for pane headers
+  --color-accent-nodelink: #7ee787;
+  --color-accent-hopcensus: #a371f7;
+  --color-accent-ksnakes: #f2cc60;
+  --color-accent-matrix: #79c0ff;
+  --color-accent-censuscensus: #ff7b72;
+  --color-accent-graphprism: #ffa657; */
+  
+  /* Typography */
+  --font-sans: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace; */
+  
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.875rem;
+  --text-lg: 1rem;
+  --text-xl: 1.125rem;
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  
+  /* Transitions */
+  --transition-fast: 100ms ease;
+  --transition-base: 150ms ease;
+  --transition-slow: 250ms ease;
+  
+  /* Panel resize handle */
+  --resize-handle-size: 3px;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Panel Layout (react-resizable-panels)
+   ============================================ */
+
+.panel-group {
+  height: 100%;
+}
+
+.panel-resize-handle {
+  background-color: var(--color-border-muted);
+  transition: background-color var(--transition-fast);
+}
+
+.panel-resize-handle:hover,
+.panel-resize-handle[data-resize-handle-active] {
+  background-color: var(--color-node-selected);
+}
+
+.panel-resize-handle[data-panel-group-direction="horizontal"] {
+  width: var(--resize-handle-size);
+  cursor: col-resize;
+}
+
+.panel-resize-handle[data-panel-group-direction="vertical"] {
+  height: var(--resize-handle-size);
+  cursor: row-resize;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
