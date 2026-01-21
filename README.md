@@ -35,7 +35,7 @@ git checkout -b local_edits
 git status
 ```
 
-Step 2 -- When work of the day is complete, commit all changes on VS Code and `push`, then return to `main` for a fresh start next time.
+Step 2 -- When work of the day is complete, commit all changes on VS Code, then return to Terminal and `push` the commits, then finally return to `main` for a fresh start next time.
 
 ```
 git push
