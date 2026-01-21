@@ -1,6 +1,21 @@
-# Syndesmoscope
+# Syndesmoscope -- An instrument to observe connectivity
 
-An instrument for observing connections
+> An interactive tool that visually surfaces topological patterns from the connectivity of networked data.
+
+*"syndesmos" means bond, link, or "to bind together" and "scope" means "instrument to observe"; so "an instrument to observe connectivity".*
+
+# Development Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
 
 # Git Cheatsheet
 

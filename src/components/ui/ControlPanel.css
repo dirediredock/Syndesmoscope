@@ -1,0 +1,140 @@
+/* ============================================
+   Control Panel
+   ============================================ */
+
+.control-panel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.control-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.control-select {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-3);
+  padding-right: var(--space-6);
+  width: 20em;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238b949e' d='M3 4.5L6 7.5L9 4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.control-select:hover {
+  border-color: var(--color-text-muted);
+}
+
+.control-select:focus {
+  outline: none;
+  border-color: var(--color-node-selected);
+}
+
+.control-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--color-bg-tertiary);
+  border-radius: 4px;
+}
+
+.info-stat {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.info-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.info-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.info-divider {
+  color: var(--color-text-muted);
+}
+
+.selection-info {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.selection-badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.selection-badge--nodes {
+  background-color: rgba(88, 166, 255, 0.2);
+  color: var(--color-node-selected);
+}
+
+.selection-badge--edges {
+  background-color: rgba(247, 129, 102, 0.2);
+  color: var(--color-edge-selected);
+}
+
+.control-button {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-2);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.control-button:hover {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-text-muted);
+}
+
+.control-status {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.control-error {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-edge-selected);
+}
