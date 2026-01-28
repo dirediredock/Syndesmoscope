@@ -97,8 +97,28 @@ function HopCensusPane({ data, networkName }) {
     return () => container.removeEventListener('keydown', handleKeyDown)
   }, [zoomIn, zoomOut, resetZoom, handleFitContent])
 
-  // Initialize visualization
   useEffect(() => {
+    if (!containerRef.current) return
+
+    const container = containerRef.current
+
+    const resizeObserver = new ResizeObserver(() => {
+      d3.select(container).selectAll('*').remove()
+
+      if (containerRef.current && data) {
+        initializeVisualization()
+      }
+    })
+
+    resizeObserver.observe(container)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [data])
+
+  // Initialize visualization
+  const initializeVisualization = useCallback(() => {
     if (!containerRef.current || !data) return
 
     const container = containerRef.current
@@ -126,6 +146,8 @@ function HopCensusPane({ data, networkName }) {
       .append('svg')
       .attr('width', width)
       .attr('height', height)
+      .style('width', '100%')
+      .style('height', '100%')
 
     svgRef.current = svg.node()
 
@@ -222,16 +244,10 @@ function HopCensusPane({ data, networkName }) {
       .attr('stroke', 'var(--color-text-muted)')
       .attr('stroke-width', 1)
       .attr('stroke-opacity', 0.3)
+  }, [data])
 
-    // Handle resize
-    const resizeObserver = new ResizeObserver(() => {
-      // Re-render on resize (simplified - could optimize)
-    })
-    resizeObserver.observe(container)
-
-    return () => {
-      resizeObserver.disconnect()
-    }
+  useEffect(() => {
+    initializeVisualization()
   }, [data])
 
   // Update highlighting

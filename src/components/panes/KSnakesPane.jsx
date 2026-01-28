@@ -94,8 +94,28 @@ function KSnakesPane({ data, networkName }) {
     return () => container.removeEventListener('keydown', handleKeyDown)
   }, [zoomIn, zoomOut, resetZoom, handleFitContent])
 
-  // Initialize visualization
   useEffect(() => {
+    if (!containerRef.current) return
+
+    const container = containerRef.current
+
+    const resizeObserver = new ResizeObserver(() => {
+      d3.select(container).selectAll('*').remove()
+      
+      if (containerRef.current && data) {
+        initializeVisualization()
+      }
+    })
+
+    resizeObserver.observe(container)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [data])
+
+  // Initialize visualization
+  const initializeVisualization = useCallback(() => {
     if (!containerRef.current || !data) return
 
     const container = containerRef.current
@@ -144,6 +164,8 @@ function KSnakesPane({ data, networkName }) {
       .append('svg')
       .attr('width', width)
       .attr('height', height)
+      .style('width', '100%')
+      .style('height', '100%')
 
     svgRef.current = svg.node()
 
@@ -269,16 +291,10 @@ function KSnakesPane({ data, networkName }) {
         .attr('r', baseRadius)
         .attr('fill', 'var(--color-text-secondary)')
     }
+  }, [data])
 
-    // Handle resize
-    const resizeObserver = new ResizeObserver(() => {
-      // Re-render on resize
-    })
-    resizeObserver.observe(container)
-
-    return () => {
-      resizeObserver.disconnect()
-    }
+  useEffect(() => {
+    initializeVisualization()
   }, [data])
 
   // Update highlighting

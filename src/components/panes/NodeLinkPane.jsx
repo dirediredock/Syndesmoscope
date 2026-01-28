@@ -120,6 +120,31 @@ function NodeLinkPane({ data, networkName }) {
     return () => container.removeEventListener('keydown', handleKeyDown)
   }, [zoomIn, zoomOut, resetZoom, handleFitContent])
 
+  useEffect(() => {
+    if (!containerRef.current || !svgRef.current || !simulationRef.current) return
+
+    const container = containerRef.current
+    const svg = d3.select(svgRef.current)
+    const simulation = simulationRef.current
+
+    const resizeObserver = new ResizeObserver(() => {
+      const { width, height } = container.getBoundingClientRect()
+      if (width > 0 && height > 0) {
+        svg.attr('width', width).attr('height', height)
+        svg.attr('viewBox', `0 0 ${width} ${height}`)
+        
+        simulation.force('center', d3.forceCenter(width / 2, height / 2))
+        simulation.alpha(0.3).restart()
+      }
+    })
+
+    resizeObserver.observe(container)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [])
+
   // Initialize D3 visualization
   useEffect(() => {
     if (!containerRef.current || !data) return
@@ -137,6 +162,8 @@ function NodeLinkPane({ data, networkName }) {
       .attr('width', width)
       .attr('height', height)
       .attr('viewBox', `0 0 ${width} ${height}`)
+      .style('width', '100%')
+      .style('height', '100%')
 
     svgRef.current = svg.node()
 
@@ -217,23 +244,8 @@ function NodeLinkPane({ data, networkName }) {
       return true
     })
 
-    // Handle resize
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect
-        if (width > 0 && height > 0) {
-          svg.attr('width', width).attr('height', height)
-          svg.attr('viewBox', `0 0 ${width} ${height}`)
-          simulation.force('center', d3.forceCenter(width / 2, height / 2))
-          simulation.alpha(0.3).restart()
-        }
-      }
-    })
-    resizeObserver.observe(container)
-
     return () => {
       simulation.stop()
-      resizeObserver.disconnect()
     }
   }, [data, setFilter])
 
