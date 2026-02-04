@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "name": "example_graph",
+    "nodes": 7,
+    "edges": 10
+  },
+  "nodes": [
+    {
+      "node_idx": 0,
+      "degree": 3
+    },
+    {
+      "node_idx": 1,
+      "degree": 3
+    },
+    {
+      "node_idx": 2,
+      "degree": 4
+    },
+    {
+      "node_idx": 3,
+      "degree": 5
+    },
+    {
+      "node_idx": 4,
+      "degree": 2
+    },
+    {
+      "node_idx": 5,
+      "degree": 2
+    },
+    {
+      "node_idx": 6,
+      "degree": 1
+    }
+  ],
+  "edges": [
+    {
+      "edge_idx": 0,
+      "source": 0,
+      "target": 1
+    },
+    {
+      "edge_idx": 1,
+      "source": 0,
+      "target": 2
+    },
+    {
+      "edge_idx": 2,
+      "source": 0,
+      "target": 3
+    },
+    {
+      "edge_idx": 3,
+      "source": 1,
+      "target": 4
+    },
+    {
+      "edge_idx": 4,
+      "source": 1,
+      "target": 3
+    },
+    {
+      "edge_idx": 5,
+      "source": 2,
+      "target": 5
+    },
+    {
+      "edge_idx": 6,
+      "source": 2,
+      "target": 6
+    },
+    {
+      "edge_idx": 7,
+      "source": 2,
+      "target": 3
+    },
+    {
+      "edge_idx": 8,
+      "source": 3,
+      "target": 4
+    },
+    {
+      "edge_idx": 9,
+      "source": 3,
+      "target": 5
+    }
+  ]
+}

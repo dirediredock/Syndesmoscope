@@ -1,0 +1,33 @@
+/* ============================================
+   Theme Toggle Button
+   ============================================ */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-text-muted);
+}
+
+.theme-toggle:focus {
+  outline: none;
+  border-color: var(--color-node-selected);
+}
+
+.theme-toggle svg {
+  flex-shrink: 0;
+}

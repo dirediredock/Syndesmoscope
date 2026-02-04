@@ -15,14 +15,14 @@ function ZoomControls({
   disabled = false
 }) {
   return (
-    <div className="zoom-controls" role="group" aria-label="Zoom controls">
+    <div className="zoom-controls" role="group" aria-label="Zoom Controls">
 
       <button
         className="zoom-btn"
         onClick={onFitContent}
         disabled={disabled}
-        aria-label="Fit to content"
-        title="Fit to content (0)"
+        aria-label="Fit Zoom"
+        title="Fit Zoom"
       >
         <svg width="14" height="14" viewBox="0 0 14 14">
           <path
@@ -39,8 +39,8 @@ function ZoomControls({
         className="zoom-btn"
         onClick={onReset}
         disabled={disabled}
-        aria-label="Reset zoom"
-        title="Reset view (Home)"
+        aria-label="Reset Zoom"
+        title="Reset Zoom"
       >
         <svg width="14" height="14" viewBox="0 0 14 14">
           <rect x="2" y="2" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.5" rx="1" />
@@ -53,8 +53,8 @@ function ZoomControls({
         className="zoom-btn"
         onClick={onZoomOut}
         disabled={disabled}
-        aria-label="Zoom out"
-        title="Zoom out (-)"
+        aria-label="Zoom Out"
+        title="Zoom Out"
       >
         <svg width="14" height="14" viewBox="0 0 14 14">
           <line x1="3" y1="7" x2="11" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -69,8 +69,8 @@ function ZoomControls({
         className="zoom-btn"
         onClick={onZoomIn}
         disabled={disabled}
-        aria-label="Zoom in"
-        title="Zoom in (+)"
+        aria-label="Zoom In"
+        title="Zoom In"
       >
         <svg width="14" height="14" viewBox="0 0 14 14">
           <line x1="3" y1="7" x2="11" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
