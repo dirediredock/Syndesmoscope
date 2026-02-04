@@ -21,7 +21,7 @@ function ControlPanel() {
 
   useEffect(() => {
     if (!currentNetworkId && availableNetworks.length > 0) {
-      loadNetwork('karate-club')
+      loadNetwork('karate_club')
     }
   }, [availableNetworks, currentNetworkId, loadNetwork])
 
@@ -37,6 +37,9 @@ function ControlPanel() {
 
   return (
     <div className="control-panel">
+      {error && (
+        <div className="control-error">{error}</div>
+      )}
       <div className="control-group">
         <label htmlFor="network-select" className="control-label">
           Loaded Network:
@@ -96,10 +99,6 @@ function ControlPanel() {
 
       {isLoading && (
         <div className="control-status">Loading...</div>
-      )}
-
-      {error && (
-        <div className="control-error">{error}</div>
       )}
     </div>
   )

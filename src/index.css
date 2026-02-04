@@ -20,6 +20,10 @@
   --color-node-hover: rgba(88, 166, 255, 0.5);
   --color-edge-selected: #f78166;
   --color-edge-hover: rgba(247, 129, 102, 0.5);
+
+  /* k-Snakes visualization colors (dark mode compatible) */
+  --color-ksnakes-core: #114055;      /* sky-300: visible on dark bg */
+  --color-ksnakes-island: #232b4a;    /* violet-300: visible on dark bg */
   
   /* Accent colors for pane headers
   --color-accent-nodelink: #7ee787;
@@ -54,6 +58,29 @@
   
   /* Panel resize handle */
   --resize-handle-size: 3px;
+}
+
+/* Light mode theme */
+[data-theme="light"] {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f6f8fa;
+  --color-bg-tertiary: #eaeef2;
+  --color-border: #d0d7de;
+  --color-border-muted: #eaeef2;
+
+  --color-text-primary: #1f2328;
+  --color-text-secondary: #656d76;
+  --color-text-muted: #8c959f;
+
+  /* Selection highlight colors - adjusted for light backgrounds */
+  --color-node-selected: #0969da;
+  --color-node-hover: rgba(9, 105, 218, 0.4);
+  --color-edge-selected: #cf222e;
+  --color-edge-hover: rgba(207, 34, 46, 0.4);
+
+  /* k-Snakes visualization colors (light mode) */
+  --color-ksnakes-core: #b6e3ff;
+  --color-ksnakes-island: #ddf4ff;
 }
 
 /* Reset */
