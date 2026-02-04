@@ -1,0 +1,32 @@
+/* ============================================
+   Hop-Census Pane
+   ============================================ */
+
+.axis line,
+.axis path {
+  stroke: var(--color-border);
+}
+
+.axis text {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  fill: var(--color-text-secondary);
+}
+
+/* Hide axis labels per Python spec */
+.axis-label {
+  display: none;
+}
+
+.grid-line {
+  pointer-events: none;
+}
+
+.census-line {
+  cursor: pointer;
+  transition: stroke-opacity 100ms ease, stroke-width 100ms ease;
+}
+
+.census-line:hover {
+  stroke-opacity: 1 !important;
+}
