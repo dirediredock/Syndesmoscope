@@ -6,14 +6,21 @@ An interactive tool that visually surfaces topological patterns from the connect
 
 # Development Setup
 
-```bash
-# Install dependencies
-npm install
+These steps assume  `npm` is already installed in your machine. In your terminal, navigate to the `Syndesmoscope` working directory and run the following command the first time.
 
-# Start development server
+```bash
+# Install the dependencies required for the project from package.json and package-lock.json
+npm install
+```
+
+Then, run the following commands.
+
+```bash
+
+# For each work session, start development server:
 npm run dev
 
-# Build for production
+# For deployment, build for production:
 npm run build
 ```
 
