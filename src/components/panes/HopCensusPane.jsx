@@ -50,8 +50,18 @@ function HopCensusPane({ data, networkName }) {
     zoomOut,
     resetZoom,
     fitToContent,
+    setFilter,
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.5, 9.99] })
+
+  useEffect(() => {
+    if (!setFilter) return
+    setFilter((event) => {
+      if (event.type === 'wheel') return true
+      if (event.target && event.target.classList && event.target.classList.contains('census-line')) return false
+      return true
+    })
+  }, [setFilter])
 
   // Apply zoom transform to the zoom container
   useEffect(() => {
@@ -239,7 +249,17 @@ function HopCensusPane({ data, networkName }) {
       .attr('stroke-width', 0.5)
       .attr('stroke-opacity', 0.3)
       .attr('stroke-linecap', 'round')
-  }, [data])
+      .on('mouseenter', function () {
+        const nodeIdx = +d3.select(this).attr('data-node-idx')
+        hoverNode(nodeIdx)
+      })
+      .on('mouseleave', function () { clearHover() })
+      .on('click', function (event) {
+        event.stopPropagation()
+        const nodeIdx = +d3.select(this).attr('data-node-idx')
+        toggleNodeSelection(nodeIdx)
+      })
+  }, [data, hoverNode, clearHover, toggleNodeSelection])
 
   useEffect(() => {
     initializeVisualization()
@@ -283,25 +303,6 @@ function HopCensusPane({ data, networkName }) {
 
   }, [hoveredNodes, selectedNodes, nodeSize])
 
-  // Set up event handlers
-  useEffect(() => {
-    if (!svgRef.current) return
-
-    const svg = d3.select(svgRef.current)
-
-    svg.selectAll('.census-line')
-      .on('mouseenter', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        hoverNode(nodeIdx)
-      })
-      .on('mouseleave', clearHover)
-      .on('click', function (event) {
-        event.stopPropagation()
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        toggleNodeSelection(nodeIdx)
-      })
-
-  }, [data, hoverNode, clearHover, toggleNodeSelection])
 
   return (
     <Pane
