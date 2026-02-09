@@ -358,7 +358,7 @@ function KSnakesPane({ data, networkName }) {
 
   useEffect(() => {
     initializeVisualization()
-  }, [data, initializeVisualization])
+  }, [data])
 
   // Update structure sizes when edgeSize changes
   useEffect(() => {
