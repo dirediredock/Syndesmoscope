@@ -2,15 +2,23 @@
    k-Snakes Pane
    ============================================ */
 
-.snake-line {
+.core-line,
+.island-line,
+.core-singleton,
+.island-singleton {
   pointer-events: none;
 }
 
 .snake-node {
   cursor: pointer;
-  transition: r 100ms ease;
+  transition: r 100ms ease, fill 100ms ease;
 }
 
 .snake-node:hover {
   filter: brightness(1.2);
+}
+
+.core-label {
+  pointer-events: none;
+  user-select: none;
 }

@@ -42,6 +42,12 @@
   border-radius: 4px;
 }
 
+.app-header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
 .app-main {
   flex: 1;
   overflow: hidden;

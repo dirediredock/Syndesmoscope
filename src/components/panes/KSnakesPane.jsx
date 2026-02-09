@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from 'react'
+import { useRef, useEffect, useCallback, useState } from 'react'
 import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
@@ -8,22 +8,38 @@ import './KSnakesPane.css'
 /**
  * KSnakesPane - k-Snakes invariant plot visualization
  *
- * NOTE: This is a placeholder implementation. The exact visualization
- * depends on the data structure from Matt's precomputation.
+ * Visualizes k-core decomposition with onion layer structure.
+ * Data structure: cores[] > islands[] > nodes[]
  *
- * From the specs doc, k-Snakes appears to be related to k-core
- * decomposition, showing how nodes relate to different core levels.
- *
- * TODO: Confirm data structure and implement visualization
+ * Visual layers (z-order):
+ * - Core lines: sky blue, 18px width (z-0)
+ * - Island lines: violet, 10px width (z-1)
+ * - Node circles: filled circles matching NodeLink style (z-2)
+ * - Core labels: "k-{n}" at leftmost position
  */
 
 const ACCENT_COLOR = 'var(--color-accent-ksnakes)'
+
+const NODE_SIZES = {
+  S: { default: 0.2, highlighted: 1 },
+  M: { default: 2, highlighted: 5 },
+  L: { default: 12, highlighted: 15 }
+}
+
+const STRUCTURE_SIZES = {
+  S: { core: 7, island: 3, coreSingleton: 2.5, islandSingleton: 1 },
+  M: { core: 18, island: 10, coreSingleton: 9, islandSingleton: 5 },
+  L: { core: 36, island: 20, coreSingleton: 18, islandSingleton: 10 }
+}
 
 function KSnakesPane({ data, networkName }) {
   const containerRef = useRef(null)
   const svgRef = useRef(null)
   const zoomContainerRef = useRef(null)
   const boundsRef = useRef(null)
+
+  const [nodeSize, setNodeSize] = useState('M')
+  const [edgeSize, setEdgeSize] = useState('M')
 
   const {
     hoveredNodes,
@@ -40,7 +56,7 @@ function KSnakesPane({ data, networkName }) {
     resetZoom,
     fitToContent,
     zoomPercent
-  } = useZoomPan(svgRef, { scaleExtent: [0.5, 4] })
+  } = useZoomPan(svgRef, { scaleExtent: [0.5, 9.99] })
 
   // Apply zoom transform to the zoom container
   useEffect(() => {
@@ -49,9 +65,11 @@ function KSnakesPane({ data, networkName }) {
     }
   }, [transform])
 
-  // Reset zoom when data changes
+  // Reset zoom and sizes when data changes
   useEffect(() => {
     resetZoom()
+    setNodeSize('M')
+    setEdgeSize('M')
   }, [data, resetZoom])
 
   // Calculate bounds for fit-to-content
@@ -117,6 +135,7 @@ function KSnakesPane({ data, networkName }) {
   // Initialize visualization
   const initializeVisualization = useCallback(() => {
     if (!containerRef.current || !data) return
+    if (!containerRef.current || !data || !data.cores) return
 
     const container = containerRef.current
     const { width, height } = container.getBoundingClientRect()
@@ -125,31 +144,18 @@ function KSnakesPane({ data, networkName }) {
     // Clear previous
     d3.select(container).selectAll('*').remove()
 
-    // Base margins
-    const baseMargin = { top: 20, right: 20, bottom: 40, left: 50 }
+    // Use square aspect ratio (minimum dimension)
+    const size = Math.min(width, height)
 
-    // Calculate square dimensions for inner plot
-    const availableWidth = width - baseMargin.left - baseMargin.right
-    const availableHeight = height - baseMargin.top - baseMargin.bottom
-    const plotSize = Math.min(availableWidth, availableHeight)
-    
-    const innerWidth = plotSize
-    const innerHeight = plotSize
-
-    // Center the plot by adjusting margins
-    const extraHorizontal = availableWidth - plotSize
-    const extraVertical = availableHeight - plotSize
-    
+    // 5% margins per Python spec
     const margin = {
-      top: baseMargin.top + extraVertical / 2,
-      right: baseMargin.right + extraHorizontal / 2,
-      bottom: baseMargin.bottom + extraVertical / 2,
-      left: baseMargin.left + extraHorizontal / 2
+      top: size * 0.05,
+      right: size * 0.05,
+      bottom: size * 0.05,
+      left: size * 0.05
     }
-
-    // Calculate node radius based on plot size
-    const baseRadius = plotSize / 200 // Scale with plot size
-    const hoverRadius = baseRadius * 1.5
+    const innerWidth = size - margin.left - margin.right
+    const innerHeight = size - margin.top - margin.bottom
 
     // Store bounds for fit-to-content
     boundsRef.current = {
@@ -158,6 +164,22 @@ function KSnakesPane({ data, networkName }) {
       width: innerWidth,
       height: innerHeight
     }
+
+    // Flatten all nodes for scale calculation
+    const allNodes = []
+    data.cores.forEach(core => {
+      core.islands.forEach(island => {
+        island.nodes.forEach(node => {
+          allNodes.push({
+            ...node,
+            core_value: core.core_value,
+            island_idx: island.island_idx
+          })
+        })
+      })
+    })
+
+    if (allNodes.length === 0) return
 
     // Create SVG
     const svg = d3.select(container)
@@ -179,135 +201,190 @@ function KSnakesPane({ data, networkName }) {
       .attr('width', innerWidth)
       .attr('height', innerHeight)
 
-    if (data.nodes && data.nodes.length > 0) {
-      // // X: node index or position
-      // const xScale = d3.scaleLinear()
-      //   .domain([0, data.nodes.length - 1])
-      //   .range([0, innerWidth])
+    // Calculate scales
+    const xExtent = d3.extent(allNodes, d => d.x_position)
+    const yExtent = d3.extent(allNodes, d => d.onion_value)
 
-      // // Y: k-core value
-      // const maxK = d3.max(data.nodes, d => d.degree || d.k || 1)
-      // const yScale = d3.scaleLinear()
-      //   .domain([0, maxK])
-      //   .range([innerHeight, 0])
+    // Add padding to extents
+    const xPadding = (xExtent[1] - xExtent[0]) * 0.1 || 1
+    const yPadding = (yExtent[1] - yExtent[0]) * 0.1 || 1
 
-      // Sort nodes by k-core for snake visualization
-      const sortedNodes = [...data.nodes].sort((a, b) =>
-        (a.degree || a.k || 0) - (b.degree || b.k || 0)
-      )
+    // X scale: INVERTED per Python spec (right-to-left)
+    const xScale = d3.scaleLinear()
+      .domain([xExtent[1] + xPadding, xExtent[0] - xPadding])
+      .range([0, innerWidth])
 
-      // X dimension padding
-      const nodePadding = 20
-      const xScale = d3.scaleLinear()
-        .domain([0, data.nodes.length - 1])
-        .range([nodePadding, innerWidth - nodePadding])
+    // Y scale: normal orientation
+    const yScale = d3.scaleLinear()
+      .domain([yExtent[0] - yPadding, yExtent[1] + yPadding])
+      .range([innerHeight, 0])
 
-      // Y dimension padding
-      const maxK = d3.max(data.nodes, d => d.degree || d.k || 1)
-      const yScale = d3.scaleLinear()
-        .domain([0, maxK])
-        .range([innerHeight - nodePadding, nodePadding])
+    // Line generator
+    const lineGenerator = d3.line()
+      .x(d => xScale(d.x_position))
+      .y(d => yScale(d.onion_value))
 
-      // // Create line generator
-      // const line = d3.line()
-      //   .x((d, i) => xScale(i))
-      //   .y(d => yScale(d.degree || d.k || 0))
-      //   .curve(d3.curveMonotoneX)
+    // Create zoom container (clipped to content area)
+    const zoomContainer = svg.append('g')
+      .attr('class', 'zoom-container')
+      .attr('clip-path', 'url(#ksnakes-clip)')
 
-      // // Draw axes (outside zoom container - fixed position)
-      // const axesGroup = svg.append('g')
-      //   .attr('class', 'axes')
-      //   .attr('transform', `translate(${margin.left},${margin.top})`)
+    zoomContainerRef.current = zoomContainer.node()
 
-      // axesGroup.append('g')
-      //   .attr('class', 'axis axis-x')
-      //   .attr('transform', `translate(0,${innerHeight})`)
-      //   .call(d3.axisBottom(xScale).ticks(5))
+    // Content group inside zoom container
+    const contentGroup = zoomContainer.append('g')
+      .attr('class', 'content')
+      .attr('transform', `translate(${margin.left},${margin.top})`)
 
-      // axesGroup.append('g')
-      //   .attr('class', 'axis axis-y')
-      //   .call(d3.axisLeft(yScale).ticks(maxK))
+    // z-order 0: Core-level lines (skyblue, 18px)
+    const coreGroup = contentGroup.append('g').attr('class', 'core-lines')
 
-      // // Axis labels
-      // axesGroup.append('text')
-      //   .attr('class', 'axis-label')
-      //   .attr('x', innerWidth / 2)
-      //   .attr('y', innerHeight + 35)
-      //   .attr('text-anchor', 'middle')
-      //   .text('Node (sorted by k-core)')
+    data.cores.forEach(core => {
+      // Collect all nodes in this core
+      const coreNodes = []
+      core.islands.forEach(island => {
+        island.nodes.forEach(node => {
+          coreNodes.push(node)
+        })
+      })
 
-      // axesGroup.append('text')
-      //   .attr('class', 'axis-label')
-      //   .attr('transform', 'rotate(-90)')
-      //   .attr('x', -innerHeight / 2)
-      //   .attr('y', -40)
-      //   .attr('text-anchor', 'middle')
-      //   .text('k-core')
+      if (coreNodes.length === 0) return
 
-      // Create zoom container (clipped to content area)
-      const zoomContainer = svg.append('g')
-        .attr('class', 'zoom-container')
-        .attr('clip-path', 'url(#ksnakes-clip)')
+      // Singleton node: draw a background circle instead of a line
+      if (coreNodes.length === 1) {
+        const node = coreNodes[0]
+        coreGroup.append('circle')
+          .attr('class', 'core-singleton')
+          .attr('cx', xScale(node.x_position))
+          .attr('cy', yScale(node.onion_value))
+          .attr('r', 9)
+          .attr('fill', 'var(--color-ksnakes-core)')
+        return
+      }
 
-      zoomContainerRef.current = zoomContainer.node()
+      // Sort by x_position
+      const sortedNodes = [...coreNodes].sort((a, b) => a.x_position - b.x_position)
 
-      // Content group inside zoom container
-      const contentGroup = zoomContainer.append('g')
-        .attr('class', 'content')
-        .attr('transform', `translate(${margin.left},${margin.top})`)
-
-      // // Draw the snake line
-      // contentGroup.append('path')
-      //   .datum(sortedNodes)
-      //   .attr('class', 'snake-line')
-      //   .attr('d', line)
-      //   .attr('fill', 'none')
-      //   .attr('stroke', 'var(--color-accent-ksnakes)')
-      //   .attr('stroke-width', 2)
-      //   .attr('stroke-opacity', 0.6)
-
-      // Draw node points
-      const nodesGroup = contentGroup.append('g').attr('class', 'snake-nodes')
-
-      // Add red border around nodes group
-      const nodesBBox = { x: 0, y: 0, width: innerWidth, height: innerHeight }
-      nodesGroup.append('rect')
-        .attr('x', nodesBBox.x)
-        .attr('y', nodesBBox.y)
-        .attr('width', nodesBBox.width)
-        .attr('height', nodesBBox.height)
+      coreGroup.append('path')
+        .datum(sortedNodes)
+        .attr('class', 'core-line')
+        .attr('d', lineGenerator)
         .attr('fill', 'none')
-        .attr('stroke', 'tomato')
-        .attr('stroke-width', 0.5)
-        .attr('pointer-events', 'none')
+        .attr('stroke', 'var(--color-ksnakes-core)')
+        .attr('stroke-width', 18)
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round')
+    })
 
-      nodesGroup.selectAll('.snake-node')
-        .data(sortedNodes)
-        .join('circle')
-        .attr('class', 'snake-node')
-        .attr('data-node-idx', d => d.node_idx)
-        .attr('cx', (d, i) => xScale(i))
-        .attr('cy', d => yScale(d.degree || d.k || 0))
-        .attr('r', baseRadius)
-        .attr('fill', 'var(--color-text-secondary)')
-    }
-  }, [data])
+    // z-order 1: Island-level lines (lavender, 10px)
+    const islandGroup = contentGroup.append('g').attr('class', 'island-lines')
+
+    data.cores.forEach(core => {
+      core.islands.forEach(island => {
+        if (island.nodes.length === 0) return
+
+        // Singleton node: draw a background circle instead of a line
+        if (island.nodes.length === 1) {
+          const node = island.nodes[0]
+          islandGroup.append('circle')
+            .attr('class', 'island-singleton')
+            .attr('cx', xScale(node.x_position))
+            .attr('cy', yScale(node.onion_value))
+            .attr('r', 5)
+            .attr('fill', 'var(--color-ksnakes-island)')
+          return
+        }
+
+        // Sort by x_position
+        const sortedNodes = [...island.nodes].sort((a, b) => a.x_position - b.x_position)
+
+        islandGroup.append('path')
+          .datum(sortedNodes)
+          .attr('class', 'island-line')
+          .attr('d', lineGenerator)
+          .attr('fill', 'none')
+          .attr('stroke', 'var(--color-ksnakes-island)')
+          .attr('stroke-width', 10)
+          .attr('stroke-linecap', 'round')
+          .attr('stroke-linejoin', 'round')
+      })
+    })
+
+    // Node circles (single filled circles like NodeLink)
+    const nodesGroup = contentGroup.append('g').attr('class', 'snake-nodes')
+
+    // Single circles matching NodeLink style
+    nodesGroup.selectAll('.snake-node')
+      .data(allNodes)
+      .join('circle')
+      .attr('class', 'snake-node')
+      .attr('data-node-idx', d => d.node_idx)
+      .attr('cx', d => xScale(d.x_position))
+      .attr('cy', d => yScale(d.onion_value))
+      .attr('r', 3)
+      .attr('fill', 'var(--color-text-secondary)')
+
+    // Core labels: "k-{n}" at leftmost position
+    const labelsGroup = contentGroup.append('g').attr('class', 'core-labels')
+
+    data.cores.forEach(core => {
+      // Find node with minimum x_position and corresponding minimum onion_value
+      let minNode = null
+      core.islands.forEach(island => {
+        island.nodes.forEach(node => {
+          if (!minNode || node.x_position < minNode.x_position) {
+            minNode = node
+          } else if (node.x_position === minNode.x_position && node.onion_value < minNode.onion_value) {
+            minNode = node
+          }
+        })
+      })
+
+      if (minNode) {
+        labelsGroup.append('text')
+          .attr('class', 'core-label')
+          .attr('x', xScale(minNode.x_position) + 15)
+          .attr('y', yScale(minNode.onion_value))
+          .attr('text-anchor', 'start')
+          .attr('dominant-baseline', 'middle')
+          .attr('fill', 'var(--color-ksnakes-core)')
+          .attr('font-family', 'Arial, sans-serif')
+          .attr('font-weight', 'bold')
+          .attr('font-size', '12px')
+          .text(`k-${core.core_value}`)
+      }
+    })
+  }, [])
 
   useEffect(() => {
     initializeVisualization()
-  }, [data])
+  }, [data, initializeVisualization])
 
-  // Update highlighting
+  // Update structure sizes when edgeSize changes
   useEffect(() => {
     if (!svgRef.current) return
 
     const svg = d3.select(svgRef.current)
+    const structureSizes = STRUCTURE_SIZES[edgeSize]
 
-    // Get the base radius from the first node
-    const firstNode = svg.select('.snake-node')
-    const baseRadius = firstNode.empty() ? 4 : +firstNode.attr('r')
-    const hoverRadius = baseRadius * 1.5
+    // Update core lines and singletons
+    svg.selectAll('.core-line').attr('stroke-width', structureSizes.core)
+    svg.selectAll('.core-singleton').attr('r', structureSizes.coreSingleton)
 
+    // Update island lines and singletons
+    svg.selectAll('.island-line').attr('stroke-width', structureSizes.island)
+    svg.selectAll('.island-singleton').attr('r', structureSizes.islandSingleton)
+
+  }, [edgeSize])
+
+  // Update highlighting (matching NodeLink style)
+  useEffect(() => {
+    if (!svgRef.current) return
+
+    const svg = d3.select(svgRef.current)
+    const nodeSizes = NODE_SIZES[nodeSize]
+
+    // Update node styles (same pattern as NodeLink)
     svg.selectAll('.snake-node')
       .attr('fill', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -317,8 +394,8 @@ function KSnakesPane({ data, networkName }) {
       })
       .attr('r', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return hoverRadius
-        return baseRadius
+        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return nodeSizes.highlighted
+        return nodeSizes.default
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -327,7 +404,7 @@ function KSnakesPane({ data, networkName }) {
         }
       })
 
-  }, [hoveredNodes, selectedNodes])
+  }, [hoveredNodes, selectedNodes, nodeSize])
 
   // Set up event handlers
   useEffect(() => {
@@ -361,13 +438,18 @@ function KSnakesPane({ data, networkName }) {
         onFitContent: handleFitContent,
         zoomPercent
       }}
+      sizeControls={{
+        nodeSize,
+        edgeSize,
+        onNodeSizeChange: setNodeSize,
+        onEdgeSizeChange: setEdgeSize
+      }}
     >
       <div
         ref={containerRef}
         className="pane-visualization"
         tabIndex={0}
         role="img"
-        aria-label="k-Snakes visualization. Use +/- to zoom, drag to pan."
       />
     </Pane>
   )

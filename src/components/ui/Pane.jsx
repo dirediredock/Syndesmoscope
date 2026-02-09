@@ -1,4 +1,5 @@
 import ZoomControls from './ZoomControls'
+import SizeControls from './SizeControls'
 import './Pane.css'
 
 /**
@@ -6,6 +7,7 @@ import './Pane.css'
  * for all visualization panes, including:
  * - Header with title and accent color
  * - Optional zoom controls
+ * - Optional size controls (for node/edge sizes)
  * - Scrollable content area
  * - Empty state when no data is loaded
  */
@@ -16,7 +18,8 @@ function Pane({
   children,
   isEmpty = false,
   emptyMessage = 'NO DATA',
-  zoomControls = null
+  zoomControls = null,
+  sizeControls = null
 }) {
   return (
     <div className="pane">
@@ -37,11 +40,8 @@ function Pane({
           <span className="pane-accent-bar" />
           <h2 className="pane-title">{title}</h2>
         </div> */}
-        {zoomControls && !isEmpty && (
-          <div className="pane-header-right">
-            <ZoomControls {...zoomControls} />
-          </div>
-        )}
+        {zoomControls && !isEmpty && <ZoomControls {...zoomControls} />}
+        {sizeControls && !isEmpty && <SizeControls {...sizeControls} />}
       </div>
 
     </div>
