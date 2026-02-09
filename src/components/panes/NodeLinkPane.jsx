@@ -261,8 +261,23 @@ function NodeLinkPane({ data, networkName }) {
       return true
     })
 
+    // Handle resize
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect
+        if (width > 0 && height > 0) {
+          svg.attr('width', width).attr('height', height)
+          svg.attr('viewBox', `0 0 ${width} ${height}`)
+          simulation.force('center', d3.forceCenter(width / 2, height / 2))
+          simulation.alpha(0.3).restart()
+        }
+      }
+    })
+    resizeObserver.observe(container)
+
     return () => {
       simulation.stop()
+      resizeObserver.disconnect()
     }
   }, [data, setFilter])
 
