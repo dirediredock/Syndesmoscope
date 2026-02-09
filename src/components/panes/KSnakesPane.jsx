@@ -379,6 +379,47 @@ function KSnakesPane({ data, networkName }) {
     })
   }, [data, hoverNode, clearHover, toggleNodeSelection])
 
+    // Reapply highlighting after DOM build to ensure visuals match selection state
+    try {
+      const svg = d3.select(svgRef.current)
+      const nodeSizes = NODE_SIZES[nodeSize]
+      svg.selectAll('.snake-node')
+        .attr('fill', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
+          if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
+          return 'var(--color-text-secondary)'
+        })
+        .attr('r', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return nodeSizes.highlighted
+          return nodeSizes.default
+        })
+        .each(function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) d3.select(this).raise()
+        })
+
+      Promise.resolve().then(() => {
+        try {
+          svg.selectAll('.snake-node')
+            .attr('fill', function () {
+              const nodeIdx = +d3.select(this).attr('data-node-idx')
+              if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
+              if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
+              return 'var(--color-text-secondary)'
+            })
+            .attr('r', function () {
+              const nodeIdx = +d3.select(this).attr('data-node-idx')
+              if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return nodeSizes.highlighted
+              return nodeSizes.default
+            })
+        } catch (e) {}
+      })
+    } catch (e) {
+      // ignore
+    }
+
   useEffect(() => {
     initializeVisualization()
     // Auto-center after initial render
@@ -402,6 +443,26 @@ function KSnakesPane({ data, networkName }) {
     // Update island lines and singletons
     svg.selectAll('.island-line').attr('stroke-width', structureSizes.island)
     svg.selectAll('.island-singleton').attr('r', structureSizes.islandSingleton)
+
+    // Reapply highlighting after size change to keep visuals synced
+    try {
+      const nodeSizes = NODE_SIZES[nodeSize]
+      svg.selectAll('.snake-node')
+        .attr('fill', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
+          if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
+          return 'var(--color-text-secondary)'
+        })
+        .attr('r', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return nodeSizes.highlighted
+          return nodeSizes.default
+        })
+      Promise.resolve().then(() => {
+        try { svg.selectAll('.snake-node').each(function () { const nodeIdx = +d3.select(this).attr('data-node-idx'); if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) d3.select(this).raise() }) } catch (e) {}
+      })
+    } catch (e) {}
 
   }, [edgeSize])
 
