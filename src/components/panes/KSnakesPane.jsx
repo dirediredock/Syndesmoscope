@@ -133,8 +133,7 @@ function KSnakesPane({ data, networkName }) {
   }, [data])
 
   // Initialize visualization
-  const initializeVisualization = useCallback(() => {
-    if (!containerRef.current || !data) return
+  const initializeVisualization = useCallback(() => {    
     if (!containerRef.current || !data || !data.cores) return
 
     const container = containerRef.current
@@ -354,7 +353,7 @@ function KSnakesPane({ data, networkName }) {
           .text(`k-${core.core_value}`)
       }
     })
-  }, [])
+  }, [data])
 
   useEffect(() => {
     initializeVisualization()
