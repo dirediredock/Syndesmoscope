@@ -116,6 +116,8 @@ function HopCensusPane({ data, networkName }) {
 
       if (containerRef.current && data) {
         initializeVisualization()
+        // Auto-center after resize
+        setTimeout(() => handleFitContent(), 100)
       }
     })
 
@@ -124,7 +126,7 @@ function HopCensusPane({ data, networkName }) {
     return () => {
       resizeObserver.disconnect()
     }
-  }, [data])
+  }, [data, handleFitContent])
 
   // Initialize visualization
   const initializeVisualization = useCallback(() => {
@@ -241,7 +243,12 @@ function HopCensusPane({ data, networkName }) {
 
   useEffect(() => {
     initializeVisualization()
-  }, [data])
+    // Auto-center after initial render
+    const centerTimeout = setTimeout(() => {
+      handleFitContent()
+    }, 100)
+    return () => clearTimeout(centerTimeout)
+  }, [data, handleFitContent])
 
   // Update highlighting based on selection state and size settings
   useEffect(() => {

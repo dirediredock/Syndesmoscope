@@ -122,6 +122,8 @@ function KSnakesPane({ data, networkName }) {
       
       if (containerRef.current && data) {
         initializeVisualization()
+        // Auto-center after resize
+        setTimeout(() => handleFitContent(), 100)
       }
     })
 
@@ -130,7 +132,7 @@ function KSnakesPane({ data, networkName }) {
     return () => {
       resizeObserver.disconnect()
     }
-  }, [data])
+  }, [data, handleFitContent])
 
   // Initialize visualization
   const initializeVisualization = useCallback(() => {    
@@ -357,7 +359,12 @@ function KSnakesPane({ data, networkName }) {
 
   useEffect(() => {
     initializeVisualization()
-  }, [data])
+    // Auto-center after initial render
+    const centerTimeout = setTimeout(() => {
+      handleFitContent()
+    }, 100)
+    return () => clearTimeout(centerTimeout)
+  }, [data, handleFitContent])
 
   // Update structure sizes when edgeSize changes
   useEffect(() => {

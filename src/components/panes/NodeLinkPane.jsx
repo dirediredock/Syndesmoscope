@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback, useState } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
@@ -25,26 +25,11 @@ import './NodeLinkPane.css'
 
 const ACCENT_COLOR = 'var(--color-accent-nodelink)'
 
-const NODE_SIZES = {
-  S: { default: 0.5, highlighted: 1 },
-  M: { default: 3, highlighted: 6 },
-  L: { default: 10, highlighted: 15 }
-}
-
-const EDGE_SIZES = {
-  S: { default: 0.2, highlighted: 0.4 },
-  M: { default: 1, highlighted: 2 },
-  L: { default: 8, highlighted: 10 }
-}
-
 function NodeLinkPane({ data, networkName }) {
   const containerRef = useRef(null)
   const svgRef = useRef(null)
   const zoomContainerRef = useRef(null)
   const simulationRef = useRef(null)
-
-  const [nodeSize, setNodeSize] = useState('M')
-  const [edgeSize, setEdgeSize] = useState('M')
 
   const {
     hoveredNodes,
@@ -66,7 +51,7 @@ function NodeLinkPane({ data, networkName }) {
     fitToContent,
     setFilter,
     zoomPercent
-  } = useZoomPan(svgRef, { scaleExtent: [0.1, 9.99] })
+  } = useZoomPan(svgRef, { scaleExtent: [0.1, 4] })
 
   // Apply zoom transform to the zoom container
   useEffect(() => {
@@ -78,8 +63,6 @@ function NodeLinkPane({ data, networkName }) {
   // Reset zoom and sizes when data changes
   useEffect(() => {
     resetZoom()
-    setNodeSize('M')
-    setEdgeSize('M')
   }, [data, resetZoom])
 
   // Calculate bounds for fit-to-content based on node positions
@@ -152,6 +135,23 @@ function NodeLinkPane({ data, networkName }) {
         
         simulation.force('center', d3.forceCenter(width / 2, height / 2))
         simulation.alpha(0.3).restart()
+
+        try {
+          handleFitContent()
+        } catch (err) {
+          // ignore
+        }
+
+        const onEnd = () => {
+          try {
+            handleFitContent()
+          } catch (err) {
+            // ignore
+          }
+          simulation.on('end', null)
+        }
+
+        simulation.on('end', onEnd)
       }
     })
 
@@ -160,7 +160,7 @@ function NodeLinkPane({ data, networkName }) {
     return () => {
       resizeObserver.disconnect()
     }
-  }, [])
+  }, [handleFitContent])
 
   // Initialize D3 visualization
   useEffect(() => {
@@ -261,23 +261,13 @@ function NodeLinkPane({ data, networkName }) {
       return true
     })
 
-    // Handle resize
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect
-        if (width > 0 && height > 0) {
-          svg.attr('width', width).attr('height', height)
-          svg.attr('viewBox', `0 0 ${width} ${height}`)
-          simulation.force('center', d3.forceCenter(width / 2, height / 2))
-          simulation.alpha(0.3).restart()
-        }
-      }
-    })
-    resizeObserver.observe(container)
+    const centerTimeout = setTimeout(() => {
+      handleFitContent()
+    }, 500)
 
     return () => {
       simulation.stop()
-      resizeObserver.disconnect()
+      clearTimeout(centerTimeout)
     }
   }, [data, setFilter])
 
@@ -286,8 +276,6 @@ function NodeLinkPane({ data, networkName }) {
     if (!svgRef.current) return
 
     const svg = d3.select(svgRef.current)
-    const nodeSizes = NODE_SIZES[nodeSize]
-    const edgeSizes = EDGE_SIZES[edgeSize]
 
     // Update node styles
     svg.selectAll('.node')
@@ -299,8 +287,8 @@ function NodeLinkPane({ data, networkName }) {
       })
       .attr('r', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return nodeSizes.highlighted
-        return nodeSizes.default
+        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 5
+        return 3
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -320,8 +308,8 @@ function NodeLinkPane({ data, networkName }) {
       })
       .attr('stroke-width', function () {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
-        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return edgeSizes.highlighted
-        return edgeSizes.default
+        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return 2
+        return 1
       })
       .each(function () {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
@@ -330,7 +318,7 @@ function NodeLinkPane({ data, networkName }) {
         }
       })
 
-  }, [hoveredNodes, hoveredEdges, selectedNodes, selectedEdges, nodeSize, edgeSize])
+  }, [hoveredNodes, hoveredEdges, selectedNodes, selectedEdges])
 
   // Set up event handlers
   useEffect(() => {
@@ -377,12 +365,6 @@ function NodeLinkPane({ data, networkName }) {
         onReset: resetZoom,
         onFitContent: handleFitContent,
         zoomPercent
-      }}
-      sizeControls={{
-        nodeSize,
-        edgeSize,
-        onNodeSizeChange: setNodeSize,
-        onEdgeSizeChange: setEdgeSize
       }}
     >
       <div
