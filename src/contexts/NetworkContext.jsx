@@ -231,12 +231,13 @@ export function NetworkProvider({ children }) {
 
     try {
       // Load all visualization data files for this network
-      const [edgelist, censusEdge, censusNode, censusStub, kSnakes] = await Promise.all([
+      const [edgelist, censusEdge, censusNode, censusStub, kSnakes, adjacencyMatrix] = await Promise.all([
         fetch(`/data/${networkId}/edgelist.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusEdge.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusNode.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusStub.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_kSnakes.json`).then(r => r.ok ? r.json() : null),
+        fetch(`/data/${networkId}/${networkId}_AdjacencyMatrix_SpectralFiedler.json`).then(r => r.ok ? r.json() : null),
       ])
 
       setNetworkData({
@@ -245,6 +246,7 @@ export function NetworkProvider({ children }) {
         censusNode,
         censusStub,
         kSnakes,
+        adjacencyMatrix,
       })
       setCurrentNetworkId(networkId)
     } catch (err) {

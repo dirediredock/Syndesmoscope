@@ -1,0 +1,22 @@
+/* Accent token for Pane header */
+:root {
+  --color-accent-adjmatrix: #7c5cff; /* tweak if you want */
+}
+
+/* Cells */
+.matrix-cell {
+  cursor: pointer;
+}
+
+/* Gridlines */
+.matrix-gridline {
+  shape-rendering: crispEdges;
+  pointer-events: none; /* interactions are on the hit lines */
+}
+
+/* Invisible interaction targets for gridlines */
+.matrix-gridline-hit {
+  stroke: transparent;
+  stroke-width: 14px; /* big hit area */
+  cursor: pointer;
+}

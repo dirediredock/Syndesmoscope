@@ -3,6 +3,7 @@ import { useNetwork } from '../contexts/NetworkContext'
 import NodeLinkPane from './panes/NodeLinkPane'
 import HopCensusPane from './panes/HopCensusPane'
 import KSnakesPane from './panes/KSnakesPane'
+import AdjacencyMatrixPane from './panes/AdjacencyMatrixPane'
 import './PaneLayout.css'
 
 function PaneLayout() {
@@ -69,6 +70,22 @@ function PaneLayout() {
       >
         <KSnakesPane
           data={networkData?.kSnakes}
+          networkName={currentNetwork?.name}
+        />
+      </Panel>
+
+
+      <PanelResizeHandle className="panel-resize-handle" />
+
+      {/*********************************************************************/}
+
+      <Panel
+        defaultSize={20}
+        minSize={1.7}
+        className="panel"
+      >
+        <AdjacencyMatrixPane
+          data={networkData?.adjacencyMatrix}
           networkName={currentNetwork?.name}
         />
       </Panel>
