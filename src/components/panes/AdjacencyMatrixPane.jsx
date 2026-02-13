@@ -65,7 +65,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.5, 9.99] })
 
-  // Let wheel zoom always pass; block pan when interacting with cells/gridlines.
   useEffect(() => {
     if (!setFilter) return
     setFilter((event) => {
@@ -77,26 +76,22 @@ function AdjacencyMatrixPane({ data, networkName }) {
     })
   }, [setFilter])
 
-  // Apply zoom transform to the zoom container
   useEffect(() => {
     if (zoomContainerRef.current) {
       d3.select(zoomContainerRef.current).attr('transform', transform)
     }
   }, [transform])
 
-  // Reset zoom and sizes when data changes
   useEffect(() => {
     resetZoom()
     setNodeSize('M')
     setEdgeSize('M')
   }, [data, resetZoom])
 
-  // Fit-to-content uses stored bounds from build
   const handleFitContent = useCallback(() => {
     if (boundsRef.current) fitToContent(boundsRef.current)
   }, [fitToContent])
 
-  // Keyboard shortcuts (same as other panes)
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
@@ -129,7 +124,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
     return () => container.removeEventListener('keydown', handleKeyDown)
   }, [zoomIn, zoomOut, resetZoom, handleFitContent])
 
-  // Rebuild on resize
   useEffect(() => {
     if (!containerRef.current) return
     const container = containerRef.current
@@ -145,6 +139,52 @@ function AdjacencyMatrixPane({ data, networkName }) {
     resizeObserver.observe(container)
     return () => resizeObserver.disconnect()
   }, [data, handleFitContent])
+
+  const applyMatrixStyles = useCallback(() => {
+    if (!svgRef.current) return
+    const svg = d3.select(svgRef.current)
+
+    const cellSizes = CELL_SIZES[nodeSize]
+    const gridSizes = GRID_SIZES[edgeSize]
+
+    // Cells (edges)
+    svg.selectAll('.matrix-cell')
+      .attr('fill', function () {
+        const edgeIdx = +d3.select(this).attr('data-edge-idx')
+        if (selectedEdges.has(edgeIdx)) return 'var(--color-edge-selected)'
+        if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
+        return 'var(--color-text-muted)'
+      })
+      .attr('opacity', function () {
+        const edgeIdx = +d3.select(this).attr('data-edge-idx')
+        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return 1
+        return 0.6
+      })
+      .attr('r', function () {
+        const edgeIdx = +d3.select(this).attr('data-edge-idx')
+        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return cellSizes.highlighted
+        return cellSizes.default
+      })
+
+    // Gridlines (nodes)
+    svg.selectAll('.matrix-gridline')
+      .attr('stroke', function () {
+        const nodeIdx = +d3.select(this).attr('data-node-idx')
+        if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
+        if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
+        return 'var(--color-border)'
+      })
+      .attr('stroke-width', function () {
+        const nodeIdx = +d3.select(this).attr('data-node-idx')
+        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return gridSizes.highlighted
+        return gridSizes.default
+      })
+      .attr('opacity', function () {
+        const nodeIdx = +d3.select(this).attr('data-node-idx')
+        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.35
+        return 0.12
+      })
+  }, [nodeSize, edgeSize, hoveredNodes, hoveredEdges, selectedNodes, selectedEdges])
 
   const initializeVisualization = useCallback(() => {
     if (!containerRef.current || !data?.edges || !data?.node_gridlines) return
@@ -181,7 +221,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
 
     svgRef.current = svg.node()
 
-    // Clip to content area
     svg.append('defs')
       .append('clipPath')
       .attr('id', 'adjmatrix-clip')
@@ -201,8 +240,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
       .attr('class', 'content')
       .attr('transform', `translate(${margin.left},${margin.top})`)
 
-    // --- Scales ---
-    // Prefer node_gridlines extents (includes padding like -0.35..N+0.35).
     const xMin = d3.min(data.node_gridlines, d => d.row_x_start)
     const xMax = d3.max(data.node_gridlines, d => d.row_x_end)
     const yMin = d3.min(data.node_gridlines, d => d.col_y_start)
@@ -211,10 +248,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
     const xScale = d3.scaleLinear().domain([xMin, xMax]).range([0, innerWidth])
     const yScale = d3.scaleLinear().domain([yMin, yMax]).range([innerHeight, 0])
 
-    // --- Underlay: gridlines (rows + cols) ---
     const gridGroup = contentGroup.append('g').attr('class', 'matrix-grid')
 
-    // Visible lines (very faint until hovered/selected)
     gridGroup.selectAll('.matrix-gridline-row')
       .data(data.node_gridlines)
       .join('line')
@@ -235,10 +270,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
       .attr('y1', d => yScale(d.col_y_start))
       .attr('y2', d => yScale(d.col_y_end))
 
-    // Hit-targets for gridlines (transparent but thick)
     const gridHitGroup = contentGroup.append('g').attr('class', 'matrix-grid-hits')
 
-    // Row hit
     gridHitGroup.selectAll('.matrix-gridline-hit-row')
       .data(data.node_gridlines)
       .join('line')
@@ -259,7 +292,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
         toggleNodeSelection(nodeIdx)
       })
 
-    // Col hit
     gridHitGroup.selectAll('.matrix-gridline-hit-col')
       .data(data.node_gridlines)
       .join('line')
@@ -280,7 +312,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
         toggleNodeSelection(nodeIdx)
       })
 
-    // --- Cells (edges) ---
     const cellsGroup = contentGroup.append('g').attr('class', 'matrix-cells')
 
     cellsGroup.selectAll('.matrix-cell')
@@ -305,13 +336,9 @@ function AdjacencyMatrixPane({ data, networkName }) {
         event.stopPropagation()
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
         toggleEdgeSelection(edgeIdx)
-
-        // If you want clicking a matrix cell to also toggle endpoint nodes, uncomment:
-        // const s = +d3.select(this).attr('data-source-node-idx')
-        // const t = +d3.select(this).attr('data-target-node-idx')
-        // toggleNodeSelection(s)
-        // toggleNodeSelection(t)
       })
+
+      applyMatrixStyles()
   }, [data, hoverNode, hoverNodes, hoverEdge, clearHover, toggleNodeSelection, toggleEdgeSelection])
 
   // Initial render + auto-center
@@ -340,7 +367,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
       .attr('opacity', function () {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
         if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return 1
-        return 0.35
+        return 0.6
       })
       .attr('r', function () {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
@@ -368,7 +395,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
       .attr('opacity', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.45
-        return 0.04
+        return 0.12
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -390,8 +417,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
         zoomPercent
       }}
       sizeControls={{
-        nodeSize,          // controls cell (edge) dot size
-        edgeSize,          // controls gridline thickness
+        nodeSize,
+        edgeSize,
         onNodeSizeChange: setNodeSize,
         onEdgeSizeChange: setEdgeSize
       }}
