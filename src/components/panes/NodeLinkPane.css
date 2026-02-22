@@ -21,6 +21,17 @@
   filter: brightness(1.2);
 }
 
+.selection-brush-layer .selection {
+  fill: color-mix(in srgb, var(--color-node-selected) 20%, transparent);
+  stroke: var(--color-node-selected);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+
+.selection-brush-layer .overlay {
+  cursor: crosshair;
+}
+
 /* Focus state for keyboard navigation */
 .pane-visualization:focus {
   outline: 2px solid var(--color-node-selected);

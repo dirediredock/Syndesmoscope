@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
+import { useShiftPanCursor } from '../../hooks/useShiftPanCursor'
 import './HopCensusPane.css'
 
 /**
@@ -41,7 +42,8 @@ function HopCensusPane({ data, networkName }) {
     selectedNodes,
     hoverNode,
     clearHover,
-    toggleNodeSelection
+    toggleNodeSelection,
+    selectNodes
   } = useSelection()
 
   const {
@@ -54,12 +56,13 @@ function HopCensusPane({ data, networkName }) {
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.5, 9.99] })
 
+  useShiftPanCursor(containerRef)
+
   useEffect(() => {
     if (!setFilter) return
     setFilter((event) => {
       if (event.type === 'wheel') return true
-      if (event.target && event.target.classList && event.target.classList.contains('census-line')) return false
-      return true
+      return !!event.shiftKey
     })
   }, [setFilter])
 
@@ -180,6 +183,8 @@ function HopCensusPane({ data, networkName }) {
 
     svgRef.current = svg.node()
 
+    const brushLayer = svg.append('g').attr('class', 'selection-brush-layer')
+
     // Create clip path for content area
     svg.append('defs')
       .append('clipPath')
@@ -259,7 +264,63 @@ function HopCensusPane({ data, networkName }) {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         toggleNodeSelection(nodeIdx)
       })
-  }, [data, hoverNode, clearHover, toggleNodeSelection])
+
+    const isPointInRect = (x, y, x0, y0, x1, y1) => (
+      x >= x0 && x <= x1 && y >= y0 && y <= y1
+    )
+
+    const collectBrushSelection = (selection) => {
+      if (!selection) return []
+      const [[x0Raw, y0Raw], [x1Raw, y1Raw]] = selection
+      const x0 = Math.min(x0Raw, x1Raw)
+      const x1 = Math.max(x0Raw, x1Raw)
+      const y0 = Math.min(y0Raw, y1Raw)
+      const y1 = Math.max(y0Raw, y1Raw)
+      const zoomTransform = d3.zoomTransform(svg.node())
+
+      const selectedNodeIdxs = []
+      data.census_vectors.forEach((vector) => {
+        let inRect = false
+        vector.vector.forEach((value, i) => {
+          if (inRect) return
+          const localX = margin.left + xScale(i)
+          const localY = margin.top + yScale(value)
+          const screenX = zoomTransform.applyX(localX)
+          const screenY = zoomTransform.applyY(localY)
+          if (isPointInRect(screenX, screenY, x0, y0, x1, y1)) {
+            inRect = true
+          }
+        })
+
+        if (inRect) selectedNodeIdxs.push(vector.node_idx)
+      })
+
+      return selectedNodeIdxs
+    }
+
+    const brushBehavior = d3.brush()
+      .extent([[0, 0], [width, height]])
+      .filter((event) => {
+        if (event.type === 'mousedown') {
+          return event.button === 0 && !event.shiftKey
+        }
+        return !event.shiftKey
+      })
+      .on('start', (event) => {
+        if (event.sourceEvent) event.sourceEvent.stopPropagation()
+      })
+      .on('brush', (event) => {
+        // Selection commits on end to avoid adding intermediate drag extents.
+      })
+      .on('end', (event) => {
+        if (!event.sourceEvent) return
+        const nodeIdxs = collectBrushSelection(event.selection)
+        if (nodeIdxs.length > 0) selectNodes(nodeIdxs)
+        brushLayer.call(brushBehavior.move, null)
+      })
+
+    brushLayer.call(brushBehavior)
+  }, [data, hoverNode, clearHover, toggleNodeSelection, selectNodes])
 
   useEffect(() => {
     initializeVisualization()

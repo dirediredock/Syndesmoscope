@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
+import { useShiftPanCursor } from '../../hooks/useShiftPanCursor'
 import './AdjacencyMatrixPane.css'
 
 /**
@@ -41,6 +42,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
 
   const [nodeSize, setNodeSize] = useState('M')
   const [edgeSize, setEdgeSize] = useState('M')
+  const [renderVersion, setRenderVersion] = useState(0)
 
   const {
     hoveredNodes,
@@ -52,7 +54,9 @@ function AdjacencyMatrixPane({ data, networkName }) {
     hoverEdge,
     clearHover,
     toggleNodeSelection,
-    toggleEdgeSelection
+    toggleEdgeSelection,
+    selectNodes,
+    selectEdges
   } = useSelection()
 
   const {
@@ -65,14 +69,13 @@ function AdjacencyMatrixPane({ data, networkName }) {
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.5, 9.99] })
 
+  useShiftPanCursor(containerRef)
+
   useEffect(() => {
     if (!setFilter) return
     setFilter((event) => {
       if (event.type === 'wheel') return true
-      const t = event.target
-      if (t?.classList?.contains('matrix-cell')) return false
-      if (t?.classList?.contains('matrix-gridline-hit')) return false
-      return true
+      return !!event.shiftKey
     })
   }, [setFilter])
 
@@ -140,52 +143,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
     return () => resizeObserver.disconnect()
   }, [data, handleFitContent])
 
-  const applyMatrixStyles = useCallback(() => {
-    if (!svgRef.current) return
-    const svg = d3.select(svgRef.current)
-
-    const cellSizes = CELL_SIZES[nodeSize]
-    const gridSizes = GRID_SIZES[edgeSize]
-
-    // Cells (edges)
-    svg.selectAll('.matrix-cell')
-      .attr('fill', function () {
-        const edgeIdx = +d3.select(this).attr('data-edge-idx')
-        if (selectedEdges.has(edgeIdx)) return 'var(--color-edge-selected)'
-        if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
-        return 'var(--color-text-muted)'
-      })
-      .attr('opacity', function () {
-        const edgeIdx = +d3.select(this).attr('data-edge-idx')
-        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return 1
-        return 0.6
-      })
-      .attr('r', function () {
-        const edgeIdx = +d3.select(this).attr('data-edge-idx')
-        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return cellSizes.highlighted
-        return cellSizes.default
-      })
-
-    // Gridlines (nodes)
-    svg.selectAll('.matrix-gridline')
-      .attr('stroke', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
-        if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-        return 'var(--color-border)'
-      })
-      .attr('stroke-width', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return gridSizes.highlighted
-        return gridSizes.default
-      })
-      .attr('opacity', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.35
-        return 0.12
-      })
-  }, [nodeSize, edgeSize, hoveredNodes, hoveredEdges, selectedNodes, selectedEdges])
-
   const initializeVisualization = useCallback(() => {
     if (!containerRef.current || !data?.edges || !data?.node_gridlines) return
 
@@ -220,6 +177,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
       .style('height', '100%')
 
     svgRef.current = svg.node()
+
+    const brushLayer = svg.append('g').attr('class', 'selection-brush-layer')
 
     svg.append('defs')
       .append('clipPath')
@@ -338,8 +297,72 @@ function AdjacencyMatrixPane({ data, networkName }) {
         toggleEdgeSelection(edgeIdx)
       })
 
-      applyMatrixStyles()
-  }, [data, hoverNode, hoverNodes, hoverEdge, clearHover, toggleNodeSelection, toggleEdgeSelection])
+    const isPointInRect = (x, y, x0, y0, x1, y1) => (
+      x >= x0 && x <= x1 && y >= y0 && y <= y1
+    )
+
+    const collectBrushSelection = (selection) => {
+      if (!selection) return { nodeIdxs: [], edgeIdxs: [] }
+      const [[x0Raw, y0Raw], [x1Raw, y1Raw]] = selection
+      const x0 = Math.min(x0Raw, x1Raw)
+      const x1 = Math.max(x0Raw, x1Raw)
+      const y0 = Math.min(y0Raw, y1Raw)
+      const y1 = Math.max(y0Raw, y1Raw)
+      const zoomTransform = d3.zoomTransform(svg.node())
+
+      const selectedNodeIdxs = []
+      data.node_gridlines.forEach((node) => {
+        const localX = margin.left + xScale(node.seriated_position)
+        const localY = margin.top + yScale(node.seriated_position)
+        const screenX = zoomTransform.applyX(localX)
+        const screenY = zoomTransform.applyY(localY)
+        if (isPointInRect(screenX, screenY, x0, y0, x1, y1)) {
+          selectedNodeIdxs.push(node.node_idx)
+        }
+      })
+
+      const selectedEdgeIdxs = []
+      data.edges.forEach((edge) => {
+        const localX = margin.left + xScale(edge.x)
+        const localY = margin.top + yScale(edge.y)
+        const screenX = zoomTransform.applyX(localX)
+        const screenY = zoomTransform.applyY(localY)
+        if (isPointInRect(screenX, screenY, x0, y0, x1, y1)) {
+          selectedEdgeIdxs.push(edge.edge_idx)
+        }
+      })
+
+      return {
+        nodeIdxs: selectedNodeIdxs,
+        edgeIdxs: selectedEdgeIdxs
+      }
+    }
+
+    const brushBehavior = d3.brush()
+      .extent([[0, 0], [width, height]])
+      .filter((event) => {
+        if (event.type === 'mousedown') {
+          return event.button === 0 && !event.shiftKey
+        }
+        return !event.shiftKey
+      })
+      .on('start', (event) => {
+        if (event.sourceEvent) event.sourceEvent.stopPropagation()
+      })
+      .on('brush', (event) => {
+        // Selection commits on end to avoid adding intermediate drag extents.
+      })
+      .on('end', (event) => {
+        if (!event.sourceEvent) return
+        const { nodeIdxs, edgeIdxs } = collectBrushSelection(event.selection)
+        if (nodeIdxs.length > 0) selectNodes(nodeIdxs)
+        if (edgeIdxs.length > 0) selectEdges(edgeIdxs)
+        brushLayer.call(brushBehavior.move, null)
+      })
+
+    brushLayer.call(brushBehavior)
+    setRenderVersion(v => v + 1)
+  }, [data, hoverNode, hoverNodes, hoverEdge, clearHover, toggleNodeSelection, toggleEdgeSelection, selectNodes, selectEdges])
 
   // Initial render + auto-center
   useEffect(() => {
@@ -402,7 +425,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
         if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) d3.select(this).raise()
       })
 
-  }, [hoveredNodes, hoveredEdges, selectedNodes, selectedEdges, nodeSize, edgeSize])
+  }, [hoveredNodes, hoveredEdges, selectedNodes, selectedEdges, nodeSize, edgeSize, renderVersion])
 
   return (
     <Pane

@@ -20,3 +20,14 @@
   stroke-width: 14px; /* big hit area */
   cursor: pointer;
 }
+
+.selection-brush-layer .selection {
+  fill: color-mix(in srgb, var(--color-edge-selected) 20%, transparent);
+  stroke: var(--color-edge-selected);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+
+.selection-brush-layer .overlay {
+  cursor: crosshair;
+}

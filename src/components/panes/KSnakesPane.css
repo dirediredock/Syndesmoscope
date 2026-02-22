@@ -22,3 +22,14 @@
   pointer-events: none;
   user-select: none;
 }
+
+.selection-brush-layer .selection {
+  fill: color-mix(in srgb, var(--color-node-selected) 20%, transparent);
+  stroke: var(--color-node-selected);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+
+.selection-brush-layer .overlay {
+  cursor: crosshair;
+}

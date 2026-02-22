@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
+import { useShiftPanCursor } from '../../hooks/useShiftPanCursor'
 import './KSnakesPane.css'
 
 /**
@@ -46,7 +47,8 @@ function KSnakesPane({ data, networkName }) {
     selectedNodes,
     hoverNode,
     clearHover,
-    toggleNodeSelection
+    toggleNodeSelection,
+    selectNodes
   } = useSelection()
 
   const {
@@ -59,12 +61,13 @@ function KSnakesPane({ data, networkName }) {
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.5, 9.99] })
 
+  useShiftPanCursor(containerRef)
+
   useEffect(() => {
     if (!setFilter) return
     setFilter((event) => {
       if (event.type === 'wheel') return true
-      if (event.target && event.target.classList && event.target.classList.contains('snake-node')) return false
-      return true
+      return !!event.shiftKey
     })
   }, [setFilter])
 
@@ -201,6 +204,8 @@ function KSnakesPane({ data, networkName }) {
       .style('height', '100%')
 
     svgRef.current = svg.node()
+
+    const brushLayer = svg.append('g').attr('class', 'selection-brush-layer')
 
     // Create clip path for content area
     svg.append('defs')
@@ -347,6 +352,56 @@ function KSnakesPane({ data, networkName }) {
         toggleNodeSelection(nodeIdx)
       })
 
+    const isPointInRect = (x, y, x0, y0, x1, y1) => (
+      x >= x0 && x <= x1 && y >= y0 && y <= y1
+    )
+
+    const collectBrushSelection = (selection) => {
+      if (!selection) return []
+      const [[x0Raw, y0Raw], [x1Raw, y1Raw]] = selection
+      const x0 = Math.min(x0Raw, x1Raw)
+      const x1 = Math.max(x0Raw, x1Raw)
+      const y0 = Math.min(y0Raw, y1Raw)
+      const y1 = Math.max(y0Raw, y1Raw)
+      const zoomTransform = d3.zoomTransform(svg.node())
+
+      const selectedNodeIdxs = []
+      allNodes.forEach((node) => {
+        const localX = margin.left + xScale(node.x_position)
+        const localY = margin.top + yScale(node.onion_value)
+        const screenX = zoomTransform.applyX(localX)
+        const screenY = zoomTransform.applyY(localY)
+        if (isPointInRect(screenX, screenY, x0, y0, x1, y1)) {
+          selectedNodeIdxs.push(node.node_idx)
+        }
+      })
+
+      return selectedNodeIdxs
+    }
+
+    const brushBehavior = d3.brush()
+      .extent([[0, 0], [width, height]])
+      .filter((event) => {
+        if (event.type === 'mousedown') {
+          return event.button === 0 && !event.shiftKey
+        }
+        return !event.shiftKey
+      })
+      .on('start', (event) => {
+        if (event.sourceEvent) event.sourceEvent.stopPropagation()
+      })
+      .on('brush', (event) => {
+        // Selection commits on end to avoid adding intermediate drag extents.
+      })
+      .on('end', (event) => {
+        if (!event.sourceEvent) return
+        const nodeIdxs = collectBrushSelection(event.selection)
+        if (nodeIdxs.length > 0) selectNodes(nodeIdxs)
+        brushLayer.call(brushBehavior.move, null)
+      })
+
+    brushLayer.call(brushBehavior)
+
     // Core labels: "k-{n}" at leftmost position
     const labelsGroup = contentGroup.append('g').attr('class', 'core-labels')
 
@@ -377,7 +432,7 @@ function KSnakesPane({ data, networkName }) {
           .text(`k-${core.core_value}`)
       }
     })
-  }, [data, hoverNode, clearHover, toggleNodeSelection])
+  }, [data, hoverNode, clearHover, toggleNodeSelection, selectNodes])
 
     // Reapply highlighting after DOM build to ensure visuals match selection state
     try {
