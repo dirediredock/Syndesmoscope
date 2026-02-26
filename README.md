@@ -1,5 +1,7 @@
 # Syndesmoscope: A Visual Instrument for Observing Connectivity
 
+<img src="figures/teaser_01.png" width="100%" ></a>
+
 An interactive tool that visually surfaces topological patterns from the connectivity of networked data.
 
 *The name 'Syndesmoscope' is a neoclassical compound word built from Greek roots: 'syndesmos', which means bond or link as a noun, or "to bind together" as a verb; and 'scope', which means "instrument for observing"; thus, "an instrument for observing connectivity".*
