@@ -13,15 +13,17 @@ function ControlPanel() {
     loadNetwork 
   } = useNetwork()
   
-  const { 
-    selectedNodes, 
-    selectedEdges, 
-    clearAllSelections 
+  const {
+    selectedNodes,
+    selectedEdges,
+    clearAllSelections,
+    clearSelectedNodes,
+    clearSelectedEdges
   } = useSelection()
 
   useEffect(() => {
     if (!currentNetworkId && availableNetworks.length > 0) {
-      loadNetwork('karate_club')
+      loadNetwork('game_thrones')
     }
   }, [availableNetworks, currentNetworkId, loadNetwork])
 
@@ -80,11 +82,13 @@ function ControlPanel() {
             {selectedNodes.size > 0 && (
               <span className="selection-badge selection-badge--nodes">
                 {selectedNodes.size} node{selectedNodes.size !== 1 ? 's' : ''}
+                <button className="selection-badge-clear" onClick={clearSelectedNodes}>×</button>
               </span>
             )}
             {selectedEdges.size > 0 && (
               <span className="selection-badge selection-badge--edges">
                 {selectedEdges.size} edge{selectedEdges.size !== 1 ? 's' : ''}
+                <button className="selection-badge-clear" onClick={clearSelectedEdges}>×</button>
               </span>
             )}
           </div>
@@ -92,7 +96,7 @@ function ControlPanel() {
             className="control-button"
             onClick={clearAllSelections}
           >
-            Clear
+            Clear All
           </button>
         </div>
       )}

@@ -21,13 +21,24 @@
   cursor: pointer;
 }
 
-.selection-brush-layer .selection {
-  fill: color-mix(in srgb, var(--color-edge-selected) 20%, transparent);
-  stroke: var(--color-edge-selected);
-  stroke-width: 1;
-  stroke-dasharray: 4 3;
+/* Orange active state for brush toggle button */
+.adj-brush-btn.zoom-btn--active {
+  color: orange;
 }
 
-.selection-brush-layer .overlay {
+/* Brush selection overlay (orange for edge selection) */
+.adj-brush-group .selection {
+  fill: orange;
+  fill-opacity: 0.10;
+  stroke: orange;
+  stroke-width: 1;
+  stroke-dasharray: 4 2;
+}
+
+.adj-brush-group .overlay {
   cursor: crosshair;
+}
+
+.adj-brush-group .handle {
+  display: none;
 }

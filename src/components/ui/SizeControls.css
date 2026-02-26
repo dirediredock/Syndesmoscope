@@ -5,6 +5,7 @@
   background-color: var(--color-bg-tertiary);
   border-radius: 4px;
   padding: 2px;
+  margin-left: auto;
 }
 
 .size-toggle-btn {
@@ -57,4 +58,8 @@
   height: 16px;
   background-color: var(--color-border);
   margin: 0 2px;
+}
+
+.size-toggle-btn--off {
+  opacity: 0.35;
 }

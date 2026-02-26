@@ -24,11 +24,25 @@ export const AVAILABLE_NETWORKS = [
     edges: 19
   },
   {
+    id: 'zebras',
+    name: 'Zebras',
+    description: '###',
+    nodes: 23,
+    edges: 105
+  },
+  {
     id: 'karate_club',
     name: 'Karate Club',
     description: '###',
     nodes: 34,
     edges: 78
+  },
+  {
+    id: 'karate_club_outer_duo',
+    name: 'Karate Club (Pair Periphery Join)',
+    description: '###',
+    nodes: 67,
+    edges: 156
   },
   {
     id: 'dolphins',
@@ -37,13 +51,13 @@ export const AVAILABLE_NETWORKS = [
     nodes: 62,
     edges: 159
   },
-  {
-    id: 'blumenau_drug',
-    name: 'Drug Interactions',
-    description: '###',
-    nodes: 75,
-    edges: 181
-  },
+  // {
+  //   id: 'blumenau_drug',
+  //   name: 'Drug Interactions',
+  //   description: '###',
+  //   nodes: 75,
+  //   edges: 181
+  // },
   {
     id: 'les_miserables',
     name: 'Les Miserables',
@@ -52,19 +66,47 @@ export const AVAILABLE_NETWORKS = [
     edges: 254
   },
   {
+    id: 'les_miserables_outer_duo',
+    name: 'Les Miserables (Pair Periphery Join)',
+    description: '###',
+    nodes: 153,
+    edges: 508
+  },
+  {
+    id: 'les_miserables_outer_trio',
+    name: 'Les Miserables (Trio Periphery Join)',
+    description: '###',
+    nodes: 229,
+    edges: 762
+  },
+  {
+    id: 'les_miserables_inner_duo',
+    name: 'Les Miserables (Pair Core Join)',
+    description: '###',
+    nodes: 142,
+    edges: 446
+  },
+  {
+    id: 'les_miserables_inner_trio',
+    name: 'Les Miserables (Trio Core Join)',
+    description: '###',
+    nodes: 207,
+    edges: 638
+  },
+  {
     id: 'game_thrones',
     name: 'Game of Thrones',
     description: '###',
     nodes: 107,
     edges: 352
   },
-  {
-    id: 'ego_social_facebook_414',
-    name: 'Social Network 1',
-    description: '###',
-    nodes: 148,
-    edges: 1692
-  },
+  // {
+  //   id: 'ego_social_facebook_414',
+  //   name: 'Social Network 1',
+  //   description: '###',
+  //   nodes: 148,
+  //   edges: 1692
+  // },
   {
     id: 'grid_14_by_14',
     name: 'Square Grid',
@@ -79,83 +121,83 @@ export const AVAILABLE_NETWORKS = [
     nodes: 198,
     edges: 2742
   },
+  // {
+  //   id: 'cintestinalis',
+  //   name: 'Tadpole Brain',
+  //   description: '###',
+  //   nodes: 205,
+  //   edges: 2575
+  // },
+  // {
+  //   id: 'malaria_genes_HVR1',
+  //   name: 'Malaria Genes',
+  //   description: '###',
+  //   nodes: 307,
+  //   edges: 2812
+  // },
   {
-    id: 'cintestinalis',
-    name: 'Tadpole Brain',
-    description: '###',
-    nodes: 205,
-    edges: 2575
-  },
-  {
-    id: 'malaria_genes_HVR1',
-    name: 'Malaria Genes',
-    description: '###',
-    nodes: 307,
-    edges: 2812
-  },
-  {
-    id: 'facebook_friends',
-    name: 'Social Network 2',
+    id: 'fullerene_structures_C240',
+    name: 'Fullerene Molecule',
     description: '###',
     nodes: 329,
     edges: 1954
   },
+  // {
+  //   id: 'fullerene_structures_C720',
+  //   name: 'Fullerene Molecule (C720)',
+  //   description: '###',
+  //   nodes: 720,
+  //   edges: 1080
+  // },
   {
     id: 'london_transport',
-    name: 'London Transport',
+    name: 'London Underground',
     description: '###',
     nodes: 369,
     edges: 430
   },
   {
-    id: 'netscience',
-    name: 'Network Science',
+    id: 'sp_infectious',
+    name: 'Infectious Expo',
     description: '###',
-    nodes: 379,
-    edges: 914
+    nodes: 410,
+    edges: 2765
   },
-  {
-    id: 'celegans_metabolic',
-    name: 'Roundworm Metabolic Map',
-    description: '###',
-    nodes: 453,
-    edges: 2025
-  },
-  {
-    id: 'physics_collab',
-    name: 'Physics Collaboration',
-    description: '###',
-    nodes: 475,
-    edges: 6426
-  },
-  {
-    id: 'celegans_male_gap_junction',
-    name: 'Roundworm Neural Map',
-    description: '###',
-    nodes: 484,
-    edges: 1597
-  },
+  // {
+  //   id: 'celegans_metabolic',
+  //   name: 'Roundworm Metabolic Map',
+  //   description: '###',
+  //   nodes: 453,
+  //   edges: 2025
+  // },
+  // {
+  //   id: 'physics_collab',
+  //   name: 'Physics Collaboration',
+  //   description: '###',
+  //   nodes: 475,
+  //   edges: 6426
+  // },
+  // {
+  //   id: 'celegans_male_gap_junction',
+  //   name: 'Roundworm Neural Map',
+  //   description: '###',
+  //   nodes: 484,
+  //   edges: 1597
+  // },
   {
     id: 'wiki_science',
-    name: 'Wikipedia Science',
+    name: 'Wikipedia Science Pages',
     description: '###',
     nodes: 677,
     edges: 6517
   },
-  {
-    id: 'fibonacci_sunflower',
-    name: 'Fibonacci Sunflower',
-    description: '###',
-    nodes: 987,
-    edges: 2924
-  },
-  {
-    id: 'budapest_connectome',
-    name: 'Human Brain',
-    description: '###',
-    nodes: 1015,
-    edges: 70654
-  },
+  // {
+  //   id: 'budapest_connectome',
+  //   name: 'Human Brain',
+  //   description: '###',
+  //   nodes: 1015,
+  //   edges: 70654
+  // },
   {
     id: 'polblogs',
     name: 'Political Blogs',
@@ -164,39 +206,53 @@ export const AVAILABLE_NETWORKS = [
     edges: 16714
   },
   {
-    id: 'faa_routes',
-    name: 'FAA Flight Routes',
+    id: 'plant_pol_robertson',
+    name: 'Plant and Pollinators',
     description: '###',
-    nodes: 1226,
-    edges: 2408
+    nodes: 1882,
+    edges: 15254
+  },
+  // {
+  //   id: 'barabasi_albert',
+  //   name: 'Barabasi-Albert',
+  //   description: '###',
+  //   nodes: 1500,
+  //   edges: 23744
+  // },
+  // {
+  //   id: 'erdos_renyi',
+  //   name: 'Erdos-Renyi',
+  //   description: '###',
+  //   nodes: 1500,
+  //   edges: 22512
+  // },
+  // {
+  //   id: 'watts_strogatz',
+  //   name: 'Watts-Strogatz',
+  //   description: '###',
+  //   nodes: 1500,
+  //   edges: 24000
+  // },
+  // {
+  //   id: 'ten_friends',
+  //   name: 'Social Network 3',
+  //   description: '###',
+  //   nodes: 2539,
+  //   edges: 10455
+  // },
+  {
+    id: 'word_adjacency_japanese',
+    name: 'Japanese Words',
+    description: '###',
+    nodes: 2698,
+    edges: 7995
   },
   {
-    id: 'barabasi_albert',
-    name: 'Barabasi-Albert',
+    id: 'mist_genetic_human',
+    name: 'Human Genome',
     description: '###',
-    nodes: 1500,
-    edges: 23744
-  },
-  {
-    id: 'erdos_renyi',
-    name: 'Erdos-Renyi',
-    description: '###',
-    nodes: 1500,
-    edges: 22512
-  },
-  {
-    id: 'watts_strogatz',
-    name: 'Watts-Strogatz',
-    description: '###',
-    nodes: 1500,
-    edges: 24000
-  },
-  {
-    id: 'ten_friends',
-    name: 'Social Network 3',
-    description: '###',
-    nodes: 2539,
-    edges: 10455
+    nodes: 3570,
+    edges: 8703
   },
   {
     id: 'bitcoin_alpha',
@@ -204,6 +260,13 @@ export const AVAILABLE_NETWORKS = [
     description: '###',
     nodes: 3775,
     edges: 14120
+  },
+  {
+    id: 'power',
+    name: 'Western Power Grid',
+    description: '###',
+    nodes: 4941,
+    edges: 6594
   },
 ]
 
@@ -231,17 +294,23 @@ export function NetworkProvider({ children }) {
 
     try {
       // Load all visualization data files for this network
-      const [edgelist, censusEdge, censusNode, censusStub, kSnakes, adjacencyMatrix] = await Promise.all([
-        fetch(`/data/${networkId}/edgelist.json`).then(r => r.ok ? r.json() : null),
+      const [nodeLink, 
+        censusEdge, 
+        censusNode, 
+        censusStub, 
+        kSnakes, 
+        adjacencyMatrix
+      ] = await Promise.all([
+        fetch(`/data/${networkId}/${networkId}_NodeLink.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusEdge.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusNode.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusStub.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_kSnakes.json`).then(r => r.ok ? r.json() : null),
-        fetch(`/data/${networkId}/${networkId}_AdjacencyMatrix_SpectralFiedler.json`).then(r => r.ok ? r.json() : null),
+        fetch(`/data/${networkId}/${networkId}_AdjacencyMatrix.json`).then(r => r.ok ? r.json() : null),
       ])
 
       setNetworkData({
-        edgelist,
+        nodeLink,
         censusEdge,
         censusNode,
         censusStub,

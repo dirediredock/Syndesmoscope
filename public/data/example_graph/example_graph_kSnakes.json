@@ -30,32 +30,32 @@
             {
               "node_idx": 4,
               "x_position": -5,
-              "onion_value": 2
+              "onion_value": 8
             },
             {
               "node_idx": 5,
               "x_position": -4,
-              "onion_value": 2
+              "onion_value": 8
             },
             {
               "node_idx": 1,
               "x_position": -3,
-              "onion_value": 3
+              "onion_value": 9
             },
             {
               "node_idx": 2,
               "x_position": -2,
-              "onion_value": 3
+              "onion_value": 9
             },
             {
               "node_idx": 0,
               "x_position": -1,
-              "onion_value": 4
+              "onion_value": 10
             },
             {
               "node_idx": 3,
               "x_position": 0,
-              "onion_value": 4
+              "onion_value": 10
             }
           ]
         }

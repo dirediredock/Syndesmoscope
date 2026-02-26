@@ -109,6 +109,23 @@
   color: var(--color-edge-selected);
 }
 
+.selection-badge-clear {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: var(--text-sm);
+  line-height: 1;
+  margin-left: 4px;
+  padding: 0 2px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.selection-badge-clear:hover {
+  opacity: 1;
+}
+
 .control-button {
   font-family: var(--font-mono);
   font-size: var(--text-xs);

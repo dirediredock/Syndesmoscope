@@ -1,6 +1,6 @@
 import './SizeControls.css'
 
-const SIZES = ['S', 'M', 'L']
+const SIZES = ['XS', 'S', 'M', 'L', 'XL']
 
 /**
  * Get the next size in the cycle: S → M → L → S
@@ -14,13 +14,15 @@ function getNextSize(current) {
  * Get full size name for accessibility
  */
 function getSizeName(size) {
-  return size === 'S' ? 'Small' : size === 'M' ? 'Medium' : 'Large'
+  const names = { XS: 'Extra Small', S: 'Small', M: 'Medium', L: 'Large', XL: 'Extra Large' }
+  return names[size] ?? size
 }
 
 /**
- * SizeControls - Cycling toggle buttons for node and edge sizes
+ * SizeControls - Cycling toggle buttons for node and edge sizes,
+ * plus optional visibility toggles (e.g. gridlines).
  *
- * Each button displays an icon + current size letter.
+ * Each size button displays an icon + current size letter.
  * Clicking cycles through S → M → L → S...
  */
 function SizeControls({
@@ -28,12 +30,15 @@ function SizeControls({
   edgeSize = null,
   onNodeSizeChange,
   onEdgeSizeChange,
+  gridlinesVisible = null,
+  onGridlinesToggle = null,
   disabled = false
 }) {
   const hasNodeControl = nodeSize !== null && onNodeSizeChange
   const hasEdgeControl = edgeSize !== null && onEdgeSizeChange
+  const hasGridlinesControl = gridlinesVisible !== null && onGridlinesToggle
 
-  if (!hasNodeControl && !hasEdgeControl) {
+  if (!hasNodeControl && !hasEdgeControl && !hasGridlinesControl) {
     return null
   }
 
@@ -70,6 +75,27 @@ function SizeControls({
             <line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
           <span className="size-toggle-label">{edgeSize}</span>
+        </button>
+      )}
+
+      {hasGridlinesControl && (hasNodeControl || hasEdgeControl) && (
+        <div className="size-divider" />
+      )}
+
+      {hasGridlinesControl && (
+        <button
+          className={`size-toggle-btn${gridlinesVisible ? '' : ' size-toggle-btn--off'}`}
+          onClick={onGridlinesToggle}
+          disabled={disabled}
+          aria-label="Toggle Gridlines"
+          title={gridlinesVisible ? 'Hide gridlines' : 'Show gridlines'}
+        >
+          <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+            <line x1="0" y1="2" x2="10" y2="2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="0" y1="8" x2="10" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="2" y1="0" x2="2" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="8" y1="0" x2="8" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
         </button>
       )}
     </div>

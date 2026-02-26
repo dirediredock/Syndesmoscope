@@ -87,10 +87,6 @@ export function SelectionProvider({ children }) {
     setSelectedNodes(new Set())
   }, [])
 
-  const replaceSelectedNodes = useCallback((nodeIdxArray) => {
-    setSelectedNodes(new Set(nodeIdxArray))
-  }, [])
-
   // Edge selection handlers (toggle)
   const toggleEdgeSelection = useCallback((edgeIdx) => {
     setSelectedEdges(prev => {
@@ -122,10 +118,6 @@ export function SelectionProvider({ children }) {
 
   const clearSelectedEdges = useCallback(() => {
     setSelectedEdges(new Set())
-  }, [])
-
-  const replaceSelectedEdges = useCallback((edgeIdxArray) => {
-    setSelectedEdges(new Set(edgeIdxArray))
   }, [])
 
   // Clear all selections
@@ -169,14 +161,12 @@ export function SelectionProvider({ children }) {
     selectNodes,
     deselectNodes,
     clearSelectedNodes,
-    replaceSelectedNodes,
     
     // Edge selection
     toggleEdgeSelection,
     selectEdges,
     deselectEdges,
     clearSelectedEdges,
-    replaceSelectedEdges,
     
     // Utilities
     clearAllSelections,
@@ -186,8 +176,8 @@ export function SelectionProvider({ children }) {
     hoveredNodes, hoveredEdges, selectedNodes, selectedEdges,
     hoverNode, hoverNodes, clearHoveredNodes,
     hoverEdge, hoverEdges, clearHoveredEdges, clearHover,
-    toggleNodeSelection, selectNodes, deselectNodes, clearSelectedNodes, replaceSelectedNodes,
-    toggleEdgeSelection, selectEdges, deselectEdges, clearSelectedEdges, replaceSelectedEdges,
+    toggleNodeSelection, selectNodes, deselectNodes, clearSelectedNodes,
+    toggleEdgeSelection, selectEdges, deselectEdges, clearSelectedEdges,
     clearAllSelections, isNodeHighlighted, isEdgeHighlighted
   ])
 

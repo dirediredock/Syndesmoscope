@@ -90,27 +90,27 @@
             {
               "node_idx": 10,
               "x_position": -4,
-              "onion_value": 7
+              "onion_value": 13
             },
             {
               "node_idx": 13,
               "x_position": -3,
-              "onion_value": 7
+              "onion_value": 13
             },
             {
               "node_idx": 9,
               "x_position": -2,
-              "onion_value": 8
+              "onion_value": 14
             },
             {
               "node_idx": 11,
               "x_position": -1,
-              "onion_value": 8
+              "onion_value": 14
             },
             {
               "node_idx": 12,
               "x_position": 0,
-              "onion_value": 8
+              "onion_value": 14
             }
           ]
         }
