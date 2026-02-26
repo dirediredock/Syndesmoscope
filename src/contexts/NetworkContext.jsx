@@ -142,13 +142,13 @@ export const AVAILABLE_NETWORKS = [
     nodes: 329,
     edges: 1954
   },
-  // {
-  //   id: 'fullerene_structures_C720',
-  //   name: 'Fullerene Molecule (C720)',
-  //   description: '###',
-  //   nodes: 720,
-  //   edges: 1080
-  // },
+  {
+    id: 'fullerene_structures_C720',
+    name: 'Fullerene Molecule (C720)',
+    description: '###',
+    nodes: 720,
+    edges: 1080
+  },
   {
     id: 'london_transport',
     name: 'London Underground',
