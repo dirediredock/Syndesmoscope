@@ -1,11 +1,12 @@
 # Syndesmoscope: Linking Invariant Plots and Traditional Network Views
 
-
-<img src="figures/teaser_01.png" width="100%" ></a>
-
 Syndesmoscope is a browser-based interactive system that enables deep exploration of network topology by coordinating multiple network visualization idioms through linked highlighting.
 
 The name 'Syndesmoscope' is a neoclassical compound word built from Greek roots: 'syndesmos', which means bond or link as a noun, or "to bind together" as a verb; and 'scope', which means "instrument for observing"; thus, "an instrument for observing connections".
+
+
+<img src="figures/teaser_01.png" width="100%" ></a>
+
 
 # Development Setup
 
