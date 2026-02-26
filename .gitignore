@@ -14,8 +14,9 @@ dist/
 .vscode/
 *.swp
 *.swo
+.claude
 
-# OS files
+# MacOS files
 .DS_Store
 Thumbs.db
 
