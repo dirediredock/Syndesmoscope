@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
+import { useShiftPanCursor } from '../../hooks/useShiftPanCursor'
 import './HopCensusPane.css'
 
 /**
@@ -41,7 +42,8 @@ function HopCensusPane({ data, networkName }) {
     selectedNodes,
     hoverNode,
     clearHover,
-    toggleNodeSelection
+    toggleNodeSelection,
+    selectNodes
   } = useSelection()
 
   const {
@@ -50,8 +52,19 @@ function HopCensusPane({ data, networkName }) {
     zoomOut,
     resetZoom,
     fitToContent,
+    setFilter,
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.5, 9.99] })
+
+  useShiftPanCursor(containerRef)
+
+  useEffect(() => {
+    if (!setFilter) return
+    setFilter((event) => {
+      if (event.type === 'wheel') return true
+      return !!event.shiftKey
+    })
+  }, [setFilter])
 
   // Apply zoom transform to the zoom container
   useEffect(() => {
@@ -106,8 +119,30 @@ function HopCensusPane({ data, networkName }) {
     return () => container.removeEventListener('keydown', handleKeyDown)
   }, [zoomIn, zoomOut, resetZoom, handleFitContent])
 
-  // Initialize visualization
   useEffect(() => {
+    if (!containerRef.current) return
+
+    const container = containerRef.current
+
+    const resizeObserver = new ResizeObserver(() => {
+      d3.select(container).selectAll('*').remove()
+
+      if (containerRef.current && data) {
+        initializeVisualization()
+        // Auto-center after resize
+        setTimeout(() => handleFitContent(), 100)
+      }
+    })
+
+    resizeObserver.observe(container)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [data, handleFitContent])
+
+  // Initialize visualization
+  const initializeVisualization = useCallback(() => {
     if (!containerRef.current || !data || !data.census_vectors) return
 
     const container = containerRef.current
@@ -141,10 +176,14 @@ function HopCensusPane({ data, networkName }) {
     // Create SVG
     const svg = d3.select(container)
       .append('svg')
-      .attr('width', size)
-      .attr('height', size)
+      .attr('width', width)
+      .attr('height', height)
+      .style('width', '100%')
+      .style('height', '100%')
 
     svgRef.current = svg.node()
+
+    const brushLayer = svg.append('g').attr('class', 'selection-brush-layer')
 
     // Create clip path for content area
     svg.append('defs')
@@ -215,17 +254,82 @@ function HopCensusPane({ data, networkName }) {
       .attr('stroke-width', 0.5)
       .attr('stroke-opacity', 0.3)
       .attr('stroke-linecap', 'round')
+      .on('mouseenter', function () {
+        const nodeIdx = +d3.select(this).attr('data-node-idx')
+        hoverNode(nodeIdx)
+      })
+      .on('mouseleave', function () { clearHover() })
+      .on('click', function (event) {
+        event.stopPropagation()
+        const nodeIdx = +d3.select(this).attr('data-node-idx')
+        toggleNodeSelection(nodeIdx)
+      })
 
-    // Handle resize
-    const resizeObserver = new ResizeObserver(() => {
-      // Re-render on resize (simplified - could optimize)
-    })
-    resizeObserver.observe(container)
+    const isPointInRect = (x, y, x0, y0, x1, y1) => (
+      x >= x0 && x <= x1 && y >= y0 && y <= y1
+    )
 
-    return () => {
-      resizeObserver.disconnect()
+    const collectBrushSelection = (selection) => {
+      if (!selection) return []
+      const [[x0Raw, y0Raw], [x1Raw, y1Raw]] = selection
+      const x0 = Math.min(x0Raw, x1Raw)
+      const x1 = Math.max(x0Raw, x1Raw)
+      const y0 = Math.min(y0Raw, y1Raw)
+      const y1 = Math.max(y0Raw, y1Raw)
+      const zoomTransform = d3.zoomTransform(svg.node())
+
+      const selectedNodeIdxs = []
+      data.census_vectors.forEach((vector) => {
+        let inRect = false
+        vector.vector.forEach((value, i) => {
+          if (inRect) return
+          const localX = margin.left + xScale(i)
+          const localY = margin.top + yScale(value)
+          const screenX = zoomTransform.applyX(localX)
+          const screenY = zoomTransform.applyY(localY)
+          if (isPointInRect(screenX, screenY, x0, y0, x1, y1)) {
+            inRect = true
+          }
+        })
+
+        if (inRect) selectedNodeIdxs.push(vector.node_idx)
+      })
+
+      return selectedNodeIdxs
     }
-  }, [data])
+
+    const brushBehavior = d3.brush()
+      .extent([[0, 0], [width, height]])
+      .filter((event) => {
+        if (event.type === 'mousedown') {
+          return event.button === 0 && !event.shiftKey
+        }
+        return !event.shiftKey
+      })
+      .on('start', (event) => {
+        if (event.sourceEvent) event.sourceEvent.stopPropagation()
+      })
+      .on('brush', (event) => {
+        // Selection commits on end to avoid adding intermediate drag extents.
+      })
+      .on('end', (event) => {
+        if (!event.sourceEvent) return
+        const nodeIdxs = collectBrushSelection(event.selection)
+        if (nodeIdxs.length > 0) selectNodes(nodeIdxs)
+        brushLayer.call(brushBehavior.move, null)
+      })
+
+    brushLayer.call(brushBehavior)
+  }, [data, hoverNode, clearHover, toggleNodeSelection, selectNodes])
+
+  useEffect(() => {
+    initializeVisualization()
+    // Auto-center after initial render
+    const centerTimeout = setTimeout(() => {
+      handleFitContent()
+    }, 100)
+    return () => clearTimeout(centerTimeout)
+  }, [data, handleFitContent])
 
   // Update highlighting based on selection state and size settings
   useEffect(() => {
@@ -260,25 +364,6 @@ function HopCensusPane({ data, networkName }) {
 
   }, [hoveredNodes, selectedNodes, nodeSize])
 
-  // Set up event handlers
-  useEffect(() => {
-    if (!svgRef.current) return
-
-    const svg = d3.select(svgRef.current)
-
-    svg.selectAll('.census-line')
-      .on('mouseenter', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        hoverNode(nodeIdx)
-      })
-      .on('mouseleave', clearHover)
-      .on('click', function (event) {
-        event.stopPropagation()
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        toggleNodeSelection(nodeIdx)
-      })
-
-  }, [data, hoverNode, clearHover, toggleNodeSelection])
 
   return (
     <Pane

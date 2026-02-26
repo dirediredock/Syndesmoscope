@@ -81,3 +81,11 @@
   height: 100%;
 }
 
+.pane-visualization.panning-mode,
+.pane-visualization.panning-mode svg {
+  cursor: grab;
+}
+
+.pane-visualization.panning-mode .selection-brush-layer .overlay {
+  cursor: grab !important;
+}

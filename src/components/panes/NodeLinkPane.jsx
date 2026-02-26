@@ -1,8 +1,9 @@
-import { useRef, useEffect, useCallback, useState } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
+import { useShiftPanCursor } from '../../hooks/useShiftPanCursor'
 import './NodeLinkPane.css'
 
 /**
@@ -19,32 +20,18 @@ import './NodeLinkPane.css'
  *
  * Zoom/Pan:
  * - Scroll wheel zooms at cursor position
- * - Drag empty space to pan
- * - Drag nodes to reposition them (filtered from pan)
+ * - Drag empty space to brush-select nodes/edges
+ * - Hold Shift + drag empty space to pan
+ * - Hold Shift + drag nodes to reposition them
  */
 
 const ACCENT_COLOR = 'var(--color-accent-nodelink)'
-
-const NODE_SIZES = {
-  S: { default: 0.5, highlighted: 1 },
-  M: { default: 3, highlighted: 6 },
-  L: { default: 10, highlighted: 15 }
-}
-
-const EDGE_SIZES = {
-  S: { default: 0.2, highlighted: 0.4 },
-  M: { default: 1, highlighted: 2 },
-  L: { default: 8, highlighted: 10 }
-}
 
 function NodeLinkPane({ data, networkName }) {
   const containerRef = useRef(null)
   const svgRef = useRef(null)
   const zoomContainerRef = useRef(null)
   const simulationRef = useRef(null)
-
-  const [nodeSize, setNodeSize] = useState('M')
-  const [edgeSize, setEdgeSize] = useState('M')
 
   const {
     hoveredNodes,
@@ -55,7 +42,9 @@ function NodeLinkPane({ data, networkName }) {
     hoverEdge,
     clearHover,
     toggleNodeSelection,
-    toggleEdgeSelection
+    toggleEdgeSelection,
+    selectNodes,
+    selectEdges
   } = useSelection()
 
   const {
@@ -66,7 +55,9 @@ function NodeLinkPane({ data, networkName }) {
     fitToContent,
     setFilter,
     zoomPercent
-  } = useZoomPan(svgRef, { scaleExtent: [0.1, 9.99] })
+  } = useZoomPan(svgRef, { scaleExtent: [0.1, 4] })
+
+  useShiftPanCursor(containerRef)
 
   // Apply zoom transform to the zoom container
   useEffect(() => {
@@ -78,8 +69,6 @@ function NodeLinkPane({ data, networkName }) {
   // Reset zoom and sizes when data changes
   useEffect(() => {
     resetZoom()
-    setNodeSize('M')
-    setEdgeSize('M')
   }, [data, resetZoom])
 
   // Calculate bounds for fit-to-content based on node positions
@@ -137,6 +126,48 @@ function NodeLinkPane({ data, networkName }) {
     return () => container.removeEventListener('keydown', handleKeyDown)
   }, [zoomIn, zoomOut, resetZoom, handleFitContent])
 
+  useEffect(() => {
+    if (!containerRef.current || !svgRef.current || !simulationRef.current) return
+
+    const container = containerRef.current
+    const svg = d3.select(svgRef.current)
+    const simulation = simulationRef.current
+
+    const resizeObserver = new ResizeObserver(() => {
+      const { width, height } = container.getBoundingClientRect()
+      if (width > 0 && height > 0) {
+        svg.attr('width', width).attr('height', height)
+        svg.attr('viewBox', `0 0 ${width} ${height}`)
+        
+        simulation.force('center', d3.forceCenter(width / 2, height / 2))
+        simulation.alpha(0.3).restart()
+
+        try {
+          handleFitContent()
+        } catch (err) {
+          // ignore
+        }
+
+        const onEnd = () => {
+          try {
+            handleFitContent()
+          } catch (err) {
+            // ignore
+          }
+          simulation.on('end', null)
+        }
+
+        simulation.on('end', onEnd)
+      }
+    })
+
+    resizeObserver.observe(container)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [handleFitContent])
+
   // Initialize D3 visualization
   useEffect(() => {
     if (!containerRef.current || !data) return
@@ -154,10 +185,15 @@ function NodeLinkPane({ data, networkName }) {
       .attr('width', width)
       .attr('height', height)
       .attr('viewBox', `0 0 ${width} ${height}`)
+      .style('width', '100%')
+      .style('height', '100%')
 
     svgRef.current = svg.node()
 
-    // Create zoom container (all content goes here)
+    // Create brush layer in screen space (not affected by zoom transform)
+    const brushLayer = svg.append('g').attr('class', 'selection-brush-layer')
+
+    // Create zoom container (all graph content goes here)
     const zoomContainer = svg.append('g').attr('class', 'zoom-container')
     zoomContainerRef.current = zoomContainer.node()
 
@@ -208,8 +244,75 @@ function NodeLinkPane({ data, networkName }) {
       .attr('fill', 'var(--color-text-secondary)')
       .call(drag(simulation))
 
-    // Add tomato border around node group area
+    const isPointInRect = (x, y, x0, y0, x1, y1) => (
+      x >= x0 && x <= x1 && y >= y0 && y <= y1
+    )
 
+    const collectBrushSelection = (selection) => {
+      if (!selection) return { nodeIdxs: [], edgeIdxs: [] }
+      const [[x0Raw, y0Raw], [x1Raw, y1Raw]] = selection
+      const x0 = Math.min(x0Raw, x1Raw)
+      const x1 = Math.max(x0Raw, x1Raw)
+      const y0 = Math.min(y0Raw, y1Raw)
+      const y1 = Math.max(y0Raw, y1Raw)
+
+      const zoomTransform = d3.zoomTransform(svg.node())
+      const selectedNodeIdxs = []
+
+      nodes.forEach((node) => {
+        const screenX = zoomTransform.applyX(node.x)
+        const screenY = zoomTransform.applyY(node.y)
+        if (isPointInRect(screenX, screenY, x0, y0, x1, y1)) {
+          selectedNodeIdxs.push(node.node_idx)
+        }
+      })
+
+      const selectedEdgeIdxs = []
+      edges.forEach((edge) => {
+        const sourceX = zoomTransform.applyX(edge.source.x)
+        const sourceY = zoomTransform.applyY(edge.source.y)
+        const targetX = zoomTransform.applyX(edge.target.x)
+        const targetY = zoomTransform.applyY(edge.target.y)
+
+        const sourceInRect = isPointInRect(sourceX, sourceY, x0, y0, x1, y1)
+        const targetInRect = isPointInRect(targetX, targetY, x0, y0, x1, y1)
+
+        if (sourceInRect && targetInRect) {
+          selectedEdgeIdxs.push(edge.edge_idx)
+        }
+      })
+
+      return {
+        nodeIdxs: selectedNodeIdxs,
+        edgeIdxs: selectedEdgeIdxs
+      }
+    }
+
+    const brushBehavior = d3.brush()
+      .extent([[0, 0], [width, height]])
+      .filter((event) => {
+        if (event.type === 'mousedown') {
+          return event.button === 0 && !event.shiftKey
+        }
+        return !event.shiftKey
+      })
+      .on('start', (event) => {
+        if (event.sourceEvent) {
+          event.sourceEvent.stopPropagation()
+        }
+      })
+      .on('brush', (event) => {
+        // Selection commits on end to avoid adding intermediate drag extents.
+      })
+      .on('end', (event) => {
+        if (!event.sourceEvent) return
+        const { nodeIdxs, edgeIdxs } = collectBrushSelection(event.selection)
+        if (nodeIdxs.length > 0) selectNodes(nodeIdxs)
+        if (edgeIdxs.length > 0) selectEdges(edgeIdxs)
+        brushLayer.call(brushBehavior.move, null)
+      })
+
+    brushLayer.call(brushBehavior)
 
     // Update positions on tick
     simulation.on('tick', () => {
@@ -224,43 +327,28 @@ function NodeLinkPane({ data, networkName }) {
         .attr('cy', d => d.y)
     })
 
-    // Set zoom filter: allow wheel zoom, block pan when clicking on nodes
+    // Set zoom filter: wheel always zooms; pan requires Shift + drag
     setFilter((event) => {
-      // Always allow wheel zoom
       if (event.type === 'wheel') return true
-      // Block pan when starting drag on a node (let node drag handle it)
-      if (event.target.classList.contains('node')) return false
-      // Allow pan on empty space and edges
-      return true
+      if (event.target.classList?.contains('node')) return false
+      return !!event.shiftKey
     })
 
-    // Handle resize
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect
-        if (width > 0 && height > 0) {
-          svg.attr('width', width).attr('height', height)
-          svg.attr('viewBox', `0 0 ${width} ${height}`)
-          simulation.force('center', d3.forceCenter(width / 2, height / 2))
-          simulation.alpha(0.3).restart()
-        }
-      }
-    })
-    resizeObserver.observe(container)
+    const centerTimeout = setTimeout(() => {
+      handleFitContent()
+    }, 500)
 
     return () => {
       simulation.stop()
-      resizeObserver.disconnect()
+      clearTimeout(centerTimeout)
     }
-  }, [data, setFilter])
+  }, [data, setFilter, handleFitContent, selectNodes, selectEdges])
 
   // Update highlighting based on selection state and size settings
   useEffect(() => {
     if (!svgRef.current) return
 
     const svg = d3.select(svgRef.current)
-    const nodeSizes = NODE_SIZES[nodeSize]
-    const edgeSizes = EDGE_SIZES[edgeSize]
 
     // Update node styles
     svg.selectAll('.node')
@@ -272,8 +360,8 @@ function NodeLinkPane({ data, networkName }) {
       })
       .attr('r', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return nodeSizes.highlighted
-        return nodeSizes.default
+        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 5
+        return 3
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -293,8 +381,8 @@ function NodeLinkPane({ data, networkName }) {
       })
       .attr('stroke-width', function () {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
-        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return edgeSizes.highlighted
-        return edgeSizes.default
+        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) return 2
+        return 1
       })
       .each(function () {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
@@ -303,7 +391,7 @@ function NodeLinkPane({ data, networkName }) {
         }
       })
 
-  }, [hoveredNodes, hoveredEdges, selectedNodes, selectedEdges, nodeSize, edgeSize])
+  }, [hoveredNodes, hoveredEdges, selectedNodes, selectedEdges])
 
   // Set up event handlers
   useEffect(() => {
@@ -351,12 +439,6 @@ function NodeLinkPane({ data, networkName }) {
         onFitContent: handleFitContent,
         zoomPercent
       }}
-      sizeControls={{
-        nodeSize,
-        edgeSize,
-        onNodeSizeChange: setNodeSize,
-        onEdgeSizeChange: setEdgeSize
-      }}
     >
       <div
         ref={containerRef}
@@ -388,6 +470,7 @@ function drag(simulation) {
   }
 
   return d3.drag()
+    .filter((event) => event.button === 0 && event.shiftKey)
     .on('start', dragstarted)
     .on('drag', dragged)
     .on('end', dragended)
