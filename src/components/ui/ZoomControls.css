@@ -40,6 +40,14 @@
   outline-offset: 1px;
 }
 
+.zoom-btn--off {
+  opacity: 0.35;
+}
+
+.zoom-btn--active {
+  color: var(--color-node-selected);
+}
+
 .zoom-level {
   font-family: var(--font-mono);
   font-size: var(--text-xs);

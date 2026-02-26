@@ -92,14 +92,25 @@ export function useZoomPan(svgRef, options = {}) {
       .call(zoomBehaviorRef.current.scaleBy, 1 / (1 + config.zoomStep));
   }, [config.transitionDuration, config.zoomStep]);
 
-  // Reset zoom to identity (100%)
-  const resetZoom = useCallback(() => {
+  // Reset zoom to 100%, centered on bounds if provided
+  const resetZoom = useCallback((bounds) => {
     if (!svgRef.current || !zoomBehaviorRef.current) return;
     const svg = d3.select(svgRef.current);
+
+    let newTransform = d3.zoomIdentity;
+
+    if (bounds && bounds.width > 0 && bounds.height > 0) {
+      const { width, height } = svgRef.current.getBoundingClientRect();
+      const centerX = bounds.x + bounds.width / 2;
+      const centerY = bounds.y + bounds.height / 2;
+      newTransform = d3.zoomIdentity
+        .translate(width / 2 - centerX, height / 2 - centerY);
+    }
+
     svg
       .transition()
       .duration(config.transitionDuration)
-      .call(zoomBehaviorRef.current.transform, d3.zoomIdentity);
+      .call(zoomBehaviorRef.current.transform, newTransform);
   }, [config.transitionDuration]);
 
   // Fit content to viewport

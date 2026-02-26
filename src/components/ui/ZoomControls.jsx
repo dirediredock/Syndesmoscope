@@ -7,8 +7,6 @@ import './ZoomControls.css'
  * with keyboard shortcut hints in tooltips.
  */
 function ZoomControls({
-  onZoomIn,
-  onZoomOut,
   onReset,
   onFitContent,
   zoomPercent = 100,
@@ -17,23 +15,25 @@ function ZoomControls({
   return (
     <div className="zoom-controls" role="group" aria-label="Zoom Controls">
 
-      <button
-        className="zoom-btn"
-        onClick={onFitContent}
-        disabled={disabled}
-        aria-label="Fit Zoom"
-        title="Fit Zoom"
-      >
-        <svg width="14" height="14" viewBox="0 0 14 14">
-          <path
-            d="M2 5V3a1 1 0 011-1h2M9 2h2a1 1 0 011 1v2M12 9v2a1 1 0 01-1 1h-2M5 12H3a1 1 0 01-1-1V9"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </button>
+      {onFitContent && (
+        <button
+          className="zoom-btn"
+          onClick={onFitContent}
+          disabled={disabled}
+          aria-label="Fit Zoom"
+          title="Fit Zoom"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14">
+            <path
+              d="M2 5V3a1 1 0 011-1h2M9 2h2a1 1 0 011 1v2M12 9v2a1 1 0 01-1 1h-2M5 12H3a1 1 0 01-1-1V9"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+      )}
 
       <button
         className="zoom-btn"
@@ -49,34 +49,9 @@ function ZoomControls({
 
       <div className="zoom-divider" />
 
-      <button
-        className="zoom-btn"
-        onClick={onZoomOut}
-        disabled={disabled}
-        aria-label="Zoom Out"
-        title="Zoom Out"
-      >
-        <svg width="14" height="14" viewBox="0 0 14 14">
-          <line x1="3" y1="7" x2="11" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      </button>
-
       <span className="zoom-level" title="Current zoom level">
         {zoomPercent}%
       </span>
-
-      <button
-        className="zoom-btn"
-        onClick={onZoomIn}
-        disabled={disabled}
-        aria-label="Zoom In"
-        title="Zoom In"
-      >
-        <svg width="14" height="14" viewBox="0 0 14 14">
-          <line x1="3" y1="7" x2="11" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="7" y1="3" x2="7" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      </button>
 
 
 

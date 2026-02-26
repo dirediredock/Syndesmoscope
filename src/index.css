@@ -35,7 +35,6 @@
   
   /* Typography */
   --font-sans: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
-  /* --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace; */
   
   --text-xs: 0.75rem;
   --text-sm: 0.8125rem;
@@ -116,11 +115,13 @@ body {
 .panel-resize-handle {
   background-color: var(--color-border-muted);
   transition: background-color var(--transition-fast);
+  background-color: #313131;
 }
 
 .panel-resize-handle:hover,
 .panel-resize-handle[data-resize-handle-active] {
-  background-color: var(--color-node-selected);
+  /* background-color: var(--color-node-selected); */
+  background-color: #ffffff;
 }
 
 .panel-resize-handle[data-panel-group-direction="horizontal"] {

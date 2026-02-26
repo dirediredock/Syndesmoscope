@@ -31,13 +31,31 @@
   stroke-opacity: 1 !important;
 }
 
-.selection-brush-layer .selection {
-  fill: color-mix(in srgb, var(--color-node-selected) 20%, transparent);
+/* Brush selection overlay */
+.brush-group .selection {
+  fill: var(--color-node-selected);
+  fill-opacity: 0.08;
   stroke: var(--color-node-selected);
   stroke-width: 1;
-  stroke-dasharray: 4 3;
+  stroke-dasharray: 4 2;
 }
 
-.selection-brush-layer .overlay {
+.brush-group .overlay {
   cursor: crosshair;
+}
+
+.brush-group .handle {
+  display: none;
+}
+
+/* Scroll-mode: natural height, fills width, native vertical scroll */
+.pane-visualization--scroll {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.pane-visualization--scroll svg {
+  display: block;
+  height: auto;
 }

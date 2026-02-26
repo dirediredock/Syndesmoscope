@@ -3,7 +3,6 @@ import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
-import { useShiftPanCursor } from '../../hooks/useShiftPanCursor'
 import './KSnakesPane.css'
 
 /**
@@ -21,16 +20,22 @@ import './KSnakesPane.css'
 
 const ACCENT_COLOR = 'var(--color-accent-ksnakes)'
 
+// Radius steps by ~1.7× per level so visual area (πr²) steps by ~3× per level
 const NODE_SIZES = {
-  S: { default: 0.2, highlighted: 1 },
-  M: { default: 2, highlighted: 5 },
-  L: { default: 12, highlighted: 15 }
+  XS: { default: 0.1,  highlighted: 0.1 },
+  S:  { default: 1.2,  highlighted: 2.5 },
+  M:  { default: 2,    highlighted: 5   },
+  L:  { default: 3.5,  highlighted: 7   },
+  XL: { default: 6,    highlighted: 11  }
 }
 
+// Widths perceived linearly, ~1.7× geometric steps
 const STRUCTURE_SIZES = {
-  S: { core: 7, island: 3, coreSingleton: 2.5, islandSingleton: 1 },
-  M: { core: 18, island: 10, coreSingleton: 9, islandSingleton: 5 },
-  L: { core: 36, island: 20, coreSingleton: 18, islandSingleton: 10 }
+  XS: { core: 6,  island: 3.5, coreSingleton: 3,  islandSingleton: 1.5 },
+  S:  { core: 10, island: 6,   coreSingleton: 5,  islandSingleton: 3   },
+  M:  { core: 18, island: 10,  coreSingleton: 9,  islandSingleton: 5   },
+  L:  { core: 30, island: 17,  coreSingleton: 15, islandSingleton: 8.5 },
+  XL: { core: 52, island: 29,  coreSingleton: 25, islandSingleton: 14  }
 }
 
 function KSnakesPane({ data, networkName }) {
@@ -38,9 +43,11 @@ function KSnakesPane({ data, networkName }) {
   const svgRef = useRef(null)
   const zoomContainerRef = useRef(null)
   const boundsRef = useRef(null)
+  const brushGroupRef = useRef(null)
 
   const [nodeSize, setNodeSize] = useState('M')
   const [edgeSize, setEdgeSize] = useState('M')
+  const [brushMode, setBrushMode] = useState(false)
 
   const {
     hoveredNodes,
@@ -53,23 +60,33 @@ function KSnakesPane({ data, networkName }) {
 
   const {
     transform,
-    zoomIn,
-    zoomOut,
     resetZoom,
-    fitToContent,
     setFilter,
     zoomPercent
-  } = useZoomPan(svgRef, { scaleExtent: [0.5, 9.99] })
-
-  useShiftPanCursor(containerRef)
+  } = useZoomPan(svgRef, { scaleExtent: [0.5, 15] })
 
   useEffect(() => {
     if (!setFilter) return
     setFilter((event) => {
       if (event.type === 'wheel') return true
-      return !!event.shiftKey
+      if (brushMode) return false
+      if (event.target && event.target.classList && event.target.classList.contains('snake-node')) return false
+      return true
     })
-  }, [setFilter])
+  }, [setFilter, brushMode])
+
+  // Toggle brush overlay pointer-events based on brushMode
+  useEffect(() => {
+    if (!brushGroupRef.current) return
+    const bg = d3.select(brushGroupRef.current)
+    if (brushMode) {
+      bg.style('pointer-events', 'all')
+      bg.select('.overlay').style('pointer-events', 'all').style('cursor', 'crosshair')
+    } else {
+      bg.style('pointer-events', 'none')
+      bg.select('.overlay').style('pointer-events', 'none').style('cursor', 'default')
+    }
+  }, [brushMode])
 
   // Apply zoom transform to the zoom container
   useEffect(() => {
@@ -78,52 +95,17 @@ function KSnakesPane({ data, networkName }) {
     }
   }, [transform])
 
+  // Reset zoom centered on content bounds
+  const handleResetZoom = useCallback(() => {
+    resetZoom(boundsRef.current)
+  }, [resetZoom])
+
   // Reset zoom and sizes when data changes
   useEffect(() => {
-    resetZoom()
+    handleResetZoom()
     setNodeSize('M')
     setEdgeSize('M')
-  }, [data, resetZoom])
-
-  // Calculate bounds for fit-to-content
-  const handleFitContent = useCallback(() => {
-    if (boundsRef.current) {
-      fitToContent(boundsRef.current)
-    }
-  }, [fitToContent])
-
-  // Keyboard shortcuts
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    const handleKeyDown = (event) => {
-      if (document.activeElement !== container) return
-
-      switch (event.key) {
-        case '+':
-        case '=':
-          event.preventDefault()
-          zoomIn()
-          break
-        case '-':
-          event.preventDefault()
-          zoomOut()
-          break
-        case 'Home':
-          event.preventDefault()
-          resetZoom()
-          break
-        case '0':
-          event.preventDefault()
-          handleFitContent()
-          break
-      }
-    }
-
-    container.addEventListener('keydown', handleKeyDown)
-    return () => container.removeEventListener('keydown', handleKeyDown)
-  }, [zoomIn, zoomOut, resetZoom, handleFitContent])
+  }, [data, handleResetZoom])
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -132,11 +114,11 @@ function KSnakesPane({ data, networkName }) {
 
     const resizeObserver = new ResizeObserver(() => {
       d3.select(container).selectAll('*').remove()
-      
+
       if (containerRef.current && data) {
         initializeVisualization()
         // Auto-center after resize
-        setTimeout(() => handleFitContent(), 100)
+        setTimeout(() => handleResetZoom(), 100)
       }
     })
 
@@ -145,10 +127,10 @@ function KSnakesPane({ data, networkName }) {
     return () => {
       resizeObserver.disconnect()
     }
-  }, [data, handleFitContent])
+  }, [data, handleResetZoom])
 
   // Initialize visualization
-  const initializeVisualization = useCallback(() => {    
+  const initializeVisualization = useCallback(() => {
     if (!containerRef.current || !data || !data.cores) return
 
     const container = containerRef.current
@@ -158,23 +140,28 @@ function KSnakesPane({ data, networkName }) {
     // Clear previous
     d3.select(container).selectAll('*').remove()
 
-    // Use square aspect ratio (minimum dimension)
-    const size = Math.min(width, height)
+    // Use 1:2 aspect ratio (horizontal:vertical)
+    const contentWidth = Math.min(width, height / 2)
+    const contentHeight = 2 * contentWidth
 
-    // 5% margins per Python spec
+    // 5% margins
     const margin = {
-      top: size * 0.05,
-      right: size * 0.05,
-      bottom: size * 0.05,
-      left: size * 0.05
+      top: contentHeight * 0.01,
+      right: contentWidth * 0.01,
+      bottom: contentHeight * 0.01,
+      left: contentWidth * 0.01
     }
-    const innerWidth = size - margin.left - margin.right
-    const innerHeight = size - margin.top - margin.bottom
+    const innerWidth = contentWidth - margin.left - margin.right
+    const innerHeight = contentHeight - margin.top - margin.bottom
 
-    // Store bounds for fit-to-content
+    // Center content in viewport
+    const preOffsetX = (width - contentWidth) / 2
+    const preOffsetY = (height - contentHeight) / 2
+
+    // Store bounds for fit-to-content, accounting for centering offset
     boundsRef.current = {
-      x: margin.left,
-      y: margin.top,
+      x: preOffsetX + margin.left,
+      y: preOffsetY + margin.top,
       width: innerWidth,
       height: innerHeight
     }
@@ -205,16 +192,22 @@ function KSnakesPane({ data, networkName }) {
 
     svgRef.current = svg.node()
 
-    const brushLayer = svg.append('g').attr('class', 'selection-brush-layer')
+    ///////////////////////////////////////////////////////////////////////////
 
-    // Create clip path for content area
+    // Debug: red border around content area
+    // svg.append('rect')
+    //   .attr('x', preOffsetX + margin.left)
+    //   .attr('y', preOffsetY + margin.top)
+    //   .attr('width', innerWidth)
+    //   .attr('height', innerHeight)
+    //   .attr('fill', 'none')
+    //   .attr('stroke', 'red')
+    //   .attr('stroke-width', 0.5)
+
+    ///////////////////////////////////////////////////////////////////////////
+
+    // (clip path removed)
     svg.append('defs')
-      .append('clipPath')
-      .attr('id', 'ksnakes-clip')
-      .append('rect')
-      .attr('x', margin.left)
-      .attr('y', margin.top)
-      .attr('width', innerWidth)
       .attr('height', innerHeight)
 
     // Calculate scales
@@ -240,17 +233,16 @@ function KSnakesPane({ data, networkName }) {
       .x(d => xScale(d.x_position))
       .y(d => yScale(d.onion_value))
 
-    // Create zoom container (clipped to content area)
+    // Create zoom container
     const zoomContainer = svg.append('g')
       .attr('class', 'zoom-container')
-      .attr('clip-path', 'url(#ksnakes-clip)')
 
     zoomContainerRef.current = zoomContainer.node()
 
     // Content group inside zoom container
     const contentGroup = zoomContainer.append('g')
       .attr('class', 'content')
-      .attr('transform', `translate(${margin.left},${margin.top})`)
+      .attr('transform', `translate(${preOffsetX + margin.left},${preOffsetY + margin.top})`)
 
     // z-order 0: Core-level lines (skyblue, 18px)
     const coreGroup = contentGroup.append('g').attr('class', 'core-lines')
@@ -352,58 +344,12 @@ function KSnakesPane({ data, networkName }) {
         toggleNodeSelection(nodeIdx)
       })
 
-    const isPointInRect = (x, y, x0, y0, x1, y1) => (
-      x >= x0 && x <= x1 && y >= y0 && y <= y1
-    )
-
-    const collectBrushSelection = (selection) => {
-      if (!selection) return []
-      const [[x0Raw, y0Raw], [x1Raw, y1Raw]] = selection
-      const x0 = Math.min(x0Raw, x1Raw)
-      const x1 = Math.max(x0Raw, x1Raw)
-      const y0 = Math.min(y0Raw, y1Raw)
-      const y1 = Math.max(y0Raw, y1Raw)
-      const zoomTransform = d3.zoomTransform(svg.node())
-
-      const selectedNodeIdxs = []
-      allNodes.forEach((node) => {
-        const localX = margin.left + xScale(node.x_position)
-        const localY = margin.top + yScale(node.onion_value)
-        const screenX = zoomTransform.applyX(localX)
-        const screenY = zoomTransform.applyY(localY)
-        if (isPointInRect(screenX, screenY, x0, y0, x1, y1)) {
-          selectedNodeIdxs.push(node.node_idx)
-        }
-      })
-
-      return selectedNodeIdxs
-    }
-
-    const brushBehavior = d3.brush()
-      .extent([[0, 0], [width, height]])
-      .filter((event) => {
-        if (event.type === 'mousedown') {
-          return event.button === 0 && !event.shiftKey
-        }
-        return !event.shiftKey
-      })
-      .on('start', (event) => {
-        if (event.sourceEvent) event.sourceEvent.stopPropagation()
-      })
-      .on('brush', (event) => {
-        // Selection commits on end to avoid adding intermediate drag extents.
-      })
-      .on('end', (event) => {
-        if (!event.sourceEvent) return
-        const nodeIdxs = collectBrushSelection(event.selection)
-        if (nodeIdxs.length > 0) selectNodes(nodeIdxs)
-        brushLayer.call(brushBehavior.move, null)
-      })
-
-    brushLayer.call(brushBehavior)
-
     // Core labels: "k-{n}" at leftmost position
     const labelsGroup = contentGroup.append('g').attr('class', 'core-labels')
+
+    const coreValues = data.cores.map(c => c.core_value)
+    const minCoreValue = Math.min(...coreValues)
+    const maxCoreValue = Math.max(...coreValues)
 
     data.cores.forEach(core => {
       // Find node with minimum x_position and corresponding minimum onion_value
@@ -419,19 +365,94 @@ function KSnakesPane({ data, networkName }) {
       })
 
       if (minNode) {
-        labelsGroup.append('text')
+        const label = labelsGroup.append('text')
           .attr('class', 'core-label')
-          .attr('x', xScale(minNode.x_position) + 15)
+          .attr('x', xScale(minNode.x_position) + 25)
           .attr('y', yScale(minNode.onion_value))
           .attr('text-anchor', 'start')
           .attr('dominant-baseline', 'middle')
           .attr('fill', 'var(--color-ksnakes-core)')
-          .attr('font-family', 'Arial, sans-serif')
+          .attr('font-family', 'Roboto Condensed, sans-serif')
           .attr('font-weight', 'bold')
-          .attr('font-size', '12px')
-          .text(`k-${core.core_value}`)
+          .attr('font-size', '17px')
+
+        label.append('tspan').text(`k-${core.core_value}`)
+
+        if (core.core_value === minCoreValue) {
+          label.append('tspan')
+            .attr('x', xScale(minNode.x_position) + 25)
+            .attr('dy', '1.2em')
+            .attr('font-size', '15px')
+            .text('(periphery)')
+        } else if (core.core_value === maxCoreValue) {
+          label.append('tspan')
+            .attr('x', xScale(minNode.x_position) + 25)
+            .attr('dy', '1.2em')
+            .attr('font-size', '15px')
+            .text('(core)')
+        }
       }
     })
+
+    // "Core" label above the uppermost k-snake, "Periphery" below the lowermost
+    // const annotationGroup = contentGroup.append('g').attr('class', 'core-periphery-labels')
+
+    // annotationGroup.append('text')
+    //   .attr('x', 41)
+    //   .attr('y', 12)
+    //   .attr('text-anchor', 'start')
+    //   .attr('dominant-baseline', 'auto')
+    //   .attr('fill', 'var(--color-text-secondary)')
+    //   .attr('font-family', 'Roboto Condensed, sans-serif')
+    //   .attr('font-weight', 'bold')
+    //   .attr('font-size', '14px')
+    //   .attr('opacity', 0.7)
+    //   .text('Core')
+
+    // annotationGroup.append('text')
+    //   .attr('x', 41)
+    //   .attr('y', innerHeight-2)
+    //   .attr('text-anchor', 'start')
+    //   .attr('dominant-baseline', 'auto')
+    //   .attr('fill', 'var(--color-text-secondary)')
+    //   .attr('font-family', 'Roboto Condensed, sans-serif')
+    //   .attr('font-weight', 'bold')
+    //   .attr('font-size', '14px')
+    //   .attr('opacity', 0.7)
+    //   .text('Periphery')
+
+    // Brush overlay (on top of zoom container so it intercepts events)
+    const brushGroup = svg.append('g').attr('class', 'ksnakes-brush-group')
+    brushGroupRef.current = brushGroup.node()
+
+    const brush = d3.brush()
+      .extent([[0, 0], [width, height]])
+      .on('end', (event) => {
+        if (!event.selection) return
+        const [[bx0, by0], [bx1, by1]] = event.selection
+
+        const matched = []
+        const svgNode = svg.node()
+        svg.selectAll('.snake-node').each(function () {
+          const circle = this
+          const ctm = circle.getCTM()
+          const svgPt = svgNode.createSVGPoint()
+          svgPt.x = +circle.getAttribute('cx')
+          svgPt.y = +circle.getAttribute('cy')
+          const screen = svgPt.matrixTransform(ctm)
+          if (screen.x >= bx0 && screen.x <= bx1 && screen.y >= by0 && screen.y <= by1) {
+            matched.push(+d3.select(this).attr('data-node-idx'))
+          }
+        })
+
+        brushGroup.call(brush.move, null)
+        if (matched.length > 0) selectNodes(matched)
+      })
+
+    brushGroup.call(brush)
+    brushGroup.style('pointer-events', 'none')
+    brushGroup.select('.overlay').style('pointer-events', 'none').style('cursor', 'default')
+
   }, [data, hoverNode, clearHover, toggleNodeSelection, selectNodes])
 
     // Reapply highlighting after DOM build to ensure visuals match selection state
@@ -479,10 +500,10 @@ function KSnakesPane({ data, networkName }) {
     initializeVisualization()
     // Auto-center after initial render
     const centerTimeout = setTimeout(() => {
-      handleFitContent()
+      handleResetZoom()
     }, 100)
     return () => clearTimeout(centerTimeout)
-  }, [data, handleFitContent])
+  }, [data, handleResetZoom])
 
   // Update structure sizes when edgeSize changes
   useEffect(() => {
@@ -556,11 +577,23 @@ function KSnakesPane({ data, networkName }) {
       title="k-Snakes"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
+      headerControls={
+        <div className="zoom-controls" role="group" aria-label="Brush Selection">
+          <button
+            className={`zoom-btn${brushMode ? ' zoom-btn--active' : ' zoom-btn--off'}`}
+            onClick={() => setBrushMode(b => !b)}
+            aria-label="Toggle brush selection"
+            title="Brush Select"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14">
+              <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <rect x="5.5" y="7" width="3" height="5" rx="0.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+          </button>
+        </div>
+      }
       zoomControls={{
-        onZoomIn: zoomIn,
-        onZoomOut: zoomOut,
-        onReset: resetZoom,
-        onFitContent: handleFitContent,
+        onReset: handleResetZoom,
         zoomPercent
       }}
       sizeControls={{
@@ -573,7 +606,6 @@ function KSnakesPane({ data, networkName }) {
       <div
         ref={containerRef}
         className="pane-visualization"
-        tabIndex={0}
         role="img"
       />
     </Pane>

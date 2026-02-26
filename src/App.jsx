@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { SelectionProvider } from './contexts/SelectionContext'
 import { NetworkProvider } from './contexts/NetworkContext'
 import { ThemeProvider } from './contexts/ThemeContext'
@@ -7,6 +8,8 @@ import PaneLayout from './components/PaneLayout'
 import './App.css'
 
 function App() {
+  const resetLayoutRef = useRef(null)
+
   return (
     <ThemeProvider>
       <NetworkProvider>
@@ -19,11 +22,17 @@ function App() {
               </div>
               <div className="app-header-controls">
                 <ControlPanel />
+                <button
+                  className="control-button"
+                  onClick={() => resetLayoutRef.current?.()}
+                >
+                  Resize Panes
+                </button>
                 {/* <ThemeToggle /> */}
               </div>
             </header>
             <main className="app-main">
-              <PaneLayout />
+              <PaneLayout onResetRef={resetLayoutRef} />
             </main>
           </div>
         </SelectionProvider>
