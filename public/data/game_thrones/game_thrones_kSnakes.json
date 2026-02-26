@@ -13,7 +13,7 @@
           "island_idx": 0,
           "nodes": [
             {
-              "node_idx": 96,
+              "node_idx": 0,
               "x_position": -15,
               "onion_value": 1
             }
@@ -23,7 +23,7 @@
           "island_idx": 1,
           "nodes": [
             {
-              "node_idx": 99,
+              "node_idx": 1,
               "x_position": -14,
               "onion_value": 1
             }
@@ -33,7 +33,7 @@
           "island_idx": 2,
           "nodes": [
             {
-              "node_idx": 100,
+              "node_idx": 2,
               "x_position": -13,
               "onion_value": 1
             }
@@ -43,7 +43,7 @@
           "island_idx": 3,
           "nodes": [
             {
-              "node_idx": 101,
+              "node_idx": 3,
               "x_position": -12,
               "onion_value": 1
             }
@@ -53,7 +53,7 @@
           "island_idx": 4,
           "nodes": [
             {
-              "node_idx": 71,
+              "node_idx": 4,
               "x_position": -11,
               "onion_value": 1
             }
@@ -63,7 +63,7 @@
           "island_idx": 5,
           "nodes": [
             {
-              "node_idx": 103,
+              "node_idx": 5,
               "x_position": -10,
               "onion_value": 1
             }
@@ -73,7 +73,7 @@
           "island_idx": 6,
           "nodes": [
             {
-              "node_idx": 105,
+              "node_idx": 6,
               "x_position": -9,
               "onion_value": 1
             }
@@ -83,7 +83,7 @@
           "island_idx": 7,
           "nodes": [
             {
-              "node_idx": 74,
+              "node_idx": 7,
               "x_position": -8,
               "onion_value": 1
             }
@@ -93,7 +93,7 @@
           "island_idx": 8,
           "nodes": [
             {
-              "node_idx": 106,
+              "node_idx": 8,
               "x_position": -7,
               "onion_value": 1
             }
@@ -103,7 +103,7 @@
           "island_idx": 9,
           "nodes": [
             {
-              "node_idx": 84,
+              "node_idx": 9,
               "x_position": -6,
               "onion_value": 1
             }
@@ -113,7 +113,7 @@
           "island_idx": 10,
           "nodes": [
             {
-              "node_idx": 53,
+              "node_idx": 10,
               "x_position": -5,
               "onion_value": 1
             }
@@ -123,7 +123,7 @@
           "island_idx": 11,
           "nodes": [
             {
-              "node_idx": 87,
+              "node_idx": 11,
               "x_position": -4,
               "onion_value": 1
             }
@@ -133,7 +133,7 @@
           "island_idx": 12,
           "nodes": [
             {
-              "node_idx": 24,
+              "node_idx": 12,
               "x_position": -3,
               "onion_value": 1
             }
@@ -143,7 +143,7 @@
           "island_idx": 13,
           "nodes": [
             {
-              "node_idx": 92,
+              "node_idx": 13,
               "x_position": -2,
               "onion_value": 1
             }
@@ -153,7 +153,7 @@
           "island_idx": 14,
           "nodes": [
             {
-              "node_idx": 94,
+              "node_idx": 14,
               "x_position": -1,
               "onion_value": 1
             }
@@ -163,7 +163,7 @@
           "island_idx": 15,
           "nodes": [
             {
-              "node_idx": 31,
+              "node_idx": 15,
               "x_position": 0,
               "onion_value": 1
             }
@@ -178,12 +178,12 @@
           "island_idx": 0,
           "nodes": [
             {
-              "node_idx": 64,
+              "node_idx": 16,
               "x_position": -12,
               "onion_value": 8
             },
             {
-              "node_idx": 66,
+              "node_idx": 17,
               "x_position": -11,
               "onion_value": 8
             }
@@ -193,7 +193,7 @@
           "island_idx": 1,
           "nodes": [
             {
-              "node_idx": 32,
+              "node_idx": 18,
               "x_position": -10,
               "onion_value": 8
             }
@@ -203,7 +203,7 @@
           "island_idx": 2,
           "nodes": [
             {
-              "node_idx": 3,
+              "node_idx": 19,
               "x_position": -9,
               "onion_value": 8
             }
@@ -213,7 +213,7 @@
           "island_idx": 3,
           "nodes": [
             {
-              "node_idx": 72,
+              "node_idx": 20,
               "x_position": -8,
               "onion_value": 8
             }
@@ -223,7 +223,7 @@
           "island_idx": 4,
           "nodes": [
             {
-              "node_idx": 104,
+              "node_idx": 21,
               "x_position": -7,
               "onion_value": 8
             }
@@ -233,7 +233,7 @@
           "island_idx": 5,
           "nodes": [
             {
-              "node_idx": 78,
+              "node_idx": 22,
               "x_position": -6,
               "onion_value": 8
             }
@@ -243,7 +243,7 @@
           "island_idx": 6,
           "nodes": [
             {
-              "node_idx": 51,
+              "node_idx": 23,
               "x_position": -5,
               "onion_value": 8
             }
@@ -253,7 +253,7 @@
           "island_idx": 7,
           "nodes": [
             {
-              "node_idx": 85,
+              "node_idx": 56,
               "x_position": -4,
               "onion_value": 8
             }
@@ -263,7 +263,7 @@
           "island_idx": 8,
           "nodes": [
             {
-              "node_idx": 86,
+              "node_idx": 24,
               "x_position": -3,
               "onion_value": 8
             }
@@ -273,7 +273,7 @@
           "island_idx": 9,
           "nodes": [
             {
-              "node_idx": 55,
+              "node_idx": 26,
               "x_position": -2,
               "onion_value": 8
             }
@@ -283,7 +283,7 @@
           "island_idx": 10,
           "nodes": [
             {
-              "node_idx": 30,
+              "node_idx": 27,
               "x_position": -1,
               "onion_value": 8
             }
@@ -293,7 +293,7 @@
           "island_idx": 11,
           "nodes": [
             {
-              "node_idx": 95,
+              "node_idx": 25,
               "x_position": 0,
               "onion_value": 8
             }
@@ -308,47 +308,47 @@
           "island_idx": 0,
           "nodes": [
             {
-              "node_idx": 73,
+              "node_idx": 34,
               "x_position": -18,
               "onion_value": 15
             },
             {
-              "node_idx": 90,
+              "node_idx": 36,
               "x_position": -17,
               "onion_value": 15
             },
             {
-              "node_idx": 98,
+              "node_idx": 37,
               "x_position": -16,
               "onion_value": 15
             },
             {
-              "node_idx": 88,
+              "node_idx": 38,
               "x_position": -15,
               "onion_value": 16
             },
             {
-              "node_idx": 89,
+              "node_idx": 39,
               "x_position": -14,
               "onion_value": 16
             },
             {
-              "node_idx": 93,
+              "node_idx": 67,
               "x_position": -13,
               "onion_value": 17
             },
             {
-              "node_idx": 91,
+              "node_idx": 92,
               "x_position": -12,
               "onion_value": 18
             },
             {
-              "node_idx": 16,
+              "node_idx": 68,
               "x_position": -11,
               "onion_value": 19
             },
             {
-              "node_idx": 97,
+              "node_idx": 70,
               "x_position": -10,
               "onion_value": 19
             }
@@ -358,12 +358,12 @@
           "island_idx": 1,
           "nodes": [
             {
-              "node_idx": 5,
+              "node_idx": 31,
               "x_position": -9,
               "onion_value": 15
             },
             {
-              "node_idx": 1,
+              "node_idx": 49,
               "x_position": -8,
               "onion_value": 16
             }
@@ -373,7 +373,7 @@
           "island_idx": 2,
           "nodes": [
             {
-              "node_idx": 49,
+              "node_idx": 33,
               "x_position": -7,
               "onion_value": 15
             },
@@ -388,12 +388,12 @@
           "island_idx": 3,
           "nodes": [
             {
-              "node_idx": 82,
+              "node_idx": 29,
               "x_position": -5,
               "onion_value": 15
             },
             {
-              "node_idx": 83,
+              "node_idx": 30,
               "x_position": -4,
               "onion_value": 15
             }
@@ -403,7 +403,7 @@
           "island_idx": 4,
           "nodes": [
             {
-              "node_idx": 35,
+              "node_idx": 28,
               "x_position": -3,
               "onion_value": 15
             }
@@ -413,7 +413,7 @@
           "island_idx": 5,
           "nodes": [
             {
-              "node_idx": 48,
+              "node_idx": 32,
               "x_position": -2,
               "onion_value": 15
             }
@@ -423,7 +423,7 @@
           "island_idx": 6,
           "nodes": [
             {
-              "node_idx": 70,
+              "node_idx": 35,
               "x_position": -1,
               "onion_value": 15
             }
@@ -433,7 +433,7 @@
           "island_idx": 7,
           "nodes": [
             {
-              "node_idx": 77,
+              "node_idx": 48,
               "x_position": 0,
               "onion_value": 15
             }
@@ -448,62 +448,62 @@
           "island_idx": 0,
           "nodes": [
             {
-              "node_idx": 0,
+              "node_idx": 40,
               "x_position": -27,
               "onion_value": 26
             },
             {
-              "node_idx": 4,
+              "node_idx": 43,
               "x_position": -26,
               "onion_value": 26
             },
             {
-              "node_idx": 6,
+              "node_idx": 44,
               "x_position": -25,
               "onion_value": 26
             },
             {
-              "node_idx": 7,
+              "node_idx": 45,
               "x_position": -24,
               "onion_value": 26
             },
             {
-              "node_idx": 50,
+              "node_idx": 47,
               "x_position": -23,
               "onion_value": 26
             },
             {
-              "node_idx": 52,
+              "node_idx": 58,
               "x_position": -22,
               "onion_value": 26
             },
             {
-              "node_idx": 62,
+              "node_idx": 63,
               "x_position": -21,
               "onion_value": 26
             },
             {
-              "node_idx": 63,
+              "node_idx": 71,
               "x_position": -20,
               "onion_value": 26
             },
             {
-              "node_idx": 8,
+              "node_idx": 60,
               "x_position": -19,
               "onion_value": 27
             },
             {
-              "node_idx": 9,
+              "node_idx": 61,
               "x_position": -18,
               "onion_value": 27
             },
             {
-              "node_idx": 65,
+              "node_idx": 88,
               "x_position": -17,
               "onion_value": 27
             },
             {
-              "node_idx": 2,
+              "node_idx": 95,
               "x_position": -16,
               "onion_value": 28
             }
@@ -513,17 +513,17 @@
           "island_idx": 1,
           "nodes": [
             {
-              "node_idx": 58,
+              "node_idx": 42,
               "x_position": -15,
               "onion_value": 26
             },
             {
-              "node_idx": 28,
+              "node_idx": 59,
               "x_position": -14,
               "onion_value": 27
             },
             {
-              "node_idx": 56,
+              "node_idx": 69,
               "x_position": -13,
               "onion_value": 27
             }
@@ -533,12 +533,12 @@
           "island_idx": 2,
           "nodes": [
             {
-              "node_idx": 69,
+              "node_idx": 41,
               "x_position": -12,
               "onion_value": 26
             },
             {
-              "node_idx": 27,
+              "node_idx": 57,
               "x_position": -11,
               "onion_value": 27
             }
@@ -548,12 +548,12 @@
           "island_idx": 3,
           "nodes": [
             {
-              "node_idx": 29,
+              "node_idx": 52,
               "x_position": -10,
               "onion_value": 26
             },
             {
-              "node_idx": 39,
+              "node_idx": 65,
               "x_position": -9,
               "onion_value": 27
             }
@@ -563,12 +563,12 @@
           "island_idx": 4,
           "nodes": [
             {
-              "node_idx": 75,
+              "node_idx": 54,
               "x_position": -8,
               "onion_value": 26
             },
             {
-              "node_idx": 68,
+              "node_idx": 62,
               "x_position": -7,
               "onion_value": 27
             }
@@ -578,7 +578,7 @@
           "island_idx": 5,
           "nodes": [
             {
-              "node_idx": 10,
+              "node_idx": 50,
               "x_position": -6,
               "onion_value": 26
             }
@@ -588,7 +588,7 @@
           "island_idx": 6,
           "nodes": [
             {
-              "node_idx": 19,
+              "node_idx": 51,
               "x_position": -5,
               "onion_value": 26
             }
@@ -598,7 +598,7 @@
           "island_idx": 7,
           "nodes": [
             {
-              "node_idx": 37,
+              "node_idx": 53,
               "x_position": -4,
               "onion_value": 26
             }
@@ -608,7 +608,7 @@
           "island_idx": 8,
           "nodes": [
             {
-              "node_idx": 40,
+              "node_idx": 55,
               "x_position": -3,
               "onion_value": 26
             }
@@ -618,7 +618,7 @@
           "island_idx": 9,
           "nodes": [
             {
-              "node_idx": 42,
+              "node_idx": 64,
               "x_position": -2,
               "onion_value": 26
             }
@@ -628,7 +628,7 @@
           "island_idx": 10,
           "nodes": [
             {
-              "node_idx": 61,
+              "node_idx": 66,
               "x_position": -1,
               "onion_value": 26
             }
@@ -638,7 +638,7 @@
           "island_idx": 11,
           "nodes": [
             {
-              "node_idx": 67,
+              "node_idx": 76,
               "x_position": 0,
               "onion_value": 26
             }
@@ -653,17 +653,17 @@
           "island_idx": 0,
           "nodes": [
             {
-              "node_idx": 18,
+              "node_idx": 82,
               "x_position": -6,
               "onion_value": 35
             },
             {
-              "node_idx": 44,
+              "node_idx": 83,
               "x_position": -5,
               "onion_value": 36
             },
             {
-              "node_idx": 47,
+              "node_idx": 84,
               "x_position": -4,
               "onion_value": 36
             }
@@ -673,12 +673,12 @@
           "island_idx": 1,
           "nodes": [
             {
-              "node_idx": 34,
+              "node_idx": 74,
               "x_position": -3,
               "onion_value": 35
             },
             {
-              "node_idx": 43,
+              "node_idx": 77,
               "x_position": -2,
               "onion_value": 35
             }
@@ -688,7 +688,7 @@
           "island_idx": 2,
           "nodes": [
             {
-              "node_idx": 36,
+              "node_idx": 72,
               "x_position": -1,
               "onion_value": 35
             }
@@ -698,7 +698,7 @@
           "island_idx": 3,
           "nodes": [
             {
-              "node_idx": 60,
+              "node_idx": 78,
               "x_position": 0,
               "onion_value": 35
             }
@@ -713,22 +713,22 @@
           "island_idx": 0,
           "nodes": [
             {
-              "node_idx": 15,
+              "node_idx": 75,
               "x_position": -9,
               "onion_value": 43
             },
             {
-              "node_idx": 17,
+              "node_idx": 79,
               "x_position": -8,
               "onion_value": 43
             },
             {
-              "node_idx": 25,
+              "node_idx": 85,
               "x_position": -7,
               "onion_value": 43
             },
             {
-              "node_idx": 22,
+              "node_idx": 86,
               "x_position": -6,
               "onion_value": 44
             }
@@ -738,12 +738,12 @@
           "island_idx": 1,
           "nodes": [
             {
-              "node_idx": 33,
+              "node_idx": 93,
               "x_position": -5,
               "onion_value": 43
             },
             {
-              "node_idx": 23,
+              "node_idx": 104,
               "x_position": -4,
               "onion_value": 44
             }
@@ -753,12 +753,12 @@
           "island_idx": 2,
           "nodes": [
             {
-              "node_idx": 57,
+              "node_idx": 73,
               "x_position": -3,
               "onion_value": 43
             },
             {
-              "node_idx": 59,
+              "node_idx": 80,
               "x_position": -2,
               "onion_value": 44
             }
@@ -768,12 +768,12 @@
           "island_idx": 3,
           "nodes": [
             {
-              "node_idx": 38,
+              "node_idx": 81,
               "x_position": -1,
               "onion_value": 43
             },
             {
-              "node_idx": 79,
+              "node_idx": 87,
               "x_position": 0,
               "onion_value": 43
             }
@@ -788,72 +788,72 @@
           "island_idx": 0,
           "nodes": [
             {
-              "node_idx": 20,
+              "node_idx": 89,
               "x_position": -13,
               "onion_value": 51
             },
             {
-              "node_idx": 26,
+              "node_idx": 94,
               "x_position": -12,
               "onion_value": 51
             },
             {
-              "node_idx": 76,
+              "node_idx": 96,
               "x_position": -11,
               "onion_value": 51
             },
             {
-              "node_idx": 14,
+              "node_idx": 90,
               "x_position": -10,
               "onion_value": 52
             },
             {
-              "node_idx": 41,
+              "node_idx": 91,
               "x_position": -9,
               "onion_value": 52
             },
             {
-              "node_idx": 80,
+              "node_idx": 101,
               "x_position": -8,
               "onion_value": 52
             },
             {
-              "node_idx": 102,
+              "node_idx": 103,
               "x_position": -7,
               "onion_value": 52
             },
             {
-              "node_idx": 11,
+              "node_idx": 97,
               "x_position": -6,
               "onion_value": 53
             },
             {
-              "node_idx": 12,
+              "node_idx": 98,
               "x_position": -5,
               "onion_value": 53
             },
             {
-              "node_idx": 13,
+              "node_idx": 99,
               "x_position": -4,
               "onion_value": 53
             },
             {
-              "node_idx": 21,
+              "node_idx": 100,
               "x_position": -3,
               "onion_value": 53
             },
             {
-              "node_idx": 45,
+              "node_idx": 102,
               "x_position": -2,
               "onion_value": 53
             },
             {
-              "node_idx": 54,
+              "node_idx": 105,
               "x_position": -1,
               "onion_value": 53
             },
             {
-              "node_idx": 81,
+              "node_idx": 106,
               "x_position": 0,
               "onion_value": 53
             }
