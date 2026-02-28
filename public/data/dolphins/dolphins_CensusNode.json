@@ -9,7 +9,7 @@
   "census_vectors": [
     {
       "node_idx": 0,
-      "degree": 1,
+      "vector_length": 9,
       "vector": [
         1,
         2,
@@ -20,49 +20,11 @@
         18,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 2
-        },
-        {
-          "depth": 2,
-          "value": 6
-        },
-        {
-          "depth": 3,
-          "value": 10
-        },
-        {
-          "depth": 4,
-          "value": 5
-        },
-        {
-          "depth": 5,
-          "value": 12
-        },
-        {
-          "depth": 6,
-          "value": 18
-        },
-        {
-          "depth": 7,
-          "value": 7
-        },
-        {
-          "depth": 8,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 1,
-      "degree": 1,
+      "vector_length": 9,
       "vector": [
         1,
         7,
@@ -73,49 +35,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 7
-        },
-        {
-          "depth": 2,
-          "value": 18
-        },
-        {
-          "depth": 3,
-          "value": 14
-        },
-        {
-          "depth": 4,
-          "value": 10
-        },
-        {
-          "depth": 5,
-          "value": 8
-        },
-        {
-          "depth": 6,
-          "value": 2
-        },
-        {
-          "depth": 7,
-          "value": 1
-        },
-        {
-          "depth": 8,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 2,
-      "degree": 1,
+      "vector_length": 8,
       "vector": [
         1,
         8,
@@ -125,45 +49,11 @@
         11,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 8
-        },
-        {
-          "depth": 2,
-          "value": 12
-        },
-        {
-          "depth": 3,
-          "value": 9
-        },
-        {
-          "depth": 4,
-          "value": 19
-        },
-        {
-          "depth": 5,
-          "value": 11
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 3,
-      "degree": 1,
+      "vector_length": 8,
       "vector": [
         1,
         8,
@@ -173,45 +63,11 @@
         11,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 8
-        },
-        {
-          "depth": 2,
-          "value": 12
-        },
-        {
-          "depth": 3,
-          "value": 9
-        },
-        {
-          "depth": 4,
-          "value": 19
-        },
-        {
-          "depth": 5,
-          "value": 11
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 4,
-      "degree": 1,
+      "vector_length": 8,
       "vector": [
         1,
         8,
@@ -221,45 +77,11 @@
         12,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 8
-        },
-        {
-          "depth": 2,
-          "value": 10
-        },
-        {
-          "depth": 3,
-          "value": 9
-        },
-        {
-          "depth": 4,
-          "value": 20
-        },
-        {
-          "depth": 5,
-          "value": 12
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 5,
-      "degree": 1,
+      "vector_length": 9,
       "vector": [
         1,
         8,
@@ -270,49 +92,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 8
-        },
-        {
-          "depth": 2,
-          "value": 20
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 5
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 7
-        },
-        {
-          "depth": 7,
-          "value": 1
-        },
-        {
-          "depth": 8,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 6,
-      "degree": 1,
+      "vector_length": 9,
       "vector": [
         1,
         9,
@@ -323,49 +107,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 9
-        },
-        {
-          "depth": 2,
-          "value": 14
-        },
-        {
-          "depth": 3,
-          "value": 16
-        },
-        {
-          "depth": 4,
-          "value": 10
-        },
-        {
-          "depth": 5,
-          "value": 8
-        },
-        {
-          "depth": 6,
-          "value": 2
-        },
-        {
-          "depth": 7,
-          "value": 1
-        },
-        {
-          "depth": 8,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 7,
-      "degree": 1,
+      "vector_length": 9,
       "vector": [
         1,
         9,
@@ -376,49 +122,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 9
-        },
-        {
-          "depth": 2,
-          "value": 14
-        },
-        {
-          "depth": 3,
-          "value": 16
-        },
-        {
-          "depth": 4,
-          "value": 10
-        },
-        {
-          "depth": 5,
-          "value": 8
-        },
-        {
-          "depth": 6,
-          "value": 2
-        },
-        {
-          "depth": 7,
-          "value": 1
-        },
-        {
-          "depth": 8,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 8,
-      "degree": 1,
+      "vector_length": 8,
       "vector": [
         1,
         9,
@@ -428,45 +136,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 1
-        },
-        {
-          "depth": 1,
-          "value": 9
-        },
-        {
-          "depth": 2,
-          "value": 20
-        },
-        {
-          "depth": 3,
-          "value": 16
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 9,
-      "degree": 2,
+      "vector_length": 9,
       "vector": [
         2,
         5,
@@ -477,49 +151,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 2
-        },
-        {
-          "depth": 1,
-          "value": 5
-        },
-        {
-          "depth": 2,
-          "value": 18
-        },
-        {
-          "depth": 3,
-          "value": 14
-        },
-        {
-          "depth": 4,
-          "value": 11
-        },
-        {
-          "depth": 5,
-          "value": 8
-        },
-        {
-          "depth": 6,
-          "value": 2
-        },
-        {
-          "depth": 7,
-          "value": 1
-        },
-        {
-          "depth": 8,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 10,
-      "degree": 2,
+      "vector_length": 9,
       "vector": [
         2,
         7,
@@ -530,49 +166,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 2
-        },
-        {
-          "depth": 1,
-          "value": 7
-        },
-        {
-          "depth": 2,
-          "value": 20
-        },
-        {
-          "depth": 3,
-          "value": 13
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 8
-        },
-        {
-          "depth": 6,
-          "value": 2
-        },
-        {
-          "depth": 7,
-          "value": 1
-        },
-        {
-          "depth": 8,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 11,
-      "degree": 2,
+      "vector_length": 8,
       "vector": [
         2,
         5,
@@ -582,45 +180,11 @@
         18,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 2
-        },
-        {
-          "depth": 1,
-          "value": 5
-        },
-        {
-          "depth": 2,
-          "value": 11
-        },
-        {
-          "depth": 3,
-          "value": 6
-        },
-        {
-          "depth": 4,
-          "value": 12
-        },
-        {
-          "depth": 5,
-          "value": 18
-        },
-        {
-          "depth": 6,
-          "value": 7
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 12,
-      "degree": 2,
+      "vector_length": 9,
       "vector": [
         2,
         7,
@@ -631,49 +195,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 2
-        },
-        {
-          "depth": 1,
-          "value": 7
-        },
-        {
-          "depth": 2,
-          "value": 22
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 8
-        },
-        {
-          "depth": 6,
-          "value": 2
-        },
-        {
-          "depth": 7,
-          "value": 1
-        },
-        {
-          "depth": 8,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 13,
-      "degree": 2,
+      "vector_length": 6,
       "vector": [
         2,
         14,
@@ -681,37 +207,11 @@
         15,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 2
-        },
-        {
-          "depth": 1,
-          "value": 14
-        },
-        {
-          "depth": 2,
-          "value": 29
-        },
-        {
-          "depth": 3,
-          "value": 15
-        },
-        {
-          "depth": 4,
-          "value": 1
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 14,
-      "degree": 2,
+      "vector_length": 8,
       "vector": [
         2,
         12,
@@ -721,45 +221,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 2
-        },
-        {
-          "depth": 1,
-          "value": 12
-        },
-        {
-          "depth": 2,
-          "value": 15
-        },
-        {
-          "depth": 3,
-          "value": 15
-        },
-        {
-          "depth": 4,
-          "value": 9
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 15,
-      "degree": 3,
+      "vector_length": 8,
       "vector": [
         3,
         6,
@@ -769,45 +235,11 @@
         18,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 3
-        },
-        {
-          "depth": 1,
-          "value": 6
-        },
-        {
-          "depth": 2,
-          "value": 10
-        },
-        {
-          "depth": 3,
-          "value": 5
-        },
-        {
-          "depth": 4,
-          "value": 12
-        },
-        {
-          "depth": 5,
-          "value": 18
-        },
-        {
-          "depth": 6,
-          "value": 7
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 16,
-      "degree": 3,
+      "vector_length": 7,
       "vector": [
         3,
         7,
@@ -816,41 +248,11 @@
         12,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 3
-        },
-        {
-          "depth": 1,
-          "value": 7
-        },
-        {
-          "depth": 2,
-          "value": 15
-        },
-        {
-          "depth": 3,
-          "value": 23
-        },
-        {
-          "depth": 4,
-          "value": 12
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 17,
-      "degree": 3,
+      "vector_length": 7,
       "vector": [
         3,
         8,
@@ -859,41 +261,11 @@
         18,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 3
-        },
-        {
-          "depth": 1,
-          "value": 8
-        },
-        {
-          "depth": 2,
-          "value": 12
-        },
-        {
-          "depth": 3,
-          "value": 13
-        },
-        {
-          "depth": 4,
-          "value": 18
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 18,
-      "degree": 3,
+      "vector_length": 8,
       "vector": [
         3,
         13,
@@ -903,45 +275,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 3
-        },
-        {
-          "depth": 1,
-          "value": 13
-        },
-        {
-          "depth": 2,
-          "value": 22
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 19,
-      "degree": 3,
+      "vector_length": 8,
       "vector": [
         3,
         16,
@@ -951,45 +289,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 3
-        },
-        {
-          "depth": 1,
-          "value": 16
-        },
-        {
-          "depth": 2,
-          "value": 20
-        },
-        {
-          "depth": 3,
-          "value": 11
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 20,
-      "degree": 3,
+      "vector_length": 7,
       "vector": [
         3,
         16,
@@ -998,41 +302,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 3
-        },
-        {
-          "depth": 1,
-          "value": 16
-        },
-        {
-          "depth": 2,
-          "value": 24
-        },
-        {
-          "depth": 3,
-          "value": 15
-        },
-        {
-          "depth": 4,
-          "value": 2
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 21,
-      "degree": 4,
+      "vector_length": 8,
       "vector": [
         4,
         10,
@@ -1042,45 +316,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 4
-        },
-        {
-          "depth": 1,
-          "value": 10
-        },
-        {
-          "depth": 2,
-          "value": 20
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 22,
-      "degree": 4,
+      "vector_length": 6,
       "vector": [
         4,
         12,
@@ -1088,37 +328,11 @@
         16,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 4
-        },
-        {
-          "depth": 1,
-          "value": 12
-        },
-        {
-          "depth": 2,
-          "value": 22
-        },
-        {
-          "depth": 3,
-          "value": 16
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 23,
-      "degree": 4,
+      "vector_length": 8,
       "vector": [
         4,
         7,
@@ -1128,45 +342,11 @@
         12,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 4
-        },
-        {
-          "depth": 1,
-          "value": 7
-        },
-        {
-          "depth": 2,
-          "value": 9
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 20
-        },
-        {
-          "depth": 5,
-          "value": 12
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 24,
-      "degree": 4,
+      "vector_length": 8,
       "vector": [
         4,
         17,
@@ -1176,45 +356,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 4
-        },
-        {
-          "depth": 1,
-          "value": 17
-        },
-        {
-          "depth": 2,
-          "value": 17
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 25,
-      "degree": 4,
+      "vector_length": 7,
       "vector": [
         4,
         21,
@@ -1223,41 +369,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 4
-        },
-        {
-          "depth": 1,
-          "value": 21
-        },
-        {
-          "depth": 2,
-          "value": 21
-        },
-        {
-          "depth": 3,
-          "value": 7
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 26,
-      "degree": 5,
+      "vector_length": 6,
       "vector": [
         5,
         10,
@@ -1265,37 +381,11 @@
         20,
         3,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 5
-        },
-        {
-          "depth": 1,
-          "value": 10
-        },
-        {
-          "depth": 2,
-          "value": 23
-        },
-        {
-          "depth": 3,
-          "value": 20
-        },
-        {
-          "depth": 4,
-          "value": 3
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 27,
-      "degree": 5,
+      "vector_length": 6,
       "vector": [
         5,
         13,
@@ -1303,37 +393,11 @@
         19,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 5
-        },
-        {
-          "depth": 1,
-          "value": 13
-        },
-        {
-          "depth": 2,
-          "value": 17
-        },
-        {
-          "depth": 3,
-          "value": 19
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 28,
-      "degree": 5,
+      "vector_length": 6,
       "vector": [
         5,
         18,
@@ -1341,37 +405,11 @@
         8,
         2,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 5
-        },
-        {
-          "depth": 1,
-          "value": 18
-        },
-        {
-          "depth": 2,
-          "value": 28
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 2
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 29,
-      "degree": 5,
+      "vector_length": 8,
       "vector": [
         5,
         17,
@@ -1381,45 +419,11 @@
         4,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 5
-        },
-        {
-          "depth": 1,
-          "value": 17
-        },
-        {
-          "depth": 2,
-          "value": 18
-        },
-        {
-          "depth": 3,
-          "value": 9
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 4
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 30,
-      "degree": 5,
+      "vector_length": 7,
       "vector": [
         5,
         16,
@@ -1428,41 +432,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 5
-        },
-        {
-          "depth": 1,
-          "value": 16
-        },
-        {
-          "depth": 2,
-          "value": 23
-        },
-        {
-          "depth": 3,
-          "value": 14
-        },
-        {
-          "depth": 4,
-          "value": 2
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 31,
-      "degree": 5,
+      "vector_length": 6,
       "vector": [
         5,
         20,
@@ -1470,37 +444,11 @@
         12,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 5
-        },
-        {
-          "depth": 1,
-          "value": 20
-        },
-        {
-          "depth": 2,
-          "value": 23
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 1
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 32,
-      "degree": 5,
+      "vector_length": 7,
       "vector": [
         5,
         12,
@@ -1509,41 +457,11 @@
         11,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 5
-        },
-        {
-          "depth": 1,
-          "value": 12
-        },
-        {
-          "depth": 2,
-          "value": 13
-        },
-        {
-          "depth": 3,
-          "value": 19
-        },
-        {
-          "depth": 4,
-          "value": 11
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 33,
-      "degree": 5,
+      "vector_length": 8,
       "vector": [
         5,
         18,
@@ -1553,45 +471,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 5
-        },
-        {
-          "depth": 1,
-          "value": 18
-        },
-        {
-          "depth": 2,
-          "value": 15
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 34,
-      "degree": 6,
+      "vector_length": 7,
       "vector": [
         6,
         14,
@@ -1600,41 +484,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 6
-        },
-        {
-          "depth": 1,
-          "value": 14
-        },
-        {
-          "depth": 2,
-          "value": 22
-        },
-        {
-          "depth": 3,
-          "value": 11
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 35,
-      "degree": 6,
+      "vector_length": 7,
       "vector": [
         6,
         15,
@@ -1643,41 +497,11 @@
         4,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 6
-        },
-        {
-          "depth": 1,
-          "value": 15
-        },
-        {
-          "depth": 2,
-          "value": 22
-        },
-        {
-          "depth": 3,
-          "value": 13
-        },
-        {
-          "depth": 4,
-          "value": 4
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 36,
-      "degree": 6,
+      "vector_length": 7,
       "vector": [
         6,
         12,
@@ -1686,41 +510,11 @@
         18,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 6
-        },
-        {
-          "depth": 1,
-          "value": 12
-        },
-        {
-          "depth": 2,
-          "value": 6
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 18
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 37,
-      "degree": 6,
+      "vector_length": 7,
       "vector": [
         6,
         21,
@@ -1729,41 +523,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 6
-        },
-        {
-          "depth": 1,
-          "value": 21
-        },
-        {
-          "depth": 2,
-          "value": 17
-        },
-        {
-          "depth": 3,
-          "value": 9
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 38,
-      "degree": 6,
+      "vector_length": 7,
       "vector": [
         6,
         21,
@@ -1772,41 +536,11 @@
         4,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 6
-        },
-        {
-          "depth": 1,
-          "value": 21
-        },
-        {
-          "depth": 2,
-          "value": 22
-        },
-        {
-          "depth": 3,
-          "value": 7
-        },
-        {
-          "depth": 4,
-          "value": 4
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 39,
-      "degree": 6,
+      "vector_length": 8,
       "vector": [
         6,
         21,
@@ -1816,45 +550,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 6
-        },
-        {
-          "depth": 1,
-          "value": 21
-        },
-        {
-          "depth": 2,
-          "value": 13
-        },
-        {
-          "depth": 3,
-          "value": 6
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 40,
-      "degree": 6,
+      "vector_length": 8,
       "vector": [
         6,
         20,
@@ -1864,45 +564,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 6
-        },
-        {
-          "depth": 1,
-          "value": 20
-        },
-        {
-          "depth": 2,
-          "value": 16
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 41,
-      "degree": 6,
+      "vector_length": 8,
       "vector": [
         6,
         22,
@@ -1912,45 +578,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 6
-        },
-        {
-          "depth": 1,
-          "value": 22
-        },
-        {
-          "depth": 2,
-          "value": 14
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 42,
-      "degree": 7,
+      "vector_length": 8,
       "vector": [
         7,
         10,
@@ -1960,45 +592,11 @@
         11,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 7
-        },
-        {
-          "depth": 1,
-          "value": 10
-        },
-        {
-          "depth": 2,
-          "value": 5
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 19
-        },
-        {
-          "depth": 5,
-          "value": 11
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 43,
-      "degree": 7,
+      "vector_length": 6,
       "vector": [
         7,
         13,
@@ -2006,37 +604,11 @@
         18,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 7
-        },
-        {
-          "depth": 1,
-          "value": 13
-        },
-        {
-          "depth": 2,
-          "value": 16
-        },
-        {
-          "depth": 3,
-          "value": 18
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 44,
-      "degree": 7,
+      "vector_length": 7,
       "vector": [
         7,
         17,
@@ -2045,41 +617,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 7
-        },
-        {
-          "depth": 1,
-          "value": 17
-        },
-        {
-          "depth": 2,
-          "value": 18
-        },
-        {
-          "depth": 3,
-          "value": 11
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 45,
-      "degree": 7,
+      "vector_length": 6,
       "vector": [
         7,
         28,
@@ -2087,37 +629,11 @@
         3,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 7
-        },
-        {
-          "depth": 1,
-          "value": 28
-        },
-        {
-          "depth": 2,
-          "value": 22
-        },
-        {
-          "depth": 3,
-          "value": 3
-        },
-        {
-          "depth": 4,
-          "value": 1
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 46,
-      "degree": 7,
+      "vector_length": 8,
       "vector": [
         7,
         22,
@@ -2127,45 +643,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 7
-        },
-        {
-          "depth": 1,
-          "value": 22
-        },
-        {
-          "depth": 2,
-          "value": 13
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 47,
-      "degree": 7,
+      "vector_length": 8,
       "vector": [
         7,
         22,
@@ -2175,45 +657,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 7
-        },
-        {
-          "depth": 1,
-          "value": 22
-        },
-        {
-          "depth": 2,
-          "value": 13
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 48,
-      "degree": 7,
+      "vector_length": 8,
       "vector": [
         7,
         27,
@@ -2223,45 +671,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 7
-        },
-        {
-          "depth": 1,
-          "value": 27
-        },
-        {
-          "depth": 2,
-          "value": 10
-        },
-        {
-          "depth": 3,
-          "value": 6
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 49,
-      "degree": 8,
+      "vector_length": 6,
       "vector": [
         8,
         17,
@@ -2269,37 +683,11 @@
         12,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 8
-        },
-        {
-          "depth": 1,
-          "value": 17
-        },
-        {
-          "depth": 2,
-          "value": 23
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 1
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 50,
-      "degree": 8,
+      "vector_length": 7,
       "vector": [
         8,
         11,
@@ -2308,41 +696,11 @@
         18,
         7,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 8
-        },
-        {
-          "depth": 1,
-          "value": 11
-        },
-        {
-          "depth": 2,
-          "value": 5
-        },
-        {
-          "depth": 3,
-          "value": 12
-        },
-        {
-          "depth": 4,
-          "value": 18
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 51,
-      "degree": 8,
+      "vector_length": 8,
       "vector": [
         8,
         18,
@@ -2352,45 +710,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 8
-        },
-        {
-          "depth": 1,
-          "value": 18
-        },
-        {
-          "depth": 2,
-          "value": 14
-        },
-        {
-          "depth": 3,
-          "value": 10
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 52,
-      "degree": 8,
+      "vector_length": 6,
       "vector": [
         8,
         27,
@@ -2398,37 +722,11 @@
         9,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 8
-        },
-        {
-          "depth": 1,
-          "value": 27
-        },
-        {
-          "depth": 2,
-          "value": 16
-        },
-        {
-          "depth": 3,
-          "value": 9
-        },
-        {
-          "depth": 4,
-          "value": 1
-        },
-        {
-          "depth": 5,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 53,
-      "degree": 9,
+      "vector_length": 7,
       "vector": [
         9,
         12,
@@ -2437,41 +735,11 @@
         11,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 9
-        },
-        {
-          "depth": 1,
-          "value": 12
-        },
-        {
-          "depth": 2,
-          "value": 9
-        },
-        {
-          "depth": 3,
-          "value": 19
-        },
-        {
-          "depth": 4,
-          "value": 11
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 54,
-      "degree": 9,
+      "vector_length": 7,
       "vector": [
         9,
         10,
@@ -2480,41 +748,11 @@
         12,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 9
-        },
-        {
-          "depth": 1,
-          "value": 10
-        },
-        {
-          "depth": 2,
-          "value": 9
-        },
-        {
-          "depth": 3,
-          "value": 20
-        },
-        {
-          "depth": 4,
-          "value": 12
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 55,
-      "degree": 9,
+      "vector_length": 7,
       "vector": [
         9,
         24,
@@ -2523,41 +761,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 9
-        },
-        {
-          "depth": 1,
-          "value": 24
-        },
-        {
-          "depth": 2,
-          "value": 17
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 2
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 56,
-      "degree": 9,
+      "vector_length": 8,
       "vector": [
         9,
         20,
@@ -2567,45 +775,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 9
-        },
-        {
-          "depth": 1,
-          "value": 20
-        },
-        {
-          "depth": 2,
-          "value": 12
-        },
-        {
-          "depth": 3,
-          "value": 5
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 7
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 57,
-      "degree": 10,
+      "vector_length": 8,
       "vector": [
         10,
         14,
@@ -2615,45 +789,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 10
-        },
-        {
-          "depth": 1,
-          "value": 14
-        },
-        {
-          "depth": 2,
-          "value": 16
-        },
-        {
-          "depth": 3,
-          "value": 10
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 58,
-      "degree": 10,
+      "vector_length": 7,
       "vector": [
         10,
         20,
@@ -2662,41 +802,11 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 10
-        },
-        {
-          "depth": 1,
-          "value": 20
-        },
-        {
-          "depth": 2,
-          "value": 16
-        },
-        {
-          "depth": 3,
-          "value": 7
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 59,
-      "degree": 11,
+      "vector_length": 8,
       "vector": [
         11,
         19,
@@ -2706,45 +816,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 11
-        },
-        {
-          "depth": 1,
-          "value": 19
-        },
-        {
-          "depth": 2,
-          "value": 12
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 8
-        },
-        {
-          "depth": 5,
-          "value": 2
-        },
-        {
-          "depth": 6,
-          "value": 1
-        },
-        {
-          "depth": 7,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 60,
-      "degree": 11,
+      "vector_length": 7,
       "vector": [
         11,
         23,
@@ -2753,41 +829,11 @@
         2,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 11
-        },
-        {
-          "depth": 1,
-          "value": 23
-        },
-        {
-          "depth": 2,
-          "value": 16
-        },
-        {
-          "depth": 3,
-          "value": 8
-        },
-        {
-          "depth": 4,
-          "value": 2
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     },
     {
       "node_idx": 61,
-      "degree": 12,
+      "vector_length": 7,
       "vector": [
         12,
         21,
@@ -2796,36 +842,6 @@
         7,
         1,
         0
-      ],
-      "depths": [
-        {
-          "depth": 0,
-          "value": 12
-        },
-        {
-          "depth": 1,
-          "value": 21
-        },
-        {
-          "depth": 2,
-          "value": 13
-        },
-        {
-          "depth": 3,
-          "value": 7
-        },
-        {
-          "depth": 4,
-          "value": 7
-        },
-        {
-          "depth": 5,
-          "value": 1
-        },
-        {
-          "depth": 6,
-          "value": 0
-        }
       ]
     }
   ]
