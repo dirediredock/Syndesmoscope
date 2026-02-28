@@ -62,6 +62,14 @@ function AdjacencyMatrixPane({ data, networkName }) {
     selectEdges
   } = useSelection()
 
+  const handleSelectIntersectionEdges = useCallback(() => {
+    if (!data || selectedNodes.size === 0) return
+    const intersectionEdgeIdxs = data.edges
+      .filter(e => selectedNodes.has(e.source_node_idx) && selectedNodes.has(e.target_node_idx))
+      .map(e => e.edge_idx)
+    selectEdges(intersectionEdgeIdxs)
+  }, [data, selectedNodes, selectEdges])
+
   const {
     transform,
     resetZoom,
@@ -454,6 +462,22 @@ function AdjacencyMatrixPane({ data, networkName }) {
               </svg>
             </button>
           </div>
+          <div className="zoom-controls" role="group" aria-label="Select Intersection Edges">
+            <button
+              className={`zoom-btn${selectedNodes.size > 0 ? '' : ' zoom-btn--off'}`}
+              style={selectedNodes.size > 0 ? { color: 'var(--color-edge-selected)' } : undefined}
+              onClick={handleSelectIntersectionEdges}
+              disabled={selectedNodes.size === 0}
+              aria-label="Select edges at intersection of selected nodes"
+              title="Select intersection edges"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14">
+                <line x1="7" y1="0" x2="7" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="0" y1="7" x2="14" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="7" cy="7" r="3.5" fill="currentColor" />
+              </svg>
+            </button>
+          </div>
         </>
       }
       sizeControls={{
@@ -473,3 +497,4 @@ function AdjacencyMatrixPane({ data, networkName }) {
 }
 
 export default AdjacencyMatrixPane
+

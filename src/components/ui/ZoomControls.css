@@ -51,6 +51,7 @@
 .zoom-level {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
+  font-weight: 700;
   color: var(--color-text-muted);
   min-width: 40px;
   text-align: center;

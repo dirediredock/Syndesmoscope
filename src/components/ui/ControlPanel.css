@@ -132,7 +132,7 @@
   padding: var(--space-1) var(--space-2);
   background-color: transparent;
   color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -141,7 +141,6 @@
 .control-button:hover {
   background-color: var(--color-bg-tertiary);
   color: var(--color-text-primary);
-  border-color: var(--color-text-muted);
 }
 
 .control-status {
