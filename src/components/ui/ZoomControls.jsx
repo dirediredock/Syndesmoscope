@@ -36,22 +36,14 @@ function ZoomControls({
       )}
 
       <button
-        className="zoom-btn"
+        className="zoom-level"
         onClick={onReset}
         disabled={disabled}
         aria-label="Reset Zoom"
         title="Reset Zoom"
       >
-        <svg width="14" height="14" viewBox="0 0 14 14">
-          <rect x="2" y="2" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.5" rx="1" />
-        </svg>
-      </button>
-
-      <div className="zoom-divider" />
-
-      <span className="zoom-level" title="Current zoom level">
         {zoomPercent}%
-      </span>
+      </button>
 
 
 
