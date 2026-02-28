@@ -143,6 +143,17 @@
   color: var(--color-text-primary);
 }
 
+.control-button--reversed {
+  background-color: var(--color-text-secondary);
+  color: var(--color-bg-primary);
+  font-weight: 700;
+}
+
+.control-button--reversed:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+}
+
 .control-status {
   font-family: var(--font-mono);
   font-size: var(--text-xs);

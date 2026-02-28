@@ -447,21 +447,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
               </svg>
             </button>
           </div>
-          <div className="zoom-controls" role="group" aria-label="Gridlines">
-            <button
-              className={`zoom-btn${showGridlines ? ' zoom-btn--active' : ' zoom-btn--off'}`}
-              onClick={() => setShowGridlines(v => !v)}
-              aria-label="Toggle Gridlines"
-              title={showGridlines ? 'Hide gridlines' : 'Show gridlines'}
-            >
-              <svg width="14" height="14" viewBox="0 0 10 10">
-                <line x1="0" y1="3.5" x2="10" y2="3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="0" y1="6.5" x2="10" y2="6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="3.5" y1="0" x2="3.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="6.5" y1="0" x2="6.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
           <div className="zoom-controls" role="group" aria-label="Select Intersection Edges">
             <button
               className={`zoom-btn${selectedNodes.size > 0 ? '' : ' zoom-btn--off'}`}
@@ -478,11 +463,34 @@ function AdjacencyMatrixPane({ data, networkName }) {
               </svg>
             </button>
           </div>
+          <div className="zoom-controls" role="group" aria-label="Gridlines">
+            <button
+              className={`zoom-btn${showGridlines ? ' zoom-btn--active' : ' zoom-btn--off'}`}
+              onClick={() => setShowGridlines(v => !v)}
+              aria-label="Toggle Gridlines"
+              title={showGridlines ? 'Hide gridlines' : 'Show gridlines'}
+            >
+              <svg width="14" height="14" viewBox="0 0 10 10">
+                <line x1="0" y1="3.5" x2="10" y2="3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="0" y1="6.5" x2="10" y2="6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="3.5" y1="0" x2="3.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="6.5" y1="0" x2="6.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
         </>
       }
       sizeControls={{
         nodeSize,
         edgeSize,
+        edgeIcon: (
+          <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+            <line x1="0" y1="3.5" x2="10" y2="3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="0" y1="6.5" x2="10" y2="6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="3.5" y1="0" x2="3.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="6.5" y1="0" x2="6.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+        ),
         onNodeSizeChange: setNodeSize,
         onEdgeSizeChange: setEdgeSize
       }}
