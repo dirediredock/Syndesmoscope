@@ -168,7 +168,7 @@ function HopCensusPane({ data, networkName }) {
     d3.select(container).selectAll('*').remove()
 
     // Sort census vectors by vector_length ascending
-    const sorted = [...data.census_vectors].sort((a, b) => a.vector_length - b.vector_length)
+    const sorted = [...data.census_vectors].sort((a, b) => b.vector_length - a.vector_length)
     const distinctLengths = [...new Set(sorted.map(v => v.vector_length))]
     const numBands = distinctLengths.length
     const bandIndexMap = new Map(distinctLengths.map((len, i) => [len, i]))
