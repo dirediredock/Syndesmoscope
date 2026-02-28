@@ -93,7 +93,7 @@ function ControlPanel() {
             )}
           </div>
           <button 
-            className="control-button"
+            className="control-button control-button--reversed"
             onClick={clearAllSelections}
           >
             Clear All

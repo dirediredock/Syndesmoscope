@@ -51,10 +51,32 @@
 .zoom-level {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
+  font-weight: 700;
   color: var(--color-text-muted);
   min-width: 40px;
   text-align: center;
   user-select: none;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 24px;
+  padding: 0 4px;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.zoom-level:hover:not(:disabled) {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.zoom-level:active:not(:disabled) {
+  background-color: var(--color-border);
+}
+
+.zoom-level:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .zoom-divider {

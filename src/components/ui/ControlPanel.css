@@ -132,7 +132,7 @@
   padding: var(--space-1) var(--space-2);
   background-color: transparent;
   color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -141,7 +141,17 @@
 .control-button:hover {
   background-color: var(--color-bg-tertiary);
   color: var(--color-text-primary);
-  border-color: var(--color-text-muted);
+}
+
+.control-button--reversed {
+  background-color: var(--color-text-secondary);
+  color: var(--color-bg-primary);
+  font-weight: 700;
+}
+
+.control-button--reversed:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
 }
 
 .control-status {

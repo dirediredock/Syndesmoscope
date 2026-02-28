@@ -25,8 +25,13 @@ function App() {
                 <button
                   className="control-button"
                   onClick={() => resetLayoutRef.current?.()}
+                  title="Equal Width Panes"
                 >
-                  Resize Panes
+                  <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke="currentColor" strokeWidth="1.2" style={{ display: 'block' }}>
+                    <rect x="1" y="1" width="4.5" height="14" rx="1" />
+                    <rect x="7.75" y="1" width="4.5" height="14" rx="1" />
+                    <rect x="14.5" y="1" width="4.5" height="14" rx="1" />
+                  </svg>
                 </button>
                 {/* <ThemeToggle /> */}
               </div>

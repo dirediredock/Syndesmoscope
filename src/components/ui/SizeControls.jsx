@@ -27,7 +27,9 @@ function getSizeName(size) {
  */
 function SizeControls({
   nodeSize = null,
+  nodeIcon = null,
   edgeSize = null,
+  edgeIcon = null,
   onNodeSizeChange,
   onEdgeSizeChange,
   gridlinesVisible = null,
@@ -52,9 +54,11 @@ function SizeControls({
           aria-label={`Node Size`}
           title={`Node Size`}
         >
-          <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
-            <circle cx="5" cy="5" r="4" fill="currentColor" />
-          </svg>
+          {nodeIcon || (
+            <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+              <circle cx="5" cy="5" r="4" fill="currentColor" />
+            </svg>
+          )}
           <span className="size-toggle-label">{nodeSize}</span>
         </button>
       )}
@@ -71,9 +75,13 @@ function SizeControls({
           aria-label={`Edge Size`}
           title={`Edge Size`}
         >
-          <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
-            <line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          </svg>
+          {edgeIcon || (
+            <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+              <line x1="2" y1="8" x2="8" y2="2" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="2" cy="8" r="1.5" fill="currentColor" />
+              <circle cx="8" cy="2" r="1.5" fill="currentColor" />
+            </svg>
+          )}
           <span className="size-toggle-label">{edgeSize}</span>
         </button>
       )}
@@ -91,10 +99,10 @@ function SizeControls({
           title={gridlinesVisible ? 'Hide gridlines' : 'Show gridlines'}
         >
           <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
-            <line x1="0" y1="2" x2="10" y2="2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <line x1="0" y1="8" x2="10" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <line x1="2" y1="0" x2="2" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <line x1="8" y1="0" x2="8" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="0" y1="2" x2="10" y2="2" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" />
+            <line x1="0" y1="8" x2="10" y2="8" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" />
+            <line x1="2" y1="0" x2="2" y2="10" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" />
+            <line x1="8" y1="0" x2="8" y2="10" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" />
           </svg>
         </button>
       )}

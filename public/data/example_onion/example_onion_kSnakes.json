@@ -18,37 +18,37 @@
               "onion_value": 1
             },
             {
-              "node_idx": 6,
+              "node_idx": 1,
               "x_position": -10,
               "onion_value": 1
             },
             {
-              "node_idx": 7,
+              "node_idx": 2,
               "x_position": -9,
               "onion_value": 1
             },
             {
-              "node_idx": 1,
+              "node_idx": 5,
               "x_position": -8,
               "onion_value": 2
             },
             {
-              "node_idx": 4,
+              "node_idx": 11,
               "x_position": -7,
               "onion_value": 2
             },
             {
-              "node_idx": 2,
+              "node_idx": 6,
               "x_position": -6,
               "onion_value": 3
             },
             {
-              "node_idx": 3,
+              "node_idx": 12,
               "x_position": -5,
               "onion_value": 4
             },
             {
-              "node_idx": 5,
+              "node_idx": 7,
               "x_position": -4,
               "onion_value": 5
             },
@@ -63,17 +63,17 @@
           "island_idx": 1,
           "nodes": [
             {
-              "node_idx": 15,
+              "node_idx": 3,
               "x_position": -2,
               "onion_value": 1
             },
             {
-              "node_idx": 16,
+              "node_idx": 4,
               "x_position": -1,
               "onion_value": 1
             },
             {
-              "node_idx": 14,
+              "node_idx": 13,
               "x_position": 0,
               "onion_value": 2
             }
@@ -88,27 +88,27 @@
           "island_idx": 0,
           "nodes": [
             {
-              "node_idx": 10,
+              "node_idx": 9,
               "x_position": -4,
               "onion_value": 13
             },
             {
-              "node_idx": 13,
+              "node_idx": 10,
               "x_position": -3,
               "onion_value": 13
             },
             {
-              "node_idx": 9,
+              "node_idx": 14,
               "x_position": -2,
               "onion_value": 14
             },
             {
-              "node_idx": 11,
+              "node_idx": 15,
               "x_position": -1,
               "onion_value": 14
             },
             {
-              "node_idx": 12,
+              "node_idx": 16,
               "x_position": 0,
               "onion_value": 14
             }

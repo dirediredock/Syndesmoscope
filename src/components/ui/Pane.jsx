@@ -58,10 +58,10 @@ function Pane({
       >
         <div className="pane-header-left">
           {headerControls && !isEmpty && headerControls}
-          {sizeControls && !isEmpty && <SizeControls {...sizeControls} />}
         </div>
         <div className="pane-header-right">
           {preZoomControls && !isEmpty && preZoomControls}
+          {sizeControls && !isEmpty && <SizeControls {...sizeControls} />}
           {zoomControls && !isEmpty && <ZoomControls {...zoomControls} />}
           {postZoomControls && !isEmpty && postZoomControls}
         </div>
