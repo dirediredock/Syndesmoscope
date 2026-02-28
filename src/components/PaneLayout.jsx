@@ -36,6 +36,7 @@ function PaneLayout({ onResetRef }) {
       >
         <KSnakesPane
           data={networkData?.kSnakes}
+          nodeLinkData={networkData?.nodeLink}
           networkName={currentNetwork?.name}
         />
       </Panel>

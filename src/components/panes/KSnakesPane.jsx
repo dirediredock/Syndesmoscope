@@ -20,6 +20,17 @@ import './KSnakesPane.css'
 
 const ACCENT_COLOR = 'var(--color-accent-ksnakes)'
 
+// Edge overlay sizes (same values as NodeLink EDGE_SIZES)
+const EDGE_OVERLAY_SIZES = {
+  XS: { default: 0.25, highlighted: 0.5 },
+  S:  { default: 0.5,  highlighted: 1   },
+  M:  { default: 1,    highlighted: 2   },
+  L:  { default: 2,    highlighted: 3.5 },
+  XL: { default: 4,    highlighted: 6   }
+}
+
+const OVERLAY_CYCLE = ['off', 'XS', 'S', 'M', 'L', 'XL']
+
 // Radius steps by ~1.7× per level so visual area (πr²) steps by ~3× per level
 const NODE_SIZES = {
   XS: { default: 0.1,  highlighted: 0.1 },
@@ -38,7 +49,7 @@ const STRUCTURE_SIZES = {
   XL: { core: 52, island: 29,  coreSingleton: 25, islandSingleton: 14  }
 }
 
-function KSnakesPane({ data, networkName }) {
+function KSnakesPane({ data, nodeLinkData, networkName }) {
   const containerRef = useRef(null)
   const svgRef = useRef(null)
   const zoomContainerRef = useRef(null)
@@ -47,11 +58,14 @@ function KSnakesPane({ data, networkName }) {
 
   const [nodeSize, setNodeSize] = useState('M')
   const [edgeSize, setEdgeSize] = useState('M')
+  const [edgeOverlay, setEdgeOverlay] = useState('off')
   const [brushMode, setBrushMode] = useState(false)
 
   const {
     hoveredNodes,
+    hoveredEdges,
     selectedNodes,
+    selectedEdges,
     hoverNode,
     clearHover,
     toggleNodeSelection,
@@ -105,6 +119,7 @@ function KSnakesPane({ data, networkName }) {
     handleResetZoom()
     setNodeSize('M')
     setEdgeSize('M')
+    setEdgeOverlay('off')
   }, [data, handleResetZoom])
 
   useEffect(() => {
@@ -317,6 +332,35 @@ function KSnakesPane({ data, networkName }) {
           .attr('stroke-linejoin', 'round')
       })
     })
+
+    // z-order 2: Edge overlay lines (from NodeLink data, view-only)
+    if (nodeLinkData && nodeLinkData.edges) {
+      const nodePositions = new Map()
+      allNodes.forEach(n => {
+        nodePositions.set(n.node_idx, { x: xScale(n.x_position), y: yScale(n.onion_value) })
+      })
+
+      const edgeOverlayGroup = contentGroup.append('g')
+        .attr('class', 'edge-overlay')
+        .style('pointer-events', 'none')
+
+      nodeLinkData.edges.forEach(edge => {
+        const src = nodePositions.get(edge.source)
+        const tgt = nodePositions.get(edge.target)
+        if (!src || !tgt) return
+
+        edgeOverlayGroup.append('line')
+          .attr('class', 'overlay-edge')
+          .attr('data-edge-idx', edge.edge_idx)
+          .attr('x1', src.x)
+          .attr('y1', src.y)
+          .attr('x2', tgt.x)
+          .attr('y2', tgt.y)
+          .attr('stroke', 'var(--color-edge-selected)')
+          .attr('stroke-width', 1)
+          .style('display', 'none')
+      })
+    }
 
     // Node circles (single filled circles like NodeLink)
     const nodesGroup = contentGroup.append('g').attr('class', 'snake-nodes')
@@ -571,6 +615,40 @@ function KSnakesPane({ data, networkName }) {
 
   }, [hoveredNodes, selectedNodes, nodeSize])
 
+  // Update edge overlay visibility, sizing, and highlighting
+  useEffect(() => {
+    if (!svgRef.current) return
+
+    const svg = d3.select(svgRef.current)
+    const overlayGroup = svg.select('.edge-overlay')
+    if (overlayGroup.empty()) return
+
+    if (edgeOverlay === 'off') {
+      overlayGroup.style('display', 'none')
+      return
+    }
+
+    overlayGroup.style('display', null)
+    const sizes = EDGE_OVERLAY_SIZES[edgeOverlay]
+
+    svg.selectAll('.overlay-edge')
+      .style('display', function () {
+        const edgeIdx = +d3.select(this).attr('data-edge-idx')
+        return selectedEdges.has(edgeIdx) ? null : 'none'
+      })
+      .attr('stroke', function () {
+        const edgeIdx = +d3.select(this).attr('data-edge-idx')
+        if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
+        return 'var(--color-edge-selected)'
+      })
+      .attr('stroke-width', function () {
+        const edgeIdx = +d3.select(this).attr('data-edge-idx')
+        if (hoveredEdges.has(edgeIdx)) return sizes.highlighted
+        return sizes.default
+      })
+
+  }, [edgeOverlay, hoveredEdges, selectedEdges])
+
 
   return (
     <Pane
@@ -578,19 +656,40 @@ function KSnakesPane({ data, networkName }) {
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
       headerControls={
-        <div className="zoom-controls" role="group" aria-label="Brush Selection">
-          <button
-            className={`zoom-btn${brushMode ? ' zoom-btn--active' : ' zoom-btn--off'}`}
-            onClick={() => setBrushMode(b => !b)}
-            aria-label="Toggle brush selection"
-            title="Brush Select"
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14">
-              <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              <rect x="5.5" y="7" width="3" height="5" rx="0.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-          </button>
-        </div>
+        <>
+          <div className="zoom-controls" role="group" aria-label="Brush Selection">
+            <button
+              className={`zoom-btn${brushMode ? ' zoom-btn--active' : ' zoom-btn--off'}`}
+              onClick={() => setBrushMode(b => !b)}
+              aria-label="Toggle brush selection"
+              title="Brush Select"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14">
+                <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <rect x="5.5" y="7" width="3" height="5" rx="0.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </button>
+          </div>
+          <div className="size-controls" role="group" aria-label="Edge Overlay">
+            <button
+              className={`size-toggle-btn${edgeOverlay === 'off' ? ' size-toggle-btn--off' : ''}`}
+              style={edgeOverlay !== 'off' ? { color: 'var(--color-edge-selected)' } : undefined}
+              onClick={() => {
+                const idx = OVERLAY_CYCLE.indexOf(edgeOverlay)
+                setEdgeOverlay(OVERLAY_CYCLE[(idx + 1) % OVERLAY_CYCLE.length])
+              }}
+              aria-label="Overlay Edges"
+              title={edgeOverlay === 'off' ? 'Show edges' : `Edges: ${edgeOverlay}`}
+            >
+              <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+                <line x1="2" y1="8" x2="8" y2="2" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="2" cy="8" r="1.5" fill="currentColor" />
+                <circle cx="8" cy="2" r="1.5" fill="currentColor" />
+              </svg>
+              {edgeOverlay !== 'off' && <span className="size-toggle-label">{edgeOverlay}</span>}
+            </button>
+          </div>
+        </>
       }
       zoomControls={{
         onReset: handleResetZoom,
