@@ -23,7 +23,9 @@
 
   /* k-Snakes visualization colors (dark mode compatible) */
   --color-ksnakes-core: #114055;      /* sky-300: visible on dark bg */
-  --color-ksnakes-island: #232b4a;    /* violet-300: visible on dark bg */
+  /* --color-ksnakes-island: #232b4a;    violet-300: visible on dark bg */
+  --color-ksnakes-island: black;
+  --color-ksnakes-core:  #21262d;
   
   /* Accent colors for pane headers
   --color-accent-nodelink: #7ee787;
