@@ -43,6 +43,7 @@ function HopCensusPane({ data, networkName }) {
   const maxCountRef = useRef(null)
   const lineRef = useRef(null)
   const vectorsByIdxRef = useRef(null)
+  const bandIndexMapRef = useRef(null)
 
   const [nodeSize, setNodeSize] = useState('S')
   const [brushMode, setBrushMode] = useState(false)
@@ -135,19 +136,22 @@ function HopCensusPane({ data, networkName }) {
 
   // Apply translocation offsets to path `d` attributes (no rebuild needed)
   useEffect(() => {
-    if (!svgRef.current || !lineRef.current || !vectorsByIdxRef.current || maxCountRef.current == null) return
+    if (!svgRef.current || !lineRef.current || !vectorsByIdxRef.current || !bandIndexMapRef.current || maxCountRef.current == null) return
     const maxCount = maxCountRef.current
     const line = lineRef.current
     const vectorsByIdx = vectorsByIdxRef.current
+    const bim = bandIndexMapRef.current
 
     d3.select(svgRef.current)
       .selectAll('.census-line')
       .attr('d', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
+        const vecLen = +d3.select(this).attr('data-vector-length')
+        const bandIdx = bim.get(vecLen) || 0
         const multiplier = offsetMap.get(nodeIdx) || 0
         const rawVector = vectorsByIdx.get(nodeIdx)
         if (!rawVector) return ''
-        const shifted = rawVector.map(v => v + multiplier * maxCount)
+        const shifted = rawVector.map(v => v + (bandIdx + multiplier) * maxCount)
         return line(shifted)
       })
   }, [offsetMap])
@@ -163,9 +167,15 @@ function HopCensusPane({ data, networkName }) {
     // Clear previous
     d3.select(container).selectAll('*').remove()
 
-    // Content uses 1:9 aspect ratio (9× taller than wide)
+    // Sort census vectors by vector_length ascending
+    const sorted = [...data.census_vectors].sort((a, b) => a.vector_length - b.vector_length)
+    const distinctLengths = [...new Set(sorted.map(v => v.vector_length))]
+    const numBands = distinctLengths.length
+    const bandIndexMap = new Map(distinctLengths.map((len, i) => [len, i]))
+
+    // Aspect ratio scales with number of bands (each band ~1× wide)
     const contentWidth = width
-    const contentHeight = contentWidth * 9
+    const contentHeight = contentWidth * Math.max(3, numBands)
 
     // 5% margins (proportional to content width)
     const margin = {
@@ -177,17 +187,16 @@ function HopCensusPane({ data, networkName }) {
     const innerWidth = contentWidth - margin.left - margin.right
     const innerHeight = contentHeight - margin.top - margin.bottom
 
-    // Offset content so middle lane is centered in viewport at identity transform
-    const middleLaneCenterY = margin.top + innerHeight * 4.5 / 9
-    const preOffsetY = height / 2 - middleLaneCenterY
+    // Center content vertically in viewport
+    const contentCenterY = margin.top + innerHeight / 2
+    const preOffsetY = height / 2 - contentCenterY
 
-    // Store middle-lane bounds (the [0, maxCount] region where unshifted data lives)
-    // This is lane 5 of 9 (4 lanes above, 4 lanes below), accounting for pre-offset
+    // Store full content bounds for zoom-reset centering
     boundsRef.current = {
       x: margin.left,
-      y: margin.top + preOffsetY + innerHeight * 4 / 9,
+      y: margin.top + preOffsetY,
       width: innerWidth,
-      height: innerHeight / 9
+      height: innerHeight
     }
 
     // Create SVG at viewport dimensions
@@ -206,15 +215,16 @@ function HopCensusPane({ data, networkName }) {
       .domain([0, maxHop])
       .range([0, innerWidth])
 
-    // Y domain: [-4 * maxCount, 5 * maxCount] — 9 lanes total
-    // Unshifted data in middle lane (lane 5), 4 lanes above, 4 lanes below
+    // Y domain spans numBands bands, each of height maxCount
+    // Range is inverted so higher values render upward (SVG y=0 is top)
     const maxCount = d3.max(data.census_vectors, v => d3.max(v.vector))
     const yScale = d3.scaleLinear()
-      .domain([-4 * maxCount, 5 * maxCount])
+      .domain([0, numBands * maxCount])
       .range([innerHeight, 0])
 
-    // Store refs for efficient offset updates
+    // Store refs
     maxCountRef.current = maxCount
+    bandIndexMapRef.current = bandIndexMap
     const line = d3.line()
       .x((d, i) => xScale(i))
       .y(d => yScale(d))
@@ -231,35 +241,34 @@ function HopCensusPane({ data, networkName }) {
       .attr('class', 'content')
       .attr('transform', `translate(${margin.left},${margin.top + preOffsetY})`)
 
-    // Draw vertical gridlines at each hop position, spanning the polyline region + 5% buffer
+    // Draw vertical gridlines at each hop position, extending far beyond content
+    // so they remain visible at any zoom/pan level
     const gridGroup = contentGroup.append('g').attr('class', 'grid-lines')
-    const polyTop = yScale(maxCount)
-    const polyBottom = yScale(0)
-    const polySpan = polyBottom - polyTop
-    const gridY1 = polyTop - polySpan * 0.05
-    const gridY2 = polyBottom + polySpan * 0.05
+    const gridExtent = innerHeight * 100
     for (let i = 0; i <= maxHop; i++) {
       gridGroup.append('line')
         .attr('class', 'grid-line')
         .attr('x1', xScale(i))
-        .attr('y1', gridY1)
+        .attr('y1', -gridExtent)
         .attr('x2', xScale(i))
-        .attr('y2', gridY2)
+        .attr('y2', innerHeight + gridExtent)
         .attr('stroke', 'var(--color-ksnakes-island)')
         .attr('stroke-width', 1)
     }
 
-    // Draw polylines
+    // Draw polylines sorted by vector_length, each offset into its band
     const linesGroup = contentGroup.append('g').attr('class', 'census-lines')
 
     linesGroup.selectAll('.census-line')
-      .data(data.census_vectors)
+      .data(sorted)
       .join('path')
       .attr('class', 'census-line')
       .attr('data-node-idx', d => d.node_idx)
+      .attr('data-vector-length', d => d.vector_length)
       .attr('d', d => {
+        const bandIdx = bandIndexMap.get(d.vector_length)
         const multiplier = offsetMap.get(d.node_idx) || 0
-        const shifted = d.vector.map(v => v + multiplier * maxCount)
+        const shifted = d.vector.map(v => v + (bandIdx + multiplier) * maxCount)
         return line(shifted)
       })
       .attr('fill', 'none')

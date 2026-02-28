@@ -46,11 +46,11 @@ function PaneLayout({ onResetRef }) {
 
       <Panel
         defaultSize={20}
-        minSize={0.2}
+        minSize={0.3}
         className="panel"
       >
-        <NodeLinkPane
-          data={networkData?.nodeLink}
+        <HopCensusPane
+          data={networkData?.censusStub}
           networkName={currentNetwork?.name}
         />
       </Panel>
@@ -61,11 +61,11 @@ function PaneLayout({ onResetRef }) {
 
       <Panel
         defaultSize={20}
-        minSize={0.3}
+        minSize={0.2}
         className="panel"
       >
-        <HopCensusPane
-          data={networkData?.censusStub}
+        <NodeLinkPane
+          data={networkData?.nodeLink}
           networkName={currentNetwork?.name}
         />
       </Panel>
