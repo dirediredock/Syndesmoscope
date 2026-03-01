@@ -28,8 +28,10 @@ function getSizeName(size) {
 function SizeControls({
   nodeSize = null,
   nodeIcon = null,
+  nodeSizeLabel = 'Node Size',
   edgeSize = null,
   edgeIcon = null,
+  edgeSizeLabel = 'Edge Size',
   onNodeSizeChange,
   onEdgeSizeChange,
   gridlinesVisible = null,
@@ -51,11 +53,11 @@ function SizeControls({
           className="size-toggle-btn"
           onClick={() => onNodeSizeChange(getNextSize(nodeSize))}
           disabled={disabled}
-          aria-label={`Node Size`}
-          title={`Node Size`}
+          aria-label={nodeSizeLabel}
+          title={nodeSizeLabel}
         >
           {nodeIcon || (
-            <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+            <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 10 10">
               <circle cx="5" cy="5" r="4" fill="currentColor" />
             </svg>
           )}
@@ -72,11 +74,11 @@ function SizeControls({
           className="size-toggle-btn"
           onClick={() => onEdgeSizeChange(getNextSize(edgeSize))}
           disabled={disabled}
-          aria-label={`Edge Size`}
-          title={`Edge Size`}
+          aria-label={edgeSizeLabel}
+          title={edgeSizeLabel}
         >
           {edgeIcon || (
-            <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+            <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 10 10">
               <line x1="2" y1="8" x2="8" y2="2" stroke="currentColor" strokeWidth="1.5" />
               <circle cx="2" cy="8" r="1.5" fill="currentColor" />
               <circle cx="8" cy="2" r="1.5" fill="currentColor" />
@@ -98,7 +100,7 @@ function SizeControls({
           aria-label="Toggle Gridlines"
           title={gridlinesVisible ? 'Hide gridlines' : 'Show gridlines'}
         >
-          <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+          <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 10 10">
             <line x1="0" y1="2" x2="10" y2="2" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" />
             <line x1="0" y1="8" x2="10" y2="8" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" />
             <line x1="2" y1="0" x2="2" y2="10" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" />

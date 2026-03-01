@@ -354,8 +354,10 @@ function NodeLinkPane({ data, networkName }) {
       }}
       sizeControls={{
         nodeSize,
+        nodeSizeLabel: 'Node Point Size',
         onNodeSizeChange: setNodeSize,
         edgeSize,
+        edgeSizeLabel: 'Edge Line Size',
         onEdgeSizeChange: setEdgeSize
       }}
     >

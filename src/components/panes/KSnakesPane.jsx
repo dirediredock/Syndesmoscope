@@ -649,6 +649,13 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
 
   }, [edgeOverlay, hoveredEdges, selectedEdges])
 
+  // Reset edge overlay when all edges are deselected
+  useEffect(() => {
+    if (selectedEdges.size === 0 && edgeOverlay !== 'off') {
+      setEdgeOverlay('off')
+    }
+  }, [selectedEdges, edgeOverlay])
+
 
   return (
     <Pane
@@ -657,12 +664,12 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       isEmpty={!data}
       headerControls={
         <>
-          <div className="zoom-controls" role="group" aria-label="Brush Selection">
+          <div className="zoom-controls" role="group" aria-label="Brush">
             <button
               className={`zoom-btn${brushMode ? ' zoom-btn--active' : ' zoom-btn--off'}`}
               onClick={() => setBrushMode(b => !b)}
-              aria-label="Toggle brush selection"
-              title="Brush Select"
+              aria-label="Brush"
+              title="Brush"
             >
               <svg width="14" height="14" viewBox="0 0 14 14">
                 <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -672,16 +679,18 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
           </div>
           <div className="size-controls" role="group" aria-label="Edge Overlay">
             <button
-              className={`size-toggle-btn${edgeOverlay === 'off' ? ' size-toggle-btn--off' : ''}`}
-              style={edgeOverlay !== 'off' ? { color: 'var(--color-edge-selected)' } : undefined}
+              className={`size-toggle-btn${edgeOverlay === 'off' || selectedEdges.size === 0 ? ' size-toggle-btn--off' : ''}`}
+              style={edgeOverlay !== 'off' && selectedEdges.size > 0 ? { color: 'var(--color-edge-selected)' } : undefined}
               onClick={() => {
+                if (selectedEdges.size === 0) return
                 const idx = OVERLAY_CYCLE.indexOf(edgeOverlay)
                 setEdgeOverlay(OVERLAY_CYCLE[(idx + 1) % OVERLAY_CYCLE.length])
               }}
-              aria-label="Overlay Edges"
-              title={edgeOverlay === 'off' ? 'Show edges' : `Edges: ${edgeOverlay}`}
+              disabled={selectedEdges.size === 0}
+              aria-label="Overlay Edge Lines"
+              title="Overlay Edge Lines"
             >
-              <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
+              <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 10 10">
                 <line x1="2" y1="8" x2="8" y2="2" stroke="currentColor" strokeWidth="1.5" />
                 <circle cx="2" cy="8" r="1.5" fill="currentColor" />
                 <circle cx="8" cy="2" r="1.5" fill="currentColor" />
@@ -697,10 +706,12 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       }}
       sizeControls={{
         nodeSize,
+        nodeSizeLabel: 'Node Point Size',
         edgeSize,
+        edgeSizeLabel: 'Enclosure Size',
         edgeIcon: (
-          <svg className="size-toggle-icon" width="12" height="10" viewBox="0 0 10 10">
-            <path d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          <svg className="size-toggle-icon" width="14" height="14" viewBox="0 -1 10 10">
+            <path d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
           </svg>
         ),
         onNodeSizeChange: setNodeSize,
