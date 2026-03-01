@@ -440,8 +440,8 @@ function HopCensusPane({ data, networkName }) {
       sizeControls={{
         nodeSize,
         nodeIcon: (
-          <svg className="size-toggle-icon" width="12" height="10" viewBox="0 0 10 10">
-            <path d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          <svg className="size-toggle-icon" width="14" height="14" viewBox="0 -1 10 10">
+            <path d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
           </svg>
         ),
         edgeSize: null,
