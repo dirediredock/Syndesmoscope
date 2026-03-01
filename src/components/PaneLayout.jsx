@@ -7,7 +7,7 @@ import KSnakesPane from './panes/KSnakesPane'
 import AdjacencyMatrixPane from './panes/AdjacencyMatrixPane'
 import './PaneLayout.css'
 
-function PaneLayout({ onResetRef }) {
+function PaneLayout({ onResetRef, paneTypes }) {
   const { networkData, currentNetwork } = useNetwork()
   const panelGroupRef = useRef(null)
 
@@ -18,6 +18,44 @@ function PaneLayout({ onResetRef }) {
       }
     }
   }, [onResetRef])
+
+  function renderPane(paneType) {
+    const networkName = currentNetwork?.name
+
+    switch (paneType) {
+      case 'kSnakes':
+        return (
+          <KSnakesPane
+            data={networkData?.kSnakes}
+            nodeLinkData={networkData?.nodeLink}
+            networkName={networkName}
+          />
+        )
+      case 'hopCensus':
+        return (
+          <HopCensusPane
+            data={networkData?.censusStub}
+            networkName={networkName}
+          />
+        )
+      case 'nodeLink':
+        return (
+          <NodeLinkPane
+            data={networkData?.nodeLink}
+            networkName={networkName}
+          />
+        )
+      case 'adjacencyMatrix':
+        return (
+          <AdjacencyMatrixPane
+            data={networkData?.adjacencyMatrix}
+            networkName={networkName}
+          />
+        )
+      default:
+        return null
+    }
+  }
 
   return (
     <PanelGroup
@@ -34,11 +72,7 @@ function PaneLayout({ onResetRef }) {
         minSize={0.3}
         className="panel"
       >
-        <KSnakesPane
-          data={networkData?.kSnakes}
-          nodeLinkData={networkData?.nodeLink}
-          networkName={currentNetwork?.name}
-        />
+        {renderPane(paneTypes[0])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
@@ -50,10 +84,7 @@ function PaneLayout({ onResetRef }) {
         minSize={0.3}
         className="panel"
       >
-        <HopCensusPane
-          data={networkData?.censusStub}
-          networkName={currentNetwork?.name}
-        />
+        {renderPane(paneTypes[1])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
@@ -65,10 +96,7 @@ function PaneLayout({ onResetRef }) {
         minSize={0.2}
         className="panel"
       >
-        <NodeLinkPane
-          data={networkData?.nodeLink}
-          networkName={currentNetwork?.name}
-        />
+        {renderPane(paneTypes[2])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
@@ -80,10 +108,7 @@ function PaneLayout({ onResetRef }) {
         minSize={0.2}
         className="panel"
       >
-        <AdjacencyMatrixPane
-          data={networkData?.adjacencyMatrix}
-          networkName={currentNetwork?.name}
-        />
+        {renderPane(paneTypes[3])}
       </Panel>
 
       {/*********************************************************************/}

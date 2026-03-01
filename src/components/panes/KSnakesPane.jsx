@@ -662,7 +662,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       title="k-Snakes"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
-      headerControls={
+      footerControls={
         <>
           <div className="zoom-controls" role="group" aria-label="Brush">
             <button

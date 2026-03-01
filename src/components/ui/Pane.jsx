@@ -6,22 +6,19 @@ import './Pane.css'
 /**
  * Pane is a wrapper component that provides consistent structure
  * for all visualization panes, including:
- * - Header with title and accent color
- * - Optional zoom controls
- * - Optional size controls (for node/edge sizes)
  * - Scrollable content area
+ * - Footer with zoom/size controls
  * - Empty state when no data is loaded
  */
 
 function Pane({
-  title,
   accentColor,
   children,
   isEmpty = false,
   emptyMessage = 'NO DATA',
   zoomControls = null,
   sizeControls = null,
-  headerControls = null,
+  footerControls = null,
   preZoomControls = null,
   postZoomControls = null
 }) {
@@ -53,13 +50,13 @@ function Pane({
         )}
       </div>
       <div
-        className="pane-header"
+        className="pane-footer"
         style={{ '--pane-accent': accentColor }}
       >
-        <div className="pane-header-left">
-          {headerControls && !isEmpty && headerControls}
+        <div className="pane-footer-left">
+          {footerControls && !isEmpty && footerControls}
         </div>
-        <div className="pane-header-right">
+        <div className="pane-footer-right">
           {preZoomControls && !isEmpty && preZoomControls}
           {sizeControls && !isEmpty && <SizeControls {...sizeControls} />}
           {zoomControls && !isEmpty && <ZoomControls {...zoomControls} />}

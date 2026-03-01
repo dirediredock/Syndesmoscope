@@ -411,7 +411,7 @@ function HopCensusPane({ data, networkName }) {
       title="Hop-Census"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
-      headerControls={
+      footerControls={
         <>
           <div className="zoom-controls" role="group" aria-label="Brush">
             <button

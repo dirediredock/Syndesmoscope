@@ -435,7 +435,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
         onReset: handleResetZoom,
         zoomPercent
       }}
-      headerControls={
+      footerControls={
         <>
           <div className="zoom-controls" role="group" aria-label="Brush">
             <button
