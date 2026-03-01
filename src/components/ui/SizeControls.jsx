@@ -28,8 +28,10 @@ function getSizeName(size) {
 function SizeControls({
   nodeSize = null,
   nodeIcon = null,
+  nodeSizeLabel = 'Node Size',
   edgeSize = null,
   edgeIcon = null,
+  edgeSizeLabel = 'Edge Size',
   onNodeSizeChange,
   onEdgeSizeChange,
   gridlinesVisible = null,
@@ -51,8 +53,8 @@ function SizeControls({
           className="size-toggle-btn"
           onClick={() => onNodeSizeChange(getNextSize(nodeSize))}
           disabled={disabled}
-          aria-label={`Node Size`}
-          title={`Node Size`}
+          aria-label={nodeSizeLabel}
+          title={nodeSizeLabel}
         >
           {nodeIcon || (
             <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 10 10">
@@ -72,8 +74,8 @@ function SizeControls({
           className="size-toggle-btn"
           onClick={() => onEdgeSizeChange(getNextSize(edgeSize))}
           disabled={disabled}
-          aria-label={`Edge Size`}
-          title={`Edge Size`}
+          aria-label={edgeSizeLabel}
+          title={edgeSizeLabel}
         >
           {edgeIcon || (
             <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 10 10">

@@ -413,12 +413,12 @@ function HopCensusPane({ data, networkName }) {
       isEmpty={!data}
       headerControls={
         <>
-          <div className="zoom-controls" role="group" aria-label="Brush Selection">
+          <div className="zoom-controls" role="group" aria-label="Brush">
             <button
               className={`zoom-btn${brushMode ? ' zoom-btn--active' : ' zoom-btn--off'}`}
               onClick={() => setBrushMode(b => !b)}
-              aria-label="Toggle brush selection"
-              title="Brush Select"
+              aria-label="Brush"
+              title="Brush"
             >
               <svg width="14" height="14" viewBox="0 0 14 14">
                 <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -439,6 +439,7 @@ function HopCensusPane({ data, networkName }) {
       }}
       sizeControls={{
         nodeSize,
+        nodeSizeLabel: 'Node Polyline Size',
         nodeIcon: (
           <svg className="size-toggle-icon" width="14" height="14" viewBox="0 -1 10 10">
             <path d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />

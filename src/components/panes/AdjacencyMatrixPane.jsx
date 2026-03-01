@@ -442,7 +442,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
               className={`zoom-btn adj-brush-btn${brushMode ? ' zoom-btn--active' : ' zoom-btn--off'}`}
               onClick={() => setBrushMode(b => !b)}
               aria-label="Brush"
-              title="Brush Select"
+              title="Brush"
             >
               <svg width="14" height="14" viewBox="0 0 14 14">
                 <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -456,8 +456,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
               style={selectedNodes.size > 0 ? { color: 'var(--color-edge-selected)' } : undefined}
               onClick={handleSelectIntersectionEdges}
               disabled={selectedNodes.size === 0}
-              aria-label="Select edges at intersection of selected nodes"
-              title="Select intersection edges"
+              aria-label="All Intersection Edges"
+              title="All Intersection Edges"
             >
               <svg width="14" height="14" viewBox="0 0 14 14">
                 <line x1="7" y1="0" x2="7" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -474,8 +474,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
                 const idx = GRIDLINE_CYCLE.indexOf(gridlines)
                 setGridlines(GRIDLINE_CYCLE[(idx + 1) % GRIDLINE_CYCLE.length])
               }}
-              aria-label="Toggle Gridlines"
-              title={gridlines === 'off' ? 'Show gridlines' : `Gridlines: ${gridlines}`}
+              aria-label="Node Gridlines"
+              title={gridlines === 'off' ? 'Node Gridlines' : `Node Gridlines: ${gridlines}`}
             >
               <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 14 14">
                 <line x1="0" y1="5" x2="14" y2="5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -490,6 +490,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
       }
       sizeControls={{
         nodeSize,
+        nodeSizeLabel: 'Edge Point Size',
         onNodeSizeChange: setNodeSize
       }}
     >
