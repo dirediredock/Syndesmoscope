@@ -688,7 +688,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
               }}
               disabled={selectedEdges.size === 0}
               aria-label="Overlay Edge Lines"
-              title={selectedEdges.size === 0 ? 'Overlay Edge Lines (no edges selected)' : edgeOverlay === 'off' ? 'Overlay Edge Lines' : `Overlay Edge Lines: ${edgeOverlay}`}
+              title="Overlay Edge Lines"
             >
               <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 10 10">
                 <line x1="2" y1="8" x2="8" y2="2" stroke="currentColor" strokeWidth="1.5" />
@@ -708,7 +708,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
         nodeSize,
         nodeSizeLabel: 'Node Point Size',
         edgeSize,
-        edgeSizeLabel: 'kSnake Enclosure Size',
+        edgeSizeLabel: 'Enclosure Size',
         edgeIcon: (
           <svg className="size-toggle-icon" width="14" height="14" viewBox="0 -1 10 10">
             <path d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
