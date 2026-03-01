@@ -35,6 +35,7 @@ const GRID_SIZES = {
   L:  { default: 5,   highlighted: 5   },
   XL: { default: 8,   highlighted: 8   }
 }
+const GRIDLINE_CYCLE = ['off', 'XS', 'S', 'M', 'L', 'XL']
 
 function AdjacencyMatrixPane({ data, networkName }) {
   const containerRef = useRef(null)
@@ -44,8 +45,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
   const brushGroupRef = useRef(null)
 
   const [nodeSize, setNodeSize] = useState('M')
-  const [edgeSize, setEdgeSize] = useState('S')
-  const [showGridlines, setShowGridlines] = useState(false)
+  const [gridlines, setGridlines] = useState('off')
   const [brushMode, setBrushMode] = useState(false)
 
   const {
@@ -115,8 +115,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
   useEffect(() => {
     handleResetZoom()
     setNodeSize('M')
-    setEdgeSize('S')
-    setShowGridlines(false)
+    setGridlines('off')
   }, [data, handleResetZoom])
 
   useEffect(() => {
@@ -140,7 +139,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
     const svg = d3.select(svgRef.current)
 
     const cellSizes = CELL_SIZES[nodeSize]
-    const gridSizes = GRID_SIZES[edgeSize]
+    const gridSizes = gridlines !== 'off' ? GRID_SIZES[gridlines] : null
 
     // Cells (edges)
     svg.selectAll('.matrix-cell')
@@ -158,24 +157,26 @@ function AdjacencyMatrixPane({ data, networkName }) {
       })
 
     // Gridlines (nodes)
-    svg.selectAll('.matrix-gridline')
-      .attr('stroke', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
-        if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-        return 'var(--color-border)'
-      })
-      .attr('stroke-width', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return gridSizes.highlighted
-        return gridSizes.default
-      })
-      .attr('opacity', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.35
-        return 0.12
-      })
-  }, [nodeSize, edgeSize, hoveredNodes, hoveredEdges, selectedNodes, selectedEdges])
+    if (gridSizes) {
+      svg.selectAll('.matrix-gridline')
+        .attr('stroke', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
+          if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
+          return 'var(--color-border)'
+        })
+        .attr('stroke-width', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return gridSizes.highlighted
+          return gridSizes.default
+        })
+        .attr('opacity', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.35
+          return 0.12
+        })
+    }
+  }, [nodeSize, gridlines, hoveredNodes, hoveredEdges, selectedNodes, selectedEdges])
 
   const initializeVisualization = useCallback(() => {
     if (!containerRef.current || !data?.edges || !data?.node_gridlines) return
@@ -371,7 +372,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
 
     const svg = d3.select(svgRef.current)
     const cellSizes = CELL_SIZES[nodeSize]
-    const gridSizes = GRID_SIZES[edgeSize]
+    const gridSizes = gridlines !== 'off' ? GRID_SIZES[gridlines] : null
 
     // Cells (edges)
     svg.selectAll('.matrix-cell')
@@ -392,36 +393,38 @@ function AdjacencyMatrixPane({ data, networkName }) {
         if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) d3.select(this).raise()
       })
 
-    // Gridlines (nodes)
-    svg.selectAll('.matrix-gridline')
-      .attr('stroke', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
-        if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-        return 'var(--color-border)'
-      })
-      .attr('stroke-width', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return gridSizes.highlighted
-        return gridSizes.default
-      })
-      .attr('opacity', function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.45
-        return 0.12
-      })
-      .each(function () {
-        const nodeIdx = +d3.select(this).attr('data-node-idx')
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) d3.select(this).raise()
-      })
-
     // Gridlines visibility
     svg.selectAll('.matrix-gridline')
-      .attr('display', showGridlines ? null : 'none')
+      .attr('display', gridlines !== 'off' ? null : 'none')
     svg.selectAll('.matrix-gridline-hit')
-      .attr('pointer-events', showGridlines ? null : 'none')
+      .attr('pointer-events', gridlines !== 'off' ? null : 'none')
 
-  }, [hoveredNodes, hoveredEdges, selectedNodes, selectedEdges, nodeSize, edgeSize, showGridlines])
+    // Gridlines (nodes) styling
+    if (gridSizes) {
+      svg.selectAll('.matrix-gridline')
+        .attr('stroke', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
+          if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
+          return 'var(--color-border)'
+        })
+        .attr('stroke-width', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return gridSizes.highlighted
+          return gridSizes.default
+        })
+        .attr('opacity', function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.45
+          return 0.12
+        })
+        .each(function () {
+          const nodeIdx = +d3.select(this).attr('data-node-idx')
+          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) d3.select(this).raise()
+        })
+    }
+
+  }, [hoveredNodes, hoveredEdges, selectedNodes, selectedEdges, nodeSize, gridlines])
 
   return (
     <Pane
@@ -463,36 +466,31 @@ function AdjacencyMatrixPane({ data, networkName }) {
               </svg>
             </button>
           </div>
-          <div className="zoom-controls" role="group" aria-label="Gridlines">
+          <div className="size-controls" role="group" aria-label="Gridlines">
             <button
-              className={`zoom-btn${showGridlines ? ' zoom-btn--active' : ' zoom-btn--off'}`}
-              onClick={() => setShowGridlines(v => !v)}
+              className={`size-toggle-btn${gridlines === 'off' ? ' size-toggle-btn--off' : ''}`}
+              style={gridlines !== 'off' ? { color: 'var(--color-node-selected)' } : undefined}
+              onClick={() => {
+                const idx = GRIDLINE_CYCLE.indexOf(gridlines)
+                setGridlines(GRIDLINE_CYCLE[(idx + 1) % GRIDLINE_CYCLE.length])
+              }}
               aria-label="Toggle Gridlines"
-              title={showGridlines ? 'Hide gridlines' : 'Show gridlines'}
+              title={gridlines === 'off' ? 'Show gridlines' : `Gridlines: ${gridlines}`}
             >
-              <svg width="14" height="14" viewBox="0 0 10 10">
-                <line x1="0" y1="3.5" x2="10" y2="3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="0" y1="6.5" x2="10" y2="6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="3.5" y1="0" x2="3.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="6.5" y1="0" x2="6.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 14 14">
+                <line x1="0" y1="5" x2="14" y2="5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="0" y1="9" x2="14" y2="9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="5" y1="0" x2="5" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="9" y1="0" x2="9" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
+              {gridlines !== 'off' && <span className="size-toggle-label">{gridlines}</span>}
             </button>
           </div>
         </>
       }
       sizeControls={{
         nodeSize,
-        edgeSize,
-        edgeIcon: (
-          <svg className="size-toggle-icon" width="10" height="10" viewBox="0 0 10 10">
-            <line x1="0" y1="3.5" x2="10" y2="3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <line x1="0" y1="6.5" x2="10" y2="6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <line x1="3.5" y1="0" x2="3.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <line x1="6.5" y1="0" x2="6.5" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-        ),
-        onNodeSizeChange: setNodeSize,
-        onEdgeSizeChange: setEdgeSize
+        onNodeSizeChange: setNodeSize
       }}
     >
       <div
