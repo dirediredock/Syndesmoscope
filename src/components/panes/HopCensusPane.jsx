@@ -38,6 +38,7 @@ function HopCensusPane({ data, networkName }) {
   const zoomContainerRef = useRef(null)
   const boundsRef = useRef(null)
   const brushGroupRef = useRef(null)
+  const offsetMapRef = useRef(new Map())
 
   // Refs for efficient path updates without full SVG rebuild
   const maxCountRef = useRef(null)
@@ -50,6 +51,9 @@ function HopCensusPane({ data, networkName }) {
 
   // Translocation offset: Map<nodeIdx, multiplier>
   const [offsetMap, setOffsetMap] = useState(() => new Map())
+
+  // Keep ref in sync for use inside initializeVisualization (avoids dependency)
+  useEffect(() => { offsetMapRef.current = offsetMap }, [offsetMap])
 
   const {
     hoveredNodes,
@@ -267,7 +271,7 @@ function HopCensusPane({ data, networkName }) {
       .attr('data-vector-length', d => d.vector_length)
       .attr('d', d => {
         const bandIdx = bandIndexMap.get(d.vector_length)
-        const multiplier = offsetMap.get(d.node_idx) || 0
+        const multiplier = offsetMapRef.current.get(d.node_idx) || 0
         const shifted = d.vector.map(v => v + (bandIdx + multiplier) * maxCount)
         return line(shifted)
       })
@@ -335,7 +339,7 @@ function HopCensusPane({ data, networkName }) {
     brushGroup.style('pointer-events', 'none')
     brushGroup.select('.overlay').style('pointer-events', 'none').style('cursor', 'default')
 
-  }, [data, offsetMap, hoverNode, clearHover, toggleNodeSelection, selectNodes])
+  }, [data, hoverNode, clearHover, toggleNodeSelection, selectNodes])
 
   // Resize observer
   useEffect(() => {
