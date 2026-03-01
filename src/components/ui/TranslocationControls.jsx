@@ -7,7 +7,7 @@ function TranslocationControls({ onUp, onDown, disabled = false }) {
         className="zoom-btn"
         onClick={onUp}
         disabled={disabled}
-        aria-label="Shift selected lines up"
+        aria-label="Shift Polylines Upward"
         title="Shift Up"
       >
         <svg width="14" height="14" viewBox="0 0 14 14">
@@ -19,7 +19,7 @@ function TranslocationControls({ onUp, onDown, disabled = false }) {
         className="zoom-btn"
         onClick={onDown}
         disabled={disabled}
-        aria-label="Shift selected lines down"
+        aria-label="Shift Polylines Downward"
         title="Shift Down"
       >
         <svg width="14" height="14" viewBox="0 0 14 14">

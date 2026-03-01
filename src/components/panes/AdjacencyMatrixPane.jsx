@@ -434,11 +434,11 @@ function AdjacencyMatrixPane({ data, networkName }) {
       }}
       headerControls={
         <>
-          <div className="zoom-controls" role="group" aria-label="Brush Selection">
+          <div className="zoom-controls" role="group" aria-label="Brush">
             <button
               className={`zoom-btn adj-brush-btn${brushMode ? ' zoom-btn--active' : ' zoom-btn--off'}`}
               onClick={() => setBrushMode(b => !b)}
-              aria-label="Toggle brush selection"
+              aria-label="Brush"
               title="Brush Select"
             >
               <svg width="14" height="14" viewBox="0 0 14 14">
