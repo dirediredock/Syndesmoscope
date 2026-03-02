@@ -5,11 +5,11 @@
 
 :root {
   /* Color palette - neutral grayscale */
-  --color-bg-primary: #181818;
-  --color-bg-secondary: #212121;
-  --color-bg-tertiary: #2c2c2c;
-  --color-border: #3e3e3e;
-  --color-border-muted: #2c2c2c;
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-tertiary: #21262d;
+  --color-border: #30363d;
+  --color-border-muted: #21262d;
 
   --color-text-primary: #ebebeb;
   --color-text-secondary: #a0a0a0;
