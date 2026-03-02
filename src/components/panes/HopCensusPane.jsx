@@ -262,7 +262,7 @@ function HopCensusPane({ data, networkName }) {
         .attr('y1', -gridExtent)
         .attr('x2', xScale(i))
         .attr('y2', innerHeight + gridExtent)
-        .attr('stroke', 'var(--color-ksnakes-island)')
+        .attr('stroke', '#0a0a0a')
         .attr('stroke-width', 1)
     }
 
@@ -282,9 +282,9 @@ function HopCensusPane({ data, networkName }) {
         return line(shifted)
       })
       .attr('fill', 'none')
-      .attr('stroke', 'var(--color-text-muted)')
+      .attr('stroke', 'var(--color-node-default)')
       .attr('stroke-width', 0.5)
-      .attr('stroke-opacity', 0.3)
+      .attr('stroke-opacity', 0.5)
       .attr('stroke-linecap', 'round')
       .on('mouseenter', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -390,7 +390,7 @@ function HopCensusPane({ data, networkName }) {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
         if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-        return 'var(--color-text-muted)'
+        return 'var(--color-node-default)'
       })
       .attr('stroke-width', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -400,7 +400,7 @@ function HopCensusPane({ data, networkName }) {
       .attr('stroke-opacity', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 1
-        return 0.3
+        return 0.5
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')

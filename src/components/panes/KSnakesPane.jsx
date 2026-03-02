@@ -380,7 +380,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       .attr('cx', d => xScale(d.x_position))
       .attr('cy', d => yScale(d.onion_value))
       .attr('r', 3)
-      .attr('fill', 'var(--color-text-secondary)')
+      .attr('fill', 'var(--color-node-default)')
       .on('mouseenter', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         hoverNode(nodeIdx)
@@ -452,7 +452,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
     //   .attr('y', 12)
     //   .attr('text-anchor', 'start')
     //   .attr('dominant-baseline', 'auto')
-    //   .attr('fill', 'var(--color-text-secondary)')
+    //   .attr('fill', 'var(--color-node-default)')
     //   .attr('font-family', 'Roboto Condensed, sans-serif')
     //   .attr('font-weight', 'bold')
     //   .attr('font-size', '14px')
@@ -464,7 +464,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
     //   .attr('y', innerHeight-2)
     //   .attr('text-anchor', 'start')
     //   .attr('dominant-baseline', 'auto')
-    //   .attr('fill', 'var(--color-text-secondary)')
+    //   .attr('fill', 'var(--color-node-default)')
     //   .attr('font-family', 'Roboto Condensed, sans-serif')
     //   .attr('font-weight', 'bold')
     //   .attr('font-size', '14px')
@@ -514,7 +514,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
           if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
           if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-          return 'var(--color-text-secondary)'
+          return 'var(--color-node-default)'
         })
         .attr('r', function () {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -533,7 +533,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
               const nodeIdx = +d3.select(this).attr('data-node-idx')
               if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
               if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-              return 'var(--color-text-secondary)'
+              return 'var(--color-node-default)'
             })
             .attr('r', function () {
               const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -578,7 +578,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
           if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
           if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-          return 'var(--color-text-secondary)'
+          return 'var(--color-node-default)'
         })
         .attr('r', function () {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -605,7 +605,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
         if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-        return 'var(--color-text-secondary)'
+        return 'var(--color-node-default)'
       })
       .attr('r', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')

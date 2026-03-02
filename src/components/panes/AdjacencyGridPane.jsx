@@ -153,7 +153,7 @@ function AdjacencyGridPane({ data, networkName }) {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
         if (selectedEdges.has(edgeIdx)) return 'var(--color-edge-selected)'
         if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
-        return 'var(--color-text-muted)'
+        return 'var(--color-edge-default-point)'
       })
       .attr('opacity', 1)
       .attr('r', function () {
@@ -179,7 +179,7 @@ function AdjacencyGridPane({ data, networkName }) {
         .attr('opacity', function () {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
           if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.35
-          return 0.12
+          return 0.22
         })
     }
   }, [nodeSize, gridlines, hoveredNodes, hoveredEdges, selectedNodes, selectedEdges])
@@ -386,7 +386,7 @@ function AdjacencyGridPane({ data, networkName }) {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
         if (selectedEdges.has(edgeIdx)) return 'var(--color-edge-selected)'
         if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
-        return 'var(--color-text-muted)'
+        return 'var(--color-edge-default-point)'
       })
       .attr('opacity', 1)
       .attr('r', function () {
@@ -422,7 +422,7 @@ function AdjacencyGridPane({ data, networkName }) {
         .attr('opacity', function () {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
           if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.45
-          return 0.12
+          return 0.22
         })
         .each(function () {
           const nodeIdx = +d3.select(this).attr('data-node-idx')

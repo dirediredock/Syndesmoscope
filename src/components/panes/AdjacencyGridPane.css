@@ -1,6 +1,6 @@
 /* Accent token for Pane header */
 :root {
-  --color-accent-adjmatrix: #7c5cff; /* tweak if you want */
+  --color-accent-adjmatrix: #808080;
 }
 
 /* Cells */
@@ -23,14 +23,14 @@
 
 /* Orange active state for brush toggle button */
 .adj-brush-btn.zoom-btn--active {
-  color: orange;
+  color: var(--color-edge-selected);
 }
 
-/* Brush selection overlay (orange for edge selection) */
+/* Brush selection overlay (edge selection color) */
 .adj-brush-group .selection {
-  fill: orange;
+  fill: var(--color-edge-selected);
   fill-opacity: 0.10;
-  stroke: orange;
+  stroke: var(--color-edge-selected);
   stroke-width: 1;
   stroke-dasharray: 4 2;
 }

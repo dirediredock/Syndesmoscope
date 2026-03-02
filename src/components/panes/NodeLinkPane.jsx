@@ -208,7 +208,7 @@ function NodeLinkPane({ data, networkName }) {
       .join('line')
       .attr('class', 'edge')
       .attr('data-edge-idx', d => d.edge_idx)
-      .attr('stroke', 'var(--color-border)')
+      .attr('stroke', 'var(--color-edge-default-line)')
       .attr('stroke-width', 1)
 
     // Draw nodes
@@ -218,7 +218,7 @@ function NodeLinkPane({ data, networkName }) {
       .attr('class', 'node')
       .attr('data-node-idx', d => d.node_idx)
       .attr('r', 3)
-      .attr('fill', 'var(--color-text-secondary)')
+      .attr('fill', 'var(--color-node-default)')
       .call(drag(simulation))
 
     // Add tomato border around node group area
@@ -271,7 +271,7 @@ function NodeLinkPane({ data, networkName }) {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
         if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-        return 'var(--color-text-secondary)'
+        return 'var(--color-node-default)'
       })
       .attr('r', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -292,7 +292,7 @@ function NodeLinkPane({ data, networkName }) {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
         if (selectedEdges.has(edgeIdx)) return 'var(--color-edge-selected)'
         if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
-        return 'var(--color-border)'
+        return 'var(--color-edge-default-line)'
       })
       .attr('stroke-width', function () {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
