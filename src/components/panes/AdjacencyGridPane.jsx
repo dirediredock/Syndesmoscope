@@ -478,8 +478,8 @@ function AdjacencyGridPane({ data, networkName }) {
                 const idx = GRIDLINE_CYCLE.indexOf(gridlines)
                 setGridlines(GRIDLINE_CYCLE[(idx + 1) % GRIDLINE_CYCLE.length])
               }}
-              aria-label="Node Gridlines"
-              title={gridlines === 'off' ? 'Node Gridlines' : `Node Gridlines: ${gridlines}`}
+              aria-label="Node Grid Lines"
+              title="Node Grid Lines"
             >
               <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 14 14">
                 <line x1="0" y1="5" x2="14" y2="5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
