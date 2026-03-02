@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
+import BrushIcon from '../ui/BrushIcon'
 import './KSnakesPane.css'
 
 /**
@@ -677,10 +678,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
               aria-label="Brush"
               title="Brush"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14">
-                <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <rect x="5.5" y="7" width="3" height="5" rx="0.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+              <BrushIcon />
             </button>
           </div>
           <div className="size-controls" role="group" aria-label="Edge Overlay">

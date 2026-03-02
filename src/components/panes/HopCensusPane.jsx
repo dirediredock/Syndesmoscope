@@ -4,6 +4,7 @@ import Pane from '../ui/Pane'
 import TranslocationControls from '../ui/TranslocationControls'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
+import BrushIcon from '../ui/BrushIcon'
 import './HopCensusPane.css'
 
 /**
@@ -426,10 +427,7 @@ function HopCensusPane({ data, networkName }) {
               aria-label="Brush"
               title="Brush"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14">
-                <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <rect x="5.5" y="7" width="3" height="5" rx="0.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+              <BrushIcon />
             </button>
           </div>
           <TranslocationControls
