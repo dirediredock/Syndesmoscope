@@ -1,108 +1,54 @@
-import { useEffect } from 'react'
-import { useNetwork } from '../../contexts/NetworkContext'
-import { useSelection } from '../../contexts/SelectionContext'
 import './ControlPanel.css'
 
-function ControlPanel() {
-  const { 
-    availableNetworks, 
-    currentNetworkId, 
-    currentNetwork,
-    isLoading, 
-    error,
-    loadNetwork 
-  } = useNetwork()
-  
-  const {
-    selectedNodes,
-    selectedEdges,
-    clearAllSelections,
-    clearSelectedNodes,
-    clearSelectedEdges
-  } = useSelection()
+const PANE_TYPE_CYCLE = ['kSnakes', 'hopCensus', 'nodeLink', 'adjacencyMatrix']
+const PANE_TYPE_LABELS = {
+  kSnakes: 'kSnakes',
+  hopCensus: 'HopCensus',
+  nodeLink: 'NodeLink',
+  adjacencyMatrix: 'AdjacencyGrid'
+}
 
-  useEffect(() => {
-    if (!currentNetworkId && availableNetworks.length > 0) {
-      loadNetwork('game_thrones')
-    }
-  }, [availableNetworks, currentNetworkId, loadNetwork])
-
-  const handleNetworkChange = (e) => {
-    const networkId = e.target.value
-    if (networkId) {
-      clearAllSelections()
-      loadNetwork(networkId)
-    }
-  }
-
-  const hasSelections = selectedNodes.size > 0 || selectedEdges.size > 0
-
+function ControlPanel({ paneTypes, onPaneTypeChange, onResetLayout }) {
   return (
     <div className="control-panel">
-      {error && (
-        <div className="control-error">{error}</div>
-      )}
-      <div className="control-group">
-        <label htmlFor="network-select" className="control-label">
-          Loaded Network:
-        </label>
-        <select
-          id="network-select"
-          className="control-select"
-          value={currentNetworkId || ''}
-          onChange={handleNetworkChange}
-          disabled={isLoading}
-        >
-          {/* <option value="">Available network datasets:</option> */}
-          {availableNetworks.map(network => (
-            <option key={network.id} value={network.id}>
-              {network.name}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {currentNetwork && (
-        <div className="control-info">
-          <span className="info-stat">
-            <span className="info-value">{currentNetwork.nodes}</span>
-            <span className="info-label">nodes</span>
-          </span>
-          {/* <span className="info-divider"></span> */}
-          <span className="info-stat">
-            <span className="info-value">{currentNetwork.edges}</span>
-            <span className="info-label">edges</span>
-          </span>
+      {paneTypes && onPaneTypeChange && (
+        <div className="control-group">
+          <label className="control-label">Panes:</label>
+          <div className="pane-type-group">
+            {paneTypes.map((type, idx) => (
+              <button
+                key={idx}
+                className="pane-type-btn"
+                onClick={() => {
+                  const cycleIdx = PANE_TYPE_CYCLE.indexOf(type)
+                  const next = PANE_TYPE_CYCLE[(cycleIdx + 1) % PANE_TYPE_CYCLE.length]
+                  onPaneTypeChange(idx, next)
+                }}
+                aria-label={`Pane ${idx + 1} visualization type`}
+                title={`Pane ${idx + 1}: click to cycle`}
+              >
+                {PANE_TYPE_LABELS[type] || type}
+              </button>
+            ))}
+          </div>
         </div>
       )}
 
-      {hasSelections && (
-        <div className="control-group">
-          <div className="selection-info">
-            {selectedNodes.size > 0 && (
-              <span className="selection-badge selection-badge--nodes">
-                {selectedNodes.size} node{selectedNodes.size !== 1 ? 's' : ''}
-                <button className="selection-badge-clear" onClick={clearSelectedNodes}>×</button>
-              </span>
-            )}
-            {selectedEdges.size > 0 && (
-              <span className="selection-badge selection-badge--edges">
-                {selectedEdges.size} edge{selectedEdges.size !== 1 ? 's' : ''}
-                <button className="selection-badge-clear" onClick={clearSelectedEdges}>×</button>
-              </span>
-            )}
-          </div>
-          <button 
-            className="control-button control-button--reversed"
-            onClick={clearAllSelections}
+      {onResetLayout && (
+        <div className="control-btn-wrap">
+          <button
+            className="control-icon-btn"
+            onClick={onResetLayout}
+            aria-label="Equal Width Panes"
+            title="Equal Width Panes"
           >
-            Clear All
+            <svg width="20" height="20" viewBox="0 0 16 16">
+              <polygon points="5,5 5,11 2,8" fill="currentColor" />
+              <polygon points="11,5 11,11 14,8" fill="currentColor" />
+              <line x1="8" y1="3.5" x2="8" y2="12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
-      )}
-
-      {isLoading && (
-        <div className="control-status">Loading...</div>
       )}
     </div>
   )
