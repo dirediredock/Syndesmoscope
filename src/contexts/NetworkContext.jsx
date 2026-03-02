@@ -299,14 +299,14 @@ export function NetworkProvider({ children }) {
         censusNode, 
         censusStub, 
         kSnakes, 
-        adjacencyMatrix
+        adjacencyGrid
       ] = await Promise.all([
         fetch(`/data/${networkId}/${networkId}_NodeLink.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusEdge.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusNode.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_CensusStub.json`).then(r => r.ok ? r.json() : null),
         fetch(`/data/${networkId}/${networkId}_kSnakes.json`).then(r => r.ok ? r.json() : null),
-        fetch(`/data/${networkId}/${networkId}_AdjacencyMatrix.json`).then(r => r.ok ? r.json() : null),
+        fetch(`/data/${networkId}/${networkId}_AdjacencyGrid.json`).then(r => r.ok ? r.json() : null),
       ])
 
       setNetworkData({
@@ -315,7 +315,7 @@ export function NetworkProvider({ children }) {
         censusNode,
         censusStub,
         kSnakes,
-        adjacencyMatrix,
+        adjacencyGrid,
       })
       setCurrentNetworkId(networkId)
     } catch (err) {

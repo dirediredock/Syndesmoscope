@@ -8,7 +8,7 @@ import NetworkInfo from './components/ui/NetworkInfo'
 import PaneLayout from './components/PaneLayout'
 import './App.css'
 
-const DEFAULT_PANE_TYPES = ['kSnakes', 'hopCensus', 'nodeLink', 'adjacencyMatrix']
+const DEFAULT_PANE_TYPES = ['kSnakes', 'hopCensus', 'nodeLink', 'adjacencyGrid']
 
 function App() {
   const resetLayoutRef = useRef(null)

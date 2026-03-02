@@ -61,7 +61,8 @@ function HopCensusPane({ data, networkName }) {
     hoverNode,
     clearHover,
     toggleNodeSelection,
-    selectNodes
+    selectNodes,
+    brushResetSignal
   } = useSelection()
 
   const {
@@ -70,6 +71,11 @@ function HopCensusPane({ data, networkName }) {
     setFilter,
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.05, 15] })
+
+  // Deactivate brush when selection is cleared from control strip
+  useEffect(() => {
+    if (brushResetSignal > 0) setBrushMode(false)
+  }, [brushResetSignal])
 
   // Filter: allow wheel zoom, block drag-start on census lines (so clicks work)
   // In brush mode, block all zoom drag (wheel still works)

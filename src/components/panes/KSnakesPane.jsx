@@ -69,7 +69,8 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
     hoverNode,
     clearHover,
     toggleNodeSelection,
-    selectNodes
+    selectNodes,
+    brushResetSignal
   } = useSelection()
 
   const {
@@ -88,6 +89,11 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       return true
     })
   }, [setFilter, brushMode])
+
+  // Deactivate brush when selection is cleared from control strip
+  useEffect(() => {
+    if (brushResetSignal > 0) setBrushMode(false)
+  }, [brushResetSignal])
 
   // Toggle brush overlay pointer-events based on brushMode
   useEffect(() => {

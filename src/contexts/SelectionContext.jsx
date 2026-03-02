@@ -22,6 +22,9 @@ export function SelectionProvider({ children }) {
   const [selectedNodes, setSelectedNodes] = useState(new Set())
   const [selectedEdges, setSelectedEdges] = useState(new Set())
 
+  // Signal for panes to deactivate brush tools (incremented on selection clear)
+  const [brushResetSignal, setBrushResetSignal] = useState(0)
+
   // Node hover handlers
   const hoverNode = useCallback((nodeIdx) => {
     setHoveredNodes(new Set([nodeIdx]))
@@ -85,6 +88,7 @@ export function SelectionProvider({ children }) {
 
   const clearSelectedNodes = useCallback(() => {
     setSelectedNodes(new Set())
+    setBrushResetSignal(s => s + 1)
   }, [])
 
   // Edge selection handlers (toggle)
@@ -118,6 +122,7 @@ export function SelectionProvider({ children }) {
 
   const clearSelectedEdges = useCallback(() => {
     setSelectedEdges(new Set())
+    setBrushResetSignal(s => s + 1)
   }, [])
 
   // Clear all selections
@@ -172,8 +177,9 @@ export function SelectionProvider({ children }) {
     clearAllSelections,
     isNodeHighlighted,
     isEdgeHighlighted,
+    brushResetSignal,
   }), [
-    hoveredNodes, hoveredEdges, selectedNodes, selectedEdges,
+    hoveredNodes, hoveredEdges, selectedNodes, selectedEdges, brushResetSignal,
     hoverNode, hoverNodes, clearHoveredNodes,
     hoverEdge, hoverEdges, clearHoveredEdges, clearHover,
     toggleNodeSelection, selectNodes, deselectNodes, clearSelectedNodes,

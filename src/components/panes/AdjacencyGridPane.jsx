@@ -3,10 +3,10 @@ import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
-import './AdjacencyMatrixPane.css'
+import './AdjacencyGridPane.css'
 
 /**
- * AdjacencyMatrixPane
+ * AdjacencyGridPane
  *
  * Renders an adjacency matrix from precomputed JSON:
  * - edges[]: points at (x,y) in seriated coordinates, with edge_idx and source/target node ids
@@ -37,7 +37,7 @@ const GRID_SIZES = {
 }
 const GRIDLINE_CYCLE = ['off', 'XS', 'S', 'M', 'L', 'XL']
 
-function AdjacencyMatrixPane({ data, networkName }) {
+function AdjacencyGridPane({ data, networkName }) {
   const containerRef = useRef(null)
   const svgRef = useRef(null)
   const zoomContainerRef = useRef(null)
@@ -59,7 +59,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
     clearHover,
     toggleNodeSelection,
     toggleEdgeSelection,
-    selectEdges
+    selectEdges,
+    brushResetSignal
   } = useSelection()
 
   const handleSelectIntersectionEdges = useCallback(() => {
@@ -76,6 +77,11 @@ function AdjacencyMatrixPane({ data, networkName }) {
     setFilter,
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.5, 15] })
+
+  // Deactivate brush when selection is cleared from control strip
+  useEffect(() => {
+    if (brushResetSignal > 0) setBrushMode(false)
+  }, [brushResetSignal])
 
   useEffect(() => {
     if (!setFilter) return
@@ -428,7 +434,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
 
   return (
     <Pane
-      title="Adjacency Matrix"
+      title="Adjacency Grid"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
       zoomControls={{
@@ -503,5 +509,5 @@ function AdjacencyMatrixPane({ data, networkName }) {
   )
 }
 
-export default AdjacencyMatrixPane
+export default AdjacencyGridPane
 

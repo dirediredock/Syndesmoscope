@@ -1,11 +1,11 @@
 import './ControlPanel.css'
 
-const PANE_TYPE_CYCLE = ['kSnakes', 'hopCensus', 'nodeLink', 'adjacencyMatrix']
+const PANE_TYPE_CYCLE = ['kSnakes', 'hopCensus', 'nodeLink', 'adjacencyGrid']
 const PANE_TYPE_LABELS = {
   kSnakes: 'kSnakes',
   hopCensus: 'HopCensus',
   nodeLink: 'NodeLink',
-  adjacencyMatrix: 'AdjacencyGrid'
+  adjacencyGrid: 'AdjacencyGrid'
 }
 
 function ControlPanel({ paneTypes, onPaneTypeChange, onResetLayout }) {
