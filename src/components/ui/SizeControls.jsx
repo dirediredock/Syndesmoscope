@@ -1,20 +1,20 @@
 import './SizeControls.css'
 
-const SIZES = ['XS', 'S', 'M', 'L', 'XL']
+const DEFAULT_SIZES = ['XS', 'S', 'M', 'L', 'XL']
 
 /**
  * Get the next size in the cycle: S → M → L → S
  */
-function getNextSize(current) {
-  const idx = SIZES.indexOf(current)
-  return SIZES[(idx + 1) % SIZES.length]
+function getNextSize(current, sizes = DEFAULT_SIZES) {
+  const idx = sizes.indexOf(current)
+  return sizes[(idx + 1) % sizes.length]
 }
 
 /**
  * Get full size name for accessibility
  */
 function getSizeName(size) {
-  const names = { XS: 'Extra Small', S: 'Small', M: 'Medium', L: 'Large', XL: 'Extra Large' }
+  const names = { XS: 'Extra Small', S: 'Small', M: 'Medium', L: 'Large', XL: 'Extra Large', XXL: 'Extra Extra Large' }
   return names[size] ?? size
 }
 
@@ -34,6 +34,7 @@ function SizeControls({
   edgeSizeLabel = 'Edge Size',
   onNodeSizeChange,
   onEdgeSizeChange,
+  sizes = DEFAULT_SIZES,
   gridlinesVisible = null,
   onGridlinesToggle = null,
   disabled = false
@@ -51,7 +52,7 @@ function SizeControls({
       {hasNodeControl && (
         <button
           className="size-toggle-btn"
-          onClick={() => onNodeSizeChange(getNextSize(nodeSize))}
+          onClick={() => onNodeSizeChange(getNextSize(nodeSize, sizes))}
           disabled={disabled}
           aria-label={nodeSizeLabel}
           title={nodeSizeLabel}
@@ -72,7 +73,7 @@ function SizeControls({
       {hasEdgeControl && (
         <button
           className="size-toggle-btn"
-          onClick={() => onEdgeSizeChange(getNextSize(edgeSize))}
+          onClick={() => onEdgeSizeChange(getNextSize(edgeSize, sizes))}
           disabled={disabled}
           aria-label={edgeSizeLabel}
           title={edgeSizeLabel}
