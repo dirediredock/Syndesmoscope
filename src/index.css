@@ -24,8 +24,8 @@
   --color-structure-stroke: #343c48;
 
   /* Default */
-  --color-node: #b9c4d1;
-  --color-edge: #9aa6b3;
+  --color-node: #c6d2df;
+  --color-edge: #7d8b98;
 
   /* Hover */
   --color-node-hover: #57b2ff;
@@ -100,16 +100,16 @@
   --color-structure-stroke: #d5dbe1;
 
   /* Default */
-  --color-node: #4f5f70;
-  --color-edge: #667788;
+  --color-node: #405264;
+  --color-edge: #7e90a1;
 
   /* Hover */
   --color-node-hover: #2f84f0;
   --color-edge-hover: #f07c00;
 
   /* Selected */
-  --color-node-selected: #0e59c7;
-  --color-edge-selected: #b55300;
+  --color-node-selected: #0b73ff;
+  --color-edge-selected: #ff8c1a;
 
   /* Pane accents */
   --color-accent-nodelink: #2f84f0;
