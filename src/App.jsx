@@ -5,6 +5,7 @@ import { ThemeProvider } from './contexts/ThemeContext'
 import ControlPanel from './components/ui/ControlPanel'
 import NetworkSelect from './components/ui/NetworkSelect'
 import NetworkInfo from './components/ui/NetworkInfo'
+import ThemeToggle from './components/ui/ThemeToggle'
 import PaneLayout from './components/PaneLayout'
 import './App.css'
 
@@ -34,6 +35,7 @@ function App() {
               <NetworkSelect />
               <NetworkInfo />
               <div className="app-header-spacer" />
+              <ThemeToggle />
               <ControlPanel
                 paneTypes={paneTypes}
                 onPaneTypeChange={handlePaneTypeChange}
