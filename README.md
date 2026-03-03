@@ -6,6 +6,8 @@ The name 'Syndesmoscope' is a neoclassical compound word built from Greek roots:
 
 <img src="figures/teaser_01.png" width="100%" ></a>
 
+<img src="figures/teaser_01b.png" width="100%" ></a>
+
 <img src="figures/teaser_02.png" width="100%" ></a>
 
 <img src="figures/teaser_03.png" width="100%" ></a>
