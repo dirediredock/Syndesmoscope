@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "filename": "dodecahedron",
+    "total_nodes": 20,
+    "total_edges": 30,
+    "num_cores": 1
+  },
+  "cores": [
+    {
+      "core_value": 3,
+      "islands": [
+        {
+          "island_idx": 0,
+          "nodes": [
+            {
+              "node_idx": 0,
+              "x_position": -19,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 1,
+              "x_position": -18,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 2,
+              "x_position": -17,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 3,
+              "x_position": -16,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 4,
+              "x_position": -15,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 5,
+              "x_position": -14,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 6,
+              "x_position": -13,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 7,
+              "x_position": -12,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 8,
+              "x_position": -11,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 9,
+              "x_position": -10,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 10,
+              "x_position": -9,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 11,
+              "x_position": -8,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 12,
+              "x_position": -7,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 13,
+              "x_position": -6,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 14,
+              "x_position": -5,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 15,
+              "x_position": -4,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 16,
+              "x_position": -3,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 17,
+              "x_position": -2,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 18,
+              "x_position": -1,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 19,
+              "x_position": 0,
+              "onion_value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

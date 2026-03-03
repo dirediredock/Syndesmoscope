@@ -1,0 +1,251 @@
+{
+  "metadata": {
+    "name": "dodecahedron",
+    "census_type": "Census-Edge",
+    "total_nodes": 20,
+    "total_edges": 30,
+    "diameter": 6
+  },
+  "census_vectors": [
+    {
+      "node_idx": 0,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 1,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 2,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 3,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 4,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 5,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 6,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 7,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 8,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 9,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 10,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 11,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 12,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 13,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 14,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 15,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 16,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 17,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 18,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 19,
+      "vector_length": 6,
+      "vector": [
+        3,
+        6,
+        9,
+        9,
+        3,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,971 @@
+{
+  "metadata": {
+    "name": "fullerene_structures_C60",
+    "census_type": "Census-Node",
+    "total_nodes": 60,
+    "total_edges": 90,
+    "diameter": 10
+  },
+  "census_vectors": [
+    {
+      "node_idx": 0,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 1,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 2,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 3,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 4,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 5,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 6,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 7,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 8,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 9,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 10,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 11,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 12,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 13,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 14,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 15,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 16,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 17,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 18,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 19,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 20,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 21,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 22,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 23,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 24,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 25,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 26,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 27,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 28,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 29,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 30,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 31,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 32,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 33,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 34,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 35,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 36,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 37,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 38,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 39,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 40,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 41,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 42,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 43,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 44,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 45,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 46,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 47,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 48,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 49,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 50,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 51,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 52,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 53,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 54,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 55,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 56,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 57,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 58,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 59,
+      "vector_length": 10,
+      "vector": [
+        3,
+        6,
+        8,
+        10,
+        10,
+        10,
+        8,
+        3,
+        1,
+        0
+      ]
+    }
+  ]
+}

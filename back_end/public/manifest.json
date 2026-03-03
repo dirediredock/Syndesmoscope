@@ -1,0 +1,362 @@
+[
+  {
+    "name": "barabasi_albert",
+    "nodes": 1500,
+    "edges": 23744
+  },
+  {
+    "name": "bible_nouns",
+    "nodes": 1707,
+    "edges": 9059
+  },
+  {
+    "name": "bitcoin_alpha",
+    "nodes": 3775,
+    "edges": 14120
+  },
+  {
+    "name": "blumenau_drug",
+    "nodes": 75,
+    "edges": 181
+  },
+  {
+    "name": "budapest_connectome",
+    "nodes": 1015,
+    "edges": 70654
+  },
+  {
+    "name": "celegans_hermaphrodite_chemical",
+    "nodes": 446,
+    "edges": 4172
+  },
+  {
+    "name": "celegans_hermaphrodite_gap_junction",
+    "nodes": 460,
+    "edges": 1432
+  },
+  {
+    "name": "celegans_male_chemical",
+    "nodes": 559,
+    "edges": 4500
+  },
+  {
+    "name": "celegans_male_gap_junction",
+    "nodes": 484,
+    "edges": 1597
+  },
+  {
+    "name": "celegans_metabolic",
+    "nodes": 453,
+    "edges": 2025
+  },
+  {
+    "name": "cintestinalis",
+    "nodes": 205,
+    "edges": 2575
+  },
+  {
+    "name": "collins_yeast",
+    "nodes": 1004,
+    "edges": 8319
+  },
+  {
+    "name": "contigous_usa",
+    "nodes": 49,
+    "edges": 107
+  },
+  {
+    "name": "desargues",
+    "nodes": 20,
+    "edges": 30
+  },
+  {
+    "name": "dodecahedron",
+    "nodes": 20,
+    "edges": 30
+  },
+  {
+    "name": "dolphins",
+    "nodes": 62,
+    "edges": 159
+  },
+  {
+    "name": "drosophila_flybi",
+    "nodes": 2705,
+    "edges": 8458
+  },
+  {
+    "name": "ego_social_facebook_107",
+    "nodes": 1034,
+    "edges": 26749
+  },
+  {
+    "name": "ego_social_facebook_1912",
+    "nodes": 744,
+    "edges": 30023
+  },
+  {
+    "name": "ego_social_facebook_3437",
+    "nodes": 532,
+    "edges": 4812
+  },
+  {
+    "name": "ego_social_facebook_414",
+    "nodes": 148,
+    "edges": 1692
+  },
+  {
+    "name": "erdos_renyi",
+    "nodes": 1500,
+    "edges": 22512
+  },
+  {
+    "name": "eu_airlines",
+    "nodes": 417,
+    "edges": 2953
+  },
+  {
+    "name": "euroroad",
+    "nodes": 1039,
+    "edges": 1305
+  },
+  {
+    "name": "example_graph",
+    "nodes": 7,
+    "edges": 10
+  },
+  {
+    "name": "example_onion",
+    "nodes": 17,
+    "edges": 19
+  },
+  {
+    "name": "faa_routes",
+    "nodes": 1226,
+    "edges": 2408
+  },
+  {
+    "name": "facebook_friends",
+    "nodes": 329,
+    "edges": 1954
+  },
+  {
+    "name": "facebook_organizations",
+    "nodes": 1429,
+    "edges": 19357
+  },
+  {
+    "name": "fibonacci_sunflower",
+    "nodes": 987,
+    "edges": 2924
+  },
+  {
+    "name": "fly_larva",
+    "nodes": 2952,
+    "edges": 95990
+  },
+  {
+    "name": "fullerene_structures_C1500",
+    "nodes": 1500,
+    "edges": 2250
+  },
+  {
+    "name": "fullerene_structures_C2160",
+    "nodes": 2160,
+    "edges": 3240
+  },
+  {
+    "name": "fullerene_structures_C240",
+    "nodes": 240,
+    "edges": 360
+  },
+  {
+    "name": "fullerene_structures_C60",
+    "nodes": 60,
+    "edges": 90
+  },
+  {
+    "name": "fullerene_structures_C720",
+    "nodes": 720,
+    "edges": 1080
+  },
+  {
+    "name": "game_thrones",
+    "nodes": 107,
+    "edges": 352
+  },
+  {
+    "name": "grid_14_by_14",
+    "nodes": 196,
+    "edges": 364
+  },
+  {
+    "name": "grid_56_by_56",
+    "nodes": 3136,
+    "edges": 6160
+  },
+  {
+    "name": "internet_top_pop",
+    "nodes": 754,
+    "edges": 895
+  },
+  {
+    "name": "jazz_collab",
+    "nodes": 198,
+    "edges": 2742
+  },
+  {
+    "name": "jung",
+    "nodes": 6120,
+    "edges": 50290
+  },
+  {
+    "name": "karate_club",
+    "nodes": 34,
+    "edges": 78
+  },
+  {
+    "name": "les_miserables",
+    "nodes": 77,
+    "edges": 254
+  },
+  {
+    "name": "london_transport",
+    "nodes": 369,
+    "edges": 430
+  },
+  {
+    "name": "malaria_genes_HVR1",
+    "nodes": 307,
+    "edges": 2812
+  },
+  {
+    "name": "malaria_genes_HVR5",
+    "nodes": 298,
+    "edges": 2684
+  },
+  {
+    "name": "mist_genetic_fly",
+    "nodes": 4055,
+    "edges": 13779
+  },
+  {
+    "name": "mist_genetic_human",
+    "nodes": 3570,
+    "edges": 8703
+  },
+  {
+    "name": "mist_genetic_worm",
+    "nodes": 3037,
+    "edges": 7914
+  },
+  {
+    "name": "mist_genetic_yeast",
+    "nodes": 3536,
+    "edges": 51989
+  },
+  {
+    "name": "mist_ppi_yeast",
+    "nodes": 3592,
+    "edges": 14558
+  },
+  {
+    "name": "netscience",
+    "nodes": 379,
+    "edges": 914
+  },
+  {
+    "name": "openflights",
+    "nodes": 3188,
+    "edges": 18833
+  },
+  {
+    "name": "physics_collab",
+    "nodes": 475,
+    "edges": 6426
+  },
+  {
+    "name": "plant_pol_kato",
+    "nodes": 768,
+    "edges": 1205
+  },
+  {
+    "name": "plant_pol_robertson",
+    "nodes": 1882,
+    "edges": 15254
+  },
+  {
+    "name": "polblogs",
+    "nodes": 1222,
+    "edges": 16714
+  },
+  {
+    "name": "power",
+    "nodes": 4941,
+    "edges": 6594
+  },
+  {
+    "name": "product_space",
+    "nodes": 866,
+    "edges": 2532
+  },
+  {
+    "name": "sp_infectious",
+    "nodes": 410,
+    "edges": 2765
+  },
+  {
+    "name": "spanish_highschools",
+    "nodes": 534,
+    "edges": 9527
+  },
+  {
+    "name": "stanford_bunny",
+    "nodes": 2503,
+    "edges": 7048
+  },
+  {
+    "name": "stochastic_block_model",
+    "nodes": 500,
+    "edges": 42161
+  },
+  {
+    "name": "ten_friends",
+    "nodes": 2539,
+    "edges": 10455
+  },
+  {
+    "name": "tree_7_binomial",
+    "nodes": 128,
+    "edges": 127
+  },
+  {
+    "name": "urban_streets_venice",
+    "nodes": 1840,
+    "edges": 2397
+  },
+  {
+    "name": "watts_strogatz",
+    "nodes": 1500,
+    "edges": 24000
+  },
+  {
+    "name": "wiki_science",
+    "nodes": 677,
+    "edges": 6517
+  },
+  {
+    "name": "word_adjacency_japanese",
+    "nodes": 2698,
+    "edges": 7995
+  },
+  {
+    "name": "yeast_transcriptome",
+    "nodes": 664,
+    "edges": 1065
+  },
+  {
+    "name": "zebras",
+    "nodes": 23,
+    "edges": 105
+  }
+]
