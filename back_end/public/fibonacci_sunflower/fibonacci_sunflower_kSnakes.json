@@ -1,0 +1,4955 @@
+{
+  "metadata": {
+    "filename": "fibonacci_sunflower",
+    "total_nodes": 987,
+    "total_edges": 2924,
+    "num_cores": 1
+  },
+  "cores": [
+    {
+      "core_value": 4,
+      "islands": [
+        {
+          "island_idx": 0,
+          "nodes": [
+            {
+              "node_idx": 0,
+              "x_position": -986,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 1,
+              "x_position": -985,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 2,
+              "x_position": -984,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 3,
+              "x_position": -983,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 4,
+              "x_position": -982,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 5,
+              "x_position": -981,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 6,
+              "x_position": -980,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 7,
+              "x_position": -979,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 8,
+              "x_position": -978,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 9,
+              "x_position": -977,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 10,
+              "x_position": -976,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 11,
+              "x_position": -975,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 12,
+              "x_position": -974,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 13,
+              "x_position": -973,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 14,
+              "x_position": -972,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 15,
+              "x_position": -971,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 16,
+              "x_position": -970,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 17,
+              "x_position": -969,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 18,
+              "x_position": -968,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 19,
+              "x_position": -967,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 20,
+              "x_position": -966,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 21,
+              "x_position": -965,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 22,
+              "x_position": -964,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 23,
+              "x_position": -963,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 24,
+              "x_position": -962,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 25,
+              "x_position": -961,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 26,
+              "x_position": -960,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 27,
+              "x_position": -959,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 28,
+              "x_position": -958,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 29,
+              "x_position": -957,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 30,
+              "x_position": -956,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 31,
+              "x_position": -955,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 32,
+              "x_position": -954,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 33,
+              "x_position": -953,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 34,
+              "x_position": -952,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 35,
+              "x_position": -951,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 36,
+              "x_position": -950,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 37,
+              "x_position": -949,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 38,
+              "x_position": -948,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 39,
+              "x_position": -947,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 40,
+              "x_position": -946,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 41,
+              "x_position": -945,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 42,
+              "x_position": -944,
+              "onion_value": 1
+            },
+            {
+              "node_idx": 43,
+              "x_position": -943,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 44,
+              "x_position": -942,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 45,
+              "x_position": -941,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 46,
+              "x_position": -940,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 47,
+              "x_position": -939,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 48,
+              "x_position": -938,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 49,
+              "x_position": -937,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 50,
+              "x_position": -936,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 51,
+              "x_position": -935,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 52,
+              "x_position": -934,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 53,
+              "x_position": -933,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 54,
+              "x_position": -932,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 59,
+              "x_position": -931,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 60,
+              "x_position": -930,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 61,
+              "x_position": -929,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 62,
+              "x_position": -928,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 63,
+              "x_position": -927,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 64,
+              "x_position": -926,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 65,
+              "x_position": -925,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 66,
+              "x_position": -924,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 67,
+              "x_position": -923,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 68,
+              "x_position": -922,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 69,
+              "x_position": -921,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 70,
+              "x_position": -920,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 71,
+              "x_position": -919,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 72,
+              "x_position": -918,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 81,
+              "x_position": -917,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 82,
+              "x_position": -916,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 83,
+              "x_position": -915,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 84,
+              "x_position": -914,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 85,
+              "x_position": -913,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 86,
+              "x_position": -912,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 87,
+              "x_position": -911,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 88,
+              "x_position": -910,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 179,
+              "x_position": -909,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 180,
+              "x_position": -908,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 181,
+              "x_position": -907,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 182,
+              "x_position": -906,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 183,
+              "x_position": -905,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 184,
+              "x_position": -904,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 185,
+              "x_position": -903,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 186,
+              "x_position": -902,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 187,
+              "x_position": -901,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 300,
+              "x_position": -900,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 304,
+              "x_position": -899,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 305,
+              "x_position": -898,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 306,
+              "x_position": -897,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 307,
+              "x_position": -896,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 308,
+              "x_position": -895,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 309,
+              "x_position": -894,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 310,
+              "x_position": -893,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 311,
+              "x_position": -892,
+              "onion_value": 2
+            },
+            {
+              "node_idx": 55,
+              "x_position": -891,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 56,
+              "x_position": -890,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 57,
+              "x_position": -889,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 58,
+              "x_position": -888,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 73,
+              "x_position": -887,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 74,
+              "x_position": -886,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 75,
+              "x_position": -885,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 76,
+              "x_position": -884,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 77,
+              "x_position": -883,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 78,
+              "x_position": -882,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 79,
+              "x_position": -881,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 80,
+              "x_position": -880,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 167,
+              "x_position": -879,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 168,
+              "x_position": -878,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 169,
+              "x_position": -877,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 170,
+              "x_position": -876,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 171,
+              "x_position": -875,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 172,
+              "x_position": -874,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 173,
+              "x_position": -873,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 174,
+              "x_position": -872,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 175,
+              "x_position": -871,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 176,
+              "x_position": -870,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 177,
+              "x_position": -869,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 178,
+              "x_position": -868,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 299,
+              "x_position": -867,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 301,
+              "x_position": -866,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 302,
+              "x_position": -865,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 303,
+              "x_position": -864,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 851,
+              "x_position": -863,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 852,
+              "x_position": -862,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 853,
+              "x_position": -861,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 854,
+              "x_position": -860,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 856,
+              "x_position": -859,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 860,
+              "x_position": -858,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 861,
+              "x_position": -857,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 862,
+              "x_position": -856,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 863,
+              "x_position": -855,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 864,
+              "x_position": -854,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 865,
+              "x_position": -853,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 866,
+              "x_position": -852,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 867,
+              "x_position": -851,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 868,
+              "x_position": -850,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 869,
+              "x_position": -849,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 870,
+              "x_position": -848,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 871,
+              "x_position": -847,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 872,
+              "x_position": -846,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 873,
+              "x_position": -845,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 874,
+              "x_position": -844,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 875,
+              "x_position": -843,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 876,
+              "x_position": -842,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 877,
+              "x_position": -841,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 886,
+              "x_position": -840,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 887,
+              "x_position": -839,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 888,
+              "x_position": -838,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 889,
+              "x_position": -837,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 890,
+              "x_position": -836,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 891,
+              "x_position": -835,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 892,
+              "x_position": -834,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 893,
+              "x_position": -833,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 894,
+              "x_position": -832,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 916,
+              "x_position": -831,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 917,
+              "x_position": -830,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 918,
+              "x_position": -829,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 919,
+              "x_position": -828,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 920,
+              "x_position": -827,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 921,
+              "x_position": -826,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 922,
+              "x_position": -825,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 923,
+              "x_position": -824,
+              "onion_value": 3
+            },
+            {
+              "node_idx": 312,
+              "x_position": -823,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 313,
+              "x_position": -822,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 314,
+              "x_position": -821,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 315,
+              "x_position": -820,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 316,
+              "x_position": -819,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 317,
+              "x_position": -818,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 318,
+              "x_position": -817,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 319,
+              "x_position": -816,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 320,
+              "x_position": -815,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 321,
+              "x_position": -814,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 322,
+              "x_position": -813,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 323,
+              "x_position": -812,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 643,
+              "x_position": -811,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 644,
+              "x_position": -810,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 645,
+              "x_position": -809,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 646,
+              "x_position": -808,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 647,
+              "x_position": -807,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 649,
+              "x_position": -806,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 653,
+              "x_position": -805,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 654,
+              "x_position": -804,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 655,
+              "x_position": -803,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 660,
+              "x_position": -802,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 661,
+              "x_position": -801,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 662,
+              "x_position": -800,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 663,
+              "x_position": -799,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 664,
+              "x_position": -798,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 665,
+              "x_position": -797,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 666,
+              "x_position": -796,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 667,
+              "x_position": -795,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 668,
+              "x_position": -794,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 806,
+              "x_position": -793,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 807,
+              "x_position": -792,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 808,
+              "x_position": -791,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 809,
+              "x_position": -790,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 810,
+              "x_position": -789,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 811,
+              "x_position": -788,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 812,
+              "x_position": -787,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 813,
+              "x_position": -786,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 814,
+              "x_position": -785,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 855,
+              "x_position": -784,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 857,
+              "x_position": -783,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 858,
+              "x_position": -782,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 859,
+              "x_position": -781,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 878,
+              "x_position": -780,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 879,
+              "x_position": -779,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 880,
+              "x_position": -778,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 881,
+              "x_position": -777,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 882,
+              "x_position": -776,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 883,
+              "x_position": -775,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 884,
+              "x_position": -774,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 885,
+              "x_position": -773,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 895,
+              "x_position": -772,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 896,
+              "x_position": -771,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 897,
+              "x_position": -770,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 898,
+              "x_position": -769,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 899,
+              "x_position": -768,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 900,
+              "x_position": -767,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 901,
+              "x_position": -766,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 902,
+              "x_position": -765,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 903,
+              "x_position": -764,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 904,
+              "x_position": -763,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 905,
+              "x_position": -762,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 906,
+              "x_position": -761,
+              "onion_value": 4
+            },
+            {
+              "node_idx": 608,
+              "x_position": -760,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 609,
+              "x_position": -759,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 610,
+              "x_position": -758,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 611,
+              "x_position": -757,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 612,
+              "x_position": -756,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 613,
+              "x_position": -755,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 614,
+              "x_position": -754,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 615,
+              "x_position": -753,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 616,
+              "x_position": -752,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 648,
+              "x_position": -751,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 650,
+              "x_position": -750,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 651,
+              "x_position": -749,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 652,
+              "x_position": -748,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 656,
+              "x_position": -747,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 657,
+              "x_position": -746,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 658,
+              "x_position": -745,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 659,
+              "x_position": -744,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 669,
+              "x_position": -743,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 670,
+              "x_position": -742,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 671,
+              "x_position": -741,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 672,
+              "x_position": -740,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 673,
+              "x_position": -739,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 674,
+              "x_position": -738,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 675,
+              "x_position": -737,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 676,
+              "x_position": -736,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 677,
+              "x_position": -735,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 678,
+              "x_position": -734,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 679,
+              "x_position": -733,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 680,
+              "x_position": -732,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 681,
+              "x_position": -731,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 682,
+              "x_position": -730,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 683,
+              "x_position": -729,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 684,
+              "x_position": -728,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 685,
+              "x_position": -727,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 686,
+              "x_position": -726,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 687,
+              "x_position": -725,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 688,
+              "x_position": -724,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 701,
+              "x_position": -723,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 702,
+              "x_position": -722,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 703,
+              "x_position": -721,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 704,
+              "x_position": -720,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 705,
+              "x_position": -719,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 706,
+              "x_position": -718,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 707,
+              "x_position": -717,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 708,
+              "x_position": -716,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 709,
+              "x_position": -715,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 710,
+              "x_position": -714,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 711,
+              "x_position": -713,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 712,
+              "x_position": -712,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 713,
+              "x_position": -711,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 714,
+              "x_position": -710,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 716,
+              "x_position": -709,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 720,
+              "x_position": -708,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 721,
+              "x_position": -707,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 722,
+              "x_position": -706,
+              "onion_value": 5
+            },
+            {
+              "node_idx": 492,
+              "x_position": -705,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 493,
+              "x_position": -704,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 494,
+              "x_position": -703,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 495,
+              "x_position": -702,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 496,
+              "x_position": -701,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 497,
+              "x_position": -700,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 498,
+              "x_position": -699,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 499,
+              "x_position": -698,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 500,
+              "x_position": -697,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 501,
+              "x_position": -696,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 502,
+              "x_position": -695,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 503,
+              "x_position": -694,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 504,
+              "x_position": -693,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 505,
+              "x_position": -692,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 506,
+              "x_position": -691,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 507,
+              "x_position": -690,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 508,
+              "x_position": -689,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 509,
+              "x_position": -688,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 510,
+              "x_position": -687,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 511,
+              "x_position": -686,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 512,
+              "x_position": -685,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 513,
+              "x_position": -684,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 514,
+              "x_position": -683,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 515,
+              "x_position": -682,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 516,
+              "x_position": -681,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 517,
+              "x_position": -680,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 518,
+              "x_position": -679,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 519,
+              "x_position": -678,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 520,
+              "x_position": -677,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 522,
+              "x_position": -676,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 526,
+              "x_position": -675,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 527,
+              "x_position": -674,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 528,
+              "x_position": -673,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 548,
+              "x_position": -672,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 549,
+              "x_position": -671,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 550,
+              "x_position": -670,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 551,
+              "x_position": -669,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 552,
+              "x_position": -668,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 553,
+              "x_position": -667,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 554,
+              "x_position": -666,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 555,
+              "x_position": -665,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 556,
+              "x_position": -664,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 617,
+              "x_position": -663,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 618,
+              "x_position": -662,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 619,
+              "x_position": -661,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 620,
+              "x_position": -660,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 621,
+              "x_position": -659,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 622,
+              "x_position": -658,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 623,
+              "x_position": -657,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 624,
+              "x_position": -656,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 625,
+              "x_position": -655,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 715,
+              "x_position": -654,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 717,
+              "x_position": -653,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 718,
+              "x_position": -652,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 719,
+              "x_position": -651,
+              "onion_value": 6
+            },
+            {
+              "node_idx": 413,
+              "x_position": -650,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 414,
+              "x_position": -649,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 415,
+              "x_position": -648,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 416,
+              "x_position": -647,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 418,
+              "x_position": -646,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 422,
+              "x_position": -645,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 423,
+              "x_position": -644,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 424,
+              "x_position": -643,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 444,
+              "x_position": -642,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 445,
+              "x_position": -641,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 446,
+              "x_position": -640,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 447,
+              "x_position": -639,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 448,
+              "x_position": -638,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 449,
+              "x_position": -637,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 450,
+              "x_position": -636,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 451,
+              "x_position": -635,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 452,
+              "x_position": -634,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 461,
+              "x_position": -633,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 462,
+              "x_position": -632,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 463,
+              "x_position": -631,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 464,
+              "x_position": -630,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 465,
+              "x_position": -629,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 466,
+              "x_position": -628,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 467,
+              "x_position": -627,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 468,
+              "x_position": -626,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 469,
+              "x_position": -625,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 521,
+              "x_position": -624,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 523,
+              "x_position": -623,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 524,
+              "x_position": -622,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 525,
+              "x_position": -621,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 529,
+              "x_position": -620,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 530,
+              "x_position": -619,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 531,
+              "x_position": -618,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 532,
+              "x_position": -617,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 533,
+              "x_position": -616,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 534,
+              "x_position": -615,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 535,
+              "x_position": -614,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 536,
+              "x_position": -613,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 537,
+              "x_position": -612,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 538,
+              "x_position": -611,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 539,
+              "x_position": -610,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 540,
+              "x_position": -609,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 541,
+              "x_position": -608,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 542,
+              "x_position": -607,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 543,
+              "x_position": -606,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 544,
+              "x_position": -605,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 545,
+              "x_position": -604,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 546,
+              "x_position": -603,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 557,
+              "x_position": -602,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 558,
+              "x_position": -601,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 559,
+              "x_position": -600,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 560,
+              "x_position": -599,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 561,
+              "x_position": -598,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 562,
+              "x_position": -597,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 563,
+              "x_position": -596,
+              "onion_value": 7
+            },
+            {
+              "node_idx": 324,
+              "x_position": -595,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 325,
+              "x_position": -594,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 326,
+              "x_position": -593,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 327,
+              "x_position": -592,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 335,
+              "x_position": -591,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 336,
+              "x_position": -590,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 337,
+              "x_position": -589,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 338,
+              "x_position": -588,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 357,
+              "x_position": -587,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 362,
+              "x_position": -586,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 363,
+              "x_position": -585,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 364,
+              "x_position": -584,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 365,
+              "x_position": -583,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 366,
+              "x_position": -582,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 367,
+              "x_position": -581,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 368,
+              "x_position": -580,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 369,
+              "x_position": -579,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 370,
+              "x_position": -578,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 417,
+              "x_position": -577,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 419,
+              "x_position": -576,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 420,
+              "x_position": -575,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 421,
+              "x_position": -574,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 425,
+              "x_position": -573,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 426,
+              "x_position": -572,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 427,
+              "x_position": -571,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 428,
+              "x_position": -570,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 429,
+              "x_position": -569,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 430,
+              "x_position": -568,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 431,
+              "x_position": -567,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 432,
+              "x_position": -566,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 433,
+              "x_position": -565,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 434,
+              "x_position": -564,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 435,
+              "x_position": -563,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 436,
+              "x_position": -562,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 437,
+              "x_position": -561,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 438,
+              "x_position": -560,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 439,
+              "x_position": -559,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 440,
+              "x_position": -558,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 441,
+              "x_position": -557,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 442,
+              "x_position": -556,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 443,
+              "x_position": -555,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 453,
+              "x_position": -554,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 454,
+              "x_position": -553,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 455,
+              "x_position": -552,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 457,
+              "x_position": -551,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 458,
+              "x_position": -550,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 470,
+              "x_position": -549,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 471,
+              "x_position": -548,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 472,
+              "x_position": -547,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 473,
+              "x_position": -546,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 474,
+              "x_position": -545,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 475,
+              "x_position": -544,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 476,
+              "x_position": -543,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 477,
+              "x_position": -542,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 478,
+              "x_position": -541,
+              "onion_value": 8
+            },
+            {
+              "node_idx": 328,
+              "x_position": -540,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 329,
+              "x_position": -539,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 330,
+              "x_position": -538,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 331,
+              "x_position": -537,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 332,
+              "x_position": -536,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 333,
+              "x_position": -535,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 334,
+              "x_position": -534,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 339,
+              "x_position": -533,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 340,
+              "x_position": -532,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 341,
+              "x_position": -531,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 342,
+              "x_position": -530,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 343,
+              "x_position": -529,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 344,
+              "x_position": -528,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 345,
+              "x_position": -527,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 346,
+              "x_position": -526,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 347,
+              "x_position": -525,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 348,
+              "x_position": -524,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 349,
+              "x_position": -523,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 350,
+              "x_position": -522,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 351,
+              "x_position": -521,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 352,
+              "x_position": -520,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 353,
+              "x_position": -519,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 354,
+              "x_position": -518,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 355,
+              "x_position": -517,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 356,
+              "x_position": -516,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 358,
+              "x_position": -515,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 359,
+              "x_position": -514,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 360,
+              "x_position": -513,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 361,
+              "x_position": -512,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 371,
+              "x_position": -511,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 372,
+              "x_position": -510,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 373,
+              "x_position": -509,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 374,
+              "x_position": -508,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 375,
+              "x_position": -507,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 376,
+              "x_position": -506,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 377,
+              "x_position": -505,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 379,
+              "x_position": -504,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 380,
+              "x_position": -503,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 384,
+              "x_position": -502,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 385,
+              "x_position": -501,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 390,
+              "x_position": -500,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 391,
+              "x_position": -499,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 392,
+              "x_position": -498,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 393,
+              "x_position": -497,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 394,
+              "x_position": -496,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 395,
+              "x_position": -495,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 396,
+              "x_position": -494,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 397,
+              "x_position": -493,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 398,
+              "x_position": -492,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 402,
+              "x_position": -491,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 403,
+              "x_position": -490,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 412,
+              "x_position": -489,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 456,
+              "x_position": -488,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 459,
+              "x_position": -487,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 460,
+              "x_position": -486,
+              "onion_value": 9
+            },
+            {
+              "node_idx": 188,
+              "x_position": -485,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 189,
+              "x_position": -484,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 190,
+              "x_position": -483,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 191,
+              "x_position": -482,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 192,
+              "x_position": -481,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 193,
+              "x_position": -480,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 194,
+              "x_position": -479,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 195,
+              "x_position": -478,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 196,
+              "x_position": -477,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 197,
+              "x_position": -476,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 198,
+              "x_position": -475,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 199,
+              "x_position": -474,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 200,
+              "x_position": -473,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 201,
+              "x_position": -472,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 202,
+              "x_position": -471,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 203,
+              "x_position": -470,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 204,
+              "x_position": -469,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 205,
+              "x_position": -468,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 206,
+              "x_position": -467,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 211,
+              "x_position": -466,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 212,
+              "x_position": -465,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 220,
+              "x_position": -464,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 221,
+              "x_position": -463,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 223,
+              "x_position": -462,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 224,
+              "x_position": -461,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 228,
+              "x_position": -460,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 229,
+              "x_position": -459,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 241,
+              "x_position": -458,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 242,
+              "x_position": -457,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 243,
+              "x_position": -456,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 244,
+              "x_position": -455,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 245,
+              "x_position": -454,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 246,
+              "x_position": -453,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 251,
+              "x_position": -452,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 252,
+              "x_position": -451,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 255,
+              "x_position": -450,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 378,
+              "x_position": -449,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 381,
+              "x_position": -448,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 382,
+              "x_position": -447,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 383,
+              "x_position": -446,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 386,
+              "x_position": -445,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 387,
+              "x_position": -444,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 388,
+              "x_position": -443,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 389,
+              "x_position": -442,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 399,
+              "x_position": -441,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 400,
+              "x_position": -440,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 401,
+              "x_position": -439,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 404,
+              "x_position": -438,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 405,
+              "x_position": -437,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 406,
+              "x_position": -436,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 407,
+              "x_position": -435,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 408,
+              "x_position": -434,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 409,
+              "x_position": -433,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 410,
+              "x_position": -432,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 411,
+              "x_position": -431,
+              "onion_value": 10
+            },
+            {
+              "node_idx": 89,
+              "x_position": -430,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 90,
+              "x_position": -429,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 91,
+              "x_position": -428,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 92,
+              "x_position": -427,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 93,
+              "x_position": -426,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 94,
+              "x_position": -425,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 95,
+              "x_position": -424,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 96,
+              "x_position": -423,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 97,
+              "x_position": -422,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 98,
+              "x_position": -421,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 99,
+              "x_position": -420,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 100,
+              "x_position": -419,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 101,
+              "x_position": -418,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 102,
+              "x_position": -417,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 106,
+              "x_position": -416,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 107,
+              "x_position": -415,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 108,
+              "x_position": -414,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 109,
+              "x_position": -413,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 132,
+              "x_position": -412,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 133,
+              "x_position": -411,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 134,
+              "x_position": -410,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 135,
+              "x_position": -409,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 136,
+              "x_position": -408,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 137,
+              "x_position": -407,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 139,
+              "x_position": -406,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 143,
+              "x_position": -405,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 144,
+              "x_position": -404,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 207,
+              "x_position": -403,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 208,
+              "x_position": -402,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 209,
+              "x_position": -401,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 210,
+              "x_position": -400,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 213,
+              "x_position": -399,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 214,
+              "x_position": -398,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 215,
+              "x_position": -397,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 216,
+              "x_position": -396,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 217,
+              "x_position": -395,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 218,
+              "x_position": -394,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 219,
+              "x_position": -393,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 222,
+              "x_position": -392,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 225,
+              "x_position": -391,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 226,
+              "x_position": -390,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 227,
+              "x_position": -389,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 230,
+              "x_position": -388,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 231,
+              "x_position": -387,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 232,
+              "x_position": -386,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 233,
+              "x_position": -385,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 234,
+              "x_position": -384,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 235,
+              "x_position": -383,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 236,
+              "x_position": -382,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 237,
+              "x_position": -381,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 238,
+              "x_position": -380,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 239,
+              "x_position": -379,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 240,
+              "x_position": -378,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 247,
+              "x_position": -377,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 248,
+              "x_position": -376,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 249,
+              "x_position": -375,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 250,
+              "x_position": -374,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 253,
+              "x_position": -373,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 254,
+              "x_position": -372,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 479,
+              "x_position": -371,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 480,
+              "x_position": -370,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 481,
+              "x_position": -369,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 482,
+              "x_position": -368,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 483,
+              "x_position": -367,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 565,
+              "x_position": -366,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 566,
+              "x_position": -365,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 567,
+              "x_position": -364,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 568,
+              "x_position": -363,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 569,
+              "x_position": -362,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 570,
+              "x_position": -361,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 572,
+              "x_position": -360,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 576,
+              "x_position": -359,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 577,
+              "x_position": -358,
+              "onion_value": 11
+            },
+            {
+              "node_idx": 103,
+              "x_position": -357,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 104,
+              "x_position": -356,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 105,
+              "x_position": -355,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 138,
+              "x_position": -354,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 140,
+              "x_position": -353,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 141,
+              "x_position": -352,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 142,
+              "x_position": -351,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 484,
+              "x_position": -350,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 485,
+              "x_position": -349,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 486,
+              "x_position": -348,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 571,
+              "x_position": -347,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 573,
+              "x_position": -346,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 574,
+              "x_position": -345,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 575,
+              "x_position": -344,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 737,
+              "x_position": -343,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 738,
+              "x_position": -342,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 739,
+              "x_position": -341,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 740,
+              "x_position": -340,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 741,
+              "x_position": -339,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 742,
+              "x_position": -338,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 743,
+              "x_position": -337,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 744,
+              "x_position": -336,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 768,
+              "x_position": -335,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 769,
+              "x_position": -334,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 770,
+              "x_position": -333,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 771,
+              "x_position": -332,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 772,
+              "x_position": -331,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 773,
+              "x_position": -330,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 776,
+              "x_position": -329,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 777,
+              "x_position": -328,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 787,
+              "x_position": -327,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 790,
+              "x_position": -326,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 943,
+              "x_position": -325,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 944,
+              "x_position": -324,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 945,
+              "x_position": -323,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 946,
+              "x_position": -322,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 947,
+              "x_position": -321,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 948,
+              "x_position": -320,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 954,
+              "x_position": -319,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 955,
+              "x_position": -318,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 964,
+              "x_position": -317,
+              "onion_value": 12
+            },
+            {
+              "node_idx": 786,
+              "x_position": -316,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 788,
+              "x_position": -315,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 789,
+              "x_position": -314,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 823,
+              "x_position": -313,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 824,
+              "x_position": -312,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 826,
+              "x_position": -311,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 827,
+              "x_position": -310,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 828,
+              "x_position": -309,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 829,
+              "x_position": -308,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 830,
+              "x_position": -307,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 842,
+              "x_position": -306,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 843,
+              "x_position": -305,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 950,
+              "x_position": -304,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 951,
+              "x_position": -303,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 952,
+              "x_position": -302,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 953,
+              "x_position": -301,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 956,
+              "x_position": -300,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 957,
+              "x_position": -299,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 958,
+              "x_position": -298,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 959,
+              "x_position": -297,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 960,
+              "x_position": -296,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 961,
+              "x_position": -295,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 962,
+              "x_position": -294,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 963,
+              "x_position": -293,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 974,
+              "x_position": -292,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 975,
+              "x_position": -291,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 976,
+              "x_position": -290,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 977,
+              "x_position": -289,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 978,
+              "x_position": -288,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 979,
+              "x_position": -287,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 980,
+              "x_position": -286,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 981,
+              "x_position": -285,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 985,
+              "x_position": -284,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 986,
+              "x_position": -283,
+              "onion_value": 13
+            },
+            {
+              "node_idx": 779,
+              "x_position": -282,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 781,
+              "x_position": -281,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 782,
+              "x_position": -280,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 783,
+              "x_position": -279,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 784,
+              "x_position": -278,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 785,
+              "x_position": -277,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 791,
+              "x_position": -276,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 792,
+              "x_position": -275,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 793,
+              "x_position": -274,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 817,
+              "x_position": -273,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 818,
+              "x_position": -272,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 819,
+              "x_position": -271,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 820,
+              "x_position": -270,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 821,
+              "x_position": -269,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 822,
+              "x_position": -268,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 825,
+              "x_position": -267,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 834,
+              "x_position": -266,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 835,
+              "x_position": -265,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 836,
+              "x_position": -264,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 837,
+              "x_position": -263,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 838,
+              "x_position": -262,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 839,
+              "x_position": -261,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 840,
+              "x_position": -260,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 841,
+              "x_position": -259,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 844,
+              "x_position": -258,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 845,
+              "x_position": -257,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 846,
+              "x_position": -256,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 847,
+              "x_position": -255,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 848,
+              "x_position": -254,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 849,
+              "x_position": -253,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 850,
+              "x_position": -252,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 982,
+              "x_position": -251,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 983,
+              "x_position": -250,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 984,
+              "x_position": -249,
+              "onion_value": 14
+            },
+            {
+              "node_idx": 597,
+              "x_position": -248,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 598,
+              "x_position": -247,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 600,
+              "x_position": -246,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 601,
+              "x_position": -245,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 602,
+              "x_position": -244,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 603,
+              "x_position": -243,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 604,
+              "x_position": -242,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 605,
+              "x_position": -241,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 606,
+              "x_position": -240,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 630,
+              "x_position": -239,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 631,
+              "x_position": -238,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 632,
+              "x_position": -237,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 633,
+              "x_position": -236,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 634,
+              "x_position": -235,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 635,
+              "x_position": -234,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 636,
+              "x_position": -233,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 637,
+              "x_position": -232,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 641,
+              "x_position": -231,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 642,
+              "x_position": -230,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 760,
+              "x_position": -229,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 761,
+              "x_position": -228,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 762,
+              "x_position": -227,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 763,
+              "x_position": -226,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 764,
+              "x_position": -225,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 765,
+              "x_position": -224,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 774,
+              "x_position": -223,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 775,
+              "x_position": -222,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 780,
+              "x_position": -221,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 796,
+              "x_position": -220,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 797,
+              "x_position": -219,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 798,
+              "x_position": -218,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 831,
+              "x_position": -217,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 832,
+              "x_position": -216,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 833,
+              "x_position": -215,
+              "onion_value": 15
+            },
+            {
+              "node_idx": 259,
+              "x_position": -214,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 260,
+              "x_position": -213,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 266,
+              "x_position": -212,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 268,
+              "x_position": -211,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 269,
+              "x_position": -210,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 270,
+              "x_position": -209,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 271,
+              "x_position": -208,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 272,
+              "x_position": -207,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 273,
+              "x_position": -206,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 274,
+              "x_position": -205,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 275,
+              "x_position": -204,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 276,
+              "x_position": -203,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 277,
+              "x_position": -202,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 281,
+              "x_position": -201,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 282,
+              "x_position": -200,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 283,
+              "x_position": -199,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 284,
+              "x_position": -198,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 285,
+              "x_position": -197,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 286,
+              "x_position": -196,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 287,
+              "x_position": -195,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 288,
+              "x_position": -194,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 289,
+              "x_position": -193,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 290,
+              "x_position": -192,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 291,
+              "x_position": -191,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 292,
+              "x_position": -190,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 293,
+              "x_position": -189,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 294,
+              "x_position": -188,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 296,
+              "x_position": -187,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 297,
+              "x_position": -186,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 298,
+              "x_position": -185,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 599,
+              "x_position": -184,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 638,
+              "x_position": -183,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 639,
+              "x_position": -182,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 640,
+              "x_position": -181,
+              "onion_value": 16
+            },
+            {
+              "node_idx": 110,
+              "x_position": -180,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 111,
+              "x_position": -179,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 112,
+              "x_position": -178,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 113,
+              "x_position": -177,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 114,
+              "x_position": -176,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 115,
+              "x_position": -175,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 116,
+              "x_position": -174,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 117,
+              "x_position": -173,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 118,
+              "x_position": -172,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 119,
+              "x_position": -171,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 120,
+              "x_position": -170,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 121,
+              "x_position": -169,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 122,
+              "x_position": -168,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 146,
+              "x_position": -167,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 147,
+              "x_position": -166,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 148,
+              "x_position": -165,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 149,
+              "x_position": -164,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 150,
+              "x_position": -163,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 151,
+              "x_position": -162,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 152,
+              "x_position": -161,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 153,
+              "x_position": -160,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 256,
+              "x_position": -159,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 257,
+              "x_position": -158,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 258,
+              "x_position": -157,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 261,
+              "x_position": -156,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 262,
+              "x_position": -155,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 263,
+              "x_position": -154,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 264,
+              "x_position": -153,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 265,
+              "x_position": -152,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 267,
+              "x_position": -151,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 278,
+              "x_position": -150,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 279,
+              "x_position": -149,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 280,
+              "x_position": -148,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 487,
+              "x_position": -147,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 488,
+              "x_position": -146,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 489,
+              "x_position": -145,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 490,
+              "x_position": -144,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 491,
+              "x_position": -143,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 588,
+              "x_position": -142,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 590,
+              "x_position": -141,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 591,
+              "x_position": -140,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 592,
+              "x_position": -139,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 593,
+              "x_position": -138,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 594,
+              "x_position": -137,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 595,
+              "x_position": -136,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 596,
+              "x_position": -135,
+              "onion_value": 17
+            },
+            {
+              "node_idx": 695,
+              "x_position": -134,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 696,
+              "x_position": -133,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 698,
+              "x_position": -132,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 699,
+              "x_position": -131,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 700,
+              "x_position": -130,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 723,
+              "x_position": -129,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 724,
+              "x_position": -128,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 728,
+              "x_position": -127,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 729,
+              "x_position": -126,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 730,
+              "x_position": -125,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 731,
+              "x_position": -124,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 732,
+              "x_position": -123,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 733,
+              "x_position": -122,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 925,
+              "x_position": -121,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 926,
+              "x_position": -120,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 927,
+              "x_position": -119,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 928,
+              "x_position": -118,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 929,
+              "x_position": -117,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 931,
+              "x_position": -116,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 936,
+              "x_position": -115,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 937,
+              "x_position": -114,
+              "onion_value": 18
+            },
+            {
+              "node_idx": 689,
+              "x_position": -113,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 690,
+              "x_position": -112,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 691,
+              "x_position": -111,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 692,
+              "x_position": -110,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 693,
+              "x_position": -109,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 753,
+              "x_position": -108,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 755,
+              "x_position": -107,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 758,
+              "x_position": -106,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 930,
+              "x_position": -105,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 932,
+              "x_position": -104,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 933,
+              "x_position": -103,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 934,
+              "x_position": -102,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 935,
+              "x_position": -101,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 966,
+              "x_position": -100,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 967,
+              "x_position": -99,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 968,
+              "x_position": -98,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 969,
+              "x_position": -97,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 970,
+              "x_position": -96,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 971,
+              "x_position": -95,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 972,
+              "x_position": -94,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 973,
+              "x_position": -93,
+              "onion_value": 19
+            },
+            {
+              "node_idx": 124,
+              "x_position": -92,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 125,
+              "x_position": -91,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 126,
+              "x_position": -90,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 127,
+              "x_position": -89,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 128,
+              "x_position": -88,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 129,
+              "x_position": -87,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 130,
+              "x_position": -86,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 131,
+              "x_position": -85,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 564,
+              "x_position": -84,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 583,
+              "x_position": -83,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 584,
+              "x_position": -82,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 585,
+              "x_position": -81,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 586,
+              "x_position": -80,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 725,
+              "x_position": -79,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 726,
+              "x_position": -78,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 727,
+              "x_position": -77,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 734,
+              "x_position": -76,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 735,
+              "x_position": -75,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 748,
+              "x_position": -74,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 749,
+              "x_position": -73,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 750,
+              "x_position": -72,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 751,
+              "x_position": -71,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 752,
+              "x_position": -70,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 754,
+              "x_position": -69,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 756,
+              "x_position": -68,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 757,
+              "x_position": -67,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 766,
+              "x_position": -66,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 767,
+              "x_position": -65,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 795,
+              "x_position": -64,
+              "onion_value": 20
+            },
+            {
+              "node_idx": 145,
+              "x_position": -63,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 155,
+              "x_position": -62,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 158,
+              "x_position": -61,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 160,
+              "x_position": -60,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 161,
+              "x_position": -59,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 578,
+              "x_position": -58,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 626,
+              "x_position": -57,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 627,
+              "x_position": -56,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 628,
+              "x_position": -55,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 629,
+              "x_position": -54,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 736,
+              "x_position": -53,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 746,
+              "x_position": -52,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 778,
+              "x_position": -51,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 794,
+              "x_position": -50,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 802,
+              "x_position": -49,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 803,
+              "x_position": -48,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 804,
+              "x_position": -47,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 805,
+              "x_position": -46,
+              "onion_value": 21
+            },
+            {
+              "node_idx": 154,
+              "x_position": -45,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 156,
+              "x_position": -44,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 157,
+              "x_position": -43,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 163,
+              "x_position": -42,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 164,
+              "x_position": -41,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 907,
+              "x_position": -40,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 908,
+              "x_position": -39,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 909,
+              "x_position": -38,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 910,
+              "x_position": -37,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 911,
+              "x_position": -36,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 912,
+              "x_position": -35,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 913,
+              "x_position": -34,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 914,
+              "x_position": -33,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 915,
+              "x_position": -32,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 924,
+              "x_position": -31,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 939,
+              "x_position": -30,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 940,
+              "x_position": -29,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 941,
+              "x_position": -28,
+              "onion_value": 22
+            },
+            {
+              "node_idx": 162,
+              "x_position": -27,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 165,
+              "x_position": -26,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 166,
+              "x_position": -25,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 295,
+              "x_position": -24,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 547,
+              "x_position": -23,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 579,
+              "x_position": -22,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 580,
+              "x_position": -21,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 582,
+              "x_position": -20,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 694,
+              "x_position": -19,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 697,
+              "x_position": -18,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 745,
+              "x_position": -17,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 759,
+              "x_position": -16,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 815,
+              "x_position": -15,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 816,
+              "x_position": -14,
+              "onion_value": 23
+            },
+            {
+              "node_idx": 159,
+              "x_position": -13,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 581,
+              "x_position": -12,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 587,
+              "x_position": -11,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 589,
+              "x_position": -10,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 747,
+              "x_position": -9,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 799,
+              "x_position": -8,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 800,
+              "x_position": -7,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 938,
+              "x_position": -6,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 949,
+              "x_position": -5,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 965,
+              "x_position": -4,
+              "onion_value": 24
+            },
+            {
+              "node_idx": 123,
+              "x_position": -3,
+              "onion_value": 25
+            },
+            {
+              "node_idx": 607,
+              "x_position": -2,
+              "onion_value": 25
+            },
+            {
+              "node_idx": 801,
+              "x_position": -1,
+              "onion_value": 25
+            },
+            {
+              "node_idx": 942,
+              "x_position": 0,
+              "onion_value": 25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
