@@ -12,6 +12,8 @@ The name 'Syndesmoscope' is a neoclassical compound word built from Greek roots:
 
 <img src="figures/teaser_04.png" width="100%" ></a>
 
+<img src="figures/teaser_05.png" width="100%" ></a>
+
 # Development Setup
 
 These steps assume that `npm` is already installed on your machine. This repository does **not** store or track the required web app scaffolding dependencies, so the first step is to navigate to the `Syndesmoscope` working directory in your terminal and install these locally.
