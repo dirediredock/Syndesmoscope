@@ -4,28 +4,31 @@
    ============================================ */
 
 :root {
-  /* Color palette - muted, scientific */
+  /* Color palette - neutral grayscale */
   --color-bg-primary: #0d1117;
   --color-bg-secondary: #161b22;
   --color-bg-tertiary: #21262d;
   --color-border: #30363d;
   --color-border-muted: #21262d;
-  
-  --color-text-primary: #e6edf3;
-  --color-text-secondary: #8b949e;
-  --color-text-muted: #6e7681;
-  
+
+  --color-text-primary: #ebebeb;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #808080;
+
+  /* Default data element colors */
+  --color-node-default: #c0c0c0;
+  --color-edge-default-line: #363636;
+  --color-edge-default-point: #828282;
+
   /* Selection highlight colors (from spec) */
   --color-node-selected: #58a6ff;
   --color-node-hover: rgba(88, 166, 255, 0.5);
   --color-edge-selected: #f78166;
   --color-edge-hover: rgba(247, 129, 102, 0.5);
 
-  /* k-Snakes visualization colors (dark mode compatible) */
-  --color-ksnakes-core: #114055;      /* sky-300: visible on dark bg */
-  /* --color-ksnakes-island: #232b4a;    violet-300: visible on dark bg */
-  --color-ksnakes-island: black;
-  --color-ksnakes-core:  #21262d;
+  /* k-Snakes visualization colors */
+  --color-ksnakes-core: #404040;
+  --color-ksnakes-island: #1a1a1a;
   
   /* Accent colors for pane headers
   --color-accent-nodelink: #7ee787;
@@ -64,14 +67,18 @@
 /* Light mode theme */
 [data-theme="light"] {
   --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f6f8fa;
-  --color-bg-tertiary: #eaeef2;
-  --color-border: #d0d7de;
-  --color-border-muted: #eaeef2;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-tertiary: #eaeaea;
+  --color-border: #d0d0d0;
+  --color-border-muted: #eaeaea;
 
-  --color-text-primary: #1f2328;
-  --color-text-secondary: #656d76;
-  --color-text-muted: #8c959f;
+  --color-text-primary: #222222;
+  --color-text-secondary: #6b6b6b;
+  --color-text-muted: #949494;
+
+  --color-node-default: #555555;
+  --color-edge-default-line: #b8b8b8;
+  --color-edge-default-point: #959595;
 
   /* Selection highlight colors - adjusted for light backgrounds */
   --color-node-selected: #0969da;
@@ -80,8 +87,8 @@
   --color-edge-hover: rgba(207, 34, 46, 0.4);
 
   /* k-Snakes visualization colors (light mode) */
-  --color-ksnakes-core: #b6e3ff;
-  --color-ksnakes-island: #ddf4ff;
+  --color-ksnakes-core: #c0c0c0;
+  --color-ksnakes-island: #d5d5d5;
 }
 
 /* Reset */

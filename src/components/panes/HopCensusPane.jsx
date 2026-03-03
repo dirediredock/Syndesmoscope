@@ -4,6 +4,7 @@ import Pane from '../ui/Pane'
 import TranslocationControls from '../ui/TranslocationControls'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
+import BrushIcon from '../ui/BrushIcon'
 import './HopCensusPane.css'
 
 /**
@@ -61,7 +62,8 @@ function HopCensusPane({ data, networkName }) {
     hoverNode,
     clearHover,
     toggleNodeSelection,
-    selectNodes
+    selectNodes,
+    brushResetSignal
   } = useSelection()
 
   const {
@@ -70,6 +72,11 @@ function HopCensusPane({ data, networkName }) {
     setFilter,
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.05, 15] })
+
+  // Deactivate brush when selection is cleared from control strip
+  useEffect(() => {
+    if (brushResetSignal > 0) setBrushMode(false)
+  }, [brushResetSignal])
 
   // Filter: allow wheel zoom, block drag-start on census lines (so clicks work)
   // In brush mode, block all zoom drag (wheel still works)
@@ -134,7 +141,6 @@ function HopCensusPane({ data, networkName }) {
   // Reset state when data changes
   useEffect(() => {
     handleResetZoom()
-    setNodeSize('S')
     setOffsetMap(new Map())
   }, [data, handleResetZoom])
 
@@ -256,7 +262,7 @@ function HopCensusPane({ data, networkName }) {
         .attr('y1', -gridExtent)
         .attr('x2', xScale(i))
         .attr('y2', innerHeight + gridExtent)
-        .attr('stroke', 'var(--color-ksnakes-island)')
+        .attr('stroke', '#0a0a0a')
         .attr('stroke-width', 1)
     }
 
@@ -276,9 +282,9 @@ function HopCensusPane({ data, networkName }) {
         return line(shifted)
       })
       .attr('fill', 'none')
-      .attr('stroke', 'var(--color-text-muted)')
+      .attr('stroke', 'var(--color-node-default)')
       .attr('stroke-width', 0.5)
-      .attr('stroke-opacity', 0.3)
+      .attr('stroke-opacity', 0.5)
       .attr('stroke-linecap', 'round')
       .on('mouseenter', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -384,7 +390,7 @@ function HopCensusPane({ data, networkName }) {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
         if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-        return 'var(--color-text-muted)'
+        return 'var(--color-node-default)'
       })
       .attr('stroke-width', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -394,7 +400,7 @@ function HopCensusPane({ data, networkName }) {
       .attr('stroke-opacity', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 1
-        return 0.3
+        return 0.5
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -420,10 +426,7 @@ function HopCensusPane({ data, networkName }) {
               aria-label="Brush"
               title="Brush"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14">
-                <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <rect x="5.5" y="7" width="3" height="5" rx="0.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+              <BrushIcon />
             </button>
           </div>
           <TranslocationControls

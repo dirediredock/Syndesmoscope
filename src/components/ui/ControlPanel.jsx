@@ -1,11 +1,11 @@
 import './ControlPanel.css'
 
-const PANE_TYPE_CYCLE = ['kSnakes', 'hopCensus', 'nodeLink', 'adjacencyMatrix']
+const PANE_TYPE_CYCLE = ['kSnakes', 'hopCensus', 'nodeLink', 'adjacencyGrid']
 const PANE_TYPE_LABELS = {
   kSnakes: 'kSnakes',
   hopCensus: 'HopCensus',
   nodeLink: 'NodeLink',
-  adjacencyMatrix: 'AdjacencyGrid'
+  adjacencyGrid: 'AdjacencyGrid'
 }
 
 function ControlPanel({ paneTypes, onPaneTypeChange, onResetLayout }) {
@@ -24,8 +24,8 @@ function ControlPanel({ paneTypes, onPaneTypeChange, onResetLayout }) {
                   const next = PANE_TYPE_CYCLE[(cycleIdx + 1) % PANE_TYPE_CYCLE.length]
                   onPaneTypeChange(idx, next)
                 }}
-                aria-label={`Pane ${idx + 1} visualization type`}
-                title={`Pane ${idx + 1}: click to cycle`}
+                aria-label={`Pane ${idx + 1}`}
+                title={`Pane ${idx + 1}`}
               >
                 {PANE_TYPE_LABELS[type] || type}
               </button>

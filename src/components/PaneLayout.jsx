@@ -4,7 +4,7 @@ import { useNetwork } from '../contexts/NetworkContext'
 import NodeLinkPane from './panes/NodeLinkPane'
 import HopCensusPane from './panes/HopCensusPane'
 import KSnakesPane from './panes/KSnakesPane'
-import AdjacencyMatrixPane from './panes/AdjacencyMatrixPane'
+import AdjacencyGridPane from './panes/AdjacencyGridPane'
 import './PaneLayout.css'
 
 function PaneLayout({ onResetRef, paneTypes }) {
@@ -45,10 +45,10 @@ function PaneLayout({ onResetRef, paneTypes }) {
             networkName={networkName}
           />
         )
-      case 'adjacencyMatrix':
+      case 'adjacencyGrid':
         return (
-          <AdjacencyMatrixPane
-            data={networkData?.adjacencyMatrix}
+          <AdjacencyGridPane
+            data={networkData?.adjacencyGrid}
             networkName={networkName}
           />
         )

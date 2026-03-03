@@ -3,10 +3,11 @@ import * as d3 from 'd3'
 import Pane from '../ui/Pane'
 import { useSelection } from '../../contexts/SelectionContext'
 import { useZoomPan } from '../../hooks/useZoomPan'
-import './AdjacencyMatrixPane.css'
+import BrushIcon from '../ui/BrushIcon'
+import './AdjacencyGridPane.css'
 
 /**
- * AdjacencyMatrixPane
+ * AdjacencyGridPane
  *
  * Renders an adjacency matrix from precomputed JSON:
  * - edges[]: points at (x,y) in seriated coordinates, with edge_idx and source/target node ids
@@ -37,14 +38,14 @@ const GRID_SIZES = {
 }
 const GRIDLINE_CYCLE = ['off', 'XS', 'S', 'M', 'L', 'XL']
 
-function AdjacencyMatrixPane({ data, networkName }) {
+function AdjacencyGridPane({ data, networkName }) {
   const containerRef = useRef(null)
   const svgRef = useRef(null)
   const zoomContainerRef = useRef(null)
   const boundsRef = useRef(null)
   const brushGroupRef = useRef(null)
 
-  const [nodeSize, setNodeSize] = useState('M')
+  const [nodeSize, setNodeSize] = useState('S')
   const [gridlines, setGridlines] = useState('off')
   const [brushMode, setBrushMode] = useState(false)
 
@@ -59,7 +60,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
     clearHover,
     toggleNodeSelection,
     toggleEdgeSelection,
-    selectEdges
+    selectEdges,
+    brushResetSignal
   } = useSelection()
 
   const handleSelectIntersectionEdges = useCallback(() => {
@@ -76,6 +78,11 @@ function AdjacencyMatrixPane({ data, networkName }) {
     setFilter,
     zoomPercent
   } = useZoomPan(svgRef, { scaleExtent: [0.5, 15] })
+
+  // Deactivate brush when selection is cleared from control strip
+  useEffect(() => {
+    if (brushResetSignal > 0) setBrushMode(false)
+  }, [brushResetSignal])
 
   useEffect(() => {
     if (!setFilter) return
@@ -114,8 +121,6 @@ function AdjacencyMatrixPane({ data, networkName }) {
 
   useEffect(() => {
     handleResetZoom()
-    setNodeSize('M')
-    setGridlines('off')
   }, [data, handleResetZoom])
 
   useEffect(() => {
@@ -147,7 +152,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
         if (selectedEdges.has(edgeIdx)) return 'var(--color-edge-selected)'
         if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
-        return 'var(--color-text-muted)'
+        return 'var(--color-edge-default-point)'
       })
       .attr('opacity', 1)
       .attr('r', function () {
@@ -173,7 +178,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
         .attr('opacity', function () {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
           if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.35
-          return 0.12
+          return 0.22
         })
     }
   }, [nodeSize, gridlines, hoveredNodes, hoveredEdges, selectedNodes, selectedEdges])
@@ -380,7 +385,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
         if (selectedEdges.has(edgeIdx)) return 'var(--color-edge-selected)'
         if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
-        return 'var(--color-text-muted)'
+        return 'var(--color-edge-default-point)'
       })
       .attr('opacity', 1)
       .attr('r', function () {
@@ -416,7 +421,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
         .attr('opacity', function () {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
           if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) return 0.45
-          return 0.12
+          return 0.22
         })
         .each(function () {
           const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -428,7 +433,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
 
   return (
     <Pane
-      title="Adjacency Matrix"
+      title="Adjacency Grid"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
       zoomControls={{
@@ -444,10 +449,7 @@ function AdjacencyMatrixPane({ data, networkName }) {
               aria-label="Brush"
               title="Brush"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14">
-                <rect x="2" y="2" width="10" height="5" rx="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <rect x="5.5" y="7" width="3" height="5" rx="0.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+              <BrushIcon />
             </button>
           </div>
           <div className="zoom-controls" role="group" aria-label="Select Intersection Edges">
@@ -474,8 +476,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
                 const idx = GRIDLINE_CYCLE.indexOf(gridlines)
                 setGridlines(GRIDLINE_CYCLE[(idx + 1) % GRIDLINE_CYCLE.length])
               }}
-              aria-label="Node Gridlines"
-              title={gridlines === 'off' ? 'Node Gridlines' : `Node Gridlines: ${gridlines}`}
+              aria-label="Node Grid Lines"
+              title="Node Grid Lines"
             >
               <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 14 14">
                 <line x1="0" y1="5" x2="14" y2="5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -503,5 +505,5 @@ function AdjacencyMatrixPane({ data, networkName }) {
   )
 }
 
-export default AdjacencyMatrixPane
+export default AdjacencyGridPane
 

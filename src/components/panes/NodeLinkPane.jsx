@@ -58,7 +58,8 @@ function NodeLinkPane({ data, networkName }) {
     hoverEdge,
     clearHover,
     toggleNodeSelection,
-    toggleEdgeSelection
+    toggleEdgeSelection,
+    selectNodes
   } = useSelection()
 
   const [nodeSize, setNodeSize] = useState('M')
@@ -78,6 +79,18 @@ function NodeLinkPane({ data, networkName }) {
       d3.select(zoomContainerRef.current).attr('transform', transform)
     }
   }, [transform])
+
+  const handleSelectIntersectionNodes = useCallback(() => {
+    if (!data || selectedEdges.size === 0) return
+    const nodeIdxs = new Set()
+    data.edges
+      .filter(e => selectedEdges.has(e.edge_idx))
+      .forEach(e => {
+        nodeIdxs.add(e.source)
+        nodeIdxs.add(e.target)
+      })
+    selectNodes([...nodeIdxs])
+  }, [data, selectedEdges, selectNodes])
 
   // Reset zoom and sizes when data changes
   useEffect(() => {
@@ -208,7 +221,7 @@ function NodeLinkPane({ data, networkName }) {
       .join('line')
       .attr('class', 'edge')
       .attr('data-edge-idx', d => d.edge_idx)
-      .attr('stroke', 'var(--color-border)')
+      .attr('stroke', 'var(--color-edge-default-line)')
       .attr('stroke-width', 1)
 
     // Draw nodes
@@ -218,7 +231,7 @@ function NodeLinkPane({ data, networkName }) {
       .attr('class', 'node')
       .attr('data-node-idx', d => d.node_idx)
       .attr('r', 3)
-      .attr('fill', 'var(--color-text-secondary)')
+      .attr('fill', 'var(--color-node-default)')
       .call(drag(simulation))
 
     // Add tomato border around node group area
@@ -271,7 +284,7 @@ function NodeLinkPane({ data, networkName }) {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
         if (selectedNodes.has(nodeIdx)) return 'var(--color-node-selected)'
         if (hoveredNodes.has(nodeIdx)) return 'var(--color-node-hover)'
-        return 'var(--color-text-secondary)'
+        return 'var(--color-node-default)'
       })
       .attr('r', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -292,7 +305,7 @@ function NodeLinkPane({ data, networkName }) {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
         if (selectedEdges.has(edgeIdx)) return 'var(--color-edge-selected)'
         if (hoveredEdges.has(edgeIdx)) return 'var(--color-edge-hover)'
-        return 'var(--color-border)'
+        return 'var(--color-edge-default-line)'
       })
       .attr('stroke-width', function () {
         const edgeIdx = +d3.select(this).attr('data-edge-idx')
@@ -360,6 +373,24 @@ function NodeLinkPane({ data, networkName }) {
         edgeSizeLabel: 'Edge Line Size',
         onEdgeSizeChange: setEdgeSize
       }}
+      footerControls={
+        <div className="zoom-controls" role="group" aria-label="Select Intersection Nodes">
+          <button
+            className={`zoom-btn${selectedEdges.size > 0 ? '' : ' zoom-btn--off'}`}
+            style={selectedEdges.size > 0 ? { color: 'var(--color-node-selected)' } : undefined}
+            onClick={handleSelectIntersectionNodes}
+            disabled={selectedEdges.size === 0}
+            aria-label="All Intersection Nodes"
+            title="All Intersection Nodes"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14">
+              <line x1="7" y1="0" x2="7" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="0" y1="7" x2="14" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="7" cy="7" r="3.5" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      }
     >
       <div
         ref={containerRef}
