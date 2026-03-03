@@ -45,7 +45,7 @@ function AdjacencyGridPane({ data, networkName }) {
   const boundsRef = useRef(null)
   const brushGroupRef = useRef(null)
 
-  const [nodeSize, setNodeSize] = useState('M')
+  const [nodeSize, setNodeSize] = useState('S')
   const [gridlines, setGridlines] = useState('off')
   const [brushMode, setBrushMode] = useState(false)
 
@@ -121,8 +121,6 @@ function AdjacencyGridPane({ data, networkName }) {
 
   useEffect(() => {
     handleResetZoom()
-    setNodeSize('M')
-    setGridlines('off')
   }, [data, handleResetZoom])
 
   useEffect(() => {

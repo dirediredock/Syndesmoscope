@@ -37,13 +37,13 @@ export const AVAILABLE_NETWORKS = [
     nodes: 34,
     edges: 78
   },
-  {
-    id: 'karate_club_outer_duo',
-    name: 'Karate Club (Pair Periphery Join)',
-    description: '###',
-    nodes: 67,
-    edges: 156
-  },
+  // {
+  //   id: 'karate_club_outer_duo',
+  //   name: 'Karate Club (Pair Periphery Join)',
+  //   description: '###',
+  //   nodes: 67,
+  //   edges: 156
+  // },
   {
     id: 'dolphins',
     name: 'Dolphins',
@@ -65,34 +65,34 @@ export const AVAILABLE_NETWORKS = [
     nodes: 77,
     edges: 254
   },
-  {
-    id: 'les_miserables_outer_duo',
-    name: 'Les Miserables (Pair Periphery Join)',
-    description: '###',
-    nodes: 153,
-    edges: 508
-  },
-  {
-    id: 'les_miserables_outer_trio',
-    name: 'Les Miserables (Trio Periphery Join)',
-    description: '###',
-    nodes: 229,
-    edges: 762
-  },
-  {
-    id: 'les_miserables_inner_duo',
-    name: 'Les Miserables (Pair Core Join)',
-    description: '###',
-    nodes: 142,
-    edges: 446
-  },
-  {
-    id: 'les_miserables_inner_trio',
-    name: 'Les Miserables (Trio Core Join)',
-    description: '###',
-    nodes: 207,
-    edges: 638
-  },
+  // {
+  //   id: 'les_miserables_outer_duo',
+  //   name: 'Les Miserables (Pair Periphery Join)',
+  //   description: '###',
+  //   nodes: 153,
+  //   edges: 508
+  // },
+  // {
+  //   id: 'les_miserables_outer_trio',
+  //   name: 'Les Miserables (Trio Periphery Join)',
+  //   description: '###',
+  //   nodes: 229,
+  //   edges: 762
+  // },
+  // {
+  //   id: 'les_miserables_inner_duo',
+  //   name: 'Les Miserables (Pair Core Join)',
+  //   description: '###',
+  //   nodes: 142,
+  //   edges: 446
+  // },
+  // {
+  //   id: 'les_miserables_inner_trio',
+  //   name: 'Les Miserables (Trio Core Join)',
+  //   description: '###',
+  //   nodes: 207,
+  //   edges: 638
+  // },
   {
     id: 'game_thrones',
     name: 'Game of Thrones',

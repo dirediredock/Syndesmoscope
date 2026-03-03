@@ -57,8 +57,8 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
   const boundsRef = useRef(null)
   const brushGroupRef = useRef(null)
 
-  const [nodeSize, setNodeSize] = useState('M')
-  const [edgeSize, setEdgeSize] = useState('M')
+  const [nodeSize, setNodeSize] = useState('L')
+  const [edgeSize, setEdgeSize] = useState('L')
   const [edgeOverlay, setEdgeOverlay] = useState('off')
   const [brushMode, setBrushMode] = useState(false)
 
@@ -121,12 +121,9 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
     resetZoom(boundsRef.current)
   }, [resetZoom])
 
-  // Reset zoom and sizes when data changes
+  // Reset zoom when data changes
   useEffect(() => {
     handleResetZoom()
-    setNodeSize('M')
-    setEdgeSize('M')
-    setEdgeOverlay('off')
   }, [data, handleResetZoom])
 
   useEffect(() => {
@@ -287,7 +284,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
           .attr('class', 'core-singleton')
           .attr('cx', xScale(node.x_position))
           .attr('cy', yScale(node.onion_value))
-          .attr('r', 9)
+          .attr('r', STRUCTURE_SIZES[edgeSize].coreSingleton)
           .attr('fill', 'var(--color-ksnakes-core)')
         return
       }
@@ -301,7 +298,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
         .attr('d', lineGenerator)
         .attr('fill', 'none')
         .attr('stroke', 'var(--color-ksnakes-core)')
-        .attr('stroke-width', 18)
+        .attr('stroke-width', STRUCTURE_SIZES[edgeSize].core)
         .attr('stroke-linecap', 'round')
         .attr('stroke-linejoin', 'round')
     })
@@ -320,7 +317,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
             .attr('class', 'island-singleton')
             .attr('cx', xScale(node.x_position))
             .attr('cy', yScale(node.onion_value))
-            .attr('r', 5)
+            .attr('r', STRUCTURE_SIZES[edgeSize].islandSingleton)
             .attr('fill', 'var(--color-ksnakes-island)')
           return
         }
@@ -334,7 +331,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
           .attr('d', lineGenerator)
           .attr('fill', 'none')
           .attr('stroke', 'var(--color-ksnakes-island)')
-          .attr('stroke-width', 10)
+          .attr('stroke-width', STRUCTURE_SIZES[edgeSize].island)
           .attr('stroke-linecap', 'round')
           .attr('stroke-linejoin', 'round')
       })
@@ -380,7 +377,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       .attr('data-node-idx', d => d.node_idx)
       .attr('cx', d => xScale(d.x_position))
       .attr('cy', d => yScale(d.onion_value))
-      .attr('r', 3)
+      .attr('r', NODE_SIZES[nodeSize].default)
       .attr('fill', 'var(--color-node-default)')
       .on('mouseenter', function () {
         const nodeIdx = +d3.select(this).attr('data-node-idx')
@@ -504,7 +501,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
     brushGroup.style('pointer-events', 'none')
     brushGroup.select('.overlay').style('pointer-events', 'none').style('cursor', 'default')
 
-  }, [data, hoverNode, clearHover, toggleNodeSelection, selectNodes])
+  }, [data, nodeSize, edgeSize, hoverNode, clearHover, toggleNodeSelection, selectNodes])
 
     // Reapply highlighting after DOM build to ensure visuals match selection state
     try {

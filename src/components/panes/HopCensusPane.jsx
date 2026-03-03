@@ -141,7 +141,6 @@ function HopCensusPane({ data, networkName }) {
   // Reset state when data changes
   useEffect(() => {
     handleResetZoom()
-    setNodeSize('S')
     setOffsetMap(new Map())
   }, [data, handleResetZoom])
 
