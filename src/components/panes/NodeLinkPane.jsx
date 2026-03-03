@@ -27,20 +27,22 @@ const ACCENT_COLOR = 'var(--color-accent-nodelink)'
 
 // Radius steps by ~1.7× per level so visual area (πr²) steps by ~3× per level
 const NODE_SIZES = {
-  XS: { default: 1,   highlighted: 1.8 },
-  S:  { default: 1.8, highlighted: 3   },
-  M:  { default: 3,   highlighted: 5   },
-  L:  { default: 5,   highlighted: 7.5 },
-  XL: { default: 8.5, highlighted: 12  }
+  XS: { default: 1,   highlighted: 1.8   },
+  S:  { default: 1.8, highlighted: 3     },
+  M:  { default: 3,   highlighted: 5     },
+  L:  { default: 5,   highlighted: 7.5   },
+  XL:  { default: 8.5,  highlighted: 12  },
+  XXL: { default: 15, highlighted: 20    }
 }
 
 // Stroke-width perceived linearly, so 2× geometric steps
 const EDGE_SIZES = {
-  XS: { default: 0.25, highlighted: 0.5 },
-  S:  { default: 0.5,  highlighted: 1   },
-  M:  { default: 1,    highlighted: 2   },
-  L:  { default: 2,    highlighted: 3.5 },
-  XL: { default: 4,    highlighted: 6   }
+  XS:  { default: 0.25, highlighted: 0.5 },
+  S:   { default: 0.5,  highlighted: 1   },
+  M:   { default: 1,    highlighted: 2   },
+  L:   { default: 2,    highlighted: 3.5 },
+  XL:  { default: 5,    highlighted: 8   },
+  XXL: { default: 13,    highlighted: 20 }
 }
 
 function NodeLinkPane({ data, networkName }) {
@@ -371,7 +373,8 @@ function NodeLinkPane({ data, networkName }) {
         onNodeSizeChange: setNodeSize,
         edgeSize,
         edgeSizeLabel: 'Edge Line Size',
-        onEdgeSizeChange: setEdgeSize
+        onEdgeSizeChange: setEdgeSize,
+        sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL']
       }}
       footerControls={
         <div className="zoom-controls" role="group" aria-label="Select Intersection Nodes">
