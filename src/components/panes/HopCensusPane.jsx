@@ -56,8 +56,10 @@ function HopCensusPane({ data, networkName }) {
   // Translocation offset: Map<nodeIdx, multiplier>
   const [offsetMap, setOffsetMap] = useState(() => new Map())
 
-  // Keep ref in sync for use inside initializeVisualization (avoids dependency)
+  // Keep refs in sync for use inside initializeVisualization (avoids dependency)
   useEffect(() => { offsetMapRef.current = offsetMap }, [offsetMap])
+  const justifyRef = useRef(justify)
+  useEffect(() => { justifyRef.current = justify }, [justify])
 
   const {
     hoveredNodes,
@@ -148,6 +150,8 @@ function HopCensusPane({ data, networkName }) {
   }, [data, handleResetZoom])
 
   // Build path `d` for a census vector, accounting for justification
+  // Reads justifyRef.current so it's safe to call from initializeVisualization
+  // without adding justify to its dependency array
   const buildPath = useCallback((rawVector, bandIdx, multiplier) => {
     const xScale = xScaleRef.current
     const yScale = yScaleRef.current
@@ -155,12 +159,12 @@ function HopCensusPane({ data, networkName }) {
     const maxHop = maxHopRef.current
     if (!xScale || !yScale || maxCount == null || maxHop == null) return ''
     const shifted = rawVector.map(v => v + (bandIdx + multiplier) * maxCount)
-    const xOffset = justify === 'right' ? maxHop - (rawVector.length - 1) : 0
+    const xOffset = justifyRef.current === 'right' ? maxHop - (rawVector.length - 1) : 0
     const line = d3.line()
       .x((d, i) => xScale(i + xOffset))
       .y(d => yScale(d))
     return line(shifted)
-  }, [justify])
+  }, [])
 
   // Apply translocation offsets (and justify changes) to path `d` attributes
   useEffect(() => {
@@ -179,7 +183,7 @@ function HopCensusPane({ data, networkName }) {
         if (!rawVector) return ''
         return buildPath(rawVector, bandIdx, multiplier)
       })
-  }, [offsetMap, buildPath])
+  }, [offsetMap, justify, buildPath])
 
   // Initialize visualization
   const initializeVisualization = useCallback(() => {
@@ -453,15 +457,15 @@ function HopCensusPane({ data, networkName }) {
               <svg width="14" height="14" viewBox="0 0 14 14">
                 {justify === 'left' ? (
                   <>
-                    <line x1="1" y1="3" x2="12" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="1" y1="3" x2="7" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     <line x1="1" y1="7" x2="9" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                    <line x1="1" y1="11" x2="11" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="1" y1="11" x2="12" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   </>
                 ) : (
                   <>
-                    <line x1="2" y1="3" x2="13" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="7" y1="3" x2="13" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     <line x1="5" y1="7" x2="13" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                    <line x1="3" y1="11" x2="13" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="2" y1="11" x2="13" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   </>
                 )}
               </svg>

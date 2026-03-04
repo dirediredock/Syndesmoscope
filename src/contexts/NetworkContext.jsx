@@ -11,14 +11,14 @@ import { createContext, useContext, useState, useCallback, useMemo } from 'react
 export const AVAILABLE_NETWORKS = [
   {
     id: 'example_graph',
-    name: 'Toy Graph',
+    name: 'Example Graph',
     description: '###',
     nodes: 7,
     edges: 10
   },
   {
     id: 'example_onion',
-    name: 'Onion Graph',
+    name: 'Example Graph (Onion)',
     description: '###',
     nodes: 17,
     edges: 19
@@ -53,14 +53,14 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'contigous_usa',
-    name: 'US States',
+    name: 'United States',
     description: '###',
     nodes: 49,
     edges: 107
   },
   {
     id: 'fullerene_structures_C60',
-    name: 'Buckyball',
+    name: 'Fullerene (C60)',
     description: '###',
     nodes: 60,
     edges: 90
@@ -74,7 +74,7 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'blumenau_drug',
-    name: 'Drug Trade',
+    name: 'Drug Interactions',
     description: '###',
     nodes: 75,
     edges: 181
@@ -88,7 +88,7 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'game_thrones',
-    name: 'Westeros',
+    name: 'Game of Thrones',
     description: '###',
     nodes: 107,
     edges: 352
@@ -102,189 +102,189 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'ego_social_facebook_414',
-    name: 'Ego 414',
+    name: 'Social Network (Facebook) 1',
     description: '###',
     nodes: 148,
     edges: 1692
   },
   {
     id: 'grid_14_by_14',
-    name: 'Grid 14×14',
+    name: 'Square Grid',
     description: '###',
     nodes: 196,
     edges: 364
   },
   {
     id: 'jazz_collab',
-    name: 'Jazz Network',
+    name: 'Jazz Musicians',
     description: '###',
     nodes: 198,
     edges: 2742
   },
   {
     id: 'cintestinalis',
-    name: 'Sea Squirt',
+    name: 'Invertebrate Brain',
     description: '###',
     nodes: 205,
     edges: 2575
   },
   {
     id: 'fullerene_structures_C240',
-    name: 'Fullerene 240',
+    name: 'Fullerene (C240)',
     description: '###',
     nodes: 240,
     edges: 360
   },
   {
     id: 'malaria_genes_HVR5',
-    name: 'Malaria HVR5',
+    name: 'Malaria Genes (HVR5)',
     description: '###',
     nodes: 298,
     edges: 2684
   },
   {
     id: 'malaria_genes_HVR1',
-    name: 'Malaria HVR1',
+    name: 'Malaria Genes (HVR1)',
     description: '###',
     nodes: 307,
     edges: 2812
   },
   {
     id: 'facebook_friends',
-    name: 'Facebook Friends',
+    name: 'Social Network (Facebook) 2',
     description: '###',
     nodes: 329,
     edges: 1954
   },
   {
     id: 'london_transport',
-    name: 'London Tube',
+    name: 'London Underground',
     description: '###',
     nodes: 369,
     edges: 430
   },
   {
     id: 'netscience',
-    name: 'Net Science',
+    name: 'Authors (Network Science)',
     description: '###',
     nodes: 379,
     edges: 914
   },
   {
     id: 'sp_infectious',
-    name: 'Expo Contacts',
+    name: 'Infectious Contacts',
     description: '###',
     nodes: 410,
     edges: 2765
   },
   {
     id: 'eu_airlines',
-    name: 'EU Airlines',
+    name: 'European Airlines',
     description: '###',
     nodes: 417,
     edges: 2953
   },
   {
     id: 'celegans_hermaphrodite_chemical',
-    name: 'Herm Synaptic',
+    name: 'Invertebrate Biochemical 1',
     description: '###',
     nodes: 446,
     edges: 4172
   },
   {
     id: 'celegans_metabolic',
-    name: 'Worm Metabolic',
+    name: 'Invertebrate Metabolism',
     description: '###',
     nodes: 453,
     edges: 2025
   },
   {
     id: 'celegans_hermaphrodite_gap_junction',
-    name: 'Herm Electrical',
+    name: 'Invertebrate Synapse 1',
     description: '###',
     nodes: 460,
     edges: 1432
   },
   {
     id: 'physics_collab',
-    name: 'Physics Collab',
+    name: 'Authors (Physics)',
     description: '###',
     nodes: 475,
     edges: 6426
   },
   {
     id: 'celegans_male_gap_junction',
-    name: 'Male Electrical',
+    name: 'Invertebrate Synapse 2',
     description: '###',
     nodes: 484,
     edges: 1597
   },
   {
     id: 'stochastic_block_model',
-    name: 'Block Model',
+    name: 'Stochastic Block Model',
     description: '###',
     nodes: 500,
     edges: 42161
   },
   {
     id: 'ego_social_facebook_3437',
-    name: 'Ego 3437',
+    name: 'Social Network (Facebook) 3',
     description: '###',
     nodes: 532,
     edges: 4812
   },
   {
     id: 'spanish_highschools',
-    name: 'Spanish Schools',
+    name: 'Social Network (Spanish Schools)',
     description: '###',
     nodes: 534,
     edges: 9527
   },
   {
     id: 'celegans_male_chemical',
-    name: 'Male Synaptic',
+    name: 'Invertebrate Biochemical 2',
     description: '###',
     nodes: 559,
     edges: 4500
   },
   {
     id: 'yeast_transcriptome',
-    name: 'Yeast Gene',
+    name: 'Yeast Genome',
     description: '###',
     nodes: 664,
     edges: 1065
   },
   {
     id: 'wiki_science',
-    name: 'Wiki Science',
+    name: 'Wikipedia Pages (Science)',
     description: '###',
     nodes: 677,
     edges: 6517
   },
   {
     id: 'fullerene_structures_C720',
-    name: 'Fullerene 720',
+    name: 'Fullerene (C720)',
     description: '###',
     nodes: 720,
     edges: 1080
   },
   {
     id: 'ego_social_facebook_1912',
-    name: 'Ego 1912',
+    name: 'Social Network (Facebook) 4',
     description: '###',
     nodes: 744,
     edges: 30023
   },
   {
     id: 'internet_top_pop',
-    name: 'Web Backbone',
+    name: 'Internet Backbone',
     description: '###',
     nodes: 754,
     edges: 895
   },
   {
     id: 'plant_pol_kato',
-    name: 'Kato Flowers',
+    name: 'Plant Pollinators 1',
     description: '###',
     nodes: 768,
     edges: 1205
@@ -298,14 +298,14 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'fibonacci_sunflower',
-    name: 'Sunflower',
+    name: 'Sunflower Seeds',
     description: '###',
     nodes: 987,
     edges: 2924
   },
   {
     id: 'collins_yeast',
-    name: 'Yeast Protein',
+    name: 'Yeast Proteome',
     description: '###',
     nodes: 1004,
     edges: 8319
@@ -319,56 +319,56 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'ego_social_facebook_107',
-    name: 'Ego 107',
+    name: 'Social Network (Facebook) 5',
     description: '###',
     nodes: 1034,
     edges: 26749
   },
   {
     id: 'euroroad',
-    name: 'Euro Roads',
+    name: 'European Roads',
     description: '###',
     nodes: 1039,
     edges: 1305
   },
   {
     id: 'polblogs',
-    name: 'Pol Blogs',
+    name: 'Political Blogs',
     description: '###',
     nodes: 1222,
     edges: 16714
   },
   {
     id: 'faa_routes',
-    name: 'FAA Routes',
+    name: 'Flight Routes',
     description: '###',
     nodes: 1226,
     edges: 2408
   },
   {
     id: 'facebook_organizations',
-    name: 'FB Pages',
+    name: 'Facebook Pages',
     description: '###',
     nodes: 1429,
     edges: 19357
   },
   {
     id: 'barabasi_albert',
-    name: 'Barabási-Albert',
+    name: 'Barabasi-Albert',
     description: '###',
     nodes: 1500,
     edges: 23744
   },
   {
     id: 'erdos_renyi',
-    name: 'Erdős-Rényi',
+    name: 'Erdos-Renyi',
     description: '###',
     nodes: 1500,
     edges: 22512
   },
   {
     id: 'fullerene_structures_C1500',
-    name: 'Fullerene 1500',
+    name: 'Fullerene (C1500)',
     description: '###',
     nodes: 1500,
     edges: 2250
@@ -396,14 +396,14 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'plant_pol_robertson',
-    name: 'Robertson Flowers',
+    name: 'Plant Pollinators 2',
     description: '###',
     nodes: 1882,
     edges: 15254
   },
   {
     id: 'fullerene_structures_C2160',
-    name: 'Fullerene 2160',
+    name: 'Fullerene (C2160)',
     description: '###',
     nodes: 2160,
     edges: 3240
@@ -417,7 +417,7 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'ten_friends',
-    name: 'Ten Friends',
+    name: 'Social Network (Ten Friends)',
     description: '###',
     nodes: 2539,
     edges: 10455
@@ -431,35 +431,35 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'drosophila_flybi',
-    name: 'Fly Brain',
+    name: 'Fruitfly Proteome',
     description: '###',
     nodes: 2705,
     edges: 8458
   },
   {
     id: 'fly_larva',
-    name: 'Larval Brain',
+    name: 'Fruitfly Brain',
     description: '###',
     nodes: 2952,
     edges: 95990
   },
   {
     id: 'mist_genetic_worm',
-    name: 'Worm Genome',
+    name: 'Invertebrate Genome',
     description: '###',
     nodes: 3037,
     edges: 7914
   },
   {
     id: 'grid_56_by_56',
-    name: 'Grid 56×56',
+    name: 'Square Grid (Large)',
     description: '###',
     nodes: 3136,
     edges: 6160
   },
   {
     id: 'openflights',
-    name: 'Open Flights',
+    name: 'Flights',
     description: '###',
     nodes: 3188,
     edges: 18833
@@ -480,35 +480,35 @@ export const AVAILABLE_NETWORKS = [
   },
   {
     id: 'mist_ppi_yeast',
-    name: 'Yeast PPI',
+    name: 'Yeast Proteome',
     description: '###',
     nodes: 3592,
     edges: 14558
   },
   {
     id: 'bitcoin_alpha',
-    name: 'Bitcoin Alpha',
+    name: 'Bitcoin',
     description: '###',
     nodes: 3775,
     edges: 14120
   },
   {
     id: 'mist_genetic_fly',
-    name: 'Fly Genome',
+    name: 'Fruitfly Genome',
     description: '###',
     nodes: 4055,
     edges: 13779
   },
   {
     id: 'power',
-    name: 'Power Grid',
+    name: 'Western Power Grid',
     description: '###',
     nodes: 4941,
     edges: 6594
   },
   {
     id: 'jung',
-    name: 'JUNG',
+    name: 'Software Dependencies',
     description: '###',
     nodes: 6120,
     edges: 50290
