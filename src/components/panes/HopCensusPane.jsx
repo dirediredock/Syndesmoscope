@@ -204,7 +204,7 @@ function HopCensusPane({ data, networkName }) {
 
     // Aspect ratio scales with number of bands (each band ~1× wide)
     const contentWidth = width
-    const contentHeight = contentWidth * Math.max(3, numBands)
+    const contentHeight = contentWidth * numBands
 
     // 5% margins (proportional to content width)
     const margin = {
