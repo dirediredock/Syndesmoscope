@@ -37,7 +37,7 @@ const NODE_SIZES = {
   XS: { default: 0.1,  highlighted: 0.1 },
   S:  { default: 1.2,  highlighted: 2.5 },
   M:  { default: 2,    highlighted: 5   },
-  L:  { default: 3.5,  highlighted: 7   },
+  L:  { default: 3.5,  highlighted: 5   },
   XL: { default: 6,    highlighted: 11  }
 }
 

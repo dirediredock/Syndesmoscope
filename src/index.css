@@ -6,7 +6,7 @@
 :root {
   /* Color palette - neutral grayscale */
   --color-bg-primary: #0d1117;
-  --color-bg-secondary: #161b22;
+  --color-bg-secondary: #1e2530;
   --color-bg-tertiary: #2d343e;
   --color-border: #30363d;
   --color-border-muted: #21262d;
@@ -56,7 +56,7 @@
   --space-8: 2rem;
 
   /* Layout */
-  --header-height: 65px;
+  --header-height: 80px;
   
   /* Transitions */
   --transition-fast: 100ms ease;
@@ -64,7 +64,12 @@
   --transition-slow: 250ms ease;
   
   /* Panel resize handle */
-  --resize-handle-size: 3px;
+  --resize-handle-size: 8px;
+
+  /* Pane appearance */
+  --pane-gap: 10px;
+  --pane-border-radius: 12px;
+  --pane-border-color: var(--color-bg-tertiary);
 }
 
 /* Light mode theme */
@@ -88,6 +93,8 @@
   --color-node-hover: rgba(9, 105, 218, 0.4);
   --color-edge-selected: #cf222e;
   --color-edge-hover: rgba(207, 34, 46, 0.4);
+
+  --pane-border-color: var(--color-bg-tertiary);
 
   /* k-Snakes visualization colors (light mode) */
   --color-ksnakes-core: #c0c0c0;
@@ -125,16 +132,14 @@ body {
 }
 
 .panel-resize-handle {
-  background-color: var(--color-border-muted);
+  background-color: var(--color-bg-secondary);
   transition: background-color var(--transition-fast);
-  background-color: #313131;
 }
 
-.panel-resize-handle:hover,
+/* .panel-resize-handle:hover,
 .panel-resize-handle[data-resize-handle-active] {
-  /* background-color: var(--color-node-selected); */
   background-color: #ffffff;
-}
+} */
 
 .panel-resize-handle[data-panel-group-direction="horizontal"] {
   width: var(--resize-handle-size);

@@ -16,18 +16,28 @@
   height: var(--header-height);
   padding: 0 var(--space-4);
   background-color: var(--color-bg-secondary);
-  border-bottom: 1px solid #313131;
   flex-shrink: 0;
 }
 
 .app-title {
+  margin-left: var(--space-2);
   margin-right: var(--space-8);
+}
+
+.app-title a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.app-title a:hover {
+  color: #ffffff;
 }
 
 .app-title h1 {
   font-family: var(--font-mono);
-  font-size: var(--text-xl);
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 10;
   letter-spacing: -0.02em;
   color: var(--color-text-primary);
 }
@@ -42,4 +52,6 @@
 .app-main {
   flex: 1;
   overflow: hidden;
+  padding: 0 var(--pane-gap) var(--pane-gap) var(--pane-gap);
+  background-color: var(--color-bg-secondary);
 }

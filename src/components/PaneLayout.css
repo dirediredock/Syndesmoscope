@@ -9,26 +9,3 @@
   overflow: hidden;
 }
 
-.panel:first-child,
-.panel:last-child {
-  position: relative;
-}
-
-.panel:first-child::before,
-.panel:last-child::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: calc(var(--resize-handle-size));
-  height: 100%;
-  background-color: #313131;
-  z-index: 1;
-}
-
-.panel:first-child::before {
-  left: 0;
-}
-
-.panel:last-child::after {
-  right: 0;
-}
