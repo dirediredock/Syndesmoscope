@@ -415,29 +415,25 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       if (minNode) {
         const label = labelsGroup.append('text')
           .attr('class', 'core-label')
-          .attr('x', xScale(minNode.x_position) + 25)
+          .attr('x', xScale(minNode.x_position) + 40)
           .attr('y', yScale(minNode.onion_value))
           .attr('text-anchor', 'start')
           .attr('dominant-baseline', 'middle')
           .attr('fill', 'var(--color-ksnakes-core)')
           .attr('font-family', 'Roboto Condensed, sans-serif')
           .attr('font-weight', 'bold')
-          .attr('font-size', '17px')
+          .attr('font-size', '16.5px')
 
         label.append('tspan').text(`k-${core.core_value}`)
 
         if (core.core_value === minCoreValue) {
           label.append('tspan')
-            .attr('x', xScale(minNode.x_position) + 25)
-            .attr('dy', '1.2em')
-            .attr('font-size', '15px')
-            .text('(periphery)')
+            .attr('font-size', '16px')
+            .text(' • Periphery')
         } else if (core.core_value === maxCoreValue) {
           label.append('tspan')
-            .attr('x', xScale(minNode.x_position) + 25)
-            .attr('dy', '1.2em')
-            .attr('font-size', '15px')
-            .text('(core)')
+            .attr('font-size', '16px')
+            .text(' • Core')
         }
       }
     })
