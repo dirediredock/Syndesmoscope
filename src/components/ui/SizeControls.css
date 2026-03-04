@@ -5,7 +5,6 @@
   background-color: var(--color-bg-tertiary);
   border-radius: 4px;
   padding: 2px;
-
 }
 
 .size-toggle-btn {
@@ -20,7 +19,9 @@
   border-radius: 3px;
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .size-toggle-btn:hover:not(:disabled) {

@@ -24,7 +24,7 @@ export function useZoomPan(svgRef, options = {}) {
       options.translateExtent,
       options.zoomStep,
       options.transitionDuration,
-    ]
+    ],
   );
 
   const [transform, setTransform] = useState(d3.zoomIdentity);
@@ -93,25 +93,30 @@ export function useZoomPan(svgRef, options = {}) {
   }, [config.transitionDuration, config.zoomStep]);
 
   // Reset zoom to 100%, centered on bounds if provided
-  const resetZoom = useCallback((bounds) => {
-    if (!svgRef.current || !zoomBehaviorRef.current) return;
-    const svg = d3.select(svgRef.current);
+  const resetZoom = useCallback(
+    (bounds) => {
+      if (!svgRef.current || !zoomBehaviorRef.current) return;
+      const svg = d3.select(svgRef.current);
 
-    let newTransform = d3.zoomIdentity;
+      let newTransform = d3.zoomIdentity;
 
-    if (bounds && bounds.width > 0 && bounds.height > 0) {
-      const { width, height } = svgRef.current.getBoundingClientRect();
-      const centerX = bounds.x + bounds.width / 2;
-      const centerY = bounds.y + bounds.height / 2;
-      newTransform = d3.zoomIdentity
-        .translate(width / 2 - centerX, height / 2 - centerY);
-    }
+      if (bounds && bounds.width > 0 && bounds.height > 0) {
+        const { width, height } = svgRef.current.getBoundingClientRect();
+        const centerX = bounds.x + bounds.width / 2;
+        const centerY = bounds.y + bounds.height / 2;
+        newTransform = d3.zoomIdentity.translate(
+          width / 2 - centerX,
+          height / 2 - centerY,
+        );
+      }
 
-    svg
-      .transition()
-      .duration(config.transitionDuration)
-      .call(zoomBehaviorRef.current.transform, newTransform);
-  }, [config.transitionDuration]);
+      svg
+        .transition()
+        .duration(config.transitionDuration)
+        .call(zoomBehaviorRef.current.transform, newTransform);
+    },
+    [config.transitionDuration],
+  );
 
   // Fit content to viewport
   const fitToContent = useCallback(
@@ -134,7 +139,7 @@ export function useZoomPan(svgRef, options = {}) {
       const scale = Math.min(
         (width - padding * 2) / bounds.width,
         (height - padding * 2) / bounds.height,
-        config.scaleExtent[1] // Don't exceed max zoom
+        config.scaleExtent[1], // Don't exceed max zoom
       );
 
       // Center the content
@@ -152,7 +157,7 @@ export function useZoomPan(svgRef, options = {}) {
         .duration(config.transitionDuration)
         .call(zoomBehaviorRef.current.transform, newTransform);
     },
-    [config.transitionDuration, config.scaleExtent]
+    [config.transitionDuration, config.scaleExtent],
   );
 
   // Programmatically set transform (useful for resetting on data change)

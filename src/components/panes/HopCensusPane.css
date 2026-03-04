@@ -24,7 +24,9 @@
 
 .census-line {
   cursor: pointer;
-  transition: stroke-opacity 100ms ease, stroke-width 100ms ease;
+  transition:
+    stroke-opacity 100ms ease,
+    stroke-width 100ms ease;
 }
 
 .census-line:hover {

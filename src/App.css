@@ -27,7 +27,9 @@
 .app-title a {
   text-decoration: none;
   color: inherit;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
 }
 
 .app-title a:hover {

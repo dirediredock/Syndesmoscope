@@ -1,59 +1,59 @@
-import { useRef, useEffect } from 'react'
-import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
-import { useNetwork } from '../contexts/NetworkContext'
-import NodeLinkPane from './panes/NodeLinkPane'
-import HopCensusPane from './panes/HopCensusPane'
-import KSnakesPane from './panes/KSnakesPane'
-import AdjacencyGridPane from './panes/AdjacencyGridPane'
-import './PaneLayout.css'
+import { useRef, useEffect } from "react";
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import { useNetwork } from "../contexts/NetworkContext";
+import NodeLinkPane from "./panes/NodeLinkPane";
+import HopCensusPane from "./panes/HopCensusPane";
+import KSnakesPane from "./panes/KSnakesPane";
+import AdjacencyGridPane from "./panes/AdjacencyGridPane";
+import "./PaneLayout.css";
 
 function PaneLayout({ onResetRef, paneTypes }) {
-  const { networkData, currentNetwork } = useNetwork()
-  const panelGroupRef = useRef(null)
+  const { networkData, currentNetwork } = useNetwork();
+  const panelGroupRef = useRef(null);
 
   useEffect(() => {
     if (onResetRef) {
       onResetRef.current = () => {
-        panelGroupRef.current?.setLayout([25, 25, 25, 25])
-      }
+        panelGroupRef.current?.setLayout([25, 25, 25, 25]);
+      };
     }
-  }, [onResetRef])
+  }, [onResetRef]);
 
   function renderPane(paneType) {
-    const networkName = currentNetwork?.name
+    const networkName = currentNetwork?.name;
 
     switch (paneType) {
-      case 'kSnakes':
+      case "kSnakes":
         return (
           <KSnakesPane
             data={networkData?.kSnakes}
             nodeLinkData={networkData?.nodeLink}
             networkName={networkName}
           />
-        )
-      case 'hopCensus':
+        );
+      case "hopCensus":
         return (
           <HopCensusPane
             data={networkData?.censusStub}
             networkName={networkName}
           />
-        )
-      case 'nodeLink':
+        );
+      case "nodeLink":
         return (
           <NodeLinkPane
             data={networkData?.nodeLink}
             networkName={networkName}
           />
-        )
-      case 'adjacencyGrid':
+        );
+      case "adjacencyGrid":
         return (
           <AdjacencyGridPane
             data={networkData?.adjacencyGrid}
             networkName={networkName}
           />
-        )
+        );
       default:
-        return null
+        return null;
     }
   }
 
@@ -64,14 +64,9 @@ function PaneLayout({ onResetRef, paneTypes }) {
       className="panel-group"
       autoSaveId="syndesmoscope-layout"
     >
-
       {/*********************************************************************/}
 
-      <Panel
-        defaultSize={20}
-        minSize={0.3}
-        className="panel"
-      >
+      <Panel defaultSize={20} minSize={0.3} className="panel">
         {renderPane(paneTypes[0])}
       </Panel>
 
@@ -79,11 +74,7 @@ function PaneLayout({ onResetRef, paneTypes }) {
 
       {/*********************************************************************/}
 
-      <Panel
-        defaultSize={20}
-        minSize={0.3}
-        className="panel"
-      >
+      <Panel defaultSize={20} minSize={0.3} className="panel">
         {renderPane(paneTypes[1])}
       </Panel>
 
@@ -91,11 +82,7 @@ function PaneLayout({ onResetRef, paneTypes }) {
 
       {/*********************************************************************/}
 
-      <Panel
-        defaultSize={20}
-        minSize={0.2}
-        className="panel"
-      >
+      <Panel defaultSize={20} minSize={0.2} className="panel">
         {renderPane(paneTypes[2])}
       </Panel>
 
@@ -103,18 +90,13 @@ function PaneLayout({ onResetRef, paneTypes }) {
 
       {/*********************************************************************/}
 
-      <Panel
-        defaultSize={20}
-        minSize={0.2}
-        className="panel"
-      >
+      <Panel defaultSize={20} minSize={0.2} className="panel">
         {renderPane(paneTypes[3])}
       </Panel>
 
       {/*********************************************************************/}
-
     </PanelGroup>
-  )
+  );
 }
 
-export default PaneLayout
+export default PaneLayout;

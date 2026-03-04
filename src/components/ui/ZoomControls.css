@@ -18,7 +18,9 @@
   border-radius: 3px;
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .zoom-btn:hover:not(:disabled) {
@@ -61,7 +63,9 @@
   cursor: pointer;
   height: 24px;
   padding: 0 4px;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .zoom-level:hover:not(:disabled) {

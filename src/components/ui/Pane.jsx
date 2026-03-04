@@ -1,7 +1,7 @@
-import ZoomControls from './ZoomControls'
-import SizeControls from './SizeControls'
-import { useSelection } from '../../contexts/SelectionContext'
-import './Pane.css'
+import ZoomControls from "./ZoomControls";
+import SizeControls from "./SizeControls";
+import { useSelection } from "../../contexts/SelectionContext";
+import "./Pane.css";
 
 /**
  * Pane is a wrapper component that provides consistent structure
@@ -15,18 +15,19 @@ function Pane({
   accentColor,
   children,
   isEmpty = false,
-  emptyMessage = 'NO DATA',
+  emptyMessage = "NO DATA",
   zoomControls = null,
   sizeControls = null,
   footerControls = null,
   preZoomControls = null,
-  postZoomControls = null
+  postZoomControls = null,
 }) {
-  const { hoveredNodes, hoveredEdges } = useSelection()
+  const { hoveredNodes, hoveredEdges } = useSelection();
 
-  const hoveredNodeList = [...hoveredNodes]
-  const hoveredEdgeList = [...hoveredEdges]
-  const showHoverInfo = !isEmpty && (hoveredNodeList.length > 0 || hoveredEdgeList.length > 0)
+  const hoveredNodeList = [...hoveredNodes];
+  const hoveredEdgeList = [...hoveredEdges];
+  const showHoverInfo =
+    !isEmpty && (hoveredNodeList.length > 0 || hoveredEdgeList.length > 0);
 
   return (
     <div className="pane">
@@ -52,15 +53,12 @@ function Pane({
       {footerControls && !isEmpty && (
         <div
           className="pane-header-left"
-          style={{ '--pane-accent': accentColor }}
+          style={{ "--pane-accent": accentColor }}
         >
           {footerControls}
         </div>
       )}
-      <div
-        className="pane-footer"
-        style={{ '--pane-accent': accentColor }}
-      >
+      <div className="pane-footer" style={{ "--pane-accent": accentColor }}>
         <div className="pane-footer-left">
           {sizeControls && !isEmpty && <SizeControls {...sizeControls} />}
         </div>
@@ -70,9 +68,8 @@ function Pane({
           {postZoomControls && !isEmpty && postZoomControls}
         </div>
       </div>
-
     </div>
-  )
+  );
 }
 
-export default Pane
+export default Pane;
