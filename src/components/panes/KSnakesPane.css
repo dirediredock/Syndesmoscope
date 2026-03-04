@@ -11,7 +11,9 @@
 
 .snake-node {
   cursor: pointer;
-  transition: r 100ms ease, fill 100ms ease;
+  transition:
+    r 100ms ease,
+    fill 100ms ease;
 }
 
 .snake-node:hover {

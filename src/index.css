@@ -29,7 +29,7 @@
   /* k-Snakes visualization colors */
   --color-ksnakes-core: #404040;
   --color-ksnakes-island: #1a1a1a;
-  
+
   /* Accent colors for pane headers
   --color-accent-nodelink: #7ee787;
   --color-accent-hopcensus: #a371f7;
@@ -37,16 +37,17 @@
   --color-accent-matrix: #79c0ff;
   --color-accent-censuscensus: #ff7b72;
   --color-accent-graphprism: #ffa657; */
-  
+
   /* Typography */
-  --font-sans: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
-  
+  --font-sans:
+    "Roboto Condensed", -apple-system, BlinkMacSystemFont, sans-serif;
+
   --text-xs: 0.75rem;
   --text-sm: 0.8125rem;
   --text-base: 0.875rem;
   --text-lg: 1rem;
   --text-xl: 1.125rem;
-  
+
   /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -57,12 +58,12 @@
 
   /* Layout */
   --header-height: 80px;
-  
+
   /* Transitions */
   --transition-fast: 100ms ease;
   --transition-base: 150ms ease;
   --transition-slow: 250ms ease;
-  
+
   /* Panel resize handle */
   --resize-handle-size: 8px;
 
@@ -102,13 +103,17 @@
 }
 
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   overflow: hidden;
 }

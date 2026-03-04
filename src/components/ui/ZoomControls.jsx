@@ -1,4 +1,4 @@
-import './ZoomControls.css'
+import "./ZoomControls.css";
 
 /**
  * ZoomControls - Reusable zoom control buttons
@@ -10,11 +10,10 @@ function ZoomControls({
   onReset,
   onFitContent,
   zoomPercent = 100,
-  disabled = false
+  disabled = false,
 }) {
   return (
     <div className="zoom-controls" role="group" aria-label="Zoom Controls">
-
       {onFitContent && (
         <button
           className="zoom-btn"
@@ -44,12 +43,8 @@ function ZoomControls({
       >
         {zoomPercent}%
       </button>
-
-
-
-
     </div>
-  )
+  );
 }
 
-export default ZoomControls
+export default ZoomControls;

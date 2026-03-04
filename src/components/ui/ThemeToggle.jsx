@@ -1,8 +1,8 @@
-import { useTheme } from '../../contexts/ThemeContext'
-import './ThemeToggle.css'
+import { useTheme } from "../../contexts/ThemeContext";
+import "./ThemeToggle.css";
 
 function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <button
@@ -11,7 +11,7 @@ function ThemeToggle() {
       aria-label={`Switch Theme`}
       title={`Switch Theme`}
     >
-      {theme === 'dark' ? (
+      {theme === "dark" ? (
         // Moon icon (shown in dark mode)
         <svg
           width="16"
@@ -35,7 +35,7 @@ function ThemeToggle() {
         </svg>
       )}
     </button>
-  )
+  );
 }
 
-export default ThemeToggle
+export default ThemeToggle;

@@ -1,27 +1,32 @@
-import { useRef, useState, useCallback } from 'react'
-import { SelectionProvider } from './contexts/SelectionContext'
-import { NetworkProvider, useNetwork } from './contexts/NetworkContext'
-import { ThemeProvider } from './contexts/ThemeContext'
-import ControlPanel from './components/ui/ControlPanel'
-import NetworkSelect from './components/ui/NetworkSelect'
-import NetworkInfo from './components/ui/NetworkInfo'
-import PaneLayout from './components/PaneLayout'
-import './App.css'
+import { useRef, useState, useCallback } from "react";
+import { SelectionProvider } from "./contexts/SelectionContext";
+import { NetworkProvider, useNetwork } from "./contexts/NetworkContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import ControlPanel from "./components/ui/ControlPanel";
+import NetworkSelect from "./components/ui/NetworkSelect";
+import NetworkInfo from "./components/ui/NetworkInfo";
+import PaneLayout from "./components/PaneLayout";
+import "./App.css";
 
-const DEFAULT_PANE_TYPES = ['kSnakes', 'hopCensus', 'nodeLink', 'adjacencyGrid']
+const DEFAULT_PANE_TYPES = [
+  "kSnakes",
+  "hopCensus",
+  "nodeLink",
+  "adjacencyGrid",
+];
 
 function AppContent() {
-  const resetLayoutRef = useRef(null)
-  const [paneTypes, setPaneTypes] = useState(DEFAULT_PANE_TYPES)
-  const { isLoading, error } = useNetwork()
+  const resetLayoutRef = useRef(null);
+  const [paneTypes, setPaneTypes] = useState(DEFAULT_PANE_TYPES);
+  const { isLoading, error } = useNetwork();
 
   const handlePaneTypeChange = useCallback((panelIndex, newType) => {
-    setPaneTypes(prev => {
-      const next = [...prev]
-      next[panelIndex] = newType
-      return next
-    })
-  }, [])
+    setPaneTypes((prev) => {
+      const next = [...prev];
+      next[panelIndex] = newType;
+      return next;
+    });
+  }, []);
 
   return (
     <div className="app">
@@ -31,14 +36,19 @@ function AppContent() {
             href="https://github.com/dirediredock/Syndesmoscope"
             target="_blank"
             rel="noopener noreferrer"
-            onMouseEnter={e => {
-              const color = Math.random() < 0.5
-                ? 'var(--color-node-selected)'
-                : 'var(--color-edge-selected)'
-              e.currentTarget.style.textShadow = `0 0 12px ${color}`
+            onMouseEnter={(e) => {
+              const color =
+                Math.random() < 0.5
+                  ? "var(--color-node-selected)"
+                  : "var(--color-edge-selected)";
+              e.currentTarget.style.textShadow = `0 0 12px ${color}`;
             }}
-            onMouseLeave={e => { e.currentTarget.style.textShadow = '' }}
-          ><h1>S Y N D E S M O S C O P E</h1></a>
+            onMouseLeave={(e) => {
+              e.currentTarget.style.textShadow = "";
+            }}
+          >
+            <h1>S Y N D E S M O S C O P E</h1>
+          </a>
         </div>
         <NetworkSelect />
         <NetworkInfo />
@@ -56,7 +66,7 @@ function AppContent() {
         <PaneLayout onResetRef={resetLayoutRef} paneTypes={paneTypes} />
       </main>
     </div>
-  )
+  );
 }
 
 function App() {
@@ -68,7 +78,7 @@ function App() {
         </SelectionProvider>
       </NetworkProvider>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

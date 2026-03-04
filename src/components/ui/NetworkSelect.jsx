@@ -1,52 +1,50 @@
-import { useEffect } from 'react'
-import { useNetwork } from '../../contexts/NetworkContext'
-import { useSelection } from '../../contexts/SelectionContext'
-import './ControlPanel.css'
+import { useEffect } from "react";
+import { useNetwork } from "../../contexts/NetworkContext";
+import { useSelection } from "../../contexts/SelectionContext";
+import "./ControlPanel.css";
 
 function NetworkSelect() {
-  const {
-    availableNetworks,
-    currentNetworkId,
-    isLoading,
-    loadNetwork
-  } = useNetwork()
+  const { availableNetworks, currentNetworkId, isLoading, loadNetwork } =
+    useNetwork();
 
-  const { clearAllSelections } = useSelection()
+  const { clearAllSelections } = useSelection();
 
   useEffect(() => {
     if (!currentNetworkId && availableNetworks.length > 0) {
-      loadNetwork('les_miserables')
+      loadNetwork("les_miserables");
     }
-  }, [availableNetworks, currentNetworkId, loadNetwork])
+  }, [availableNetworks, currentNetworkId, loadNetwork]);
 
   const handleNetworkChange = (e) => {
-    const networkId = e.target.value
+    const networkId = e.target.value;
     if (networkId) {
-      clearAllSelections()
-      loadNetwork(networkId)
+      clearAllSelections();
+      loadNetwork(networkId);
     }
-  }
+  };
 
   return (
     <div className="control-group">
-      <label className="control-label" htmlFor="network-select">Dataset:</label>
+      <label className="control-label" htmlFor="network-select">
+        Dataset:
+      </label>
       <select
         id="network-select"
         className="control-select"
-        value={currentNetworkId || ''}
+        value={currentNetworkId || ""}
         onChange={handleNetworkChange}
         disabled={isLoading}
         aria-label="Loaded Network Dataset"
         title="Loaded Network Dataset"
       >
-        {availableNetworks.map(network => (
+        {availableNetworks.map((network) => (
           <option key={network.id} value={network.id}>
             {network.name}
           </option>
         ))}
       </select>
     </div>
-  )
+  );
 }
 
-export default NetworkSelect
+export default NetworkSelect;
