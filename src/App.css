@@ -16,7 +16,6 @@
   height: var(--header-height);
   padding: 0 var(--space-4);
   background-color: var(--color-bg-secondary);
-  border-bottom: 1px solid #313131;
   flex-shrink: 0;
 }
 
@@ -42,4 +41,6 @@
 .app-main {
   flex: 1;
   overflow: hidden;
+  padding: 0 var(--pane-gap) var(--pane-gap) var(--pane-gap);
+  background-color: var(--color-bg-secondary);
 }
