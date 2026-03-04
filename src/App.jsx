@@ -27,7 +27,18 @@ function AppContent() {
     <div className="app">
       <header className="app-header">
         <div className="app-title">
-          <h1>S Y N D E S M O S C O P E</h1>
+          <a
+            href="https://github.com/dirediredock/Syndesmoscope"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={e => {
+              const color = Math.random() < 0.5
+                ? 'var(--color-node-selected)'
+                : 'var(--color-edge-selected)'
+              e.currentTarget.style.textShadow = `0 0 12px ${color}`
+            }}
+            onMouseLeave={e => { e.currentTarget.style.textShadow = '' }}
+          ><h1>S Y N D E S M O S C O P E</h1></a>
         </div>
         <NetworkSelect />
         <NetworkInfo />

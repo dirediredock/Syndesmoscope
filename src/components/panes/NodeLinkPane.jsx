@@ -133,26 +133,9 @@ function NodeLinkPane({ data, networkName }) {
       if (width > 0 && height > 0) {
         svg.attr('width', width).attr('height', height)
         svg.attr('viewBox', `0 0 ${width} ${height}`)
-        
+
         simulation.force('center', d3.forceCenter(width / 2, height / 2))
         simulation.alpha(0.3).restart()
-
-        try {
-          handleFitContent()
-        } catch (err) {
-          // ignore
-        }
-
-        const onEnd = () => {
-          try {
-            handleFitContent()
-          } catch (err) {
-            // ignore
-          }
-          simulation.on('end', null)
-        }
-
-        simulation.on('end', onEnd)
       }
     })
 
@@ -161,7 +144,7 @@ function NodeLinkPane({ data, networkName }) {
     return () => {
       resizeObserver.disconnect()
     }
-  }, [handleFitContent])
+  }, [])
 
   // Initialize D3 visualization
   useEffect(() => {
@@ -262,13 +245,8 @@ function NodeLinkPane({ data, networkName }) {
       return true
     })
 
-    const centerTimeout = setTimeout(() => {
-      handleFitContent()
-    }, 500)
-
     return () => {
       simulation.stop()
-      clearTimeout(centerTimeout)
     }
   }, [data, setFilter])
 
