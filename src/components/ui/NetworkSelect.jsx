@@ -8,7 +8,6 @@ function NetworkSelect() {
     availableNetworks,
     currentNetworkId,
     isLoading,
-    error,
     loadNetwork
   } = useNetwork()
 
@@ -29,32 +28,24 @@ function NetworkSelect() {
   }
 
   return (
-    <>
-      {error && (
-        <div className="control-error">{error}</div>
-      )}
-      <div className="control-group">
-        <label className="control-label" htmlFor="network-select">Dataset:</label>
-        <select
-          id="network-select"
-          className="control-select"
-          value={currentNetworkId || ''}
-          onChange={handleNetworkChange}
-          disabled={isLoading}
-          aria-label="Loaded Network Dataset"
-          title="Loaded Network Dataset"
-        >
-          {availableNetworks.map(network => (
-            <option key={network.id} value={network.id}>
-              {network.name}
-            </option>
-          ))}
-        </select>
-        {isLoading && (
-          <div className="control-status">Loading...</div>
-        )}
-      </div>
-    </>
+    <div className="control-group">
+      <label className="control-label" htmlFor="network-select">Dataset:</label>
+      <select
+        id="network-select"
+        className="control-select"
+        value={currentNetworkId || ''}
+        onChange={handleNetworkChange}
+        disabled={isLoading}
+        aria-label="Loaded Network Dataset"
+        title="Loaded Network Dataset"
+      >
+        {availableNetworks.map(network => (
+          <option key={network.id} value={network.id}>
+            {network.name}
+          </option>
+        ))}
+      </select>
+    </div>
   )
 }
 

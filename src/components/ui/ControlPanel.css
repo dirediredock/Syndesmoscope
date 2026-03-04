@@ -281,11 +281,5 @@
 .control-status {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
-}
-
-.control-error {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--color-edge-selected);
+  color: tomato;
 }
