@@ -59,7 +59,7 @@ function SizeControls({
         >
           {nodeIcon || (
             <svg className="size-toggle-icon" width="14" height="14" viewBox="0 0 10 10">
-              <circle cx="5" cy="5" r="4" fill="currentColor" />
+              <circle cx="5" cy="5" r="3" fill="currentColor" />
             </svg>
           )}
           <span className="size-toggle-label">{nodeSize}</span>
