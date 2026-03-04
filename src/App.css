@@ -20,6 +20,7 @@
 }
 
 .app-title {
+  margin-left: var(--space-2);
   margin-right: var(--space-8);
 }
 

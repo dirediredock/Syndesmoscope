@@ -5,9 +5,10 @@
 .pane {
   display: flex;
   flex-direction: column;
+  position: relative;
   height: 100%;
   background-color: var(--color-bg-primary);
-  border: 2px solid var(--pane-border-color);
+  /* border: 2px solid var(--pane-border-color); */
   border-radius: var(--pane-border-radius);
   overflow: hidden;
 }
@@ -19,10 +20,15 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-2);
+  position: absolute;
+  bottom: var(--space-1);
+  left: 0;
+  right: 0;
   height: 45px;
   padding: 0 var(--space-3);
-  background-color: var(--color-bg-secondary);
-  flex-shrink: 0;
+  background-color: transparent;
+  z-index: 10;
+  pointer-events: none;
 }
 
 .pane-footer-left,
@@ -30,6 +36,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  pointer-events: auto;
 }
 
 .pane-content {

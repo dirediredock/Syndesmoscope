@@ -6,7 +6,7 @@
 :root {
   /* Color palette - neutral grayscale */
   --color-bg-primary: #0d1117;
-  --color-bg-secondary: #161b22;
+  --color-bg-secondary: #1e2530;
   --color-bg-tertiary: #2d343e;
   --color-border: #30363d;
   --color-border-muted: #21262d;
@@ -64,10 +64,10 @@
   --transition-slow: 250ms ease;
   
   /* Panel resize handle */
-  --resize-handle-size: 4px;
+  --resize-handle-size: 8px;
 
   /* Pane appearance */
-  --pane-gap: 6px;
+  --pane-gap: 10px;
   --pane-border-radius: 12px;
   --pane-border-color: var(--color-bg-tertiary);
 }
