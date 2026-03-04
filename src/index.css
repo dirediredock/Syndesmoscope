@@ -54,6 +54,9 @@
   --space-4: 1rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
+
+  /* Layout */
+  --header-height: 65px;
   
   /* Transitions */
   --transition-fast: 100ms ease;

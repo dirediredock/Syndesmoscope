@@ -195,7 +195,7 @@
   transform: translateY(-50%);
   width: 2px;
   height: 16px;
-  background-color: var(--color-text-muted);
+  background-color: #505050;
 }
 
 .pane-type-btn:hover {

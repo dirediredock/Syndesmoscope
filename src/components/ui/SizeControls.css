@@ -56,7 +56,7 @@
 .size-divider {
   width: 2px;
   height: 16px;
-  background-color: var(--color-border);
+  background-color: #505050;
   margin: 0 2px;
 }
 
