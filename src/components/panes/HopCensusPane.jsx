@@ -443,6 +443,11 @@ function HopCensusPane({ data, networkName }) {
               <BrushIcon />
             </button>
           </div>
+          <TranslocationControls
+            onUp={handleTranslateUp}
+            onDown={handleTranslateDown}
+            disabled={selectedNodes.size === 0}
+          />
           <div className="zoom-controls" role="group" aria-label="Justify">
             <button
               className={`zoom-btn${selectedNodes.size > 0 ? ' zoom-btn--active' : ' zoom-btn--off'}`}
@@ -467,11 +472,6 @@ function HopCensusPane({ data, networkName }) {
               </svg>
             </button>
           </div>
-          <TranslocationControls
-            onUp={handleTranslateUp}
-            onDown={handleTranslateDown}
-            disabled={selectedNodes.size === 0}
-          />
         </>
       }
       zoomControls={{
