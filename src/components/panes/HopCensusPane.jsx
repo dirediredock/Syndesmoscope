@@ -51,7 +51,7 @@ function HopCensusPane({ data, networkName }) {
 
   const [nodeSize, setNodeSize] = useState('S')
   const [brushMode, setBrushMode] = useState(false)
-  const [justify, setJustify] = useState('right')
+  const [justify, setJustify] = useState('left')
 
   // Translocation offset: Map<nodeIdx, multiplier>
   const [offsetMap, setOffsetMap] = useState(() => new Map())
