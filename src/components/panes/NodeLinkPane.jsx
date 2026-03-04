@@ -5,6 +5,8 @@ import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
 import "./NodeLinkPane.css";
 
+const MIN_RENDER_WIDTH = 30;
+
 /**
  * NodeLinkPane - Force-directed node-link visualization
  *
@@ -126,7 +128,7 @@ function NodeLinkPane({ data, networkName }) {
 
     const resizeObserver = new ResizeObserver(() => {
       const { width, height } = container.getBoundingClientRect();
-      if (width > 0 && height > 0) {
+      if (width >= MIN_RENDER_WIDTH && height > 0) {
         svg.attr("width", width).attr("height", height);
         svg.attr("viewBox", `0 0 ${width} ${height}`);
 

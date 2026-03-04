@@ -6,6 +6,8 @@ import { useZoomPan } from "../../hooks/useZoomPan";
 import BrushIcon from "../ui/BrushIcon";
 import "./AdjacencyGridPane.css";
 
+const MIN_RENDER_WIDTH = 30;
+
 /**
  * AdjacencyGridPane
  *
@@ -133,8 +135,9 @@ function AdjacencyGridPane({ data, networkName }) {
     const container = containerRef.current;
 
     const resizeObserver = new ResizeObserver(() => {
+      const { width } = container.getBoundingClientRect();
       d3.select(container).selectAll("*").remove();
-      if (containerRef.current && data) {
+      if (containerRef.current && data && width >= MIN_RENDER_WIDTH) {
         initializeVisualization();
         setTimeout(() => handleResetZoom(), 100);
       }

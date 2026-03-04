@@ -6,6 +6,8 @@ import { useZoomPan } from "../../hooks/useZoomPan";
 import BrushIcon from "../ui/BrushIcon";
 import "./KSnakesPane.css";
 
+const MIN_RENDER_WIDTH = 30;
+
 /**
  * KSnakesPane - k-Snakes invariant plot visualization
  *
@@ -138,9 +140,10 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
     const container = containerRef.current;
 
     const resizeObserver = new ResizeObserver(() => {
+      const { width } = container.getBoundingClientRect();
       d3.select(container).selectAll("*").remove();
 
-      if (containerRef.current && data) {
+      if (containerRef.current && data && width >= MIN_RENDER_WIDTH) {
         initializeVisualization();
         // Auto-center after resize
         setTimeout(() => handleResetZoom(), 100);

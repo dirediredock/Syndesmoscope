@@ -66,7 +66,7 @@ function PaneLayout({ onResetRef, paneTypes }) {
     >
       {/*********************************************************************/}
 
-      <Panel defaultSize={20} minSize={0.3} className="panel">
+      <Panel defaultSize={20} minSize={0.6} className="panel">
         {renderPane(paneTypes[0])}
       </Panel>
 
@@ -74,7 +74,7 @@ function PaneLayout({ onResetRef, paneTypes }) {
 
       {/*********************************************************************/}
 
-      <Panel defaultSize={20} minSize={0.3} className="panel">
+      <Panel defaultSize={20} minSize={0.6} className="panel">
         {renderPane(paneTypes[1])}
       </Panel>
 
@@ -82,7 +82,7 @@ function PaneLayout({ onResetRef, paneTypes }) {
 
       {/*********************************************************************/}
 
-      <Panel defaultSize={20} minSize={0.2} className="panel">
+      <Panel defaultSize={20} minSize={0.6} className="panel">
         {renderPane(paneTypes[2])}
       </Panel>
 
@@ -90,7 +90,7 @@ function PaneLayout({ onResetRef, paneTypes }) {
 
       {/*********************************************************************/}
 
-      <Panel defaultSize={20} minSize={0.2} className="panel">
+      <Panel defaultSize={20} minSize={0.6} className="panel">
         {renderPane(paneTypes[3])}
       </Panel>
 
