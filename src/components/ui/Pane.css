@@ -60,10 +60,10 @@
 .pane-hover-info {
   position: absolute;
   top: var(--space-2);
-  right: var(--space-3);
+  left: var(--space-3);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 2px;
   pointer-events: none;
   z-index: 10;
