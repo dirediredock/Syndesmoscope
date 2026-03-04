@@ -38,7 +38,7 @@ function Pane({
         ) : (
           children
         )}
-        {showHoverInfo && (
+        {/* {showHoverInfo && (
           <div className="pane-hover-info">
             {hoveredNodeList.map(idx => (
               <span key={`n${idx}`} className="pane-hover-node">{idx}</span>
@@ -47,7 +47,7 @@ function Pane({
               <span key={`e${idx}`} className="pane-hover-edge">{idx}</span>
             ))}
           </div>
-        )}
+        )} */}
       </div>
       <div
         className="pane-footer"

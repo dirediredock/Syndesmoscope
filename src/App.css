@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  height: 50px;
+  height: var(--header-height);
   padding: 0 var(--space-4);
   background-color: var(--color-bg-secondary);
   border-bottom: 1px solid #313131;
@@ -34,6 +34,9 @@
 
 .app-header-spacer {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .app-main {

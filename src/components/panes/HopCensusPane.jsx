@@ -43,12 +43,15 @@ function HopCensusPane({ data, networkName }) {
 
   // Refs for efficient path updates without full SVG rebuild
   const maxCountRef = useRef(null)
-  const lineRef = useRef(null)
+  const xScaleRef = useRef(null)
+  const yScaleRef = useRef(null)
+  const maxHopRef = useRef(null)
   const vectorsByIdxRef = useRef(null)
   const bandIndexMapRef = useRef(null)
 
   const [nodeSize, setNodeSize] = useState('S')
   const [brushMode, setBrushMode] = useState(false)
+  const [justify, setJustify] = useState('left')
 
   // Translocation offset: Map<nodeIdx, multiplier>
   const [offsetMap, setOffsetMap] = useState(() => new Map())
@@ -144,11 +147,24 @@ function HopCensusPane({ data, networkName }) {
     setOffsetMap(new Map())
   }, [data, handleResetZoom])
 
-  // Apply translocation offsets to path `d` attributes (no rebuild needed)
-  useEffect(() => {
-    if (!svgRef.current || !lineRef.current || !vectorsByIdxRef.current || !bandIndexMapRef.current || maxCountRef.current == null) return
+  // Build path `d` for a census vector, accounting for justification
+  const buildPath = useCallback((rawVector, bandIdx, multiplier) => {
+    const xScale = xScaleRef.current
+    const yScale = yScaleRef.current
     const maxCount = maxCountRef.current
-    const line = lineRef.current
+    const maxHop = maxHopRef.current
+    if (!xScale || !yScale || maxCount == null || maxHop == null) return ''
+    const shifted = rawVector.map(v => v + (bandIdx + multiplier) * maxCount)
+    const xOffset = justify === 'right' ? maxHop - (rawVector.length - 1) : 0
+    const line = d3.line()
+      .x((d, i) => xScale(i + xOffset))
+      .y(d => yScale(d))
+    return line(shifted)
+  }, [justify])
+
+  // Apply translocation offsets (and justify changes) to path `d` attributes
+  useEffect(() => {
+    if (!svgRef.current || !vectorsByIdxRef.current || !bandIndexMapRef.current || maxCountRef.current == null) return
     const vectorsByIdx = vectorsByIdxRef.current
     const bim = bandIndexMapRef.current
 
@@ -161,10 +177,9 @@ function HopCensusPane({ data, networkName }) {
         const multiplier = offsetMap.get(nodeIdx) || 0
         const rawVector = vectorsByIdx.get(nodeIdx)
         if (!rawVector) return ''
-        const shifted = rawVector.map(v => v + (bandIdx + multiplier) * maxCount)
-        return line(shifted)
+        return buildPath(rawVector, bandIdx, multiplier)
       })
-  }, [offsetMap])
+  }, [offsetMap, buildPath])
 
   // Initialize visualization
   const initializeVisualization = useCallback(() => {
@@ -234,11 +249,10 @@ function HopCensusPane({ data, networkName }) {
 
     // Store refs
     maxCountRef.current = maxCount
+    maxHopRef.current = maxHop
+    xScaleRef.current = xScale
+    yScaleRef.current = yScale
     bandIndexMapRef.current = bandIndexMap
-    const line = d3.line()
-      .x((d, i) => xScale(i))
-      .y(d => yScale(d))
-    lineRef.current = line
     vectorsByIdxRef.current = new Map(data.census_vectors.map(v => [v.node_idx, v.vector]))
 
     const zoomContainer = svg.append('g')
@@ -278,8 +292,7 @@ function HopCensusPane({ data, networkName }) {
       .attr('d', d => {
         const bandIdx = bandIndexMap.get(d.vector_length)
         const multiplier = offsetMapRef.current.get(d.node_idx) || 0
-        const shifted = d.vector.map(v => v + (bandIdx + multiplier) * maxCount)
-        return line(shifted)
+        return buildPath(d.vector, bandIdx, multiplier)
       })
       .attr('fill', 'none')
       .attr('stroke', 'var(--color-node-default)')
@@ -345,6 +358,7 @@ function HopCensusPane({ data, networkName }) {
     brushGroup.style('pointer-events', 'none')
     brushGroup.select('.overlay').style('pointer-events', 'none').style('cursor', 'default')
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, hoverNode, clearHover, toggleNodeSelection, selectNodes])
 
   // Resize observer
@@ -427,6 +441,30 @@ function HopCensusPane({ data, networkName }) {
               title="Brush"
             >
               <BrushIcon />
+            </button>
+          </div>
+          <div className="zoom-controls" role="group" aria-label="Justify">
+            <button
+              className={`zoom-btn${selectedNodes.size > 0 ? ' zoom-btn--active' : ' zoom-btn--off'}`}
+              onClick={() => setJustify(j => j === 'left' ? 'right' : 'left')}
+              aria-label={'Polyline Justification'}
+              title={'Polyline Justification'}
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14">
+                {justify === 'left' ? (
+                  <>
+                    <line x1="1" y1="3" x2="12" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="1" y1="7" x2="9" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="1" y1="11" x2="11" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  </>
+                ) : (
+                  <>
+                    <line x1="2" y1="3" x2="13" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="5" y1="7" x2="13" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="3" y1="11" x2="13" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  </>
+                )}
+              </svg>
             </button>
           </div>
           <TranslocationControls

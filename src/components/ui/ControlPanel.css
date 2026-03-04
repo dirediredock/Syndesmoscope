@@ -24,7 +24,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -37,13 +37,13 @@
   padding-right: var(--space-6);
   /* width: 20em; */
   background-color: var(--color-bg-tertiary);
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   font-weight: 700;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%238b949e' d='M3 5.5L8 11L13 5.5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23969696' d='M3 5.5L8 11L13 5.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 8px center;
   transition: border-color var(--transition-fast), background-color var(--transition-fast);
@@ -175,7 +175,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-base);
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   background: transparent;
   border: none;
   border-radius: 3px;
@@ -195,7 +195,7 @@
   transform: translateY(-50%);
   width: 2px;
   height: 16px;
-  background-color: var(--color-text-muted);
+  background-color: #505050;
 }
 
 .pane-type-btn:hover {
@@ -218,7 +218,7 @@
   height: 28px;
   padding: 0 var(--space-2);
   background-color: transparent;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -248,7 +248,7 @@
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
@@ -281,11 +281,5 @@
 .control-status {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
-}
-
-.control-error {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--color-edge-selected);
+  color: tomato;
 }

@@ -452,22 +452,6 @@ function AdjacencyGridPane({ data, networkName }) {
               <BrushIcon />
             </button>
           </div>
-          <div className="zoom-controls" role="group" aria-label="Select Intersection Edges">
-            <button
-              className={`zoom-btn${selectedNodes.size > 0 ? '' : ' zoom-btn--off'}`}
-              style={selectedNodes.size > 0 ? { color: 'var(--color-edge-selected)' } : undefined}
-              onClick={handleSelectIntersectionEdges}
-              disabled={selectedNodes.size === 0}
-              aria-label="All Intersection Edges"
-              title="All Intersection Edges"
-            >
-              <svg width="14" height="14" viewBox="0 0 14 14">
-                <line x1="7" y1="0" x2="7" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="0" y1="7" x2="14" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <circle cx="7" cy="7" r="3.5" fill="currentColor" />
-              </svg>
-            </button>
-          </div>
           <div className="size-controls" role="group" aria-label="Gridlines">
             <button
               className={`size-toggle-btn${gridlines === 'off' ? ' size-toggle-btn--off' : ''}`}
@@ -486,6 +470,22 @@ function AdjacencyGridPane({ data, networkName }) {
                 <line x1="9" y1="0" x2="9" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
               {gridlines !== 'off' && <span className="size-toggle-label">{gridlines}</span>}
+            </button>
+          </div>
+          <div className="zoom-controls" role="group" aria-label="Select Intersection Edges">
+            <button
+              className={`zoom-btn${selectedNodes.size > 0 ? '' : ' zoom-btn--off'}`}
+              style={selectedNodes.size > 0 ? { color: 'var(--color-edge-selected)' } : undefined}
+              onClick={handleSelectIntersectionEdges}
+              disabled={selectedNodes.size === 0}
+              aria-label="All Intersection Edges"
+              title="All Intersection Edges"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14">
+                <line x1="7" y1="0" x2="7" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="0" y1="7" x2="14" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="7" cy="7" r="3.5" fill="currentColor" />
+              </svg>
             </button>
           </div>
         </>

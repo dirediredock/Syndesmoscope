@@ -16,7 +16,7 @@
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
@@ -41,7 +41,6 @@
 }
 
 .zoom-btn--off {
-  opacity: 0.35;
 }
 
 .zoom-btn--active {
@@ -82,6 +81,6 @@
 .zoom-divider {
   width: 2px;
   height: 16px;
-  background-color: var(--color-border);
+  background-color: #505050;
   margin: 0 var(--space-1);
 }
