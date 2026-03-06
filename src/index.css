@@ -12,13 +12,13 @@
   --color-surface-active: #3d444d;
 
   --color-text-primary: #e6edf3;
-  --color-text-secondary: #8b949e;
-  --color-text-muted: #b1bac4;
+  --color-text-secondary: #b1bac4;
+  --color-text-muted: #8b949e;
 
-  /* Data elements — unified monochrome */
-  --color-node-default: #b0b0b0;
-  --color-edge-default-line: #3a3a3a;
-  --color-edge-default-point: #b0b0b0;
+  /* Data elements — nodes brighter than edges for hierarchy */
+  --color-node-default: #c8cdd3;
+  --color-edge-default-line: #2a2f36;
+  --color-edge-default-point: #8b929a;
 
   /* Selection highlights — blue + coral */
   --color-node-selected: #58a6ff;
@@ -27,17 +27,17 @@
   --color-edge-hover: rgba(247, 129, 102, 0.5);
 
   /* k-Snakes visualization colors */
-  --color-ksnakes-core: #3a3a3a;
-  --color-ksnakes-island: #1a1a1a;
+  --color-ksnakes-core: #4a4a52;
+  --color-ksnakes-island: #2a2a30;
 
   /* Hop Census visualization colors */
-  --color-hopcensus-grid-line: #161b22;
+  --color-hopcensus-grid-line: #1e2530;
 
   /* Per-pane accent colors */
   --color-accent-nodelink: #58a6ff;
   --color-accent-hopcensus: #58a6ff;
   --color-accent-ksnakes: #58a6ff;
-  --color-accent-adjmatrix: #8b949e;
+  --color-accent-adjmatrix: #58a6ff;
 
   /* Selection badge backgrounds (node) */
   --color-node-selected-bg: rgba(88, 166, 255, 0.2);
@@ -95,21 +95,21 @@
 
 /* Light mode theme */
 [data-theme="light"] {
-  /* Backgrounds — gray frame around white panes (paper-ready) */
+  /* Backgrounds — warm stone frame around white panes (paper-ready) */
   --color-bg-primary: #ffffff;
-  --color-bg-secondary: #d0d4dc;
-  --color-bg-tertiary: #e4e8ee;
-  --color-border: #c0c4cc;
-  --color-surface-active: #b8bcc4;
+  --color-bg-secondary: #d8dce4;
+  --color-bg-tertiary: #f0ece7;
+  --color-border: #cdc8c1;
+  --color-surface-active: #d5d0c9;
 
   --color-text-primary: #1f2328;
-  --color-text-secondary: #636c76;
-  --color-text-muted: #8b949e;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #636c76;
 
-  /* Data elements — unified monochrome (prints well) */
-  --color-node-default: #6e7781;
-  --color-edge-default-line: #c8ccd4;
-  --color-edge-default-point: #6e7781;
+  /* Data elements — nodes darker than edges for hierarchy (prints well) */
+  --color-node-default: #4d5561;
+  --color-edge-default-line: #d8dce4;
+  --color-edge-default-point: #8b929a;
 
   /* Selection highlights — deepened for print */
   --color-node-selected: #0969da;
@@ -120,30 +120,30 @@
   --pane-border-color: var(--color-bg-tertiary);
 
   /* k-Snakes visualization colors (light mode) */
-  --color-ksnakes-core: #d0d4dc;
-  --color-ksnakes-island: #e8ecf2;
+  --color-ksnakes-core: #c8c8d0;
+  --color-ksnakes-island: #e0e0e8;
 
   /* Hop Census grid lines (light mode) */
-  --color-hopcensus-grid-line: #eceff4;
+  --color-hopcensus-grid-line: #e4e8f0;
 
   /* Per-pane accent colors (light mode) */
   --color-accent-nodelink: #0969da;
   --color-accent-hopcensus: #0969da;
   --color-accent-ksnakes: #0969da;
-  --color-accent-adjmatrix: #636c76;
+  --color-accent-adjmatrix: #0969da;
 
   /* Selection badge backgrounds (light mode node) */
-  --color-node-selected-bg: rgba(9, 105, 218, 0.15);
-  --color-node-selected-bg-hover: rgba(9, 105, 218, 0.28);
-  --color-node-selected-bg-active: rgba(9, 105, 218, 0.45);
+  --color-node-selected-bg: rgba(9, 105, 218, 0.18);
+  --color-node-selected-bg-hover: rgba(9, 105, 218, 0.32);
+  --color-node-selected-bg-active: rgba(9, 105, 218, 0.5);
 
   /* Selection badge backgrounds (light mode edge) */
-  --color-edge-selected-bg: rgba(207, 75, 55, 0.15);
-  --color-edge-selected-bg-hover: rgba(207, 75, 55, 0.28);
-  --color-edge-selected-bg-active: rgba(207, 75, 55, 0.45);
+  --color-edge-selected-bg: rgba(207, 75, 55, 0.18);
+  --color-edge-selected-bg-hover: rgba(207, 75, 55, 0.32);
+  --color-edge-selected-bg-active: rgba(207, 75, 55, 0.5);
 
   /* Divider line (light mode) */
-  --color-divider: #b8bcc4;
+  --color-divider: #c5c0b9;
 
   /* Bright text for hover emphasis (light mode: near-black) */
   --color-text-bright: #000000;
@@ -235,5 +235,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+  background: var(--color-text-secondary);
 }
