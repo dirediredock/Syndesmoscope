@@ -17,7 +17,7 @@
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),

@@ -10,7 +10,7 @@
 .axis text {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  fill: var(--color-text-secondary);
+  fill: var(--color-text-muted);
 }
 
 /* Hide axis labels per Python spec */
