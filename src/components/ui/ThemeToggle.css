@@ -10,22 +10,22 @@
   height: 32px;
   padding: 0;
   background-color: transparent;
-  color: var(--color-text-muted);
-  border: 1px solid var(--color-border);
+  color: var(--color-button-text);
+  border: 1px solid var(--color-button-border);
   border-radius: 4px;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .theme-toggle:hover {
-  background-color: var(--color-bg-tertiary);
-  color: var(--color-text-primary);
-  border-color: var(--color-text-muted);
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text-hover);
+  border-color: var(--color-button-text);
 }
 
 .theme-toggle:focus {
   outline: none;
-  border-color: var(--color-node-selected);
+  border-color: var(--color-button-accent);
 }
 
 .theme-toggle svg {

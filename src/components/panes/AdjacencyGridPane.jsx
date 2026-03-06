@@ -47,7 +47,7 @@ function AdjacencyGridPane({ data, networkName }) {
   const boundsRef = useRef(null);
   const brushGroupRef = useRef(null);
 
-  const [nodeSize, setNodeSize] = useState("S");
+  const [nodeSize, setNodeSize] = useState("M");
   const [gridlines, setGridlines] = useState("off");
   const [brushMode, setBrushMode] = useState(false);
 

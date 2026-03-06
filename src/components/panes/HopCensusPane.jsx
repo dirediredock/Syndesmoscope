@@ -308,7 +308,7 @@ function HopCensusPane({ data, networkName }) {
         .attr("y1", -gridExtent)
         .attr("x2", xScale(i))
         .attr("y2", innerHeight + gridExtent)
-        .attr("stroke", "#0a0a0a")
+        .attr("stroke", "var(--color-hopcensus-grid-line)")
         .attr("stroke-width", 1);
     }
 

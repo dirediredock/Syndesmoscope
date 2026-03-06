@@ -20,8 +20,10 @@
 }
 
 .app-title {
-  margin-left: var(--space-2);
-  margin-right: var(--space-8);
+  width: 17.6rem;
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+  margin-right: var(--space-4);
 }
 
 .app-title a {
@@ -33,7 +35,7 @@
 }
 
 .app-title a:hover {
-  color: #ffffff;
+  color: var(--color-text-bright);
 }
 
 .app-title h1 {
@@ -41,7 +43,11 @@
   font-size: 1.7rem;
   font-weight: 10;
   letter-spacing: -0.02em;
-  color: var(--color-text-primary);
+  color: var(--color-label-text, var(--color-text-primary));
+}
+
+[data-theme="light"] .app-title h1 {
+  font-weight: 400;
 }
 
 .app-header-spacer {
