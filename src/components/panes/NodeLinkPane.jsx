@@ -67,7 +67,7 @@ function NodeLinkPane({ data, networkName }) {
   } = useSelection();
 
   const [nodeSize, setNodeSize] = useState("M");
-  const [edgeSize, setEdgeSize] = useState("M");
+  const [edgeSize, setEdgeSize] = useState("L");
 
   const { transform, resetZoom, fitToContent, setFilter, zoomPercent } =
     useZoomPan(svgRef, { scaleExtent: [0.1, 15] });
