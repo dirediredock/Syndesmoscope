@@ -84,6 +84,17 @@
   --transition-base: 150ms ease;
   --transition-slow: 250ms ease;
 
+  /* Button backgrounds — consistent across themes */
+  --color-button-bg: #21262d;
+  --color-button-hover: #2d333b;
+  --color-button-active: #3d444d;
+  --color-button-text: var(--color-text-secondary);
+  --color-button-text-hover: var(--color-text-primary);
+  --color-button-text-bright: var(--color-text-bright);
+  --color-button-border: var(--color-border);
+  --color-button-divider: var(--color-divider);
+  --color-button-accent: #58a6ff;
+
   /* Panel resize handle */
   --resize-handle-size: 8px;
 
@@ -97,7 +108,7 @@
 [data-theme="light"] {
   /* Backgrounds — warm stone frame around white panes (paper-ready) */
   --color-bg-primary: #ffffff;
-  --color-bg-secondary: #d8dce4;
+  --color-bg-secondary: #a8a8b2;
   --color-bg-tertiary: #f0ece7;
   --color-border: #cdc8c1;
   --color-surface-active: #d5d0c9;
@@ -147,6 +158,16 @@
 
   /* Bright text for hover emphasis (light mode: near-black) */
   --color-text-bright: #000000;
+
+  /* Label/title text — match button bg for subtle look */
+  --color-label-text: var(--color-button-bg);
+
+  /* Button text overrides — light text on dark buttons in light mode */
+  --color-button-text: #b1bac4;
+  --color-button-text-hover: #e6edf3;
+  --color-button-text-bright: #ffffff;
+  --color-button-border: #30363d;
+  --color-button-divider: #444c56;
 }
 
 /* Reset */

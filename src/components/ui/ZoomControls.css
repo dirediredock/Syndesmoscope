@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  background-color: var(--color-bg-tertiary);
+  background-color: var(--color-button-bg);
   border-radius: 4px;
   padding: 2px;
 }
@@ -16,7 +16,7 @@
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: var(--color-text-secondary);
+  color: var(--color-button-text);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
@@ -24,12 +24,12 @@
 }
 
 .zoom-btn:hover:not(:disabled) {
-  background-color: var(--color-bg-secondary);
-  color: var(--color-text-primary);
+  background-color: var(--color-button-hover);
+  color: var(--color-button-text-hover);
 }
 
 .zoom-btn:active:not(:disabled) {
-  background-color: var(--color-surface-active);
+  background-color: var(--color-button-active);
 }
 
 .zoom-btn:disabled {
@@ -38,7 +38,7 @@
 }
 
 .zoom-btn:focus-visible {
-  outline: 2px solid var(--color-node-selected);
+  outline: 2px solid var(--color-button-accent);
   outline-offset: 1px;
 }
 
@@ -46,14 +46,14 @@
 }
 
 .zoom-btn--active {
-  color: var(--color-node-selected);
+  color: var(--color-button-accent);
 }
 
 .zoom-level {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--color-text-secondary);
+  color: var(--color-button-text);
   min-width: 40px;
   text-align: center;
   user-select: none;
@@ -69,12 +69,12 @@
 }
 
 .zoom-level:hover:not(:disabled) {
-  background-color: var(--color-bg-secondary);
-  color: var(--color-text-primary);
+  background-color: var(--color-button-hover);
+  color: var(--color-button-text-hover);
 }
 
 .zoom-level:active:not(:disabled) {
-  background-color: var(--color-surface-active);
+  background-color: var(--color-button-active);
 }
 
 .zoom-level:disabled {
@@ -85,6 +85,6 @@
 .zoom-divider {
   width: 2px;
   height: 16px;
-  background-color: var(--color-divider);
+  background-color: var(--color-button-divider);
   margin: 0 var(--space-1);
 }
