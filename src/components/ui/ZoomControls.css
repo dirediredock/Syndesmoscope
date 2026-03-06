@@ -29,7 +29,7 @@
 }
 
 .zoom-btn:active:not(:disabled) {
-  background-color: var(--color-border);
+  background-color: var(--color-surface-active);
 }
 
 .zoom-btn:disabled {
@@ -74,7 +74,7 @@
 }
 
 .zoom-level:active:not(:disabled) {
-  background-color: var(--color-border);
+  background-color: var(--color-surface-active);
 }
 
 .zoom-level:disabled {
@@ -85,6 +85,6 @@
 .zoom-divider {
   width: 2px;
   height: 16px;
-  background-color: #505050;
+  background-color: var(--color-divider);
   margin: 0 var(--space-1);
 }

@@ -94,11 +94,11 @@
 }
 
 .pane-hover-node {
-  color: #58a6ff;
+  color: var(--color-node-selected);
 }
 
 .pane-hover-edge {
-  color: #f78166;
+  color: var(--color-edge-selected);
 }
 
 /* D3 visualization container */

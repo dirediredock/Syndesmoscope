@@ -111,12 +111,12 @@
 }
 
 .selection-badge--nodes {
-  background-color: rgba(88, 166, 255, 0.2);
+  background-color: var(--color-node-selected-bg);
   color: var(--color-node-selected);
 }
 
 .selection-badge--edges {
-  background-color: rgba(247, 129, 102, 0.2);
+  background-color: var(--color-edge-selected-bg);
   color: var(--color-edge-selected);
 }
 
@@ -136,29 +136,29 @@
 }
 
 .selection-badge-clear--nodes {
-  background-color: rgba(88, 166, 255, 0.2);
+  background-color: var(--color-node-selected-bg);
   color: var(--color-node-selected);
 }
 
 .selection-badge-clear--nodes:hover {
-  background-color: rgba(88, 166, 255, 0.35);
+  background-color: var(--color-node-selected-bg-hover);
 }
 
 .selection-badge-clear--nodes:active {
-  background-color: rgba(88, 166, 255, 0.5);
+  background-color: var(--color-node-selected-bg-active);
 }
 
 .selection-badge-clear--edges {
-  background-color: rgba(247, 129, 102, 0.2);
+  background-color: var(--color-edge-selected-bg);
   color: var(--color-edge-selected);
 }
 
 .selection-badge-clear--edges:hover {
-  background-color: rgba(247, 129, 102, 0.35);
+  background-color: var(--color-edge-selected-bg-hover);
 }
 
 .selection-badge-clear--edges:active {
-  background-color: rgba(247, 129, 102, 0.5);
+  background-color: var(--color-edge-selected-bg-active);
 }
 
 .selection-badge-clear:focus-visible {
@@ -202,7 +202,7 @@
   transform: translateY(-50%);
   width: 2px;
   height: 16px;
-  background-color: #505050;
+  background-color: var(--color-divider);
 }
 
 .pane-type-btn:hover {
@@ -211,7 +211,7 @@
 }
 
 .pane-type-btn:active {
-  background-color: var(--color-border);
+  background-color: var(--color-surface-active);
 }
 
 .pane-type-btn:focus-visible {
@@ -268,7 +268,7 @@
 }
 
 .control-icon-btn:active {
-  background-color: var(--color-border);
+  background-color: var(--color-surface-active);
 }
 
 .control-icon-btn:focus-visible {
@@ -290,5 +290,5 @@
 .control-status {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: tomato;
+  color: var(--color-status-error);
 }

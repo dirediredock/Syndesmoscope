@@ -9,7 +9,7 @@
   --color-bg-secondary: #1e2530;
   --color-bg-tertiary: #2d343e;
   --color-border: #30363d;
-  --color-border-muted: #21262d;
+  --color-surface-active: #30363d; /* button :active bg, scrollbar thumb */
 
   --color-text-primary: #ebebeb;
   --color-text-secondary: #a0a0a0;
@@ -30,13 +30,30 @@
   --color-ksnakes-core: #404040;
   --color-ksnakes-island: #1a1a1a;
 
-  /* Accent colors for pane headers
-  --color-accent-nodelink: #7ee787;
-  --color-accent-hopcensus: #a371f7;
-  --color-accent-ksnakes: #f2cc60;
-  --color-accent-matrix: #79c0ff;
-  --color-accent-censuscensus: #ff7b72;
-  --color-accent-graphprism: #ffa657; */
+  /* Hop Census visualization colors */
+  --color-hopcensus-grid-line: #0a0a0a;
+
+  /* Adjacency matrix accent */
+  --color-accent-adjmatrix: #808080;
+
+  /* Selection badge backgrounds (node) */
+  --color-node-selected-bg: rgba(88, 166, 255, 0.2);
+  --color-node-selected-bg-hover: rgba(88, 166, 255, 0.35);
+  --color-node-selected-bg-active: rgba(88, 166, 255, 0.5);
+
+  /* Selection badge backgrounds (edge) */
+  --color-edge-selected-bg: rgba(247, 129, 102, 0.2);
+  --color-edge-selected-bg-hover: rgba(247, 129, 102, 0.35);
+  --color-edge-selected-bg-active: rgba(247, 129, 102, 0.5);
+
+  /* Divider line between toolbar buttons */
+  --color-divider: #505050;
+
+  /* Status/error text */
+  --color-status-error: tomato;
+
+  /* Bright white for hover emphasis */
+  --color-text-bright: #ffffff;
 
   /* Typography */
   --font-sans:
@@ -79,7 +96,7 @@
   --color-bg-secondary: #f5f5f5;
   --color-bg-tertiary: #f2f2f2;
   --color-border: #d0d0d0;
-  --color-border-muted: #eaeaea;
+  --color-surface-active: #d0d0d0;
 
   --color-text-primary: #222222;
   --color-text-secondary: #6b6b6b;
@@ -100,6 +117,25 @@
   /* k-Snakes visualization colors (light mode) */
   --color-ksnakes-core: #c0c0c0;
   --color-ksnakes-island: #d5d5d5;
+
+  /* Hop Census grid lines (light mode: light gray) */
+  --color-hopcensus-grid-line: #e0e0e0;
+
+  /* Selection badge backgrounds (light mode node) */
+  --color-node-selected-bg: rgba(9, 105, 218, 0.15);
+  --color-node-selected-bg-hover: rgba(9, 105, 218, 0.28);
+  --color-node-selected-bg-active: rgba(9, 105, 218, 0.45);
+
+  /* Selection badge backgrounds (light mode edge) */
+  --color-edge-selected-bg: rgba(207, 34, 46, 0.15);
+  --color-edge-selected-bg-hover: rgba(207, 34, 46, 0.28);
+  --color-edge-selected-bg-active: rgba(207, 34, 46, 0.45);
+
+  /* Divider line (light mode) */
+  --color-divider: #c8c8c8;
+
+  /* Bright text for hover emphasis (light mode: near-black) */
+  --color-text-bright: #000000;
 }
 
 /* Reset */
@@ -183,7 +219,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--color-surface-active);
   border-radius: 4px;
 }
 

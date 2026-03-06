@@ -33,7 +33,7 @@
 }
 
 .app-title a:hover {
-  color: #ffffff;
+  color: var(--color-text-bright);
 }
 
 .app-title h1 {
