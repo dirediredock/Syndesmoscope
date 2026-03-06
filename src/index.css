@@ -4,37 +4,40 @@
    ============================================ */
 
 :root {
-  /* Color palette - neutral grayscale */
+  /* Backgrounds — high-contrast frame around dark panes */
   --color-bg-primary: #0d1117;
-  --color-bg-secondary: #1e2530;
-  --color-bg-tertiary: #2d343e;
+  --color-bg-secondary: #2d333b;
+  --color-bg-tertiary: #21262d;
   --color-border: #30363d;
-  --color-surface-active: #30363d; /* button :active bg, scrollbar thumb */
+  --color-surface-active: #3d444d;
 
-  --color-text-primary: #ebebeb;
-  --color-text-secondary: #a0a0a0;
-  --color-text-muted: #c0c0c0;
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #b1bac4;
 
-  /* Default data element colors */
-  --color-node-default: #c0c0c0;
-  --color-edge-default-line: #363636;
-  --color-edge-default-point: #828282;
+  /* Data elements — unified monochrome */
+  --color-node-default: #b0b0b0;
+  --color-edge-default-line: #3a3a3a;
+  --color-edge-default-point: #b0b0b0;
 
-  /* Selection highlight colors (from spec) */
+  /* Selection highlights — blue + coral */
   --color-node-selected: #58a6ff;
   --color-node-hover: rgba(88, 166, 255, 0.5);
   --color-edge-selected: #f78166;
   --color-edge-hover: rgba(247, 129, 102, 0.5);
 
   /* k-Snakes visualization colors */
-  --color-ksnakes-core: #404040;
+  --color-ksnakes-core: #3a3a3a;
   --color-ksnakes-island: #1a1a1a;
 
   /* Hop Census visualization colors */
-  --color-hopcensus-grid-line: #0a0a0a;
+  --color-hopcensus-grid-line: #161b22;
 
-  /* Adjacency matrix accent */
-  --color-accent-adjmatrix: #808080;
+  /* Per-pane accent colors */
+  --color-accent-nodelink: #58a6ff;
+  --color-accent-hopcensus: #58a6ff;
+  --color-accent-ksnakes: #58a6ff;
+  --color-accent-adjmatrix: #8b949e;
 
   /* Selection badge backgrounds (node) */
   --color-node-selected-bg: rgba(88, 166, 255, 0.2);
@@ -47,10 +50,10 @@
   --color-edge-selected-bg-active: rgba(247, 129, 102, 0.5);
 
   /* Divider line between toolbar buttons */
-  --color-divider: #505050;
+  --color-divider: #444c56;
 
   /* Status/error text */
-  --color-status-error: tomato;
+  --color-status-error: #f85149;
 
   /* Bright white for hover emphasis */
   --color-text-bright: #ffffff;
@@ -92,34 +95,42 @@
 
 /* Light mode theme */
 [data-theme="light"] {
+  /* Backgrounds — gray frame around white panes (paper-ready) */
   --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f5f5f5;
-  --color-bg-tertiary: #f2f2f2;
-  --color-border: #d0d0d0;
-  --color-surface-active: #d0d0d0;
+  --color-bg-secondary: #d0d4dc;
+  --color-bg-tertiary: #e4e8ee;
+  --color-border: #c0c4cc;
+  --color-surface-active: #b8bcc4;
 
-  --color-text-primary: #222222;
-  --color-text-secondary: #6b6b6b;
-  --color-text-muted: #808080;
+  --color-text-primary: #1f2328;
+  --color-text-secondary: #636c76;
+  --color-text-muted: #8b949e;
 
-  --color-node-default: #555555;
-  --color-edge-default-line: #b8b8b8;
-  --color-edge-default-point: #959595;
+  /* Data elements — unified monochrome (prints well) */
+  --color-node-default: #6e7781;
+  --color-edge-default-line: #c8ccd4;
+  --color-edge-default-point: #6e7781;
 
-  /* Selection highlight colors - adjusted for light backgrounds */
+  /* Selection highlights — deepened for print */
   --color-node-selected: #0969da;
   --color-node-hover: rgba(9, 105, 218, 0.4);
-  --color-edge-selected: #cf222e;
-  --color-edge-hover: rgba(207, 34, 46, 0.4);
+  --color-edge-selected: #cf4b37;
+  --color-edge-hover: rgba(207, 75, 55, 0.4);
 
   --pane-border-color: var(--color-bg-tertiary);
 
   /* k-Snakes visualization colors (light mode) */
-  --color-ksnakes-core: #c0c0c0;
-  --color-ksnakes-island: #d5d5d5;
+  --color-ksnakes-core: #d0d4dc;
+  --color-ksnakes-island: #e8ecf2;
 
-  /* Hop Census grid lines (light mode: light gray) */
-  --color-hopcensus-grid-line: #e0e0e0;
+  /* Hop Census grid lines (light mode) */
+  --color-hopcensus-grid-line: #eceff4;
+
+  /* Per-pane accent colors (light mode) */
+  --color-accent-nodelink: #0969da;
+  --color-accent-hopcensus: #0969da;
+  --color-accent-ksnakes: #0969da;
+  --color-accent-adjmatrix: #636c76;
 
   /* Selection badge backgrounds (light mode node) */
   --color-node-selected-bg: rgba(9, 105, 218, 0.15);
@@ -127,12 +138,12 @@
   --color-node-selected-bg-active: rgba(9, 105, 218, 0.45);
 
   /* Selection badge backgrounds (light mode edge) */
-  --color-edge-selected-bg: rgba(207, 34, 46, 0.15);
-  --color-edge-selected-bg-hover: rgba(207, 34, 46, 0.28);
-  --color-edge-selected-bg-active: rgba(207, 34, 46, 0.45);
+  --color-edge-selected-bg: rgba(207, 75, 55, 0.15);
+  --color-edge-selected-bg-hover: rgba(207, 75, 55, 0.28);
+  --color-edge-selected-bg-active: rgba(207, 75, 55, 0.45);
 
   /* Divider line (light mode) */
-  --color-divider: #c8c8c8;
+  --color-divider: #b8bcc4;
 
   /* Bright text for hover emphasis (light mode: near-black) */
   --color-text-bright: #000000;
