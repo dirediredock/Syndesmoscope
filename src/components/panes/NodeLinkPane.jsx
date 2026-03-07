@@ -1,6 +1,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import * as d3 from "d3";
 import Pane from "../ui/Pane";
+import BrushIcon from "../ui/BrushIcon";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
 import "./NodeLinkPane.css";
@@ -52,6 +53,8 @@ function NodeLinkPane({ data, networkName }) {
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
   const simulationRef = useRef(null);
+  const brushGroupRef = useRef(null);
+  const brushModeRef = useRef(false);
 
   const {
     hoveredNodes,
@@ -64,10 +67,12 @@ function NodeLinkPane({ data, networkName }) {
     toggleNodeSelection,
     toggleEdgeSelection,
     selectNodes,
+    brushResetSignal,
   } = useSelection();
 
   const [nodeSize, setNodeSize] = useState("M");
   const [edgeSize, setEdgeSize] = useState("L");
+  const [brushMode, setBrushMode] = useState(false);
 
   const { transform, resetZoom, fitToContent, setFilter, zoomPercent } =
     useZoomPan(svgRef, { scaleExtent: [0.1, 15] });
@@ -78,6 +83,54 @@ function NodeLinkPane({ data, networkName }) {
       d3.select(zoomContainerRef.current).attr("transform", transform);
     }
   }, [transform]);
+
+  // Deactivate brush when selection is cleared externally
+  useEffect(() => {
+    if (brushResetSignal > 0) setBrushMode(false);
+  }, [brushResetSignal]);
+
+  // Keep brushModeRef in sync for resize observer access
+  useEffect(() => {
+    brushModeRef.current = brushMode;
+  }, [brushMode]);
+
+  // Update zoom filter based on brush mode
+  useEffect(() => {
+    setFilter((event) => {
+      if (event.type === "wheel") return true;
+      if (brushMode) return false;
+      if (event.target.classList.contains("node")) return false;
+      return true;
+    });
+  }, [setFilter, brushMode]);
+
+  // Freeze/unfreeze simulation when brush toggles
+  useEffect(() => {
+    const simulation = simulationRef.current;
+    if (!simulation) return;
+    if (brushMode) {
+      simulation.stop();
+    } else {
+      simulation.alpha(0.3).restart();
+    }
+  }, [brushMode]);
+
+  // Toggle brush overlay pointer-events
+  useEffect(() => {
+    if (!brushGroupRef.current) return;
+    const bg = d3.select(brushGroupRef.current);
+    if (brushMode) {
+      bg.style("pointer-events", "all");
+      bg.select(".overlay")
+        .style("pointer-events", "all")
+        .style("cursor", "crosshair");
+    } else {
+      bg.style("pointer-events", "none");
+      bg.select(".overlay")
+        .style("pointer-events", "none")
+        .style("cursor", "default");
+    }
+  }, [brushMode]);
 
   const handleSelectIntersectionNodes = useCallback(() => {
     if (!data || selectedEdges.size === 0) return;
@@ -134,6 +187,7 @@ function NodeLinkPane({ data, networkName }) {
 
         simulation.force("center", d3.forceCenter(width / 2, height / 2));
         simulation.alpha(0.3).restart();
+        if (brushModeRef.current) simulation.stop();
       }
     });
 
@@ -237,20 +291,54 @@ function NodeLinkPane({ data, networkName }) {
       nodeElements.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
     });
 
-    // Set zoom filter: allow wheel zoom, block pan when clicking on nodes
-    setFilter((event) => {
-      // Always allow wheel zoom
-      if (event.type === "wheel") return true;
-      // Block pan when starting drag on a node (let node drag handle it)
-      if (event.target.classList.contains("node")) return false;
-      // Allow pan on empty space and edges
-      return true;
-    });
+    // Brush overlay (on top of zoom container so it intercepts events)
+    const brushGroup = svg.append("g").attr("class", "nodelink-brush-group");
+    brushGroupRef.current = brushGroup.node();
+
+    const brush = d3
+      .brush()
+      .extent([
+        [0, 0],
+        [width, height],
+      ])
+      .on("end", (event) => {
+        if (!event.selection) return;
+        const [[bx0, by0], [bx1, by1]] = event.selection;
+
+        const matched = [];
+        const svgNode = svg.node();
+        svg.selectAll(".node").each(function () {
+          const circle = this;
+          const ctm = circle.getCTM();
+          const svgPt = svgNode.createSVGPoint();
+          svgPt.x = +circle.getAttribute("cx");
+          svgPt.y = +circle.getAttribute("cy");
+          const screen = svgPt.matrixTransform(ctm);
+          if (
+            screen.x >= bx0 &&
+            screen.x <= bx1 &&
+            screen.y >= by0 &&
+            screen.y <= by1
+          ) {
+            matched.push(+d3.select(this).attr("data-node-idx"));
+          }
+        });
+
+        brushGroup.call(brush.move, null);
+        if (matched.length > 0) selectNodes(matched);
+      });
+
+    brushGroup.call(brush);
+    brushGroup.style("pointer-events", "none");
+    brushGroup
+      .select(".overlay")
+      .style("pointer-events", "none")
+      .style("cursor", "default");
 
     return () => {
       simulation.stop();
     };
-  }, [data, setFilter]);
+  }, [data, selectNodes]);
 
   // Update highlighting based on selection state and size settings
   useEffect(() => {
@@ -375,11 +463,22 @@ function NodeLinkPane({ data, networkName }) {
         sizes: ["XS", "S", "M", "L", "XL", "XXL"],
       }}
       footerControls={
-        <div
-          className="zoom-controls"
-          role="group"
-          aria-label="Select Intersection Nodes"
-        >
+        <>
+          <div className="zoom-controls" role="group" aria-label="Brush">
+            <button
+              className={`zoom-btn${brushMode ? " zoom-btn--active" : " zoom-btn--off"}`}
+              onClick={() => setBrushMode((b) => !b)}
+              aria-label="Brush"
+              title="Brush"
+            >
+              <BrushIcon />
+            </button>
+          </div>
+          <div
+            className="zoom-controls"
+            role="group"
+            aria-label="Select Intersection Nodes"
+          >
           <button
             className={`zoom-btn${selectedEdges.size > 0 ? "" : " zoom-btn--off"}`}
             style={
@@ -414,7 +513,8 @@ function NodeLinkPane({ data, networkName }) {
               <circle cx="7" cy="7" r="3.5" fill="currentColor" />
             </svg>
           </button>
-        </div>
+          </div>
+        </>
       }
     >
       <div ref={containerRef} className="pane-visualization" role="img" />
