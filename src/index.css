@@ -96,12 +96,9 @@
   --color-button-accent: #58a6ff;
 
   /* Panel resize handle */
-  --resize-handle-size: 8px;
-
-  /* Pane appearance */
-  --pane-gap: 10px;
-  --pane-border-radius: 12px;
-  --pane-border-color: var(--color-bg-tertiary);
+  --resize-handle-size: 12px;
+  --pane-gap: 14px;
+  --pane-border-radius: 16px;
 }
 
 /* Light mode theme */

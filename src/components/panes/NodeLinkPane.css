@@ -30,3 +30,16 @@
 .pane-visualization:focus:not(:focus-visible) {
   outline: none;
 }
+
+/* Brush selection overlay */
+.nodelink-brush-group .selection {
+  fill: var(--color-node-selected);
+  fill-opacity: 0.08;
+  stroke: var(--color-node-selected);
+  stroke-width: 1;
+  stroke-dasharray: 4 2;
+}
+
+.nodelink-brush-group .handle {
+  display: none;
+}

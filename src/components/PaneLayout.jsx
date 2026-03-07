@@ -62,7 +62,6 @@ function PaneLayout({ onResetRef, paneTypes }) {
       ref={panelGroupRef}
       direction="horizontal"
       className="panel-group"
-      autoSaveId="syndesmoscope-layout"
     >
       {/*********************************************************************/}
 
