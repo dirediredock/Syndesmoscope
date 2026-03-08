@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
+  flex-shrink: 0;
 }
 
 .control-panel {
@@ -13,6 +14,7 @@
   align-items: center;
   gap: var(--space-4);
   margin-right: var(--space-3);
+  flex-shrink: 0;
 }
 
 .control-group {
@@ -108,6 +110,7 @@
   line-height: 28px;
   padding: 0 8px;
   border-radius: 4px;
+  white-space: nowrap;
 }
 
 .selection-badge--nodes {

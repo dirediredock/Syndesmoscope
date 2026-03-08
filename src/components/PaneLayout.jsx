@@ -7,7 +7,7 @@ import KSnakesPane from "./panes/KSnakesPane";
 import AdjacencyGridPane from "./panes/AdjacencyGridPane";
 import "./PaneLayout.css";
 
-function PaneLayout({ onResetRef, paneTypes }) {
+function PaneLayout({ onResetRef, paneTypes, isPortrait, activePaneIndex }) {
   const { networkData, currentNetwork } = useNetwork();
   const panelGroupRef = useRef(null);
 
@@ -55,6 +55,16 @@ function PaneLayout({ onResetRef, paneTypes }) {
       default:
         return null;
     }
+  }
+
+  if (isPortrait) {
+    return (
+      <div className="panel-group panel-group--portrait">
+        <div className="panel">
+          {renderPane(paneTypes[activePaneIndex])}
+        </div>
+      </div>
+    );
   }
 
   return (
