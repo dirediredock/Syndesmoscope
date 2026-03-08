@@ -77,9 +77,7 @@ function AppContent() {
           <ThemeToggle />
           <NetworkInfo />
           <div className="app-header-spacer">
-            {isLoading && (
-              <span className="control-status">L O A D I N G</span>
-            )}
+            {isLoading && <span className="control-status">L O A D I N G</span>}
             {error && <span className="control-status">{error}</span>}
           </div>
           <ControlPanel

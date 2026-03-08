@@ -25,7 +25,7 @@ function ControlPanel({
           <div className="pane-type-group">
             <button
               className="pane-type-btn"
-              style={{ maxWidth: "10rem" }}
+              style={{ width: "8rem" }}
               onClick={() => {
                 const nextPane = (activePane + 1) % paneTypes.length;
                 onActivePaneChange(nextPane);
