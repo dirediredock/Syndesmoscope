@@ -7,6 +7,7 @@ import NetworkSelect from "./components/ui/NetworkSelect";
 import NetworkInfo from "./components/ui/NetworkInfo";
 import ThemeToggle from "./components/ui/ThemeToggle";
 import PaneLayout from "./components/PaneLayout";
+import useIsPortrait from "./hooks/useIsPortrait";
 import "./App.css";
 
 const DEFAULT_PANE_TYPES = [
@@ -19,7 +20,9 @@ const DEFAULT_PANE_TYPES = [
 function AppContent() {
   const resetLayoutRef = useRef(null);
   const [paneTypes, setPaneTypes] = useState(DEFAULT_PANE_TYPES);
+  const [activePane, setActivePane] = useState(2);
   const { isLoading, error } = useNetwork();
+  const isPortrait = useIsPortrait();
 
   const handlePaneTypeChange = useCallback((panelIndex, newType) => {
     setPaneTypes((prev) => {
@@ -31,41 +34,68 @@ function AppContent() {
 
   return (
     <div className="app">
-      <header className="app-header">
-        <div className="app-title">
-          <a
-            href="https://github.com/dirediredock/Syndesmoscope"
-            target="_blank"
-            rel="noopener noreferrer"
-            onMouseEnter={(e) => {
-              const color =
-                Math.random() < 0.5
-                  ? "var(--color-node-selected)"
-                  : "var(--color-edge-selected)";
-              e.currentTarget.style.textShadow = `0 0 12px ${color}`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.textShadow = "";
-            }}
-          >
-            <h1>S Y N D E S M O S C O P E</h1>
-          </a>
-        </div>
-        <NetworkSelect />
-        <ThemeToggle />
-        <NetworkInfo />
-        <div className="app-header-spacer">
-          {isLoading && <span className="control-status">L O A D I N G</span>}
-          {error && <span className="control-status">{error}</span>}
-        </div>
-        <ControlPanel
-          paneTypes={paneTypes}
-          onPaneTypeChange={handlePaneTypeChange}
-          onResetLayout={() => resetLayoutRef.current?.()}
-        />
-      </header>
+      {isPortrait ? (
+        <header className="app-header app-header--portrait">
+          <div className="app-header-row">
+            <NetworkSelect isPortrait />
+            <ThemeToggle />
+            <div style={{ flex: 1 }} />
+            <ControlPanel
+              paneTypes={paneTypes}
+              onPaneTypeChange={handlePaneTypeChange}
+              isPortrait
+              activePane={activePane}
+              onActivePaneChange={setActivePane}
+            />
+          </div>
+          <div className="app-header-row">
+            <NetworkInfo />
+          </div>
+        </header>
+      ) : (
+        <header className="app-header">
+          <div className="app-title">
+            <a
+              href="https://github.com/dirediredock/Syndesmoscope"
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={(e) => {
+                const color =
+                  Math.random() < 0.5
+                    ? "var(--color-node-selected)"
+                    : "var(--color-edge-selected)";
+                e.currentTarget.style.textShadow = `0 0 12px ${color}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.textShadow = "";
+              }}
+            >
+              <h1>S Y N D E S M O S C O P E</h1>
+            </a>
+          </div>
+          <NetworkSelect />
+          <ThemeToggle />
+          <NetworkInfo />
+          <div className="app-header-spacer">
+            {isLoading && (
+              <span className="control-status">L O A D I N G</span>
+            )}
+            {error && <span className="control-status">{error}</span>}
+          </div>
+          <ControlPanel
+            paneTypes={paneTypes}
+            onPaneTypeChange={handlePaneTypeChange}
+            onResetLayout={() => resetLayoutRef.current?.()}
+          />
+        </header>
+      )}
       <main className="app-main">
-        <PaneLayout onResetRef={resetLayoutRef} paneTypes={paneTypes} />
+        <PaneLayout
+          onResetRef={resetLayoutRef}
+          paneTypes={paneTypes}
+          isPortrait={isPortrait}
+          activePaneIndex={activePane}
+        />
       </main>
     </div>
   );

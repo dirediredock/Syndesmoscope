@@ -8,7 +8,39 @@ const PANE_TYPE_LABELS = {
   adjacencyGrid: "AdjacencyGrid",
 };
 
-function ControlPanel({ paneTypes, onPaneTypeChange, onResetLayout }) {
+function ControlPanel({
+  paneTypes,
+  onPaneTypeChange,
+  onResetLayout,
+  isPortrait,
+  activePane,
+  onActivePaneChange,
+}) {
+  if (isPortrait) {
+    const type = paneTypes[activePane];
+    return (
+      <div className="control-panel">
+        <div className="control-group">
+          <label className="control-label">Pane:</label>
+          <div className="pane-type-group">
+            <button
+              className="pane-type-btn"
+              style={{ maxWidth: "10rem" }}
+              onClick={() => {
+                const nextPane = (activePane + 1) % paneTypes.length;
+                onActivePaneChange(nextPane);
+              }}
+              aria-label="Cycle pane"
+              title="Cycle pane"
+            >
+              {PANE_TYPE_LABELS[type] || type}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="control-panel">
       {paneTypes && onPaneTypeChange && (

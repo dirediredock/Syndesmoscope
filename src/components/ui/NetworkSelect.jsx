@@ -3,7 +3,7 @@ import { useNetwork } from "../../contexts/NetworkContext";
 import { useSelection } from "../../contexts/SelectionContext";
 import "./ControlPanel.css";
 
-function NetworkSelect() {
+function NetworkSelect({ isPortrait }) {
   const { availableNetworks, currentNetworkId, isLoading, loadNetwork } =
     useNetwork();
 
@@ -31,6 +31,7 @@ function NetworkSelect() {
       <select
         id="network-select"
         className="control-select"
+        style={isPortrait ? { maxWidth: "10.9rem" } : undefined}
         value={currentNetworkId || ""}
         onChange={handleNetworkChange}
         disabled={isLoading}
