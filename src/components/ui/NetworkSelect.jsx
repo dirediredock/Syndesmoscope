@@ -31,7 +31,7 @@ function NetworkSelect({ isPortrait }) {
       <select
         id="network-select"
         className="control-select"
-        style={isPortrait ? { maxWidth: "10.9rem" } : undefined}
+        style={isPortrait ? { maxWidth: "20rem" } : undefined}
         value={currentNetworkId || ""}
         onChange={handleNetworkChange}
         disabled={isLoading}

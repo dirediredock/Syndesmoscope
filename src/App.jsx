@@ -38,15 +38,8 @@ function AppContent() {
         <header className="app-header app-header--portrait">
           <div className="app-header-row">
             <NetworkSelect isPortrait />
-            <ThemeToggle />
             <div style={{ flex: 1 }} />
-            <ControlPanel
-              paneTypes={paneTypes}
-              onPaneTypeChange={handlePaneTypeChange}
-              isPortrait
-              activePane={activePane}
-              onActivePaneChange={setActivePane}
-            />
+            <ThemeToggle />
           </div>
           <div className="app-header-row">
             <NetworkInfo />
@@ -93,6 +86,7 @@ function AppContent() {
           paneTypes={paneTypes}
           isPortrait={isPortrait}
           activePaneIndex={activePane}
+          onActivePaneChange={setActivePane}
         />
       </main>
     </div>

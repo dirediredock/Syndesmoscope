@@ -7,7 +7,14 @@ import KSnakesPane from "./panes/KSnakesPane";
 import AdjacencyGridPane from "./panes/AdjacencyGridPane";
 import "./PaneLayout.css";
 
-function PaneLayout({ onResetRef, paneTypes, isPortrait, activePaneIndex }) {
+const PANE_TYPE_LABELS = {
+  kSnakes: "kSnakes",
+  hopCensus: "HopCensus",
+  nodeLink: "NodeLink",
+  adjacencyGrid: "AdjacencyGrid",
+};
+
+function PaneLayout({ onResetRef, paneTypes, isPortrait, activePaneIndex, onActivePaneChange }) {
   const { networkData, currentNetwork } = useNetwork();
   const panelGroupRef = useRef(null);
 
@@ -58,10 +65,21 @@ function PaneLayout({ onResetRef, paneTypes, isPortrait, activePaneIndex }) {
   }
 
   if (isPortrait) {
+    const type = paneTypes[activePaneIndex];
     return (
       <div className="panel-group panel-group--portrait">
         <div className="panel">
-          {renderPane(paneTypes[activePaneIndex])}
+          <button
+            className="pane-cycle-btn"
+            onClick={() => {
+              onActivePaneChange((activePaneIndex + 1) % paneTypes.length);
+            }}
+            aria-label="Cycle pane"
+            title="Cycle pane"
+          >
+            {PANE_TYPE_LABELS[type] || type}
+          </button>
+          {renderPane(type)}
         </div>
       </div>
     );
