@@ -119,14 +119,14 @@ function PaneLayout({
     >
       {/*********************************************************************/}
 
-      <Panel defaultSize={15} minSize={0.6} className="panel">
+      <Panel defaultSize={16} minSize={0.6} className="panel">
         {renderCycleBtn(0)}
         {renderPane(paneTypes[0])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
 
-      <Panel defaultSize={6} minSize={0.6} className="panel">
+      <Panel defaultSize={7} minSize={0.6} className="panel">
         {renderCycleBtn(1)}
         {renderPane(paneTypes[1])}
       </Panel>
