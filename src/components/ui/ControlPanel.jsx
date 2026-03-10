@@ -1,44 +1,9 @@
 import "./ControlPanel.css";
 
-const PANE_TYPE_CYCLE = ["kSnakes", "hopCensus", "nodeLink", "adjacencyGrid"];
-const PANE_TYPE_LABELS = {
-  kSnakes: "kSnakes",
-  hopCensus: "HopCensus",
-  nodeLink: "NodeLink",
-  adjacencyGrid: "AdjacencyGrid",
-};
-
-function ControlPanel({
-  paneTypes,
-  onPaneTypeChange,
-  onResetLayout,
-}) {
+function ControlPanel({ onResetLayout, themeToggle }) {
   return (
     <div className="control-panel">
-      {paneTypes && onPaneTypeChange && (
-        <div className="control-group">
-          <label className="control-label">Panes:</label>
-          <div className="pane-type-group">
-            {paneTypes.map((type, idx) => (
-              <button
-                key={idx}
-                className="pane-type-btn"
-                onClick={() => {
-                  const cycleIdx = PANE_TYPE_CYCLE.indexOf(type);
-                  const next =
-                    PANE_TYPE_CYCLE[(cycleIdx + 1) % PANE_TYPE_CYCLE.length];
-                  onPaneTypeChange(idx, next);
-                }}
-                aria-label={`Pane ${idx + 1}`}
-                title={`Pane ${idx + 1}`}
-              >
-                {PANE_TYPE_LABELS[type] || type}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
+      {themeToggle}
       {onResetLayout && (
         <div className="control-btn-wrap">
           <button

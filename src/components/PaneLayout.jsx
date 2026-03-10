@@ -7,6 +7,7 @@ import KSnakesPane from "./panes/KSnakesPane";
 import AdjacencyGridPane from "./panes/AdjacencyGridPane";
 import "./PaneLayout.css";
 
+const PANE_TYPE_CYCLE = ["kSnakes", "hopCensus", "nodeLink", "adjacencyGrid"];
 const PANE_TYPE_LABELS = {
   kSnakes: "kSnakes",
   hopCensus: "HopCensus",
@@ -14,7 +15,14 @@ const PANE_TYPE_LABELS = {
   adjacencyGrid: "AdjacencyGrid",
 };
 
-function PaneLayout({ onResetRef, paneTypes, isPortrait, activePaneIndex, onActivePaneChange }) {
+function PaneLayout({
+  onResetRef,
+  paneTypes,
+  onPaneTypeChange,
+  isPortrait,
+  activePaneIndex,
+  onActivePaneChange,
+}) {
   const { networkData, currentNetwork } = useNetwork();
   const panelGroupRef = useRef(null);
 
@@ -25,6 +33,24 @@ function PaneLayout({ onResetRef, paneTypes, isPortrait, activePaneIndex, onActi
       };
     }
   }, [onResetRef]);
+
+  function renderCycleBtn(idx) {
+    const type = paneTypes[idx];
+    return (
+      <button
+        className="pane-cycle-btn"
+        onClick={() => {
+          const cycleIdx = PANE_TYPE_CYCLE.indexOf(type);
+          const next = PANE_TYPE_CYCLE[(cycleIdx + 1) % PANE_TYPE_CYCLE.length];
+          onPaneTypeChange(idx, next);
+        }}
+        aria-label="Cycle pane"
+        title="Cycle pane"
+      >
+        {PANE_TYPE_LABELS[type] || type}
+      </button>
+    );
+  }
 
   function renderPane(paneType) {
     const networkName = currentNetwork?.name;
@@ -94,30 +120,28 @@ function PaneLayout({ onResetRef, paneTypes, isPortrait, activePaneIndex, onActi
       {/*********************************************************************/}
 
       <Panel defaultSize={15} minSize={0.6} className="panel">
+        {renderCycleBtn(0)}
         {renderPane(paneTypes[0])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
 
-      {/*********************************************************************/}
-
-      <Panel defaultSize={5.5} minSize={0.6} className="panel">
+      <Panel defaultSize={6} minSize={0.6} className="panel">
+        {renderCycleBtn(1)}
         {renderPane(paneTypes[1])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
 
-      {/*********************************************************************/}
-
       <Panel defaultSize={25} minSize={0.6} className="panel">
+        {renderCycleBtn(2)}
         {renderPane(paneTypes[2])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
 
-      {/*********************************************************************/}
-
       <Panel defaultSize={16} minSize={0.6} className="panel">
+        {renderCycleBtn(3)}
         {renderPane(paneTypes[3])}
       </Panel>
 

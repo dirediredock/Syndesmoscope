@@ -169,58 +169,6 @@
   outline-offset: 1px;
 }
 
-.pane-type-group {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  background-color: var(--color-button-bg);
-  border-radius: 4px;
-  padding: 2px;
-}
-
-.pane-type-btn {
-  position: relative;
-  font-family: var(--font-mono);
-  font-size: var(--text-base);
-  font-weight: 500;
-  color: var(--color-button-text);
-  background: transparent;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  height: 24px;
-  padding: 0 calc(6px + 1ch);
-  user-select: none;
-  line-height: 1;
-  transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast);
-}
-
-.pane-type-btn:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  right: calc(-1 * var(--space-1));
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2px;
-  height: 16px;
-  background-color: var(--color-button-divider);
-}
-
-.pane-type-btn:hover {
-  background-color: var(--color-button-hover);
-  color: var(--color-button-text-hover);
-}
-
-.pane-type-btn:active {
-  background-color: var(--color-button-active);
-}
-
-.pane-type-btn:focus-visible {
-  outline: 2px solid var(--color-button-accent);
-  outline-offset: 1px;
-}
 
 .control-button {
   font-family: var(--font-mono);

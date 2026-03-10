@@ -67,16 +67,14 @@ function AppContent() {
             </a>
           </div>
           <NetworkSelect />
-          <ThemeToggle />
           <NetworkInfo />
           <div className="app-header-spacer">
             {isLoading && <span className="control-status">L O A D I N G</span>}
             {error && <span className="control-status">{error}</span>}
           </div>
           <ControlPanel
-            paneTypes={paneTypes}
-            onPaneTypeChange={handlePaneTypeChange}
             onResetLayout={() => resetLayoutRef.current?.()}
+            themeToggle={<ThemeToggle />}
           />
         </header>
       )}
@@ -84,6 +82,7 @@ function AppContent() {
         <PaneLayout
           onResetRef={resetLayoutRef}
           paneTypes={paneTypes}
+          onPaneTypeChange={handlePaneTypeChange}
           isPortrait={isPortrait}
           activePaneIndex={activePane}
           onActivePaneChange={setActivePane}
