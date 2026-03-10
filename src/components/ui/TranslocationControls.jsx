@@ -4,6 +4,7 @@ function TranslocationControls({ onUp, onDown, disabled = false }) {
   return (
     <div
       className="zoom-controls"
+      style={{ flexDirection: "column" }}
       role="group"
       aria-label="Translocation Controls"
     >
