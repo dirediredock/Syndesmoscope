@@ -33,10 +33,6 @@ function NetworkSelect({ isPortrait }) {
       const group = groups.get(network.kind);
       if (group) group.push(network);
     }
-    // Sort alphabetically by name within each group
-    for (const [, networks] of groups) {
-      networks.sort((a, b) => a.name.localeCompare(b.name));
-    }
     return groups;
   }, [availableNetworks]);
 
