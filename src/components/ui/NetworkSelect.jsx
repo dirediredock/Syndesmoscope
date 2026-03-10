@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useNetwork } from "../../contexts/NetworkContext";
 import { useSelection } from "../../contexts/SelectionContext";
+import { NETWORK_KINDS } from "../../contexts/NetworkContext";
 import "./ControlPanel.css";
 
 function NetworkSelect({ isPortrait }) {
@@ -23,6 +24,18 @@ function NetworkSelect({ isPortrait }) {
     }
   };
 
+  const groupedNetworks = useMemo(() => {
+    const groups = new Map();
+    for (const kind of NETWORK_KINDS) {
+      groups.set(kind, []);
+    }
+    for (const network of availableNetworks) {
+      const group = groups.get(network.kind);
+      if (group) group.push(network);
+    }
+    return groups;
+  }, [availableNetworks]);
+
   return (
     <div className="control-group">
       <label className="control-label" htmlFor="network-select">
@@ -38,11 +51,19 @@ function NetworkSelect({ isPortrait }) {
         aria-label="Loaded Network Dataset"
         title="Loaded Network Dataset"
       >
-        {availableNetworks.map((network) => (
-          <option key={network.id} value={network.id}>
-            {network.name}
-          </option>
-        ))}
+        {NETWORK_KINDS.map((kind) => {
+          const networks = groupedNetworks.get(kind);
+          if (!networks || networks.length === 0) return null;
+          return (
+            <optgroup key={kind} label={kind}>
+              {networks.map((network) => (
+                <option key={network.id} value={network.id}>
+                  {network.name}
+                </option>
+              ))}
+            </optgroup>
+          );
+        })}
       </select>
     </div>
   );
