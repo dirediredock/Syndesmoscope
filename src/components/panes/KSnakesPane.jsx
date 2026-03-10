@@ -755,8 +755,8 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
             >
               <svg
                 className="size-toggle-icon"
-                width="14"
-                height="14"
+                width="17"
+                height="17"
                 viewBox="0 0 10 10"
               >
                 <line
@@ -789,8 +789,8 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
         edgeIcon: (
           <svg
             className="size-toggle-icon"
-            width="14"
-            height="14"
+            width="17"
+            height="17"
             viewBox="0 -1 10 10"
           >
             <path

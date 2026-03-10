@@ -17,8 +17,8 @@
 
   /* Data elements — nodes brighter than edges for hierarchy */
   --color-node-default: #c8cdd3;
-  --color-edge-default-line: #2a2f36;
-  --color-edge-default-point: #8b929a;
+  --color-edge-default-line: #3c434d;
+  --color-edge-default-point: #c8cdd3;
 
   /* Selection highlights — blue + coral */
   --color-node-selected: #58a6ff;
@@ -27,8 +27,8 @@
   --color-edge-hover: rgba(247, 129, 102, 0.5);
 
   /* k-Snakes visualization colors */
-  --color-ksnakes-core: #4a4a52;
-  --color-ksnakes-island: #2a2a30;
+  --color-ksnakes-core: #4d5562;
+  --color-ksnakes-island: #23232d;
 
   /* Hop Census visualization colors */
   --color-hopcensus-grid-line: #1e2530;
@@ -62,11 +62,11 @@
   --font-sans:
     "Roboto Condensed", -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --text-xs: 0.75rem;
-  --text-sm: 0.8125rem;
-  --text-base: 0.875rem;
-  --text-lg: 1rem;
-  --text-xl: 1.125rem;
+  --text-xs: 0.825rem;
+  --text-sm: 0.894rem;
+  --text-base: 0.9625rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.238rem;
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -117,7 +117,7 @@
   /* Data elements — nodes darker than edges for hierarchy (prints well) */
   --color-node-default: #4d5561;
   --color-edge-default-line: #d8dce4;
-  --color-edge-default-point: #8b929a;
+  --color-edge-default-point: #4d5561;
 
   /* Selection highlights — deepened for print */
   --color-node-selected: #0969da;

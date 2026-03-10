@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  height: 24px;
+  height: 29px;
   padding: 0 6px;
   background: transparent;
   border: none;
@@ -56,7 +56,7 @@
 
 .size-divider {
   width: 2px;
-  height: 16px;
+  height: 18px;
   background-color: var(--color-button-divider);
   margin: 0 2px;
 }

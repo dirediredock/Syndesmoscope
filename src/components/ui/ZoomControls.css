@@ -11,8 +11,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 29px;
+  height: 29px;
   background: transparent;
   border: none;
   border-radius: 3px;
@@ -54,14 +54,14 @@
   font-size: var(--text-xs);
   font-weight: 700;
   color: var(--color-button-text);
-  min-width: 40px;
+  min-width: 48px;
   text-align: center;
   user-select: none;
   background: transparent;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  height: 24px;
+  height: 29px;
   padding: 0 4px;
   transition:
     background-color var(--transition-fast),
@@ -84,7 +84,7 @@
 
 .zoom-divider {
   width: 2px;
-  height: 16px;
+  height: 18px;
   background-color: var(--color-button-divider);
   margin: 0 var(--space-1);
 }
