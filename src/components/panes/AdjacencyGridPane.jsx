@@ -50,6 +50,9 @@ function AdjacencyGridPane({ data, networkName }) {
   const [nodeSize, setNodeSize] = useState("S");
   const [gridlines, setGridlines] = useState("off");
   const [brushMode, setBrushMode] = useState(false);
+  const [matrixRotation, setMatrixRotation] = useState(45);
+  const matrixRotationRef = useRef(45);
+  const contentGroupRef = useRef(null);
 
   const {
     hoveredNodes,
@@ -81,6 +84,21 @@ function AdjacencyGridPane({ data, networkName }) {
   const { transform, resetZoom, setFilter, zoomPercent } = useZoomPan(svgRef, {
     scaleExtent: [0.5, 15],
   });
+
+  // Keep rotation ref in sync with state
+  useEffect(() => {
+    matrixRotationRef.current = matrixRotation;
+  }, [matrixRotation]);
+
+  // Update content group transform when rotation changes (without re-initializing)
+  useEffect(() => {
+    if (!contentGroupRef.current || !boundsRef.current) return;
+    const { x, y, width, height } = boundsRef.current;
+    d3.select(contentGroupRef.current).attr(
+      "transform",
+      `translate(${x},${y}) rotate(${matrixRotation},${width / 2},${height / 2})`,
+    );
+  }, [matrixRotation]);
 
   // Deactivate brush when selection is cleared from control strip
   useEffect(() => {
@@ -252,8 +270,10 @@ function AdjacencyGridPane({ data, networkName }) {
       .attr("class", "content")
       .attr(
         "transform",
-        `translate(${preOffsetX + margin.left},${preOffsetY + margin.top})`,
+        `translate(${preOffsetX + margin.left},${preOffsetY + margin.top}) rotate(${matrixRotationRef.current},${innerWidth / 2},${innerHeight / 2})`,
       );
+
+    contentGroupRef.current = contentGroup.node();
 
     const posMin = d3.min(data.node_gridlines, (d) => d.seriated_position);
     const posMax = d3.max(data.node_gridlines, (d) => d.seriated_position);
@@ -266,6 +286,17 @@ function AdjacencyGridPane({ data, networkName }) {
       .scaleLinear()
       .domain([posMin - 1, posMax + 1])
       .range([0, innerHeight]);
+
+    contentGroup
+      .append("rect")
+      .attr("class", "matrix-border")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", innerWidth)
+      .attr("height", innerHeight)
+      .attr("fill", "none")
+      .attr("stroke", "var(--color-hopcensus-grid-line)")
+      .attr("pointer-events", "none");
 
     const gridGroup = contentGroup.append("g").attr("class", "matrix-grid");
 
@@ -586,6 +617,47 @@ function AdjacencyGridPane({ data, networkName }) {
               {gridlines !== "off" && (
                 <span className="size-toggle-label">{gridlines}</span>
               )}
+            </button>
+          </div>
+          <div className="zoom-controls" role="group" aria-label="Rotate Matrix">
+            <button
+              className="zoom-btn"
+              onClick={() =>
+                setMatrixRotation((r) => (r === 45 ? 0 : 45))
+              }
+              aria-label={
+                matrixRotation === 45
+                  ? "Rotate 45° counterclockwise"
+                  : "Rotate 45° clockwise"
+              }
+              title={
+                matrixRotation === 45
+                  ? "Rotate 45° counterclockwise"
+                  : "Rotate 45° clockwise"
+              }
+            >
+              <svg width="17" height="17" viewBox="0 0 14 14">
+                {matrixRotation === 45 ? (
+                  <polygon
+                    points="7,1 13,7 7,13 1,7"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                  />
+                ) : (
+                  <rect
+                    x="2"
+                    y="2"
+                    width="10"
+                    height="10"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                  />
+                )}
+              </svg>
             </button>
           </div>
           <div
