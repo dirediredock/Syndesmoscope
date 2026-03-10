@@ -491,7 +491,7 @@ function NodeLinkPane({ data, networkName }) {
             aria-label="All Intersection Nodes"
             title="All Intersection Nodes"
           >
-            <svg width="14" height="14" viewBox="0 0 14 14">
+            <svg width="17" height="17" viewBox="0 0 14 14">
               <line
                 x1="7"
                 y1="0"

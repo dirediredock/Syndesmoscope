@@ -42,7 +42,7 @@
 
 .app-title h1 {
   font-family: var(--font-mono);
-  font-size: 1.7rem;
+  font-size: 1.65rem;
   font-weight: 10;
   letter-spacing: -0.02em;
   color: var(--color-label-text, var(--color-text-primary));

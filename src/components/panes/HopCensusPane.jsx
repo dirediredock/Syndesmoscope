@@ -500,7 +500,7 @@ function HopCensusPane({ data, networkName }) {
               aria-label={"Polyline Justification"}
               title={"Polyline Justification"}
             >
-              <svg width="14" height="14" viewBox="0 0 14 14">
+              <svg width="17" height="17" viewBox="0 0 14 14">
                 {justify === "left" ? (
                   <>
                     <line
@@ -582,8 +582,8 @@ function HopCensusPane({ data, networkName }) {
         nodeIcon: (
           <svg
             className="size-toggle-icon"
-            width="14"
-            height="14"
+            width="17"
+            height="17"
             viewBox="0 -1 10 10"
           >
             <path

@@ -542,8 +542,8 @@ function AdjacencyGridPane({ data, networkName }) {
             >
               <svg
                 className="size-toggle-icon"
-                width="14"
-                height="14"
+                width="17"
+                height="17"
                 viewBox="0 0 14 14"
               >
                 <line
@@ -605,7 +605,7 @@ function AdjacencyGridPane({ data, networkName }) {
               aria-label="All Intersection Edges"
               title="All Intersection Edges"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14">
+              <svg width="17" height="17" viewBox="0 0 14 14">
                 <line
                   x1="7"
                   y1="0"

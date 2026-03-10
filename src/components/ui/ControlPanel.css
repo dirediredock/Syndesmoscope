@@ -35,7 +35,7 @@
 .control-select {
   font-family: var(--font-mono);
   font-size: var(--text-base);
-  height: 28px;
+  height: 34px;
   padding: 0 var(--space-3);
   padding-right: var(--space-6);
   /* width: 20em; */
@@ -67,7 +67,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  height: 28px;
+  height: 34px;
   padding: 0 var(--space-3);
   background-color: var(--color-button-bg);
   border-radius: 4px;
@@ -106,8 +106,8 @@
   display: inline-block;
   font-family: var(--font-mono);
   font-size: var(--text-base);
-  height: 28px;
-  line-height: 28px;
+  height: 34px;
+  line-height: 34px;
   padding: 0 8px;
   border-radius: 4px;
   white-space: nowrap;
@@ -127,8 +127,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   border: none;
   border-radius: 4px;
   padding: 0;
@@ -173,7 +173,7 @@
 .control-button {
   font-family: var(--font-mono);
   font-size: var(--text-base);
-  height: 28px;
+  height: 34px;
   padding: 0 var(--space-2);
   background-color: transparent;
   color: var(--color-button-text);
@@ -201,8 +201,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 29px;
+  height: 29px;
   background: transparent;
   border: none;
   border-radius: 3px;
