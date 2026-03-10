@@ -252,7 +252,7 @@ function AdjacencyGridPane({ data, networkName }) {
       .attr("class", "content")
       .attr(
         "transform",
-        `translate(${preOffsetX + margin.left},${preOffsetY + margin.top})`,
+        `translate(${preOffsetX + margin.left},${preOffsetY + margin.top}) rotate(45,${innerWidth / 2},${innerHeight / 2})`,
       );
 
     const posMin = d3.min(data.node_gridlines, (d) => d.seriated_position);
@@ -266,6 +266,17 @@ function AdjacencyGridPane({ data, networkName }) {
       .scaleLinear()
       .domain([posMin - 1, posMax + 1])
       .range([0, innerHeight]);
+
+    contentGroup
+      .append("rect")
+      .attr("class", "matrix-border")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", innerWidth)
+      .attr("height", innerHeight)
+      .attr("fill", "none")
+      .attr("stroke", "var(--color-hopcensus-grid-line)")
+      .attr("pointer-events", "none");
 
     const gridGroup = contentGroup.append("g").attr("class", "matrix-grid");
 

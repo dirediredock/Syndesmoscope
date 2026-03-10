@@ -3,6 +3,11 @@
   cursor: pointer;
 }
 
+/* Allow rotated diamond to render outside SVG bounds */
+.pane-visualization svg {
+  overflow: visible;
+}
+
 /* Gridlines */
 .matrix-gridline {
   shape-rendering: crispEdges;
