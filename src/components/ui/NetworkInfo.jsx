@@ -25,89 +25,50 @@ function NetworkInfo() {
   return (
     <div className="network-info">
       <div className="control-group">
-        <span className="control-label">Selection:</span>
-        <div className="selection-info">
-          <span className="selection-badge selection-badge--nodes">
-            {selectedNodes.size > 0 ? (
-              <>
-                <strong>{selectedNodes.size}</strong> of{" "}
-                <strong>{currentNetwork.nodes}</strong> nodes ({nodePct}%)
-              </>
-            ) : (
-              <>
-                <strong>{currentNetwork.nodes}</strong> nodes
-              </>
-            )}
-          </span>
-          {selectedNodes.size > 0 && (
-            <button
-              className="selection-badge-clear selection-badge-clear--nodes"
-              onClick={clearSelectedNodes}
-              aria-label="Deselect nodes"
-            >
-              <svg width="10" height="10" viewBox="0 0 10 10">
-                <line
-                  x1="1"
-                  y1="1"
-                  x2="9"
-                  y2="9"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <line
-                  x1="9"
-                  y1="1"
-                  x2="1"
-                  y2="9"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
+        <span className="control-label">Nodes:</span>
+        <span className="selection-badge selection-badge--nodes">
+          {selectedNodes.size > 0 ? (
+            <>
+              <strong>{selectedNodes.size}</strong> of{" "}
+              <strong>{currentNetwork.nodes}</strong> ({nodePct}%)
+            </>
+          ) : (
+            <strong>{currentNetwork.nodes}</strong>
           )}
-          <span className="selection-badge selection-badge--edges">
-            {selectedEdges.size > 0 ? (
-              <>
-                <strong>{selectedEdges.size}</strong> of{" "}
-                <strong>{currentNetwork.edges}</strong> edges ({edgePct}%)
-              </>
-            ) : (
-              <>
-                <strong>{currentNetwork.edges}</strong> edges
-              </>
-            )}
-          </span>
-          {selectedEdges.size > 0 && (
-            <button
-              className="selection-badge-clear selection-badge-clear--edges"
-              onClick={clearSelectedEdges}
-              aria-label="Deselect edges"
-            >
-              <svg width="10" height="10" viewBox="0 0 10 10">
-                <line
-                  x1="1"
-                  y1="1"
-                  x2="9"
-                  y2="9"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <line
-                  x1="9"
-                  y1="1"
-                  x2="1"
-                  y2="9"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
+        </span>
+        <button
+          className={`selection-badge-clear${selectedNodes.size > 0 ? " selection-badge-clear--nodes" : ""}`}
+          onClick={clearSelectedNodes}
+          aria-label="Deselect nodes"
+        >
+          <svg width="10" height="10" viewBox="0 0 10 10">
+            <line x1="1" y1="1" x2="9" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <line x1="9" y1="1" x2="1" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </button>
+      </div>
+      <div className="control-group">
+        <span className="control-label">Edges:</span>
+        <span className="selection-badge selection-badge--edges">
+          {selectedEdges.size > 0 ? (
+            <>
+              <strong>{selectedEdges.size}</strong> of{" "}
+              <strong>{currentNetwork.edges}</strong> ({edgePct}%)
+            </>
+          ) : (
+            <strong>{currentNetwork.edges}</strong>
           )}
-        </div>
+        </span>
+        <button
+          className={`selection-badge-clear${selectedEdges.size > 0 ? " selection-badge-clear--edges" : ""}`}
+          onClick={clearSelectedEdges}
+          aria-label="Deselect edges"
+        >
+          <svg width="10" height="10" viewBox="0 0 10 10">
+            <line x1="1" y1="1" x2="9" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <line x1="9" y1="1" x2="1" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </button>
       </div>
     </div>
   );
