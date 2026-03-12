@@ -229,6 +229,66 @@
   outline-offset: 1px;
 }
 
+.control-icon-btn--active {
+  background-color: var(--color-button-active);
+  color: var(--color-button-text-hover);
+}
+
+.control-icon-btn--off {
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+}
+
+.control-icon-btn--off:hover {
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text-hover);
+}
+
+.control-icon-btn--off:active {
+  background-color: var(--color-button-bg);
+}
+
+.control-icon-btn--brush {
+  background-color: var(--color-button-text-hover);
+  color: var(--color-bg-primary);
+}
+
+.control-icon-btn--brush:hover {
+  background-color: var(--color-button-text-hover);
+  color: var(--color-bg-primary);
+  filter: brightness(0.85);
+}
+
+.control-icon-btn--nodes {
+  background-color: var(--color-node-selected);
+  color: var(--color-bg-primary);
+}
+
+.control-icon-btn--nodes:hover {
+  background-color: var(--color-node-selected);
+  color: var(--color-bg-primary);
+  filter: brightness(1.2);
+}
+
+.control-icon-btn--nodes:active {
+  filter: brightness(1.35);
+}
+
+.control-icon-btn--edges {
+  background-color: var(--color-edge-selected);
+  color: var(--color-bg-primary);
+}
+
+.control-icon-btn--edges:hover {
+  background-color: var(--color-edge-selected);
+  color: var(--color-bg-primary);
+  filter: brightness(1.2);
+}
+
+.control-icon-btn--edges:active {
+  filter: brightness(1.35);
+}
+
 .control-button--reversed {
   background-color: #8b949e;
   color: #0d1117;

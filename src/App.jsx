@@ -5,6 +5,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import ControlPanel from "./components/ui/ControlPanel";
 import NetworkSelect from "./components/ui/NetworkSelect";
 import NetworkInfo from "./components/ui/NetworkInfo";
+import SelectControls from "./components/ui/SelectControls";
 import ThemeToggle from "./components/ui/ThemeToggle";
 import PaneLayout from "./components/PaneLayout";
 import useIsPortrait from "./hooks/useIsPortrait";
@@ -50,6 +51,7 @@ function AppContent() {
             <ThemeToggle />
           </div>
           <div className="app-header-row">
+            <SelectControls />
             <NetworkInfo />
           </div>
         </header>
@@ -74,6 +76,7 @@ function AppContent() {
               <h1>S Y N D E S M O S C O P E</h1>
             </a>
           </div>
+          <SelectControls />
           <NetworkInfo />
           <div className="app-header-spacer">
             {isLoading && <span className="control-status">L O A D I N G</span>}

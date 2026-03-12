@@ -4,7 +4,7 @@
  */
 function BrushIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 14 14">
+    <svg width="14" height="17" viewBox="0 0 14 17">
       {/* Roller head */}
       <rect
         x="1.5"
@@ -12,7 +12,7 @@ function BrushIcon() {
         width="11"
         height="4"
         rx="1.5"
-        fill="none"
+        fill="currentColor"
         stroke="currentColor"
         strokeWidth="1.4"
       />
@@ -21,7 +21,7 @@ function BrushIcon() {
         x1="7"
         y1="6"
         x2="7"
-        y2="9"
+        y2="10"
         stroke="currentColor"
         strokeWidth="1.4"
         strokeLinecap="round"
@@ -29,11 +29,11 @@ function BrushIcon() {
       {/* Handle grip */}
       <rect
         x="5.8"
-        y="9"
+        y="10"
         width="2.5"
-        height="4.5"
+        height="5.5"
         rx="0.8"
-        fill="none"
+        fill="currentColor"
         stroke="currentColor"
         strokeWidth="1.4"
       />

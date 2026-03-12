@@ -28,6 +28,9 @@ export function SelectionProvider({ children }) {
   const [selectedNodes, setSelectedNodes] = useState(new Set());
   const [selectedEdges, setSelectedEdges] = useState(new Set());
 
+  // Shared brush mode state (used by all panes)
+  const [brushMode, setBrushMode] = useState(false);
+
   // Signal for panes to deactivate brush tools (incremented on selection clear)
   const [brushResetSignal, setBrushResetSignal] = useState(0);
 
@@ -94,6 +97,7 @@ export function SelectionProvider({ children }) {
 
   const clearSelectedNodes = useCallback(() => {
     setSelectedNodes(new Set());
+    setBrushMode(false);
     setBrushResetSignal((s) => s + 1);
   }, []);
 
@@ -128,6 +132,7 @@ export function SelectionProvider({ children }) {
 
   const clearSelectedEdges = useCallback(() => {
     setSelectedEdges(new Set());
+    setBrushMode(false);
     setBrushResetSignal((s) => s + 1);
   }, []);
 
@@ -162,6 +167,8 @@ export function SelectionProvider({ children }) {
       hoveredEdges,
       selectedNodes,
       selectedEdges,
+      brushMode,
+      setBrushMode,
 
       // Node hover
       hoverNode,
@@ -197,6 +204,7 @@ export function SelectionProvider({ children }) {
       hoveredEdges,
       selectedNodes,
       selectedEdges,
+      brushMode,
       brushResetSignal,
       hoverNode,
       hoverNodes,

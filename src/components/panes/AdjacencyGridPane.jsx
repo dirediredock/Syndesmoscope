@@ -3,7 +3,6 @@ import * as d3 from "d3";
 import Pane from "../ui/Pane";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
-import BrushIcon from "../ui/BrushIcon";
 import "./AdjacencyGridPane.css";
 
 const MIN_RENDER_WIDTH = 30;
@@ -49,7 +48,6 @@ function AdjacencyGridPane({ data, networkName }) {
 
   const [nodeSize, setNodeSize] = useState("S");
   const [gridlines, setGridlines] = useState("off");
-  const [brushMode, setBrushMode] = useState(false);
   const [matrixRotation, setMatrixRotation] = useState(45);
   const matrixRotationRef = useRef(45);
   const contentGroupRef = useRef(null);
@@ -66,20 +64,8 @@ function AdjacencyGridPane({ data, networkName }) {
     toggleNodeSelection,
     toggleEdgeSelection,
     selectEdges,
-    brushResetSignal,
+    brushMode,
   } = useSelection();
-
-  const handleSelectIntersectionEdges = useCallback(() => {
-    if (!data || selectedNodes.size === 0) return;
-    const intersectionEdgeIdxs = data.edges
-      .filter(
-        (e) =>
-          selectedNodes.has(e.source_node_idx) &&
-          selectedNodes.has(e.target_node_idx),
-      )
-      .map((e) => e.edge_idx);
-    selectEdges(intersectionEdgeIdxs);
-  }, [data, selectedNodes, selectEdges]);
 
   const { transform, resetZoom, setFilter, zoomPercent } = useZoomPan(svgRef, {
     scaleExtent: [0.5, 15],
@@ -99,11 +85,6 @@ function AdjacencyGridPane({ data, networkName }) {
       `translate(${x},${y}) rotate(${matrixRotation},${width / 2},${height / 2})`,
     );
   }, [matrixRotation]);
-
-  // Deactivate brush when selection is cleared from control strip
-  useEffect(() => {
-    if (brushResetSignal > 0) setBrushMode(false);
-  }, [brushResetSignal]);
 
   useEffect(() => {
     if (!setFilter) return;
@@ -546,16 +527,6 @@ function AdjacencyGridPane({ data, networkName }) {
       }}
       footerControls={
         <>
-          <div className="zoom-controls" role="group" aria-label="Brush">
-            <button
-              className={`zoom-btn adj-brush-btn${brushMode ? " zoom-btn--active" : " zoom-btn--off"}`}
-              onClick={() => setBrushMode((b) => !b)}
-              aria-label="Brush"
-              title="Brush"
-            >
-              <BrushIcon />
-            </button>
-          </div>
           <div className="size-controls" role="group" aria-label="Gridlines">
             <button
               className={`size-toggle-btn${gridlines === "off" ? " size-toggle-btn--off" : ""}`}
@@ -657,46 +628,6 @@ function AdjacencyGridPane({ data, networkName }) {
                     strokeLinejoin="round"
                   />
                 )}
-              </svg>
-            </button>
-          </div>
-          <div
-            className="zoom-controls"
-            role="group"
-            aria-label="Select Intersection Edges"
-          >
-            <button
-              className={`zoom-btn${selectedNodes.size > 0 ? "" : " zoom-btn--off"}`}
-              style={
-                selectedNodes.size > 0
-                  ? { color: "var(--color-edge-selected)" }
-                  : undefined
-              }
-              onClick={handleSelectIntersectionEdges}
-              disabled={selectedNodes.size === 0}
-              aria-label="All Intersection Edges"
-              title="All Intersection Edges"
-            >
-              <svg width="17" height="17" viewBox="0 0 14 14">
-                <line
-                  x1="7"
-                  y1="0"
-                  x2="7"
-                  y2="14"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                <line
-                  x1="0"
-                  y1="7"
-                  x2="14"
-                  y2="7"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                <circle cx="7" cy="7" r="3.5" fill="currentColor" />
               </svg>
             </button>
           </div>

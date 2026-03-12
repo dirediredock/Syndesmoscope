@@ -1,0 +1,108 @@
+import { useCallback, useMemo } from "react";
+import { useSelection } from "../../contexts/SelectionContext";
+import { useNetwork } from "../../contexts/NetworkContext";
+import BrushIcon from "./BrushIcon";
+import "./ControlPanel.css";
+
+function SelectControls() {
+  const {
+    selectedNodes,
+    selectedEdges,
+    selectNodes,
+    selectEdges,
+    brushMode,
+    setBrushMode,
+  } = useSelection();
+  const { networkData } = useNetwork();
+
+  const handleAssociatedNodes = useCallback(() => {
+    if (!networkData?.adjacencyGrid || selectedEdges.size === 0) return;
+    const nodeIdxs = new Set();
+    networkData.adjacencyGrid.edges
+      .filter((e) => selectedEdges.has(e.edge_idx))
+      .forEach((e) => {
+        nodeIdxs.add(e.source_node_idx);
+        nodeIdxs.add(e.target_node_idx);
+      });
+    selectNodes([...nodeIdxs]);
+  }, [networkData, selectedEdges, selectNodes]);
+
+  const handleAssociatedEdges = useCallback(() => {
+    if (!networkData?.adjacencyGrid || selectedNodes.size === 0) return;
+    const edgeIdxs = networkData.adjacencyGrid.edges
+      .filter(
+        (e) =>
+          selectedNodes.has(e.source_node_idx) &&
+          selectedNodes.has(e.target_node_idx),
+      )
+      .map((e) => e.edge_idx);
+    selectEdges(edgeIdxs);
+  }, [networkData, selectedNodes, selectEdges]);
+
+  const hasAssocNodes = useMemo(() => {
+    if (!networkData?.adjacencyGrid || selectedEdges.size === 0) return false;
+    return networkData.adjacencyGrid.edges.some(
+      (e) =>
+        selectedEdges.has(e.edge_idx) &&
+        (!selectedNodes.has(e.source_node_idx) ||
+          !selectedNodes.has(e.target_node_idx)),
+    );
+  }, [networkData, selectedEdges, selectedNodes]);
+
+  const hasAssocEdges = useMemo(() => {
+    if (!networkData?.adjacencyGrid || selectedNodes.size === 0) return false;
+    return networkData.adjacencyGrid.edges.some(
+      (e) =>
+        !selectedEdges.has(e.edge_idx) &&
+        selectedNodes.has(e.source_node_idx) &&
+        selectedNodes.has(e.target_node_idx),
+    );
+  }, [networkData, selectedNodes, selectedEdges]);
+
+  return (
+    <div className="control-group">
+      <span className="control-label">Select:</span>
+      <button
+        className={`control-icon-btn${brushMode ? " control-icon-btn--brush" : " control-icon-btn--off"}`}
+        onClick={() => setBrushMode((b) => !b)}
+        aria-label="Brush"
+        title="Brush"
+      >
+        <BrushIcon />
+      </button>
+      <button
+        className={`control-icon-btn${hasAssocNodes ? " control-icon-btn--nodes" : " control-icon-btn--off"}`}
+        onClick={handleAssociatedNodes}
+        disabled={!hasAssocNodes}
+        aria-label="Associated Nodes"
+        title="Associated Nodes"
+      >
+        <svg width="14" height="14" viewBox="0 0 10 10">
+          <circle cx="5" cy="5" r="3" fill="currentColor" />
+        </svg>
+      </button>
+      <button
+        className={`control-icon-btn${hasAssocEdges ? " control-icon-btn--edges" : " control-icon-btn--off"}`}
+        onClick={handleAssociatedEdges}
+        disabled={!hasAssocEdges}
+        aria-label="Associated Edges"
+        title="Associated Edges"
+      >
+        <svg width="14" height="14" viewBox="0 0 10 10">
+          <line
+            x1="2"
+            y1="8"
+            x2="8"
+            y2="2"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          />
+          <circle cx="2" cy="8" r="1.5" fill="currentColor" />
+          <circle cx="8" cy="2" r="1.5" fill="currentColor" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
+export default SelectControls;

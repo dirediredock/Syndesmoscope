@@ -3,7 +3,6 @@ import * as d3 from "d3";
 import Pane from "../ui/Pane";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
-import BrushIcon from "../ui/BrushIcon";
 import "./KSnakesPane.css";
 
 const MIN_RENDER_WIDTH = 30;
@@ -62,7 +61,6 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
   const [nodeSize, setNodeSize] = useState("L");
   const [edgeSize, setEdgeSize] = useState("L");
   const [edgeOverlay, setEdgeOverlay] = useState("off");
-  const [brushMode, setBrushMode] = useState(false);
 
   const {
     hoveredNodes,
@@ -73,7 +71,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
     clearHover,
     toggleNodeSelection,
     selectNodes,
-    brushResetSignal,
+    brushMode,
   } = useSelection();
 
   const { transform, resetZoom, setFilter, zoomPercent } = useZoomPan(svgRef, {
@@ -94,11 +92,6 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       return true;
     });
   }, [setFilter, brushMode]);
-
-  // Deactivate brush when selection is cleared from control strip
-  useEffect(() => {
-    if (brushResetSignal > 0) setBrushMode(false);
-  }, [brushResetSignal]);
 
   // Toggle brush overlay pointer-events based on brushMode
   useEffect(() => {
@@ -726,16 +719,6 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
       isEmpty={!data}
       footerControls={
         <>
-          <div className="zoom-controls" role="group" aria-label="Brush">
-            <button
-              className={`zoom-btn${brushMode ? " zoom-btn--active" : " zoom-btn--off"}`}
-              onClick={() => setBrushMode((b) => !b)}
-              aria-label="Brush"
-              title="Brush"
-            >
-              <BrushIcon />
-            </button>
-          </div>
           <div className="size-controls" role="group" aria-label="Edge Overlay">
             <button
               className={`size-toggle-btn${edgeOverlay === "off" || selectedEdges.size === 0 ? " size-toggle-btn--off" : ""}`}
