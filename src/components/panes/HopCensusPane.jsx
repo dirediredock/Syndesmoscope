@@ -4,7 +4,6 @@ import Pane from "../ui/Pane";
 import TranslocationControls from "../ui/TranslocationControls";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
-import BrushIcon from "../ui/BrushIcon";
 import "./HopCensusPane.css";
 
 const MIN_RENDER_WIDTH = 30;
@@ -52,7 +51,6 @@ function HopCensusPane({ data, networkName }) {
   const bandIndexMapRef = useRef(null);
 
   const [nodeSize, setNodeSize] = useState("S");
-  const [brushMode, setBrushMode] = useState(false);
   const [justify, setJustify] = useState("left");
 
   // Translocation offset: Map<nodeIdx, multiplier>
@@ -74,17 +72,12 @@ function HopCensusPane({ data, networkName }) {
     clearHover,
     toggleNodeSelection,
     selectNodes,
-    brushResetSignal,
+    brushMode,
   } = useSelection();
 
   const { transform, resetZoom, setFilter, zoomPercent } = useZoomPan(svgRef, {
     scaleExtent: [0.05, 15],
   });
-
-  // Deactivate brush when selection is cleared from control strip
-  useEffect(() => {
-    if (brushResetSignal > 0) setBrushMode(false);
-  }, [brushResetSignal]);
 
   // Filter: allow wheel zoom, block drag-start on census lines (so clicks work)
   // In brush mode, block all zoom drag (wheel still works)
@@ -481,16 +474,6 @@ function HopCensusPane({ data, networkName }) {
       isEmpty={!data}
       footerControls={
         <>
-          <div className="zoom-controls" role="group" aria-label="Brush">
-            <button
-              className={`zoom-btn${brushMode ? " zoom-btn--active" : " zoom-btn--off"}`}
-              onClick={() => setBrushMode((b) => !b)}
-              aria-label="Brush"
-              title="Brush"
-            >
-              <BrushIcon />
-            </button>
-          </div>
           <div className="zoom-controls" role="group" aria-label="Justify">
             <button
               className={`zoom-btn${selectedNodes.size > 0 ? " zoom-btn--active" : " zoom-btn--off"}`}

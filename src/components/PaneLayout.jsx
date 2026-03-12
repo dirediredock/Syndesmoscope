@@ -119,12 +119,14 @@ function PaneLayout({
     >
       {/*********************************************************************/}
 
-      <Panel defaultSize={16} minSize={0.6} className="panel">
+      <Panel defaultSize={14} minSize={0.6} className="panel">
         {renderCycleBtn(0)}
         {renderPane(paneTypes[0])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
+
+      {/*********************************************************************/}
 
       <Panel defaultSize={7} minSize={0.6} className="panel">
         {renderCycleBtn(1)}
@@ -133,12 +135,16 @@ function PaneLayout({
 
       <PanelResizeHandle className="panel-resize-handle" />
 
+      {/*********************************************************************/}
+
       <Panel defaultSize={25} minSize={0.6} className="panel">
         {renderCycleBtn(2)}
         {renderPane(paneTypes[2])}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
+
+      {/*********************************************************************/}
 
       <Panel defaultSize={16} minSize={0.6} className="panel">
         {renderCycleBtn(3)}

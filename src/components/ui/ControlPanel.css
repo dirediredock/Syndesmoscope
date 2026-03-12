@@ -114,13 +114,13 @@
 }
 
 .selection-badge--nodes {
-  background-color: var(--color-node-selected-bg);
-  color: var(--color-node-selected);
+  background-color: var(--color-node-selected);
+  color: var(--color-bg-primary);
 }
 
 .selection-badge--edges {
-  background-color: var(--color-edge-selected-bg);
-  color: var(--color-edge-selected);
+  background-color: var(--color-edge-selected);
+  color: var(--color-bg-primary);
 }
 
 .selection-badge-clear {
@@ -133,35 +133,38 @@
   border-radius: 4px;
   padding: 0;
   cursor: pointer;
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
   transition:
     background-color var(--transition-fast),
-    color var(--transition-fast);
+    color var(--transition-fast),
+    filter var(--transition-fast);
 }
 
 .selection-badge-clear--nodes {
-  background-color: var(--color-node-selected-bg);
-  color: var(--color-node-selected);
+  background-color: var(--color-node-selected);
+  color: var(--color-bg-primary);
 }
 
 .selection-badge-clear--nodes:hover {
-  background-color: var(--color-node-selected-bg-hover);
+  filter: brightness(1.2);
 }
 
 .selection-badge-clear--nodes:active {
-  background-color: var(--color-node-selected-bg-active);
+  filter: brightness(1.35);
 }
 
 .selection-badge-clear--edges {
-  background-color: var(--color-edge-selected-bg);
-  color: var(--color-edge-selected);
+  background-color: var(--color-edge-selected);
+  color: var(--color-bg-primary);
 }
 
 .selection-badge-clear--edges:hover {
-  background-color: var(--color-edge-selected-bg-hover);
+  filter: brightness(1.2);
 }
 
 .selection-badge-clear--edges:active {
-  background-color: var(--color-edge-selected-bg-active);
+  filter: brightness(1.35);
 }
 
 .selection-badge-clear:focus-visible {
@@ -194,7 +197,6 @@
   background-color: var(--color-button-bg);
   border-radius: 4px;
   padding: 2px;
-  margin-left: calc(-1 * var(--space-2));
 }
 
 .control-icon-btn {
@@ -225,6 +227,66 @@
 .control-icon-btn:focus-visible {
   outline: 2px solid var(--color-button-accent);
   outline-offset: 1px;
+}
+
+.control-icon-btn--active {
+  background-color: var(--color-button-active);
+  color: var(--color-button-text-hover);
+}
+
+.control-icon-btn--off {
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+}
+
+.control-icon-btn--off:hover {
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text-hover);
+}
+
+.control-icon-btn--off:active {
+  background-color: var(--color-button-bg);
+}
+
+.control-icon-btn--brush {
+  background-color: var(--color-button-text-hover);
+  color: var(--color-bg-primary);
+}
+
+.control-icon-btn--brush:hover {
+  background-color: var(--color-button-text-hover);
+  color: var(--color-bg-primary);
+  filter: brightness(0.85);
+}
+
+.control-icon-btn--nodes {
+  background-color: var(--color-node-selected);
+  color: var(--color-bg-primary);
+}
+
+.control-icon-btn--nodes:hover {
+  background-color: var(--color-node-selected);
+  color: var(--color-bg-primary);
+  filter: brightness(1.2);
+}
+
+.control-icon-btn--nodes:active {
+  filter: brightness(1.35);
+}
+
+.control-icon-btn--edges {
+  background-color: var(--color-edge-selected);
+  color: var(--color-bg-primary);
+}
+
+.control-icon-btn--edges:hover {
+  background-color: var(--color-edge-selected);
+  color: var(--color-bg-primary);
+  filter: brightness(1.2);
+}
+
+.control-icon-btn--edges:active {
+  filter: brightness(1.35);
 }
 
 .control-button--reversed {

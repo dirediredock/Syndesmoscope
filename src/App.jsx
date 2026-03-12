@@ -1,10 +1,11 @@
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { SelectionProvider } from "./contexts/SelectionContext";
 import { NetworkProvider, useNetwork } from "./contexts/NetworkContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import ControlPanel from "./components/ui/ControlPanel";
 import NetworkSelect from "./components/ui/NetworkSelect";
 import NetworkInfo from "./components/ui/NetworkInfo";
+import SelectControls from "./components/ui/SelectControls";
 import ThemeToggle from "./components/ui/ThemeToggle";
 import PaneLayout from "./components/PaneLayout";
 import useIsPortrait from "./hooks/useIsPortrait";
@@ -18,6 +19,14 @@ const DEFAULT_PANE_TYPES = [
 ];
 
 function AppContent() {
+  useEffect(() => {
+    const preventBrowserZoom = (e) => {
+      if (e.ctrlKey) e.preventDefault();
+    };
+    window.addEventListener("wheel", preventBrowserZoom, { passive: false });
+    return () => window.removeEventListener("wheel", preventBrowserZoom);
+  }, []);
+
   const resetLayoutRef = useRef(null);
   const [paneTypes, setPaneTypes] = useState(DEFAULT_PANE_TYPES);
   const [activePane, setActivePane] = useState(2);
@@ -42,6 +51,7 @@ function AppContent() {
             <ThemeToggle />
           </div>
           <div className="app-header-row">
+            <SelectControls />
             <NetworkInfo />
           </div>
         </header>
@@ -66,12 +76,13 @@ function AppContent() {
               <h1>S Y N D E S M O S C O P E</h1>
             </a>
           </div>
-          <NetworkSelect />
+          <SelectControls />
           <NetworkInfo />
           <div className="app-header-spacer">
             {isLoading && <span className="control-status">L O A D I N G</span>}
             {error && <span className="control-status">{error}</span>}
           </div>
+          <NetworkSelect />
           <ControlPanel
             onResetLayout={() => resetLayoutRef.current?.()}
             themeToggle={<ThemeToggle />}

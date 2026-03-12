@@ -1,7 +1,6 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import * as d3 from "d3";
 import Pane from "../ui/Pane";
-import BrushIcon from "../ui/BrushIcon";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
 import "./NodeLinkPane.css";
@@ -67,12 +66,11 @@ function NodeLinkPane({ data, networkName }) {
     toggleNodeSelection,
     toggleEdgeSelection,
     selectNodes,
-    brushResetSignal,
+    brushMode,
   } = useSelection();
 
   const [nodeSize, setNodeSize] = useState("M");
   const [edgeSize, setEdgeSize] = useState("L");
-  const [brushMode, setBrushMode] = useState(false);
 
   const { transform, resetZoom, fitToContent, setFilter, zoomPercent } =
     useZoomPan(svgRef, { scaleExtent: [0.1, 15] });
@@ -83,11 +81,6 @@ function NodeLinkPane({ data, networkName }) {
       d3.select(zoomContainerRef.current).attr("transform", transform);
     }
   }, [transform]);
-
-  // Deactivate brush when selection is cleared externally
-  useEffect(() => {
-    if (brushResetSignal > 0) setBrushMode(false);
-  }, [brushResetSignal]);
 
   // Keep brushModeRef in sync for resize observer access
   useEffect(() => {
@@ -131,18 +124,6 @@ function NodeLinkPane({ data, networkName }) {
         .style("cursor", "default");
     }
   }, [brushMode]);
-
-  const handleSelectIntersectionNodes = useCallback(() => {
-    if (!data || selectedEdges.size === 0) return;
-    const nodeIdxs = new Set();
-    data.edges
-      .filter((e) => selectedEdges.has(e.edge_idx))
-      .forEach((e) => {
-        nodeIdxs.add(e.source);
-        nodeIdxs.add(e.target);
-      });
-    selectNodes([...nodeIdxs]);
-  }, [data, selectedEdges, selectNodes]);
 
   // Reset zoom and sizes when data changes
   useEffect(() => {
@@ -462,60 +443,7 @@ function NodeLinkPane({ data, networkName }) {
         onEdgeSizeChange: setEdgeSize,
         sizes: ["XS", "S", "M", "L", "XL", "XXL"],
       }}
-      footerControls={
-        <>
-          <div className="zoom-controls" role="group" aria-label="Brush">
-            <button
-              className={`zoom-btn${brushMode ? " zoom-btn--active" : " zoom-btn--off"}`}
-              onClick={() => setBrushMode((b) => !b)}
-              aria-label="Brush"
-              title="Brush"
-            >
-              <BrushIcon />
-            </button>
-          </div>
-          <div
-            className="zoom-controls"
-            role="group"
-            aria-label="Select Intersection Nodes"
-          >
-          <button
-            className={`zoom-btn${selectedEdges.size > 0 ? "" : " zoom-btn--off"}`}
-            style={
-              selectedEdges.size > 0
-                ? { color: "var(--color-node-selected)" }
-                : undefined
-            }
-            onClick={handleSelectIntersectionNodes}
-            disabled={selectedEdges.size === 0}
-            aria-label="All Intersection Nodes"
-            title="All Intersection Nodes"
-          >
-            <svg width="17" height="17" viewBox="0 0 14 14">
-              <line
-                x1="7"
-                y1="0"
-                x2="7"
-                y2="14"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-              <line
-                x1="0"
-                y1="7"
-                x2="14"
-                y2="7"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-              <circle cx="7" cy="7" r="3.5" fill="currentColor" />
-            </svg>
-          </button>
-          </div>
-        </>
-      }
+      footerControls={null}
     >
       <div ref={containerRef} className="pane-visualization" role="img" />
     </Pane>
