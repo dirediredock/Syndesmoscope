@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { SelectionProvider } from "./contexts/SelectionContext";
 import { NetworkProvider, useNetwork } from "./contexts/NetworkContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -18,6 +18,14 @@ const DEFAULT_PANE_TYPES = [
 ];
 
 function AppContent() {
+  useEffect(() => {
+    const preventBrowserZoom = (e) => {
+      if (e.ctrlKey) e.preventDefault();
+    };
+    window.addEventListener("wheel", preventBrowserZoom, { passive: false });
+    return () => window.removeEventListener("wheel", preventBrowserZoom);
+  }, []);
+
   const resetLayoutRef = useRef(null);
   const [paneTypes, setPaneTypes] = useState(DEFAULT_PANE_TYPES);
   const [activePane, setActivePane] = useState(2);
