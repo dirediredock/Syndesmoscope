@@ -531,7 +531,7 @@ function AdjacencyGridPane({ data, networkName }) {
             <button
               className={`size-toggle-btn${gridlines === "off" ? " size-toggle-btn--off" : ""}`}
               style={
-                gridlines !== "off"
+                selectedNodes.size > 0
                   ? { color: "var(--color-node-selected)" }
                   : undefined
               }
@@ -590,53 +590,53 @@ function AdjacencyGridPane({ data, networkName }) {
               )}
             </button>
           </div>
-          <div className="zoom-controls" role="group" aria-label="Rotate Matrix">
-            <button
-              className="zoom-btn"
-              onClick={() =>
-                setMatrixRotation((r) => (r === 45 ? 0 : 45))
-              }
-              aria-label={
-                matrixRotation === 45
-                  ? "Rotate 45° counterclockwise"
-                  : "Rotate 45° clockwise"
-              }
-              title={
-                matrixRotation === 45
-                  ? "Rotate 45° counterclockwise"
-                  : "Rotate 45° clockwise"
-              }
-            >
-              <svg width="17" height="17" viewBox="0 0 14 14">
-                {matrixRotation === 45 ? (
-                  <polygon
-                    points="7,1 13,7 7,13 1,7"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinejoin="round"
-                  />
-                ) : (
-                  <rect
-                    x="2"
-                    y="2"
-                    width="10"
-                    height="10"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinejoin="round"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
         </>
       }
       sizeControls={{
         nodeSize,
         nodeSizeLabel: "Edge Point Size",
         onNodeSizeChange: setNodeSize,
+        children: (
+          <button
+            className="size-toggle-btn"
+            onClick={() =>
+              setMatrixRotation((r) => (r === 45 ? 0 : 45))
+            }
+            aria-label={
+              matrixRotation === 45
+                ? "Rotate 45° counterclockwise"
+                : "Rotate 45° clockwise"
+            }
+            title={
+              matrixRotation === 45
+                ? "Rotate 45° counterclockwise"
+                : "Rotate 45° clockwise"
+            }
+          >
+            <svg width="17" height="17" viewBox="0 0 14 14">
+              {matrixRotation === 45 ? (
+                <polygon
+                  points="7,1 13,7 7,13 1,7"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                />
+              ) : (
+                <rect
+                  x="2"
+                  y="2"
+                  width="10"
+                  height="10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                />
+              )}
+            </svg>
+          </button>
+        ),
       }}
     >
       <div ref={containerRef} className="pane-visualization" role="img" />
