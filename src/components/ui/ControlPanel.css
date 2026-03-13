@@ -240,12 +240,12 @@
 }
 
 .control-icon-btn--off:hover {
-  background-color: var(--color-button-bg);
+  background-color: var(--color-button-hover);
   color: var(--color-button-text-hover);
 }
 
 .control-icon-btn--off:active {
-  background-color: var(--color-button-bg);
+  background-color: var(--color-button-active);
 }
 
 .control-icon-btn--brush {
