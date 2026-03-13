@@ -15,7 +15,7 @@ const DEFAULT_PANE_TYPES = [
   "kSnakes",
   "hopCensus",
   "nodeLink",
-  "adjacencyGrid",
+  "adjacencyMatrix",
 ];
 
 function AppContent() {

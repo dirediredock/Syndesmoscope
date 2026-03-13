@@ -4,15 +4,15 @@ import { useNetwork } from "../contexts/NetworkContext";
 import NodeLinkPane from "./panes/NodeLinkPane";
 import HopCensusPane from "./panes/HopCensusPane";
 import KSnakesPane from "./panes/KSnakesPane";
-import AdjacencyGridPane from "./panes/AdjacencyGridPane";
+import AdjacencyMatrixPane from "./panes/AdjacencyMatrixPane";
 import "./PaneLayout.css";
 
-const PANE_TYPE_CYCLE = ["kSnakes", "hopCensus", "nodeLink", "adjacencyGrid"];
+const PANE_TYPE_CYCLE = ["kSnakes", "hopCensus", "nodeLink", "adjacencyMatrix"];
 const PANE_TYPE_LABELS = {
   kSnakes: "kSnakes",
   hopCensus: "HopCensus",
   nodeLink: "NodeLink",
-  adjacencyGrid: "AdjacencyGrid",
+  adjacencyMatrix: "AdjacencyMatrix",
 };
 
 function PaneLayout({
@@ -78,10 +78,10 @@ function PaneLayout({
             networkName={networkName}
           />
         );
-      case "adjacencyGrid":
+      case "adjacencyMatrix":
         return (
-          <AdjacencyGridPane
-            data={networkData?.adjacencyGrid}
+          <AdjacencyMatrixPane
+            data={networkData?.adjacencyMatrix}
             networkName={networkName}
           />
         );

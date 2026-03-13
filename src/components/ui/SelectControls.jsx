@@ -16,9 +16,9 @@ function SelectControls() {
   const { networkData } = useNetwork();
 
   const handleAssociatedNodes = useCallback(() => {
-    if (!networkData?.adjacencyGrid || selectedEdges.size === 0) return;
+    if (!networkData?.adjacencyMatrix || selectedEdges.size === 0) return;
     const nodeIdxs = new Set();
-    networkData.adjacencyGrid.edges
+    networkData.adjacencyMatrix.edges
       .filter((e) => selectedEdges.has(e.edge_idx))
       .forEach((e) => {
         nodeIdxs.add(e.source_node_idx);
@@ -28,8 +28,8 @@ function SelectControls() {
   }, [networkData, selectedEdges, selectNodes]);
 
   const handleAssociatedEdges = useCallback(() => {
-    if (!networkData?.adjacencyGrid || selectedNodes.size === 0) return;
-    const edgeIdxs = networkData.adjacencyGrid.edges
+    if (!networkData?.adjacencyMatrix || selectedNodes.size === 0) return;
+    const edgeIdxs = networkData.adjacencyMatrix.edges
       .filter(
         (e) =>
           selectedNodes.has(e.source_node_idx) &&
@@ -40,8 +40,8 @@ function SelectControls() {
   }, [networkData, selectedNodes, selectEdges]);
 
   const hasAssocNodes = useMemo(() => {
-    if (!networkData?.adjacencyGrid || selectedEdges.size === 0) return false;
-    return networkData.adjacencyGrid.edges.some(
+    if (!networkData?.adjacencyMatrix || selectedEdges.size === 0) return false;
+    return networkData.adjacencyMatrix.edges.some(
       (e) =>
         selectedEdges.has(e.edge_idx) &&
         (!selectedNodes.has(e.source_node_idx) ||
@@ -50,8 +50,8 @@ function SelectControls() {
   }, [networkData, selectedEdges, selectedNodes]);
 
   const hasAssocEdges = useMemo(() => {
-    if (!networkData?.adjacencyGrid || selectedNodes.size === 0) return false;
-    return networkData.adjacencyGrid.edges.some(
+    if (!networkData?.adjacencyMatrix || selectedNodes.size === 0) return false;
+    return networkData.adjacencyMatrix.edges.some(
       (e) =>
         !selectedEdges.has(e.edge_idx) &&
         selectedNodes.has(e.source_node_idx) &&

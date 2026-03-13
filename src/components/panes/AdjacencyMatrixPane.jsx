@@ -3,12 +3,12 @@ import * as d3 from "d3";
 import Pane from "../ui/Pane";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
-import "./AdjacencyGridPane.css";
+import "./AdjacencyMatrixPane.css";
 
 const MIN_RENDER_WIDTH = 30;
 
 /**
- * AdjacencyGridPane
+ * AdjacencyMatrixPane
  *
  * Renders an adjacency matrix from precomputed JSON:
  * - edges[]: points at (x,y) in seriated coordinates, with edge_idx and source/target node ids
@@ -39,7 +39,7 @@ const GRID_SIZES = {
 };
 const GRIDLINE_CYCLE = ["off", "XS", "S", "M", "L", "XL"];
 
-function AdjacencyGridPane({ data, networkName }) {
+function AdjacencyMatrixPane({ data, networkName }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
@@ -303,50 +303,74 @@ function AdjacencyGridPane({ data, networkName }) {
       .attr("y1", yScale(posMin - 1))
       .attr("y2", yScale(posMax + 1));
 
+    // Build sorted gridline positions for proximity-based hit detection
+    const gridlinePositions = data.node_gridlines
+      .map((d) => ({
+        coord: xScale(d.seriated_position),
+        node_idx: d.node_idx,
+      }))
+      .sort((a, b) => a.coord - b.coord);
+
+    const bisect = d3.bisector((d) => d.coord).center;
+    const maxHitDist =
+      gridlinePositions.length > 1
+        ? (gridlinePositions[gridlinePositions.length - 1].coord -
+            gridlinePositions[0].coord) /
+          gridlinePositions.length /
+          2
+        : innerWidth / 4;
+
+    function findNearestGridline(localX, localY) {
+      if (gridlinePositions.length === 0) return null;
+      const colIdx = bisect(gridlinePositions, localX);
+      const rowIdx = bisect(gridlinePositions, localY);
+      const colDist = Math.abs(gridlinePositions[colIdx].coord - localX);
+      const rowDist = Math.abs(gridlinePositions[rowIdx].coord - localY);
+      const minDist = Math.min(colDist, rowDist);
+      if (minDist > maxHitDist) return null;
+      return colDist <= rowDist
+        ? gridlinePositions[colIdx].node_idx
+        : gridlinePositions[rowIdx].node_idx;
+    }
+
     const gridHitGroup = contentGroup
       .append("g")
       .attr("class", "matrix-grid-hits");
 
-    gridHitGroup
-      .selectAll(".matrix-gridline-hit-row")
-      .data(data.node_gridlines)
-      .join("line")
-      .attr("class", "matrix-gridline-hit matrix-gridline-hit-row")
-      .attr("data-node-idx", (d) => d.node_idx)
-      .attr("x1", xScale(posMin - 1))
-      .attr("x2", xScale(posMax + 1))
-      .attr("y1", (d) => yScale(d.seriated_position))
-      .attr("y2", (d) => yScale(d.seriated_position))
-      .on("mouseenter", function () {
-        const nodeIdx = +d3.select(this).attr("data-node-idx");
-        hoverNode(nodeIdx);
-      })
-      .on("mouseleave", clearHover)
-      .on("click", function (event) {
-        event.stopPropagation();
-        const nodeIdx = +d3.select(this).attr("data-node-idx");
-        toggleNodeSelection(nodeIdx);
-      });
+    let currentHoveredNode = null;
 
     gridHitGroup
-      .selectAll(".matrix-gridline-hit-col")
-      .data(data.node_gridlines)
-      .join("line")
-      .attr("class", "matrix-gridline-hit matrix-gridline-hit-col")
-      .attr("data-node-idx", (d) => d.node_idx)
-      .attr("x1", (d) => xScale(d.seriated_position))
-      .attr("x2", (d) => xScale(d.seriated_position))
-      .attr("y1", yScale(posMin - 0.5))
-      .attr("y2", yScale(posMax + 0.5))
-      .on("mouseenter", function () {
-        const nodeIdx = +d3.select(this).attr("data-node-idx");
-        hoverNode(nodeIdx);
+      .append("rect")
+      .attr("class", "matrix-gridline-hit")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", innerWidth)
+      .attr("height", innerHeight)
+      .attr("fill", "transparent")
+      .attr("stroke", "none")
+      .on("mousemove", function (event) {
+        const [localX, localY] = d3.pointer(event, contentGroupRef.current);
+        const nearest = findNearestGridline(localX, localY);
+        if (nearest !== currentHoveredNode) {
+          currentHoveredNode = nearest;
+          if (nearest !== null) {
+            hoverNode(nearest);
+          } else {
+            clearHover();
+          }
+        }
       })
-      .on("mouseleave", clearHover)
+      .on("mouseleave", function () {
+        currentHoveredNode = null;
+        clearHover();
+      })
       .on("click", function (event) {
         event.stopPropagation();
-        const nodeIdx = +d3.select(this).attr("data-node-idx");
-        toggleNodeSelection(nodeIdx);
+        const [localX, localY] = d3.pointer(event, contentGroupRef.current);
+        const nearest = findNearestGridline(localX, localY);
+        if (nearest !== null) {
+          toggleNodeSelection(nearest);
+        }
       });
 
     const cellsGroup = contentGroup.append("g").attr("class", "matrix-cells");
@@ -644,4 +668,4 @@ function AdjacencyGridPane({ data, networkName }) {
   );
 }
 
-export default AdjacencyGridPane;
+export default AdjacencyMatrixPane;
