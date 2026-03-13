@@ -14,10 +14,8 @@
   pointer-events: none; /* interactions are on the hit lines */
 }
 
-/* Invisible interaction targets for gridlines */
+/* Invisible interaction overlay for gridlines */
 .matrix-gridline-hit {
-  stroke: transparent;
-  stroke-width: 14px; /* big hit area */
   cursor: pointer;
 }
 

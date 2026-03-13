@@ -721,9 +721,9 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
         <>
           <div className="size-controls" role="group" aria-label="Edge Overlay">
             <button
-              className={`size-toggle-btn${edgeOverlay === "off" || selectedEdges.size === 0 ? " size-toggle-btn--off" : ""}`}
+              className={`size-toggle-btn${edgeOverlay === "off" ? " size-toggle-btn--off" : ""}`}
               style={
-                edgeOverlay !== "off" && selectedEdges.size > 0
+                selectedEdges.size > 0
                   ? { color: "var(--color-edge-selected)" }
                   : undefined
               }

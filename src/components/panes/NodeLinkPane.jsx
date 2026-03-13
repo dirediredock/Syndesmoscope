@@ -73,7 +73,7 @@ function NodeLinkPane({ data, networkName }) {
   const [edgeSize, setEdgeSize] = useState("L");
 
   const { transform, resetZoom, fitToContent, setFilter, zoomPercent } =
-    useZoomPan(svgRef, { scaleExtent: [0.1, 15] });
+    useZoomPan(svgRef, { scaleExtent: [0.01, 15] });
 
   // Apply zoom transform to the zoom container
   useEffect(() => {

@@ -45,12 +45,13 @@ function SizeControls({
   gridlinesVisible = null,
   onGridlinesToggle = null,
   disabled = false,
+  children = null,
 }) {
   const hasNodeControl = nodeSize !== null && onNodeSizeChange;
   const hasEdgeControl = edgeSize !== null && onEdgeSizeChange;
   const hasGridlinesControl = gridlinesVisible !== null && onGridlinesToggle;
 
-  if (!hasNodeControl && !hasEdgeControl && !hasGridlinesControl) {
+  if (!hasNodeControl && !hasEdgeControl && !hasGridlinesControl && !children) {
     return null;
   }
 
@@ -168,6 +169,11 @@ function SizeControls({
           </svg>
         </button>
       )}
+
+      {children && (hasNodeControl || hasEdgeControl || hasGridlinesControl) && (
+        <div className="size-divider" />
+      )}
+      {children}
     </div>
   );
 }

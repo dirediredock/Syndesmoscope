@@ -3,7 +3,7 @@ import os
 import sys
 
 from pipeline import (
-    step_adjacency_grid,
+    step_adjacency_matrix,
     step_census,
     step_deepscramble,
     step_ksnakes,
@@ -43,8 +43,8 @@ def main():
         step_node_link.run(filename, SCRATCH_DIR, PUBLIC_DIR)
         print("DONE!")
 
-        print("\t\tAdjacencyGrid .....................", end=" ", flush=True)
-        step_adjacency_grid.run(filename, SCRATCH_DIR, PUBLIC_DIR)
+        print("\t\tAdjacencyMatrix .....................", end=" ", flush=True)
+        step_adjacency_matrix.run(filename, SCRATCH_DIR, PUBLIC_DIR)
         print("DONE!")
 
         with open(os.path.join(SCRATCH_DIR, f"{filename}.json"), "r") as f:

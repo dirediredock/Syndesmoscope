@@ -76,7 +76,7 @@ function HopCensusPane({ data, networkName }) {
   } = useSelection();
 
   const { transform, resetZoom, setFilter, zoomPercent } = useZoomPan(svgRef, {
-    scaleExtent: [0.05, 15],
+    scaleExtent: [0.1, 15],
   });
 
   // Filter: allow wheel zoom, block drag-start on census lines (so clicks work)
@@ -473,87 +473,12 @@ function HopCensusPane({ data, networkName }) {
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
       footerControls={
-        <>
-          <div className="zoom-controls" role="group" aria-label="Justify">
-            <button
-              className={`zoom-btn${selectedNodes.size > 0 ? " zoom-btn--active" : " zoom-btn--off"}`}
-              onClick={() =>
-                setJustify((j) => (j === "left" ? "right" : "left"))
-              }
-              aria-label={"Polyline Justification"}
-              title={"Polyline Justification"}
-            >
-              <svg width="17" height="17" viewBox="0 0 14 14">
-                {justify === "left" ? (
-                  <>
-                    <line
-                      x1="1"
-                      y1="3"
-                      x2="7"
-                      y2="3"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="1"
-                      y1="7"
-                      x2="9"
-                      y2="7"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="1"
-                      y1="11"
-                      x2="12"
-                      y2="11"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </>
-                ) : (
-                  <>
-                    <line
-                      x1="7"
-                      y1="3"
-                      x2="13"
-                      y2="3"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="5"
-                      y1="7"
-                      x2="13"
-                      y2="7"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="2"
-                      y1="11"
-                      x2="13"
-                      y2="11"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </>
-                )}
-              </svg>
-            </button>
-          </div>
-          <TranslocationControls
-            onUp={handleTranslateUp}
-            onDown={handleTranslateDown}
-            disabled={selectedNodes.size === 0}
-          />
-        </>
+        <TranslocationControls
+          onUp={handleTranslateUp}
+          onDown={handleTranslateDown}
+          disabled={selectedNodes.size === 0}
+          activeColor="var(--color-node-selected)"
+        />
       }
       zoomControls={{
         onReset: handleResetZoom,
@@ -581,6 +506,32 @@ function HopCensusPane({ data, networkName }) {
         edgeSize: null,
         onNodeSizeChange: setNodeSize,
         onEdgeSizeChange: null,
+        children: (
+          <button
+            className="size-toggle-btn"
+            onClick={() =>
+              setJustify((j) => (j === "left" ? "right" : "left"))
+            }
+            aria-label="Polyline Justification"
+            title="Polyline Justification"
+          >
+            <svg width="17" height="17" viewBox="0 0 14 14">
+              {justify === "left" ? (
+                <>
+                  <line x1="1" y1="3" x2="7" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="1" y1="7" x2="9" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="1" y1="11" x2="12" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </>
+              ) : (
+                <>
+                  <line x1="7" y1="3" x2="13" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="5" y1="7" x2="13" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="2" y1="11" x2="13" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </>
+              )}
+            </svg>
+          </button>
+        ),
       }}
     >
       <div ref={containerRef} className="pane-visualization" role="img" />

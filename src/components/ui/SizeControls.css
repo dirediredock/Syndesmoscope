@@ -34,7 +34,7 @@
 }
 
 .size-toggle-btn:disabled {
-  opacity: 0.3;
+  color: var(--color-button-text);
   cursor: not-allowed;
 }
 

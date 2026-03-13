@@ -83,5 +83,5 @@ def run(filename, scratch_dir, public_dir):
 
     out_dir = os.path.join(public_dir, filename)
     os.makedirs(out_dir, exist_ok=True)
-    with open(os.path.join(out_dir, f"{filename}_AdjacencyGrid.json"), "w") as f:
+    with open(os.path.join(out_dir, f"{filename}_AdjacencyMatrix.json"), "w") as f:
         json.dump(json_data, f, indent=2)
