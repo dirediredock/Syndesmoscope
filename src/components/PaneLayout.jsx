@@ -7,12 +7,12 @@ import KSnakesPane from "./panes/KSnakesPane";
 import AdjacencyMatrixPane from "./panes/AdjacencyMatrixPane";
 import "./PaneLayout.css";
 
-const PANE_TYPE_CYCLE = ["kSnakes", "hopCensus", "nodeLink", "adjacencyMatrix"];
+const PANE_TYPE_CYCLE = ["kSnakes", "hopCensus", "adjacencyMatrix", "nodeLink"];
 const PANE_TYPE_LABELS = {
   kSnakes: "kSnakes",
   hopCensus: "HopCensus",
-  nodeLink: "NodeLink",
   adjacencyMatrix: "AdjacencyMatrix",
+  nodeLink: "ForceDirected",
 };
 
 function PaneLayout({
@@ -137,7 +137,7 @@ function PaneLayout({
 
       {/*********************************************************************/}
 
-      <Panel defaultSize={25} minSize={0.6} className="panel">
+      <Panel defaultSize={16} minSize={0.6} className="panel">
         {renderCycleBtn(2)}
         {renderPane(paneTypes[2])}
       </Panel>
@@ -146,7 +146,7 @@ function PaneLayout({
 
       {/*********************************************************************/}
 
-      <Panel defaultSize={16} minSize={0.6} className="panel">
+      <Panel defaultSize={25} minSize={0.6} className="panel">
         {renderCycleBtn(3)}
         {renderPane(paneTypes[3])}
       </Panel>

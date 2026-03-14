@@ -14,8 +14,8 @@ import "./App.css";
 const DEFAULT_PANE_TYPES = [
   "kSnakes",
   "hopCensus",
-  "nodeLink",
   "adjacencyMatrix",
+  "nodeLink",
 ];
 
 function AppContent() {
