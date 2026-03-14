@@ -94,18 +94,18 @@ function SizeControls({
               className="size-toggle-icon"
               width="14"
               height="14"
-              viewBox="0 0 10 10"
+              viewBox="-0.5 0 10 10"
             >
               <line
-                x1="2"
-                y1="8"
-                x2="8"
+                x1="1.5"
+                y1="7"
+                x2="6.5"
                 y2="2"
                 stroke="currentColor"
                 strokeWidth="1.5"
               />
-              <circle cx="2" cy="8" r="1.5" fill="currentColor" />
-              <circle cx="8" cy="2" r="1.5" fill="currentColor" />
+              <circle cx="1.5" cy="7" r="2" fill="currentColor" />
+              <circle cx="6.5" cy="2" r="2" fill="currentColor" />
             </svg>
           )}
           <span className="size-toggle-label">{edgeSize}</span>

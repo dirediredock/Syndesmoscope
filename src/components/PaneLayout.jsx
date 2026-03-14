@@ -25,11 +25,18 @@ function PaneLayout({
 }) {
   const { networkData, currentNetwork } = useNetwork();
   const panelGroupRef = useRef(null);
+  const savedLayoutRef = useRef(null);
 
   useEffect(() => {
     if (onResetRef) {
       onResetRef.current = () => {
-        panelGroupRef.current?.setLayout([25, 25, 25, 25]);
+        if (savedLayoutRef.current) {
+          panelGroupRef.current?.setLayout(savedLayoutRef.current);
+          savedLayoutRef.current = null;
+        } else {
+          savedLayoutRef.current = panelGroupRef.current?.getLayout() ?? null;
+          panelGroupRef.current?.setLayout([25, 25, 25, 25]);
+        }
       };
     }
   }, [onResetRef]);
