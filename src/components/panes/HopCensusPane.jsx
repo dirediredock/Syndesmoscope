@@ -75,7 +75,7 @@ function HopCensusPane({ data, networkName }) {
     brushMode,
   } = useSelection();
 
-  const { transform, resetZoom, setFilter, zoomPercent } = useZoomPan(svgRef, {
+  const { transform, resetZoom, fitToContent, setFilter, zoomPercent } = useZoomPan(svgRef, {
     scaleExtent: [0.1, 15],
   });
 
@@ -147,6 +147,34 @@ function HopCensusPane({ data, networkName }) {
   const handleResetZoom = useCallback(() => {
     resetZoom(boundsRef.current);
   }, [resetZoom]);
+
+  // Fit zoom: scale so entire vertical span of polylines fits in pane
+  const handleFitContent = useCallback(() => {
+    if (!svgRef.current || !zoomContainerRef.current) return;
+
+    const contentGroup = d3.select(zoomContainerRef.current).select(".content");
+    const linesGroup = contentGroup.select(".census-lines");
+    const linesNode = linesGroup.node();
+    if (!linesNode) return;
+
+    const bbox = linesNode.getBBox();
+    // bbox is in content group's local coords — convert to zoom-container space
+    const contentTransform = contentGroup.attr("transform");
+    const match = contentTransform.match(/translate\(([^,]+),([^)]+)\)/);
+    const tx = parseFloat(match[1]);
+    const ty = parseFloat(match[2]);
+
+    const padding = 20;
+    fitToContent(
+      {
+        x: bbox.x + tx,
+        y: bbox.y + ty,
+        width: bbox.width,
+        height: bbox.height,
+      },
+      padding,
+    );
+  }, [fitToContent]);
 
   // Reset state when data changes
   useEffect(() => {
@@ -482,6 +510,7 @@ function HopCensusPane({ data, networkName }) {
       }
       zoomControls={{
         onReset: handleResetZoom,
+        onFitContent: handleFitContent,
         zoomPercent,
       }}
       sizeControls={{
