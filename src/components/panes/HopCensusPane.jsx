@@ -76,7 +76,7 @@ function HopCensusPane({ data, networkName }) {
   } = useSelection();
 
   const { transform, resetZoom, fitToContent, setFilter, zoomPercent } = useZoomPan(svgRef, {
-    scaleExtent: [0.1, 15],
+    scaleExtent: [0.01, 15],
   });
 
   // Filter: allow wheel zoom, block drag-start on census lines (so clicks work)
