@@ -39,6 +39,18 @@ function SelectControls() {
     selectEdges(edgeIdxs);
   }, [networkData, selectedNodes, selectEdges]);
 
+  const handleAssociatedStubs = useCallback(() => {
+    if (!networkData?.adjacencyMatrix || selectedNodes.size === 0) return;
+    const edgeIdxs = networkData.adjacencyMatrix.edges
+      .filter(
+        (e) =>
+          selectedNodes.has(e.source_node_idx) ||
+          selectedNodes.has(e.target_node_idx),
+      )
+      .map((e) => e.edge_idx);
+    selectEdges(edgeIdxs);
+  }, [networkData, selectedNodes, selectEdges]);
+
   const hasAssocNodes = useMemo(() => {
     if (!networkData?.adjacencyMatrix || selectedEdges.size === 0) return false;
     return networkData.adjacencyMatrix.edges.some(
@@ -56,6 +68,16 @@ function SelectControls() {
         !selectedEdges.has(e.edge_idx) &&
         selectedNodes.has(e.source_node_idx) &&
         selectedNodes.has(e.target_node_idx),
+    );
+  }, [networkData, selectedNodes, selectedEdges]);
+
+  const hasAssocStubs = useMemo(() => {
+    if (!networkData?.adjacencyMatrix || selectedNodes.size === 0) return false;
+    return networkData.adjacencyMatrix.edges.some(
+      (e) =>
+        !selectedEdges.has(e.edge_idx) &&
+        (selectedNodes.has(e.source_node_idx) ||
+          selectedNodes.has(e.target_node_idx)),
     );
   }, [networkData, selectedNodes, selectedEdges]);
 
@@ -87,13 +109,34 @@ function SelectControls() {
       </div>
       <div className="control-btn-wrap">
         <button
+          className={`control-icon-btn${hasAssocStubs ? " control-icon-btn--edges" : " control-icon-btn--off"}`}
+          onClick={handleAssociatedStubs}
+          disabled={!hasAssocStubs}
+          aria-label="Associated Stubs"
+          title="Associated Stubs"
+        >
+          <svg width="14" height="14" viewBox="-1 -0.5 10 10">
+            <line
+              x1="0"
+              y1="9"
+              x2="6.5"
+              y2="2"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+            <circle cx="6.5" cy="2" r="2.5" fill="currentColor" />
+          </svg>
+        </button>
+      </div>
+      <div className="control-btn-wrap">
+        <button
           className={`control-icon-btn${hasAssocEdges ? " control-icon-btn--edges" : " control-icon-btn--off"}`}
           onClick={handleAssociatedEdges}
           disabled={!hasAssocEdges}
           aria-label="Associated Edges"
           title="Associated Edges"
         >
-          <svg width="14" height="14" viewBox="-0.5 0 10 10">
+          <svg width="14" height="14" viewBox="-1 -0.5 10 10">
             <line
               x1="1.5"
               y1="7"
