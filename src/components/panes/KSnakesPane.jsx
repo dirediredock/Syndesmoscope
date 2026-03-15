@@ -445,7 +445,7 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
           .attr("y", yScale(minNode.onion_value))
           .attr("text-anchor", "start")
           .attr("dominant-baseline", "middle")
-          .attr("fill", "var(--color-ksnakes-core)")
+          .attr("fill", "var(--color-node-default)")
           .attr("font-family", "Roboto Condensed, sans-serif")
           .attr("font-weight", "bold")
           .attr("font-size", "16.5px");
