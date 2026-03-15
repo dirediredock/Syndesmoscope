@@ -23,6 +23,26 @@
   gap: var(--space-2);
 }
 
+.control-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 180px;
+}
+
+.control-range {
+  width: 132px;
+  accent-color: var(--color-button-accent);
+}
+
+.control-range-value {
+  width: 2.5ch;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-button-text-hover);
+  text-align: right;
+}
+
 .control-label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -115,12 +135,12 @@
 
 .selection-badge--nodes {
   background-color: var(--color-node-selected);
-  color: var(--color-bg-primary);
+  color: var(--color-node-selected-contrast-text);
 }
 
 .selection-badge--edges {
   background-color: var(--color-edge-selected);
-  color: var(--color-bg-primary);
+  color: var(--color-edge-selected-contrast-text);
 }
 
 .selection-badge-clear {
@@ -143,7 +163,7 @@
 
 .selection-badge-clear--nodes {
   background-color: var(--color-node-selected);
-  color: var(--color-bg-primary);
+  color: var(--color-node-selected-contrast-text);
 }
 
 .selection-badge-clear--nodes:hover {
@@ -156,7 +176,7 @@
 
 .selection-badge-clear--edges {
   background-color: var(--color-edge-selected);
-  color: var(--color-bg-primary);
+  color: var(--color-edge-selected-contrast-text);
 }
 
 .selection-badge-clear--edges:hover {
@@ -197,6 +217,18 @@
   background-color: var(--color-button-bg);
   border-radius: 4px;
   padding: 2px;
+}
+
+.control-btn-wrap--brush {
+  background-color: var(--color-button-text-hover);
+}
+
+.control-btn-wrap--nodes {
+  background-color: var(--color-node-selected);
+}
+
+.control-btn-wrap--edges {
+  background-color: var(--color-edge-selected);
 }
 
 .control-icon-btn {
@@ -261,12 +293,12 @@
 
 .control-icon-btn--nodes {
   background-color: var(--color-node-selected);
-  color: var(--color-bg-primary);
+  color: var(--color-node-selected-contrast-text);
 }
 
 .control-icon-btn--nodes:hover {
   background-color: var(--color-node-selected);
-  color: var(--color-bg-primary);
+  color: var(--color-node-selected-contrast-text);
   filter: brightness(1.2);
 }
 
@@ -276,12 +308,12 @@
 
 .control-icon-btn--edges {
   background-color: var(--color-edge-selected);
-  color: var(--color-bg-primary);
+  color: var(--color-edge-selected-contrast-text);
 }
 
 .control-icon-btn--edges:hover {
   background-color: var(--color-edge-selected);
-  color: var(--color-bg-primary);
+  color: var(--color-edge-selected-contrast-text);
   filter: brightness(1.2);
 }
 

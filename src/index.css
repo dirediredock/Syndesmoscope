@@ -26,6 +26,8 @@
   --color-node-hover: rgba(88, 166, 255, 0.5);
   --color-edge-selected: #f78166;
   --color-edge-hover: rgba(247, 129, 102, 0.5);
+  --color-node-selected-contrast-text: #0d1117;
+  --color-edge-selected-contrast-text: #0d1117;
 
   /* k-Snakes visualization colors */
   --color-ksnakes-core: #4d5562;
@@ -126,6 +128,8 @@
   --color-node-hover: rgba(9, 105, 218, 0.4);
   --color-edge-selected: #cf4b37;
   --color-edge-hover: rgba(207, 75, 55, 0.4);
+  --color-node-selected-contrast-text: #ffffff;
+  --color-edge-selected-contrast-text: #0d1117;
 
   --pane-border-color: #d4d9e0;
 

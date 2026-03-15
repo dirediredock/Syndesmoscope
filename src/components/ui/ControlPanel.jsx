@@ -1,10 +1,26 @@
+import { useTheme } from "../../contexts/ThemeContext";
 import "./ControlPanel.css";
 
 function ControlPanel({ onResetLayout, themeToggle }) {
+  const { luminosity, setLuminosity } = useTheme();
+
   return (
     <div className="control-panel">
       <div className="control-group">
-        <span className="control-label">Panes:</span>
+        <span className="control-label">Luminosity:</span>
+        <div className="control-slider-wrap">
+          <input
+            className="control-range"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value={luminosity}
+            onChange={(event) => setLuminosity(Number(event.target.value))}
+            aria-label="Visualization luminosity"
+          />
+          <span className="control-range-value">{luminosity}</span>
+        </div>
         {onResetLayout && (
           <div className="control-btn-wrap">
             <button
