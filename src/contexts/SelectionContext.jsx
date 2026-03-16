@@ -142,6 +142,8 @@ export function SelectionProvider({ children }) {
     setHoveredEdges(new Set());
     setSelectedNodes(new Set());
     setSelectedEdges(new Set());
+    setBrushMode(false);
+    setBrushResetSignal((s) => s + 1);
   }, []);
 
   // Helper to check if a node is highlighted (either hovered or selected)
