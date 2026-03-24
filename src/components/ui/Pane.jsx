@@ -21,6 +21,7 @@ function Pane({
   footerControls = null,
   preZoomControls = null,
   postZoomControls = null,
+  headerLeftControls = null,
 }) {
   const { hoveredNodes, hoveredEdges } = useSelection();
 
@@ -31,6 +32,11 @@ function Pane({
 
   return (
     <div className="pane">
+      {headerLeftControls && !isEmpty && (
+        <div className="pane-header-left" style={{ "--pane-accent": accentColor }}>
+          {headerLeftControls}
+        </div>
+      )}
       <div className="pane-content">
         {isEmpty ? (
           <div className="pane-empty">

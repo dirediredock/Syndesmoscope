@@ -39,7 +39,7 @@ const GRID_SIZES = {
 };
 const GRIDLINE_CYCLE = ["off", "XS", "S", "M", "L", "XL"];
 
-function AdjacencyMatrixPane({ data, networkName }) {
+function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
@@ -542,9 +542,9 @@ function AdjacencyMatrixPane({ data, networkName }) {
 
   return (
     <Pane
-      title="Adjacency Grid"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
+      headerLeftControls={cycleButton}
       zoomControls={{
         onReset: handleResetZoom,
         zoomPercent,

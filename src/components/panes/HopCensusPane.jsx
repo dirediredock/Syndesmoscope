@@ -34,7 +34,7 @@ const LINE_SIZES = {
   XL: { default: 6, highlighted: 9 },
 };
 
-function HopCensusPane({ data, networkName }) {
+function HopCensusPane({ data, networkName, cycleButton = null }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
@@ -498,9 +498,9 @@ function HopCensusPane({ data, networkName }) {
 
   return (
     <Pane
-      title="Hop-Census"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
+      headerLeftControls={cycleButton}
       // footerControls={
       //   <TranslocationControls
       //     onUp={handleTranslateUp}

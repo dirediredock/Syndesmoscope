@@ -44,22 +44,24 @@ function PaneLayout({
   function renderCycleBtn(idx) {
     const type = paneTypes[idx];
     return (
-      <button
-        className="pane-cycle-btn"
-        onClick={() => {
-          const cycleIdx = PANE_TYPE_CYCLE.indexOf(type);
-          const next = PANE_TYPE_CYCLE[(cycleIdx + 1) % PANE_TYPE_CYCLE.length];
-          onPaneTypeChange(idx, next);
-        }}
-        aria-label="Cycle pane"
-        title="Cycle pane"
-      >
-        {PANE_TYPE_LABELS[type] || type}
-      </button>
+      <div className="size-controls">
+        <button
+          className="size-toggle-btn"
+          onClick={() => {
+            const cycleIdx = PANE_TYPE_CYCLE.indexOf(type);
+            const next = PANE_TYPE_CYCLE[(cycleIdx + 1) % PANE_TYPE_CYCLE.length];
+            onPaneTypeChange(idx, next);
+          }}
+          aria-label="Cycle pane"
+          title="Cycle pane"
+        >
+          {PANE_TYPE_LABELS[type] || type}
+        </button>
+      </div>
     );
   }
 
-  function renderPane(paneType) {
+  function renderPane(paneType, cycleButton) {
     const networkName = currentNetwork?.name;
 
     switch (paneType) {
@@ -69,6 +71,7 @@ function PaneLayout({
             data={networkData?.kSnakes}
             nodeLinkData={networkData?.nodeLink}
             networkName={networkName}
+            cycleButton={cycleButton}
           />
         );
       case "hopCensus":
@@ -76,6 +79,7 @@ function PaneLayout({
           <HopCensusPane
             data={networkData?.censusStub}
             networkName={networkName}
+            cycleButton={cycleButton}
           />
         );
       case "nodeLink":
@@ -83,6 +87,7 @@ function PaneLayout({
           <NodeLinkPane
             data={networkData?.nodeLink}
             networkName={networkName}
+            cycleButton={cycleButton}
           />
         );
       case "adjacencyMatrix":
@@ -90,6 +95,7 @@ function PaneLayout({
           <AdjacencyMatrixPane
             data={networkData?.adjacencyMatrix}
             networkName={networkName}
+            cycleButton={cycleButton}
           />
         );
       default:
@@ -99,20 +105,24 @@ function PaneLayout({
 
   if (isPortrait) {
     const type = paneTypes[activePaneIndex];
+    const portraitCycleBtn = (
+      <div className="size-controls">
+        <button
+          className="size-toggle-btn"
+          onClick={() => {
+            onActivePaneChange((activePaneIndex + 1) % paneTypes.length);
+          }}
+          aria-label="Cycle pane"
+          title="Cycle pane"
+        >
+          {PANE_TYPE_LABELS[type] || type}
+        </button>
+      </div>
+    );
     return (
       <div className="panel-group panel-group--portrait">
         <div className="panel">
-          <button
-            className="pane-cycle-btn"
-            onClick={() => {
-              onActivePaneChange((activePaneIndex + 1) % paneTypes.length);
-            }}
-            aria-label="Cycle pane"
-            title="Cycle pane"
-          >
-            {PANE_TYPE_LABELS[type] || type}
-          </button>
-          {renderPane(type)}
+          {renderPane(type, portraitCycleBtn)}
         </div>
       </div>
     );
@@ -127,8 +137,7 @@ function PaneLayout({
       {/*********************************************************************/}
 
       <Panel defaultSize={14} minSize={0.6} className="panel">
-        {renderCycleBtn(0)}
-        {renderPane(paneTypes[0])}
+        {renderPane(paneTypes[0], renderCycleBtn(0))}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
@@ -136,8 +145,7 @@ function PaneLayout({
       {/*********************************************************************/}
 
       <Panel defaultSize={7} minSize={0.6} className="panel">
-        {renderCycleBtn(1)}
-        {renderPane(paneTypes[1])}
+        {renderPane(paneTypes[1], renderCycleBtn(1))}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
@@ -145,8 +153,7 @@ function PaneLayout({
       {/*********************************************************************/}
 
       <Panel defaultSize={16} minSize={0.6} className="panel">
-        {renderCycleBtn(2)}
-        {renderPane(paneTypes[2])}
+        {renderPane(paneTypes[2], renderCycleBtn(2))}
       </Panel>
 
       <PanelResizeHandle className="panel-resize-handle" />
@@ -154,8 +161,7 @@ function PaneLayout({
       {/*********************************************************************/}
 
       <Panel defaultSize={25} minSize={0.6} className="panel">
-        {renderCycleBtn(3)}
-        {renderPane(paneTypes[3])}
+        {renderPane(paneTypes[3], renderCycleBtn(3))}
       </Panel>
 
       {/*********************************************************************/}

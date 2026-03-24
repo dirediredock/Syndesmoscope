@@ -51,7 +51,7 @@ const STRUCTURE_SIZES = {
   XL: { core: 52, island: 29, coreSingleton: 25, islandSingleton: 14 },
 };
 
-function KSnakesPane({ data, nodeLinkData, networkName }) {
+function KSnakesPane({ data, nodeLinkData, networkName, cycleButton = null }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
@@ -714,9 +714,9 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
 
   return (
     <Pane
-      title="k-Snakes"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
+      headerLeftControls={cycleButton}
       footerControls={
         <>
           <div className="size-controls" role="group" aria-label="Edge Overlay">

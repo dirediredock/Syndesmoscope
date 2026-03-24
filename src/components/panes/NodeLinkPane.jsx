@@ -47,7 +47,7 @@ const EDGE_SIZES = {
   XXL: { default: 13, highlighted: 20 },
 };
 
-function NodeLinkPane({ data, networkName }) {
+function NodeLinkPane({ data, networkName, cycleButton = null }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
@@ -426,9 +426,9 @@ function NodeLinkPane({ data, networkName }) {
 
   return (
     <Pane
-      title="Node-Link"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
+      headerLeftControls={cycleButton}
       zoomControls={{
         onReset: resetZoom,
         onFitContent: handleFitContent,
