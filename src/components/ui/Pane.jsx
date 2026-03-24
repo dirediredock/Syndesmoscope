@@ -50,12 +50,14 @@ function Pane({
           </div>
         )} */}
       </div>
-      {footerControls && !isEmpty && (
+      {(zoomControls || preZoomControls || postZoomControls) && !isEmpty && (
         <div
-          className="pane-header-left"
+          className="pane-header-right"
           style={{ "--pane-accent": accentColor }}
         >
-          {footerControls}
+          {preZoomControls}
+          {zoomControls && <ZoomControls {...zoomControls} />}
+          {postZoomControls}
         </div>
       )}
       <div className="pane-footer" style={{ "--pane-accent": accentColor }}>
@@ -63,9 +65,7 @@ function Pane({
           {sizeControls && !isEmpty && <SizeControls {...sizeControls} />}
         </div>
         <div className="pane-footer-right">
-          {preZoomControls && !isEmpty && preZoomControls}
-          {zoomControls && !isEmpty && <ZoomControls {...zoomControls} />}
-          {postZoomControls && !isEmpty && postZoomControls}
+          {footerControls && !isEmpty && footerControls}
         </div>
       </div>
     </div>

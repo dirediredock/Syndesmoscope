@@ -13,16 +13,15 @@
   overflow: hidden;
 }
 
-/* --- Pane Header Left (top-left superpower buttons) --- */
+/* --- Pane Header Right (top-right zoom controls) --- */
 
-.pane-header-left {
+.pane-header-right {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-2);
   position: absolute;
   top: 1.1rem;
-  left: 0;
+  right: 0;
   padding: 0 1.1rem;
   z-index: 10;
   pointer-events: auto;
