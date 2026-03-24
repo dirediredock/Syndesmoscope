@@ -7,8 +7,8 @@
   flex-direction: column;
   position: relative;
   height: 100%;
-  background-color: var(--color-bg-primary);
-  /* border: 2px solid var(--pane-border-color); */
+  background-color: var(--color-pane-bg, var(--color-bg-primary));
+  border: 1px solid var(--pane-border-color, transparent);
   border-radius: var(--pane-border-radius);
   overflow: hidden;
 }

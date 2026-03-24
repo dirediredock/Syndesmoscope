@@ -8,6 +8,7 @@
   --color-bg-primary: #0d1117;
   --color-bg-secondary: #2d333b;
   --color-bg-tertiary: #21262d;
+  --color-pane-bg: var(--color-bg-primary);
   --color-border: #30363d;
   --color-surface-active: #3d444d;
 
@@ -25,6 +26,8 @@
   --color-node-hover: rgba(88, 166, 255, 0.5);
   --color-edge-selected: #f78166;
   --color-edge-hover: rgba(247, 129, 102, 0.5);
+  --color-node-selected-contrast-text: #0d1117;
+  --color-edge-selected-contrast-text: #0d1117;
 
   /* k-Snakes visualization colors */
   --color-ksnakes-core: #4d5562;
@@ -103,12 +106,13 @@
 
 /* Light mode theme */
 [data-theme="light"] {
-  /* Backgrounds — warm stone frame around white panes (paper-ready) */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #a8a8b2;
-  --color-bg-tertiary: #f0ece7;
-  --color-border: #cdc8c1;
-  --color-surface-active: #d5d0c9;
+  /* Backgrounds — neutral gray frame around softly tinted panes */
+  --color-bg-primary: #f4f5f7;
+  --color-bg-secondary: #dbdee3;
+  --color-bg-tertiary: #e5e8ec;
+  --color-pane-bg: #eef1f4;
+  --color-border: #c6ccd4;
+  --color-surface-active: #cfd5dd;
 
   --color-text-primary: #1f2328;
   --color-text-secondary: #8b949e;
@@ -124,8 +128,10 @@
   --color-node-hover: rgba(9, 105, 218, 0.4);
   --color-edge-selected: #cf4b37;
   --color-edge-hover: rgba(207, 75, 55, 0.4);
+  --color-node-selected-contrast-text: #ffffff;
+  --color-edge-selected-contrast-text: #0d1117;
 
-  --pane-border-color: var(--color-bg-tertiary);
+  --pane-border-color: #d4d9e0;
 
   /* k-Snakes visualization colors (light mode) */
   --color-ksnakes-core: #c8c8d0;
@@ -151,20 +157,23 @@
   --color-edge-selected-bg-active: rgba(207, 75, 55, 0.5);
 
   /* Divider line (light mode) */
-  --color-divider: #c5c0b9;
+  --color-divider: #bcc3cc;
 
   /* Bright text for hover emphasis (light mode: near-black) */
   --color-text-bright: #000000;
 
-  /* Label/title text — match button bg for subtle look */
-  --color-label-text: var(--color-button-bg);
+  /* Label/title text — keep subtle but readable against light surfaces */
+  --color-label-text: #55606c;
 
-  /* Button text overrides — light text on dark buttons in light mode */
-  --color-button-text: #b1bac4;
-  --color-button-text-hover: #e6edf3;
-  --color-button-text-bright: #ffffff;
-  --color-button-border: #30363d;
-  --color-button-divider: #444c56;
+  /* Button surfaces — distinct from dark mode and softer against the page */
+  --color-button-bg: #c6ced8;
+  --color-button-hover: #b7c0cb;
+  --color-button-active: #a7b2be;
+  --color-button-text: #4c5662;
+  --color-button-text-hover: #1f2328;
+  --color-button-text-bright: #0f1419;
+  --color-button-border: #909ba7;
+  --color-button-divider: #a4adb8;
 }
 
 /* Reset */

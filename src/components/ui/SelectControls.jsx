@@ -84,7 +84,9 @@ function SelectControls() {
   return (
     <div className="control-group">
       <span className="control-label">Select:</span>
-      <div className="control-btn-wrap">
+      <div
+        className={`control-btn-wrap${brushMode ? " control-btn-wrap--brush" : ""}`}
+      >
         <button
           className={`control-icon-btn${brushMode ? " control-icon-btn--brush" : " control-icon-btn--off"}`}
           onClick={() => setBrushMode((b) => !b)}
@@ -94,7 +96,9 @@ function SelectControls() {
           <BrushIcon />
         </button>
       </div>
-      <div className="control-btn-wrap">
+      <div
+        className={`control-btn-wrap${hasAssocNodes ? " control-btn-wrap--nodes" : ""}`}
+      >
         <button
           className={`control-icon-btn${hasAssocNodes ? " control-icon-btn--nodes" : " control-icon-btn--off"}`}
           onClick={handleAssociatedNodes}
@@ -107,7 +111,9 @@ function SelectControls() {
           </svg>
         </button>
       </div>
-      <div className="control-btn-wrap">
+      <div
+        className={`control-btn-wrap${hasAssocStubs ? " control-btn-wrap--edges" : ""}`}
+      >
         <button
           className={`control-icon-btn${hasAssocStubs ? " control-icon-btn--edges" : " control-icon-btn--off"}`}
           onClick={handleAssociatedStubs}
@@ -128,7 +134,9 @@ function SelectControls() {
           </svg>
         </button>
       </div>
-      <div className="control-btn-wrap">
+      <div
+        className={`control-btn-wrap${hasAssocEdges ? " control-btn-wrap--edges" : ""}`}
+      >
         <button
           className={`control-icon-btn${hasAssocEdges ? " control-icon-btn--edges" : " control-icon-btn--off"}`}
           onClick={handleAssociatedEdges}
