@@ -17,7 +17,7 @@
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
@@ -34,7 +34,7 @@
 }
 
 .size-toggle-btn:disabled {
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   cursor: not-allowed;
 }
 

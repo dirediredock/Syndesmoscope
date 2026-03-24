@@ -27,7 +27,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-base);
   font-weight: 500;
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   background-color: var(--color-button-bg);
   border: none;
   border-radius: 4px;

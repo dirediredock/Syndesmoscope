@@ -16,7 +16,7 @@
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
@@ -33,7 +33,7 @@
 }
 
 .zoom-btn:disabled {
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   cursor: not-allowed;
 }
 
@@ -53,7 +53,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   min-width: 48px;
   text-align: center;
   user-select: none;

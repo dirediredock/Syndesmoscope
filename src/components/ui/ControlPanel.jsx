@@ -8,6 +8,7 @@ function ControlPanel({ onResetLayout, themeToggle }) {
     <div className="control-panel">
       <div className="control-group">
         <span className="control-label">Panes:</span>
+        {themeToggle}
         <div className="control-btn-wrap">
           <div className="control-slider-wrap">
             <input
@@ -22,7 +23,7 @@ function ControlPanel({ onResetLayout, themeToggle }) {
             />
           </div>
         </div>
-        {themeToggle}
+
         {onResetLayout && (
           <div className="control-btn-wrap">
             <button
