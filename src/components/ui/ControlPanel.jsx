@@ -7,20 +7,22 @@ function ControlPanel({ onResetLayout, themeToggle }) {
   return (
     <div className="control-panel">
       <div className="control-group">
-        <span className="control-label">Luminosity:</span>
-        <div className="control-slider-wrap">
-          <input
-            className="control-range"
-            type="range"
-            min="0"
-            max="100"
-            step="1"
-            value={luminosity}
-            onChange={(event) => setLuminosity(Number(event.target.value))}
-            aria-label="Visualization luminosity"
-          />
-          <span className="control-range-value">{luminosity}</span>
+        <span className="control-label">Panes:</span>
+        <div className="control-btn-wrap">
+          <div className="control-slider-wrap">
+            <input
+              className="control-range"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value={luminosity}
+              onChange={(event) => setLuminosity(Number(event.target.value))}
+              aria-label="Luminosity"
+            />
+          </div>
         </div>
+        {themeToggle}
         {onResetLayout && (
           <div className="control-btn-wrap">
             <button
@@ -45,7 +47,6 @@ function ControlPanel({ onResetLayout, themeToggle }) {
             </button>
           </div>
         )}
-        {themeToggle}
       </div>
     </div>
   );
