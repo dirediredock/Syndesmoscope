@@ -164,6 +164,7 @@
   height: 34px;
   line-height: 34px;
   padding: 0 8px;
+  border: 1px solid var(--color-control-btn-border);
   border-radius: 4px;
   white-space: nowrap;
 }
@@ -184,7 +185,7 @@
   justify-content: center;
   width: 34px;
   height: 34px;
-  border: none;
+  border: 1px solid var(--color-control-btn-border);
   border-radius: 4px;
   padding: 0;
   cursor: pointer;
