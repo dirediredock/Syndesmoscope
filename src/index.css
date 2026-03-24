@@ -97,6 +97,7 @@
   --color-button-border: var(--color-border);
   --color-button-divider: var(--color-divider);
   --color-button-accent: #58a6ff;
+  --color-control-btn-border: transparent;
 
   /* Panel resize handle */
   --resize-handle-size: 12px;
@@ -131,8 +132,6 @@
   --color-node-selected-contrast-text: #ffffff;
   --color-edge-selected-contrast-text: #0d1117;
 
-  --pane-border-color: #d4d9e0;
-
   /* k-Snakes visualization colors (light mode) */
   --color-ksnakes-core: #d8dce4;
   --color-ksnakes-island: #eef1f4;
@@ -162,8 +161,8 @@
   /* Bright text for hover emphasis (light mode: near-black) */
   --color-text-bright: #000000;
 
-  /* Label/title text — keep subtle but readable against light surfaces */
-  --color-label-text: #55606c;
+  /* Label/title text */
+  --color-label-text: var(--color-text-primary);
 
   /* Button surfaces — distinct from dark mode and softer against the page */
   --color-button-bg: #c6ced8;
@@ -172,8 +171,10 @@
   --color-button-text: #4c5662;
   --color-button-text-hover: #1f2328;
   --color-button-text-bright: #0f1419;
-  --color-button-border: #909ba7;
+  --color-button-border: #1f2328;
   --color-button-divider: #a4adb8;
+  --color-control-btn-border: #1f2328;
+  --pane-border-color: #1f2328;
 }
 
 /* Reset */
