@@ -1,6 +1,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import * as d3 from "d3";
 import Pane from "../ui/Pane";
+import SizeControls from "../ui/SizeControls";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
 import "./KSnakesPane.css";
@@ -764,30 +765,36 @@ function KSnakesPane({ data, nodeLinkData, networkName, cycleButton = null }) {
         onReset: handleResetZoom,
         zoomPercent,
       }}
-      sizeControls={{
-        nodeSize,
-        nodeSizeLabel: "Node Point Size",
-        edgeSize,
-        edgeSizeLabel: "Enclosure Size",
-        edgeIcon: (
-          <svg
-            className="size-toggle-icon"
-            width="17"
-            height="17"
-            viewBox="0 -1 10 10"
-          >
-            <path
-              d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.3"
-              strokeLinecap="round"
-            />
-          </svg>
-        ),
-        onNodeSizeChange: setNodeSize,
-        onEdgeSizeChange: setEdgeSize,
-      }}
+      footerLeftControls={
+        <>
+          <SizeControls
+            nodeSize={nodeSize}
+            nodeSizeLabel="Node Point Size"
+            onNodeSizeChange={setNodeSize}
+          />
+          <SizeControls
+            edgeSize={edgeSize}
+            edgeSizeLabel="Enclosure Size"
+            edgeIcon={
+              <svg
+                className="size-toggle-icon"
+                width="17"
+                height="17"
+                viewBox="0 -1 10 10"
+              >
+                <path
+                  d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.3"
+                  strokeLinecap="round"
+                />
+              </svg>
+            }
+            onEdgeSizeChange={setEdgeSize}
+          />
+        </>
+      }
     >
       <div ref={containerRef} className="pane-visualization" role="img" />
     </Pane>

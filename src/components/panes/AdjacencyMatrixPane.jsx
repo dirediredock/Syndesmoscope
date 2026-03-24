@@ -25,7 +25,7 @@ const ACCENT_COLOR = "var(--color-accent-adjmatrix)";
 
 const CELL_SIZES = {
   XS: { default: 0.5, highlighted: 1 },
-  S: { default: 1, highlighted: 2 },
+  S: { default: 1.2, highlighted: 2.3 },
   M: { default: 2, highlighted: 3 },
   L: { default: 4, highlighted: 5 },
   XL: { default: 6, highlighted: 7 },
@@ -549,49 +549,6 @@ function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
         onReset: handleResetZoom,
         zoomPercent,
       }}
-      preZoomControls={
-        <div className="zoom-controls">
-        <button
-          className="size-toggle-btn"
-          onClick={() =>
-            setMatrixRotation((r) => (r === 45 ? 0 : 45))
-          }
-          aria-label={
-            matrixRotation === 45
-              ? "Rotate 45° counterclockwise"
-              : "Rotate 45° clockwise"
-          }
-          title={
-            matrixRotation === 45
-              ? "Rotate 45° counterclockwise"
-              : "Rotate 45° clockwise"
-          }
-        >
-          <svg width="17" height="17" viewBox="0 0 14 14">
-            {matrixRotation === 45 ? (
-              <polygon
-                points="7,1 13,7 7,13 1,7"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinejoin="round"
-              />
-            ) : (
-              <rect
-                x="2"
-                y="2"
-                width="10"
-                height="10"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinejoin="round"
-              />
-            )}
-          </svg>
-        </button>
-        </div>
-      }
       footerControls={
         <>
           <div className="size-controls" role="group" aria-label="Gridlines">
@@ -664,6 +621,47 @@ function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
         nodeSizeLabel: "Edge Point Size",
         onNodeSizeChange: setNodeSize,
       }}
+      footerLeftControls={
+        <div className="size-controls">
+          <button
+            className="size-toggle-btn"
+            onClick={() => setMatrixRotation((r) => (r === 45 ? 0 : 45))}
+            aria-label={
+              matrixRotation === 45
+                ? "Rotate 45\u00b0 counterclockwise"
+                : "Rotate 45\u00b0 clockwise"
+            }
+            title={
+              matrixRotation === 45
+                ? "Rotate 45\u00b0 counterclockwise"
+                : "Rotate 45\u00b0 clockwise"
+            }
+          >
+            <svg width="17" height="17" viewBox="0 0 14 14">
+              {matrixRotation === 45 ? (
+                <polygon
+                  points="7,1 13,7 7,13 1,7"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                />
+              ) : (
+                <rect
+                  x="2"
+                  y="2"
+                  width="10"
+                  height="10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
+      }
     >
       <div ref={containerRef} className="pane-visualization" role="img" />
     </Pane>

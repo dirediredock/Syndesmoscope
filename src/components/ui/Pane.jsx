@@ -18,6 +18,7 @@ function Pane({
   zoomControls = null,
   sizeControls = null,
   footerControls = null,
+  footerLeftControls = null,
   preZoomControls = null,
   postZoomControls = null,
   headerLeftControls = null,
@@ -48,6 +49,7 @@ function Pane({
       <div className="pane-footer" style={{ "--pane-accent": accentColor }}>
         <div className="pane-footer-left">
           {sizeControls && !isEmpty && <SizeControls {...sizeControls} />}
+          {footerLeftControls && !isEmpty && footerLeftControls}
         </div>
         <div className="pane-footer-right">
           {footerControls && !isEmpty && footerControls}

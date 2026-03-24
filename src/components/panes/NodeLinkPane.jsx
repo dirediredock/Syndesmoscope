@@ -1,6 +1,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import * as d3 from "d3";
 import Pane from "../ui/Pane";
+import SizeControls from "../ui/SizeControls";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
 import "./NodeLinkPane.css";
@@ -434,15 +435,22 @@ function NodeLinkPane({ data, networkName, cycleButton = null }) {
         onFitContent: handleFitContent,
         zoomPercent,
       }}
-      sizeControls={{
-        nodeSize,
-        nodeSizeLabel: "Node Point Size",
-        onNodeSizeChange: setNodeSize,
-        edgeSize,
-        edgeSizeLabel: "Edge Line Size",
-        onEdgeSizeChange: setEdgeSize,
-        sizes: ["XS", "S", "M", "L", "XL", "XXL"],
-      }}
+      footerLeftControls={
+        <>
+          <SizeControls
+            nodeSize={nodeSize}
+            nodeSizeLabel="Node Point Size"
+            onNodeSizeChange={setNodeSize}
+            sizes={["XS", "S", "M", "L", "XL", "XXL"]}
+          />
+          <SizeControls
+            edgeSize={edgeSize}
+            edgeSizeLabel="Edge Line Size"
+            onEdgeSizeChange={setEdgeSize}
+            sizes={["XS", "S", "M", "L", "XL", "XXL"]}
+          />
+        </>
+      }
       footerControls={null}
     >
       <div ref={containerRef} className="pane-visualization" role="img" />
