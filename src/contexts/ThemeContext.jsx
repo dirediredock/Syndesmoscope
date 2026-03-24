@@ -51,24 +51,22 @@ function deriveVisualizationPalette(theme, luminosity) {
   const base = VISUALIZATION_PALETTES[theme];
   const strength = getLuminosityStrength(luminosity);
 
+  const edgeDefaultLine = scaleRelativeColor(
+    base.background,
+    base.edgeDefaultLine,
+    strength,
+  );
+
   return {
     nodeDefault: scaleRelativeColor(base.background, base.nodeDefault, strength),
-    edgeDefaultLine: scaleRelativeColor(
-      base.background,
-      base.edgeDefaultLine,
-      strength,
-    ),
+    edgeDefaultLine,
     edgeDefaultPoint: scaleRelativeColor(
       base.background,
       base.edgeDefaultPoint,
       strength,
     ),
-    ksnakesCore: scaleRelativeColor(base.background, base.ksnakesCore, strength),
-    ksnakesIsland: scaleRelativeColor(
-      base.background,
-      base.ksnakesIsland,
-      strength,
-    ),
+    ksnakesCore: edgeDefaultLine,
+    ksnakesIsland: base.background,
     hopcensusGridLine: scaleRelativeColor(
       base.background,
       base.hopcensusGridLine,

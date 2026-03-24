@@ -30,8 +30,8 @@
   --color-edge-selected-contrast-text: #0d1117;
 
   /* k-Snakes visualization colors */
-  --color-ksnakes-core: #4d5562;
-  --color-ksnakes-island: #23232d;
+  --color-ksnakes-core: #3c434d;
+  --color-ksnakes-island: #0d1117;
 
   /* Hop Census visualization colors */
   --color-hopcensus-grid-line: #1e2530;
@@ -134,8 +134,8 @@
   --pane-border-color: #d4d9e0;
 
   /* k-Snakes visualization colors (light mode) */
-  --color-ksnakes-core: #c8c8d0;
-  --color-ksnakes-island: #e0e0e8;
+  --color-ksnakes-core: #d8dce4;
+  --color-ksnakes-island: #eef1f4;
 
   /* Hop Census grid lines (light mode) */
   --color-hopcensus-grid-line: #e4e8f0;

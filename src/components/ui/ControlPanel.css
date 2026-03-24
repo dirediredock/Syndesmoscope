@@ -51,8 +51,12 @@
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--color-button-text-hover);
+  background: var(--color-button-text);
   margin-top: -4.5px;
+}
+
+.control-range:hover::-webkit-slider-thumb {
+  background: var(--color-button-text-hover);
 }
 
 .control-range::-moz-range-track {
@@ -65,15 +69,19 @@
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--color-button-text-hover);
+  background: var(--color-button-text);
   border: none;
+}
+
+.control-range:hover::-moz-range-thumb {
+  background: var(--color-button-text-hover);
 }
 
 .control-range-value {
   width: 2.5ch;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-button-text-hover);
+  color: var(--color-button-text);
   text-align: right;
 }
 
