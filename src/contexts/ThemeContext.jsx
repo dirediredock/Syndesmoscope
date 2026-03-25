@@ -40,16 +40,17 @@ const VISUALIZATION_PALETTES = {
   },
 };
 
-function getLuminosityStrength(value) {
+function getLuminosityStrength(value, theme) {
+  const maxStrength = theme === "dark" ? 3.0 : 8.0;
   if (value <= DEFAULT_LUMINOSITY) {
-    return 0.4 + (value / DEFAULT_LUMINOSITY) * 0.6;
+    return 0.2 + (value / DEFAULT_LUMINOSITY) * 0.8;
   }
-  return 1 + ((value - DEFAULT_LUMINOSITY) / DEFAULT_LUMINOSITY) * 0.75;
+  return 1 + ((value - DEFAULT_LUMINOSITY) / DEFAULT_LUMINOSITY) * (maxStrength - 1);
 }
 
 function deriveVisualizationPalette(theme, luminosity) {
   const base = VISUALIZATION_PALETTES[theme];
-  const strength = getLuminosityStrength(luminosity);
+  const strength = getLuminosityStrength(luminosity, theme);
 
   const edgeDefaultLine = scaleRelativeColor(
     base.background,
