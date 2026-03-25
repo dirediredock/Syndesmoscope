@@ -52,9 +52,9 @@
 .zoom-level {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--color-button-text-hover);
-  min-width: 48px;
+  min-width: 42px;
   text-align: center;
   user-select: none;
   background: transparent;
@@ -62,7 +62,7 @@
   border-radius: 3px;
   cursor: pointer;
   height: 29px;
-  padding: 0 4px;
+  /* padding: 0 2px; */
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast);

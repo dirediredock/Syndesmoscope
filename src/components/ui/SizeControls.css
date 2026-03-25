@@ -50,8 +50,8 @@
 
 .size-toggle-label {
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 900;
   line-height: 1;
 }
 
@@ -62,5 +62,5 @@
   margin: 0 2px;
 }
 
-.size-toggle-btn--off {
-}
+/* .size-toggle-btn--off {
+} */
