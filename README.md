@@ -4,6 +4,10 @@ Syndesmoscope is a browser-based interactive system that enables deep exploratio
 
 The name 'Syndesmoscope' is a neoclassical compound word built from Greek roots: 'syndesmos', which means bond or link as a noun, or "to bind together" as a verb; and 'scope', which means "instrument for observing"; thus, "an instrument for observing connections".
 
+<img src="figures/Teaser_00_dark.png" width="100%" ></a>
+
+Syndesmoscope juxtaposes four panes that surface maximally orthogonal visual patterns computed from the same network dataset. (A) kSnakes pane, a new invariant plot. (B) HopCensus pane, an invariant plot. (C) AdjacencyMatrix pane, with near-invariant seriation (Behrisch2016). (D) ForceDirected pane, a familiar variant view. (E) Above the panes, a control strip with tools for multi-item selection. In this example, the “Nematode Synapses (M)” dataset is loaded: the nervous system of the male C. elegans roundworm, comprising 484 cells (nodes) and 1597 synapses (edges). A selection in A highlights 43 nodes (blue) from the densest core (k-9 shell at the top); using E, their 273 shared edges (orange) are selected, with corresponding visual pattern highlighting shown across the B, C, and D panes.
+
 <img src="figures/teaser_01.png" width="100%" ></a>
 
 <img src="figures/teaser_01b.png" width="100%" ></a>
