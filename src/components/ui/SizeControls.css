@@ -13,11 +13,12 @@
   justify-content: center;
   gap: 4px;
   height: 29px;
+  min-width: 29px;
   padding: 0 6px;
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
@@ -34,7 +35,7 @@
 }
 
 .size-toggle-btn:disabled {
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   cursor: not-allowed;
 }
 
@@ -49,8 +50,8 @@
 
 .size-toggle-label {
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 900;
   line-height: 1;
 }
 
@@ -61,5 +62,5 @@
   margin: 0 2px;
 }
 
-.size-toggle-btn--off {
-}
+/* .size-toggle-btn--off {
+} */

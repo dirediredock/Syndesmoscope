@@ -13,19 +13,35 @@
   overflow: hidden;
 }
 
-/* --- Pane Header Left (top-left superpower buttons) --- */
+/* --- Pane Header (top bar with controls) --- */
 
-.pane-header-left {
+.pane-header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
   gap: var(--space-2);
   position: absolute;
   top: 1.1rem;
   left: 0;
+  right: 0;
   padding: 0 1.1rem;
   z-index: 10;
+  pointer-events: none;
+}
+
+.pane-header-left,
+.pane-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   pointer-events: auto;
+}
+
+.pane-header-left .size-toggle-btn {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0 10px;
 }
 
 /* --- Pane Footer (bottom bar with controls) --- */

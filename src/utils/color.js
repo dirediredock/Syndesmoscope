@@ -106,10 +106,11 @@ function shortestHueDelta(from, to) {
 export function scaleRelativeColor(backgroundHex, targetHex, strength) {
   const base = rgbToHsl(hexToRgb(backgroundHex));
   const target = rgbToHsl(hexToRgb(targetHex));
+  const colorStrength = Math.min(strength, 1);
 
   const next = {
-    h: base.h + shortestHueDelta(base.h, target.h) * strength,
-    s: clamp(base.s + (target.s - base.s) * strength, 0, 1),
+    h: base.h + shortestHueDelta(base.h, target.h) * colorStrength,
+    s: clamp(base.s + (target.s - base.s) * colorStrength, 0, 1),
     l: clamp(base.l + (target.l - base.l) * strength, 0, 1),
   };
 

@@ -25,7 +25,7 @@ const ACCENT_COLOR = "var(--color-accent-adjmatrix)";
 
 const CELL_SIZES = {
   XS: { default: 0.5, highlighted: 1 },
-  S: { default: 1, highlighted: 2 },
+  S: { default: 1.2, highlighted: 2.3 },
   M: { default: 2, highlighted: 3 },
   L: { default: 4, highlighted: 5 },
   XL: { default: 6, highlighted: 7 },
@@ -39,7 +39,7 @@ const GRID_SIZES = {
 };
 const GRIDLINE_CYCLE = ["off", "XS", "S", "M", "L", "XL"];
 
-function AdjacencyMatrixPane({ data, networkName }) {
+function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
@@ -542,9 +542,9 @@ function AdjacencyMatrixPane({ data, networkName }) {
 
   return (
     <Pane
-      title="Adjacency Grid"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
+      headerLeftControls={cycleButton}
       zoomControls={{
         onReset: handleResetZoom,
         zoomPercent,
@@ -620,21 +620,21 @@ function AdjacencyMatrixPane({ data, networkName }) {
         nodeSize,
         nodeSizeLabel: "Edge Point Size",
         onNodeSizeChange: setNodeSize,
-        children: (
+      }}
+      footerLeftControls={
+        <div className="size-controls">
           <button
             className="size-toggle-btn"
-            onClick={() =>
-              setMatrixRotation((r) => (r === 45 ? 0 : 45))
-            }
+            onClick={() => setMatrixRotation((r) => (r === 45 ? 0 : 45))}
             aria-label={
               matrixRotation === 45
-                ? "Rotate 45° counterclockwise"
-                : "Rotate 45° clockwise"
+                ? "Rotate 45\u00b0 counterclockwise"
+                : "Rotate 45\u00b0 clockwise"
             }
             title={
               matrixRotation === 45
-                ? "Rotate 45° counterclockwise"
-                : "Rotate 45° clockwise"
+                ? "Rotate 45\u00b0 counterclockwise"
+                : "Rotate 45\u00b0 clockwise"
             }
           >
             <svg width="17" height="17" viewBox="0 0 14 14">
@@ -660,8 +660,8 @@ function AdjacencyMatrixPane({ data, networkName }) {
               )}
             </svg>
           </button>
-        ),
-      }}
+        </div>
+      }
     >
       <div ref={containerRef} className="pane-visualization" role="img" />
     </Pane>

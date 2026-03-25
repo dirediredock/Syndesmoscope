@@ -1,7 +1,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import * as d3 from "d3";
 import Pane from "../ui/Pane";
-import TranslocationControls from "../ui/TranslocationControls";
+// import TranslocationControls from "../ui/TranslocationControls";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
 import "./HopCensusPane.css";
@@ -34,7 +34,7 @@ const LINE_SIZES = {
   XL: { default: 6, highlighted: 9 },
 };
 
-function HopCensusPane({ data, networkName }) {
+function HopCensusPane({ data, networkName, cycleButton = null }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
@@ -51,7 +51,7 @@ function HopCensusPane({ data, networkName }) {
   const bandIndexMapRef = useRef(null);
 
   const [nodeSize, setNodeSize] = useState("S");
-  const [justify, setJustify] = useState("left");
+  // const [justify, setJustify] = useState("left");
 
   // Translocation offset: Map<nodeIdx, multiplier>
   const [offsetMap, setOffsetMap] = useState(() => new Map());
@@ -60,10 +60,10 @@ function HopCensusPane({ data, networkName }) {
   useEffect(() => {
     offsetMapRef.current = offsetMap;
   }, [offsetMap]);
-  const justifyRef = useRef(justify);
-  useEffect(() => {
-    justifyRef.current = justify;
-  }, [justify]);
+  // const justifyRef = useRef(justify);
+  // useEffect(() => {
+  //   justifyRef.current = justify;
+  // }, [justify]);
 
   const {
     hoveredNodes,
@@ -121,27 +121,27 @@ function HopCensusPane({ data, networkName }) {
   }, [transform]);
 
   // Translocation handlers
-  const handleTranslateUp = useCallback(() => {
-    if (selectedNodes.size === 0) return;
-    setOffsetMap((prev) => {
-      const next = new Map(prev);
-      selectedNodes.forEach((nodeIdx) => {
-        next.set(nodeIdx, (next.get(nodeIdx) || 0) + 1);
-      });
-      return next;
-    });
-  }, [selectedNodes]);
+  // const handleTranslateUp = useCallback(() => {
+  //   if (selectedNodes.size === 0) return;
+  //   setOffsetMap((prev) => {
+  //     const next = new Map(prev);
+  //     selectedNodes.forEach((nodeIdx) => {
+  //       next.set(nodeIdx, (next.get(nodeIdx) || 0) + 1);
+  //     });
+  //     return next;
+  //   });
+  // }, [selectedNodes]);
 
-  const handleTranslateDown = useCallback(() => {
-    if (selectedNodes.size === 0) return;
-    setOffsetMap((prev) => {
-      const next = new Map(prev);
-      selectedNodes.forEach((nodeIdx) => {
-        next.set(nodeIdx, (next.get(nodeIdx) || 0) - 1);
-      });
-      return next;
-    });
-  }, [selectedNodes]);
+  // const handleTranslateDown = useCallback(() => {
+  //   if (selectedNodes.size === 0) return;
+  //   setOffsetMap((prev) => {
+  //     const next = new Map(prev);
+  //     selectedNodes.forEach((nodeIdx) => {
+  //       next.set(nodeIdx, (next.get(nodeIdx) || 0) - 1);
+  //     });
+  //     return next;
+  //   });
+  // }, [selectedNodes]);
 
   // Reset zoom to 100%, centered on content bounds
   const handleResetZoom = useCallback(() => {
@@ -192,8 +192,9 @@ function HopCensusPane({ data, networkName }) {
     const maxHop = maxHopRef.current;
     if (!xScale || !yScale || maxCount == null || maxHop == null) return "";
     const shifted = rawVector.map((v) => v + (bandIdx + multiplier) * maxCount);
-    const xOffset =
-      justifyRef.current === "right" ? maxHop - (rawVector.length - 1) : 0;
+    // const xOffset =
+    //   justifyRef.current === "right" ? maxHop - (rawVector.length - 1) : 0;
+    const xOffset = 0;
     const line = d3
       .line()
       .x((d, i) => xScale(i + xOffset))
@@ -224,7 +225,7 @@ function HopCensusPane({ data, networkName }) {
         if (!rawVector) return "";
         return buildPath(rawVector, bandIdx, multiplier);
       });
-  }, [offsetMap, justify, buildPath]);
+  }, [offsetMap, buildPath]);
 
   // Initialize visualization
   const initializeVisualization = useCallback(() => {
@@ -497,17 +498,17 @@ function HopCensusPane({ data, networkName }) {
 
   return (
     <Pane
-      title="Hop-Census"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
-      footerControls={
-        <TranslocationControls
-          onUp={handleTranslateUp}
-          onDown={handleTranslateDown}
-          disabled={selectedNodes.size === 0}
-          activeColor="var(--color-node-selected)"
-        />
-      }
+      headerLeftControls={cycleButton}
+      // footerControls={
+      //   <TranslocationControls
+      //     onUp={handleTranslateUp}
+      //     onDown={handleTranslateDown}
+      //     disabled={selectedNodes.size === 0}
+      //     activeColor="var(--color-node-selected)"
+      //   />
+      // }
       zoomControls={{
         onReset: handleResetZoom,
         onFitContent: handleFitContent,
@@ -535,32 +536,32 @@ function HopCensusPane({ data, networkName }) {
         edgeSize: null,
         onNodeSizeChange: setNodeSize,
         onEdgeSizeChange: null,
-        children: (
-          <button
-            className="size-toggle-btn"
-            onClick={() =>
-              setJustify((j) => (j === "left" ? "right" : "left"))
-            }
-            aria-label="Polyline Justification"
-            title="Polyline Justification"
-          >
-            <svg width="17" height="17" viewBox="0 0 14 14">
-              {justify === "left" ? (
-                <>
-                  <line x1="1" y1="3" x2="7" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  <line x1="1" y1="7" x2="9" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  <line x1="1" y1="11" x2="12" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </>
-              ) : (
-                <>
-                  <line x1="7" y1="3" x2="13" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  <line x1="5" y1="7" x2="13" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  <line x1="2" y1="11" x2="13" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </>
-              )}
-            </svg>
-          </button>
-        ),
+        // children: (
+        //   <button
+        //     className="size-toggle-btn"
+        //     onClick={() =>
+        //       setJustify((j) => (j === "left" ? "right" : "left"))
+        //     }
+        //     aria-label="Polyline Justification"
+        //     title="Polyline Justification"
+        //   >
+        //     <svg width="17" height="17" viewBox="0 0 14 14">
+        //       {justify === "left" ? (
+        //         <>
+        //           <line x1="1" y1="3" x2="7" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        //           <line x1="1" y1="7" x2="9" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        //           <line x1="1" y1="11" x2="12" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        //         </>
+        //       ) : (
+        //         <>
+        //           <line x1="7" y1="3" x2="13" y2="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        //           <line x1="5" y1="7" x2="13" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        //           <line x1="2" y1="11" x2="13" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        //         </>
+        //       )}
+        //     </svg>
+        //   </button>
+        // ),
       }}
     >
       <div ref={containerRef} className="pane-visualization" role="img" />

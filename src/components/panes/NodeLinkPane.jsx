@@ -1,6 +1,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import * as d3 from "d3";
 import Pane from "../ui/Pane";
+import SizeControls from "../ui/SizeControls";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
 import "./NodeLinkPane.css";
@@ -17,7 +18,7 @@ const MIN_RENDER_WIDTH = 30;
  * Selection highlighting:
  * - Hovered nodes/edges get muted highlight color
  * - Selected nodes/edges get solid highlight color
- * - Selected elements are raised to front (z-order)
+ * - Z-order (bottom to top): edges, nodes, selected/hovered edges, selected/hovered nodes
  *
  * Zoom/Pan:
  * - Scroll wheel zooms at cursor position
@@ -47,13 +48,17 @@ const EDGE_SIZES = {
   XXL: { default: 13, highlighted: 20 },
 };
 
-function NodeLinkPane({ data, networkName }) {
+function NodeLinkPane({ data, networkName, cycleButton = null }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
   const simulationRef = useRef(null);
   const brushGroupRef = useRef(null);
   const brushModeRef = useRef(false);
+  const nodeGroupRef = useRef(null);
+  const edgeGroupRef = useRef(null);
+  const selectedNodeGroupRef = useRef(null);
+  const selectedEdgeGroupRef = useRef(null);
 
   const {
     hoveredNodes,
@@ -206,9 +211,16 @@ function NodeLinkPane({ data, networkName }) {
     const zoomContainer = svg.append("g").attr("class", "zoom-container");
     zoomContainerRef.current = zoomContainer.node();
 
-    // Create groups for layering (edges below nodes)
+    // Create groups for layering (bottom to top: edges, nodes, selected edges, selected nodes)
     const edgeGroup = zoomContainer.append("g").attr("class", "edges");
     const nodeGroup = zoomContainer.append("g").attr("class", "nodes");
+    const selectedEdgeGroup = zoomContainer.append("g").attr("class", "selected-edges");
+    const selectedNodeGroup = zoomContainer.append("g").attr("class", "selected-nodes");
+
+    edgeGroupRef.current = edgeGroup.node();
+    nodeGroupRef.current = nodeGroup.node();
+    selectedEdgeGroupRef.current = selectedEdgeGroup.node();
+    selectedNodeGroupRef.current = selectedNodeGroup.node();
 
     // // Prepare data (clone to avoid mutation)
     // const nodes = data.nodes.map(d => ({ ...d }))
@@ -346,9 +358,10 @@ function NodeLinkPane({ data, networkName }) {
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr("data-node-idx");
-        // Raise selected/hovered nodes to front
         if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) {
-          d3.select(this).raise();
+          selectedNodeGroupRef.current.appendChild(this);
+        } else {
+          nodeGroupRef.current.appendChild(this);
         }
       });
 
@@ -370,7 +383,9 @@ function NodeLinkPane({ data, networkName }) {
       .each(function () {
         const edgeIdx = +d3.select(this).attr("data-edge-idx");
         if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) {
-          d3.select(this).raise();
+          selectedEdgeGroupRef.current.appendChild(this);
+        } else {
+          edgeGroupRef.current.appendChild(this);
         }
       });
   }, [
@@ -426,23 +441,30 @@ function NodeLinkPane({ data, networkName }) {
 
   return (
     <Pane
-      title="Node-Link"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
+      headerLeftControls={cycleButton}
       zoomControls={{
         onReset: resetZoom,
         onFitContent: handleFitContent,
         zoomPercent,
       }}
-      sizeControls={{
-        nodeSize,
-        nodeSizeLabel: "Node Point Size",
-        onNodeSizeChange: setNodeSize,
-        edgeSize,
-        edgeSizeLabel: "Edge Line Size",
-        onEdgeSizeChange: setEdgeSize,
-        sizes: ["XS", "S", "M", "L", "XL", "XXL"],
-      }}
+      footerLeftControls={
+        <>
+          <SizeControls
+            nodeSize={nodeSize}
+            nodeSizeLabel="Node Point Size"
+            onNodeSizeChange={setNodeSize}
+            sizes={["XS", "S", "M", "L", "XL", "XXL"]}
+          />
+          <SizeControls
+            edgeSize={edgeSize}
+            edgeSizeLabel="Edge Line Size"
+            onEdgeSizeChange={setEdgeSize}
+            sizes={["XS", "S", "M", "L", "XL", "XXL"]}
+          />
+        </>
+      }
       footerControls={null}
     >
       <div ref={containerRef} className="pane-visualization" role="img" />

@@ -1,6 +1,5 @@
 import ZoomControls from "./ZoomControls";
 import SizeControls from "./SizeControls";
-import { useSelection } from "../../contexts/SelectionContext";
 import "./Pane.css";
 
 /**
@@ -19,18 +18,25 @@ function Pane({
   zoomControls = null,
   sizeControls = null,
   footerControls = null,
+  footerLeftControls = null,
   preZoomControls = null,
   postZoomControls = null,
+  headerLeftControls = null,
 }) {
-  const { hoveredNodes, hoveredEdges } = useSelection();
-
-  const hoveredNodeList = [...hoveredNodes];
-  const hoveredEdgeList = [...hoveredEdges];
-  const showHoverInfo =
-    !isEmpty && (hoveredNodeList.length > 0 || hoveredEdgeList.length > 0);
-
   return (
     <div className="pane">
+      {(headerLeftControls || zoomControls || preZoomControls || postZoomControls) && !isEmpty && (
+        <div className="pane-header" style={{ "--pane-accent": accentColor }}>
+          <div className="pane-header-left">
+            {headerLeftControls}
+          </div>
+          <div className="pane-header-right">
+            {preZoomControls}
+            {zoomControls && <ZoomControls {...zoomControls} />}
+            {postZoomControls}
+          </div>
+        </div>
+      )}
       <div className="pane-content">
         {isEmpty ? (
           <div className="pane-empty">
@@ -39,33 +45,14 @@ function Pane({
         ) : (
           children
         )}
-        {/* {showHoverInfo && (
-          <div className="pane-hover-info">
-            {hoveredNodeList.map(idx => (
-              <span key={`n${idx}`} className="pane-hover-node">{idx}</span>
-            ))}
-            {hoveredEdgeList.map(idx => (
-              <span key={`e${idx}`} className="pane-hover-edge">{idx}</span>
-            ))}
-          </div>
-        )} */}
       </div>
-      {footerControls && !isEmpty && (
-        <div
-          className="pane-header-left"
-          style={{ "--pane-accent": accentColor }}
-        >
-          {footerControls}
-        </div>
-      )}
       <div className="pane-footer" style={{ "--pane-accent": accentColor }}>
         <div className="pane-footer-left">
           {sizeControls && !isEmpty && <SizeControls {...sizeControls} />}
+          {footerLeftControls && !isEmpty && footerLeftControls}
         </div>
         <div className="pane-footer-right">
-          {preZoomControls && !isEmpty && preZoomControls}
-          {zoomControls && !isEmpty && <ZoomControls {...zoomControls} />}
-          {postZoomControls && !isEmpty && postZoomControls}
+          {footerControls && !isEmpty && footerControls}
         </div>
       </div>
     </div>

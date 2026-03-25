@@ -27,12 +27,46 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  min-width: 180px;
+  height: 29px;
+  padding: 0 var(--space-2);
 }
 
 .control-range {
-  width: 132px;
-  accent-color: var(--color-button-accent);
+  width: 60px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.control-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--color-button-text-hover);
+  border-radius: 1px;
+}
+
+.control-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--color-button-text-hover);
+  margin-top: -4.5px;
+}
+
+.control-range::-moz-range-track {
+  height: 2px;
+  background: var(--color-button-text-hover);
+  border-radius: 1px;
+}
+
+.control-range::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--color-button-text-hover);
+  border: none;
 }
 
 .control-range-value {
@@ -54,15 +88,15 @@
 
 .control-select {
   font-family: var(--font-mono);
-  font-size: var(--text-base);
+  font-size: 1rem;
   height: 34px;
   padding: 0 var(--space-3);
   padding-right: var(--space-6);
   /* width: 20em; */
   background-color: var(--color-button-bg);
-  color: var(--color-button-text);
-  font-weight: 700;
-  border: none;
+  color: var(--color-button-text-hover);
+  font-weight: 500;
+  border: 1px solid var(--color-control-btn-border);
   border-radius: 4px;
   cursor: pointer;
   appearance: none;
@@ -90,6 +124,7 @@
   height: 34px;
   padding: 0 var(--space-3);
   background-color: var(--color-button-bg);
+  border: 1px solid var(--color-control-btn-border);
   border-radius: 4px;
 }
 
@@ -102,18 +137,18 @@
 .info-value {
   font-family: var(--font-mono);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-button-text-hover);
 }
 
 .info-label {
   font-family: var(--font-mono);
   font-size: var(--text-base);
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
 }
 
 .info-divider {
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
 }
 
 .selection-info {
@@ -129,6 +164,7 @@
   height: 34px;
   line-height: 34px;
   padding: 0 8px;
+  border: 1px solid var(--color-control-btn-border);
   border-radius: 4px;
   white-space: nowrap;
 }
@@ -149,12 +185,12 @@
   justify-content: center;
   width: 34px;
   height: 34px;
-  border: none;
+  border: 1px solid var(--color-control-btn-border);
   border-radius: 4px;
   padding: 0;
   cursor: pointer;
   background-color: var(--color-button-bg);
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast),
@@ -199,8 +235,8 @@
   height: 34px;
   padding: 0 var(--space-2);
   background-color: transparent;
-  color: var(--color-button-text);
-  border: none;
+  color: var(--color-button-text-hover);
+  border: 1px solid var(--color-control-btn-border);
   border-radius: 4px;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -215,6 +251,7 @@
 
 .control-btn-wrap {
   background-color: var(--color-button-bg);
+  border: 1px solid var(--color-control-btn-border);
   border-radius: 4px;
   padding: 2px;
 }
@@ -240,7 +277,7 @@
   background: transparent;
   border: none;
   border-radius: 3px;
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
@@ -268,7 +305,7 @@
 
 .control-icon-btn--off {
   background-color: var(--color-button-bg);
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
 }
 
 .control-icon-btn--off:hover {
@@ -324,7 +361,7 @@
 .control-button--reversed {
   background-color: var(--color-button-active);
   color: var(--color-button-text-hover);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .control-button--reversed:hover {

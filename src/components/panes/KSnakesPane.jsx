@@ -1,6 +1,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import * as d3 from "d3";
 import Pane from "../ui/Pane";
+import SizeControls from "../ui/SizeControls";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useZoomPan } from "../../hooks/useZoomPan";
 import "./KSnakesPane.css";
@@ -51,7 +52,7 @@ const STRUCTURE_SIZES = {
   XL: { core: 52, island: 29, coreSingleton: 25, islandSingleton: 14 },
 };
 
-function KSnakesPane({ data, nodeLinkData, networkName }) {
+function KSnakesPane({ data, nodeLinkData, networkName, cycleButton = null }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const zoomContainerRef = useRef(null);
@@ -714,9 +715,9 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
 
   return (
     <Pane
-      title="k-Snakes"
       accentColor={ACCENT_COLOR}
       isEmpty={!data}
+      headerLeftControls={cycleButton}
       footerControls={
         <>
           <div className="size-controls" role="group" aria-label="Edge Overlay">
@@ -738,20 +739,20 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
             >
               <svg
                 className="size-toggle-icon"
-                width="17"
-                height="17"
-                viewBox="0 0 10 10"
+                width="14"
+                height="14"
+                viewBox="-0.5 0 10 10"
               >
                 <line
-                  x1="2"
-                  y1="8"
-                  x2="8"
+                  x1="1.5"
+                  y1="7"
+                  x2="6.5"
                   y2="2"
                   stroke="currentColor"
                   strokeWidth="1.5"
                 />
-                <circle cx="2" cy="8" r="1.5" fill="currentColor" />
-                <circle cx="8" cy="2" r="1.5" fill="currentColor" />
+                <circle cx="1.5" cy="7" r="2" fill="currentColor" />
+                <circle cx="6.5" cy="2" r="2" fill="currentColor" />
               </svg>
               {edgeOverlay !== "off" && (
                 <span className="size-toggle-label">{edgeOverlay}</span>
@@ -764,30 +765,36 @@ function KSnakesPane({ data, nodeLinkData, networkName }) {
         onReset: handleResetZoom,
         zoomPercent,
       }}
-      sizeControls={{
-        nodeSize,
-        nodeSizeLabel: "Node Point Size",
-        edgeSize,
-        edgeSizeLabel: "Enclosure Size",
-        edgeIcon: (
-          <svg
-            className="size-toggle-icon"
-            width="17"
-            height="17"
-            viewBox="0 -1 10 10"
-          >
-            <path
-              d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.3"
-              strokeLinecap="round"
-            />
-          </svg>
-        ),
-        onNodeSizeChange: setNodeSize,
-        onEdgeSizeChange: setEdgeSize,
-      }}
+      footerLeftControls={
+        <>
+          <SizeControls
+            nodeSize={nodeSize}
+            nodeSizeLabel="Node Point Size"
+            onNodeSizeChange={setNodeSize}
+          />
+          <SizeControls
+            edgeSize={edgeSize}
+            edgeSizeLabel="Enclosure Size"
+            edgeIcon={
+              <svg
+                className="size-toggle-icon"
+                width="17"
+                height="17"
+                viewBox="0 -1 10 10"
+              >
+                <path
+                  d="M-1,6 C0.5,9 1,1 3,5 S4.5,9 6,4 S8,0 9,5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.3"
+                  strokeLinecap="round"
+                />
+              </svg>
+            }
+            onEdgeSizeChange={setEdgeSize}
+          />
+        </>
+      }
     >
       <div ref={containerRef} className="pane-visualization" role="img" />
     </Pane>

@@ -40,35 +40,34 @@ const VISUALIZATION_PALETTES = {
   },
 };
 
-function getLuminosityStrength(value) {
+function getLuminosityStrength(value, theme) {
+  const maxStrength = theme === "dark" ? 3.0 : 8.0;
   if (value <= DEFAULT_LUMINOSITY) {
-    return 0.4 + (value / DEFAULT_LUMINOSITY) * 0.6;
+    return 0.2 + (value / DEFAULT_LUMINOSITY) * 0.8;
   }
-  return 1 + ((value - DEFAULT_LUMINOSITY) / DEFAULT_LUMINOSITY) * 0.75;
+  return 1 + ((value - DEFAULT_LUMINOSITY) / DEFAULT_LUMINOSITY) * (maxStrength - 1);
 }
 
 function deriveVisualizationPalette(theme, luminosity) {
   const base = VISUALIZATION_PALETTES[theme];
-  const strength = getLuminosityStrength(luminosity);
+  const strength = getLuminosityStrength(luminosity, theme);
+
+  const edgeDefaultLine = scaleRelativeColor(
+    base.background,
+    base.edgeDefaultLine,
+    strength,
+  );
 
   return {
     nodeDefault: scaleRelativeColor(base.background, base.nodeDefault, strength),
-    edgeDefaultLine: scaleRelativeColor(
-      base.background,
-      base.edgeDefaultLine,
-      strength,
-    ),
+    edgeDefaultLine,
     edgeDefaultPoint: scaleRelativeColor(
       base.background,
       base.edgeDefaultPoint,
       strength,
     ),
-    ksnakesCore: scaleRelativeColor(base.background, base.ksnakesCore, strength),
-    ksnakesIsland: scaleRelativeColor(
-      base.background,
-      base.ksnakesIsland,
-      strength,
-    ),
+    ksnakesCore: edgeDefaultLine,
+    ksnakesIsland: base.background,
     hopcensusGridLine: scaleRelativeColor(
       base.background,
       base.hopcensusGridLine,
