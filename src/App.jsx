@@ -43,20 +43,8 @@ function AppContent() {
 
   return (
     <div className="app">
-      {isPortrait ? (
-        <header className="app-header app-header--portrait">
-          <div className="app-header-row">
-            <NetworkSelect isPortrait />
-            <div style={{ flex: 1 }} />
-            <ThemeToggle />
-          </div>
-          <div className="app-header-row">
-            <SelectControls />
-            <NetworkInfo />
-          </div>
-        </header>
-      ) : (
-        <header className="app-header">
+      <header className="app-header">
+        {!isPortrait && (
           <div className="app-title">
             <a
               href="https://github.com/dirediredock/Syndesmoscope"
@@ -76,19 +64,19 @@ function AppContent() {
               <h1>S Y N D E S M O S C O P E</h1>
             </a>
           </div>
-          <SelectControls />
-          <NetworkInfo />
-          <div className="app-header-spacer">
-            {isLoading && <span className="control-status">L O A D I N G</span>}
-            {error && <span className="control-status">{error}</span>}
-          </div>
-          <NetworkSelect />
-          <ControlPanel
-            onResetLayout={() => resetLayoutRef.current?.()}
-            themeToggle={<ThemeToggle />}
-          />
-        </header>
-      )}
+        )}
+        <SelectControls />
+        <NetworkInfo />
+        <div className="app-header-spacer">
+          {isLoading && <span className="control-status">L O A D I N G</span>}
+          {error && <span className="control-status">{error}</span>}
+        </div>
+        <NetworkSelect />
+        <ControlPanel
+          onResetLayout={isPortrait ? undefined : () => resetLayoutRef.current?.()}
+          themeToggle={<ThemeToggle />}
+        />
+      </header>
       <main className="app-main">
         <PaneLayout
           onResetRef={resetLayoutRef}
