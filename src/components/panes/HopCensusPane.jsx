@@ -50,7 +50,7 @@ function HopCensusPane({ data, networkName, cycleButton = null }) {
   const vectorsByIdxRef = useRef(null);
   const bandIndexMapRef = useRef(null);
 
-  const [nodeSize, setNodeSize] = useState("S");
+  const [nodeSize, setNodeSize] = useState("M");
   // const [justify, setJustify] = useState("left");
 
   // Translocation offset: Map<nodeIdx, multiplier>
@@ -75,9 +75,10 @@ function HopCensusPane({ data, networkName, cycleButton = null }) {
     brushMode,
   } = useSelection();
 
-  const { transform, resetZoom, fitToContent, setFilter, zoomPercent } = useZoomPan(svgRef, {
-    scaleExtent: [0.01, 15],
-  });
+  const { transform, resetZoom, fitToContent, setFilter, zoomPercent } =
+    useZoomPan(svgRef, {
+      scaleExtent: [0.01, 15],
+    });
 
   // Filter: allow wheel zoom, block drag-start on census lines (so clicks work)
   // In brush mode, block all zoom drag (wheel still works)
