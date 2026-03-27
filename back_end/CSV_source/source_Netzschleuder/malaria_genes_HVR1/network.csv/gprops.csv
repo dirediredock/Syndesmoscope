@@ -1,0 +1,6 @@
+# prop_name, value
+name,malaria_genes (HVR_1)
+description,"Networks of recombinant antigen genes from the human malaria parasite P. falciparum. Each of the 9 networks shares the same set of vertices but has different edges, corresponding to the 9 highly variable regions (HVRs) in the DBLa domain of the var protein. Nodes are var genes, and two genes are connected if they share a substring whose length is statistically significant. Metadata includes two types of node labels, both based on sequence structure around HVR6."
+citation,"['D. B. Larremore, A. Clauset, and C. O. Buckee, \"A network approach to analyzing highly recombinant malaria parasite genes.\" PLOS Computational Biology 9(10), e1003268 (2013)., http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003268']"
+url,https://github.com/dblarremore/data_malaria_PLOSCompBiology_2013
+tags,"['Biological', 'Genetic', 'Unweighted', 'Projection', 'Metadata', 'Multilayer']"

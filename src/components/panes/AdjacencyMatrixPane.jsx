@@ -268,17 +268,6 @@ function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
       .domain([posMin - 1, posMax + 1])
       .range([0, innerHeight]);
 
-    contentGroup
-      .append("rect")
-      .attr("class", "matrix-border")
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("width", innerWidth)
-      .attr("height", innerHeight)
-      .attr("fill", "none")
-      .attr("stroke", "var(--color-hopcensus-grid-line)")
-      .attr("pointer-events", "none");
-
     const gridGroup = contentGroup.append("g").attr("class", "matrix-grid");
 
     gridGroup
@@ -302,6 +291,17 @@ function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
       .attr("x2", (d) => xScale(d.seriated_position))
       .attr("y1", yScale(posMin - 1))
       .attr("y2", yScale(posMax + 1));
+
+    contentGroup
+      .append("rect")
+      .attr("class", "matrix-border")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", innerWidth)
+      .attr("height", innerHeight)
+      .attr("fill", "none")
+      .attr("stroke", "var(--color-hopcensus-grid-line)")
+      .attr("pointer-events", "none");
 
     // Build sorted gridline positions for proximity-based hit detection
     const gridlinePositions = data.node_gridlines

@@ -11,15 +11,15 @@
     },
     {
       "node_idx": 1,
-      "degree": 3
+      "degree": 5
     },
     {
       "node_idx": 2,
-      "degree": 4
+      "degree": 1
     },
     {
       "node_idx": 3,
-      "degree": 5
+      "degree": 4
     },
     {
       "node_idx": 4,
@@ -31,7 +31,7 @@
     },
     {
       "node_idx": 6,
-      "degree": 1
+      "degree": 3
     }
   ],
   "edges": [
@@ -43,31 +43,31 @@
     {
       "edge_idx": 1,
       "source": 0,
-      "target": 2
+      "target": 5
     },
     {
       "edge_idx": 2,
       "source": 0,
-      "target": 3
+      "target": 6
     },
     {
       "edge_idx": 3,
       "source": 1,
-      "target": 4
+      "target": 3
     },
     {
       "edge_idx": 4,
       "source": 1,
-      "target": 3
+      "target": 4
     },
     {
       "edge_idx": 5,
-      "source": 2,
+      "source": 1,
       "target": 5
     },
     {
       "edge_idx": 6,
-      "source": 2,
+      "source": 1,
       "target": 6
     },
     {
@@ -83,7 +83,7 @@
     {
       "edge_idx": 9,
       "source": 3,
-      "target": 5
+      "target": 6
     }
   ]
 }

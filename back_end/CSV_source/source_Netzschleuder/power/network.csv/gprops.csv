@@ -1,0 +1,7 @@
+# prop_name, value
+name,power
+description,"A network representing the Western States Power Grid of the United States, in which nodes are transforms or power relay points and two nodes are connected if a power line runs between them."
+citation,"['D.J. Watts and S.H. Strogatz, \"Collective dynamics of \'small-world\' networks.\" Nature 393, 440-442 (1998)., http://www.nature.com/nature/journal/v393/n6684/abs/393440a0.html']"
+url,http://www-personal.umich.edu/~mejn/netdata/
+tags,"['Technological', 'Power grid', 'Unweighted']"
+directed,0.0

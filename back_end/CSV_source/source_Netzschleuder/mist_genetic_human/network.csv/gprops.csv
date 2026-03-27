@@ -1,0 +1,25 @@
+# prop_name, value
+name,mist (genetic_human)
+description,"The Molecular Interaction Search Tool (MIST) is a comprehensive resource of molecular interactions, assembled from severla primary sources. MIST currently supports several species, including:
+
+   1. Homo sapiens (Human)
+   2. Drosophila melanogaster (Fly)
+   3. Mus musculus (Mouse)
+   4. Caenorhabditis elegans (Worm)
+   5. Rattus norvegicus (Rat)
+   6. Saccharomyces cerevisiae (Baker's yeast)
+   7. Schizosaccharomyces pombe (Fission yeast)
+   8. Danio rerio (Zebrafish)
+   9. Xenopus laevis (African clawed frog)
+   10. Xenopus tropicalis (Western clawed frog)
+
+The database contains four kinds of interactions:
+
+   1. Protein-protein interaction (PPI): “PPI” refers to physical interactions between two or more proteins.
+   2. Interologs (PPI): Interactions predicted based on PPI data obtained for orthologous proteins.
+   3. Genetic Interactions: Indicate that the effects of mutations in one gene can be modified by mutation of another gene.
+   4. Genetic Interologs: Interactions predicted based on genetic interaction data obtained for orthologous proteins
+"
+citation,"['Yanhui Hu, Arunachalam Vinayagam, Ankita Nand, Aram Comjean, Verena Chung, Tong Hao, Stephanie E Mohr, and Norbert Perrimon, “Molecular Interaction Search Tool (MIST): an integrated resource for mining gene and protein interaction data.” Nucleic Acids Res, 46, D1, Pp. D567-D574 (2017), http://dx.doi.org/10.1093/nar/gkx1116']"
+url,https://fgrtools.hms.harvard.edu/MIST/index.jsp
+tags,"['Biological', 'Protein interactions', 'Unweighted']"

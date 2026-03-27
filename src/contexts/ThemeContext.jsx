@@ -30,22 +30,26 @@ const VISUALIZATION_PALETTES = {
     hopcensusGridLine: "#1e2530",
   },
   light: {
-    background: "#eef1f4",
+    background: "#ffffff",
     nodeDefault: "#4d5561",
     edgeDefaultLine: "#d8dce4",
     edgeDefaultPoint: "#4d5561",
     ksnakesCore: "#c8c8d0",
-    ksnakesIsland: "#e0e0e8",
+    ksnakesIsland: "#ffffff",
     hopcensusGridLine: "#e4e8f0",
   },
 };
 
 function getLuminosityStrength(value, theme) {
+  const minStrength = 0.1;
   const maxStrength = theme === "dark" ? 3.0 : 8.0;
-  if (value <= DEFAULT_LUMINOSITY) {
-    return 0.2 + (value / DEFAULT_LUMINOSITY) * 0.8;
-  }
-  return 1 + ((value - DEFAULT_LUMINOSITY) / DEFAULT_LUMINOSITY) * (maxStrength - 1);
+  const t = value / 100;
+  if (t <= 0) return minStrength;
+  if (t >= 1) return maxStrength;
+  const ratio = maxStrength / minStrength;
+  const k = Math.log(1 / minStrength) / Math.log(ratio);
+  const p = Math.log(k) / Math.log(0.5);
+  return minStrength * Math.pow(ratio, Math.pow(t, p));
 }
 
 function deriveVisualizationPalette(theme, luminosity) {
@@ -59,7 +63,11 @@ function deriveVisualizationPalette(theme, luminosity) {
   );
 
   return {
-    nodeDefault: scaleRelativeColor(base.background, base.nodeDefault, strength),
+    nodeDefault: scaleRelativeColor(
+      base.background,
+      base.nodeDefault,
+      strength,
+    ),
     edgeDefaultLine,
     edgeDefaultPoint: scaleRelativeColor(
       base.background,
@@ -77,7 +85,7 @@ function deriveVisualizationPalette(theme, luminosity) {
 }
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
   const [luminosity, setLuminosity] = useState(DEFAULT_LUMINOSITY);
 
   // Apply theme to document root

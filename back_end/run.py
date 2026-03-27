@@ -43,7 +43,7 @@ def main():
         step_node_link.run(filename, SCRATCH_DIR, PUBLIC_DIR)
         print("DONE!")
 
-        print("\t\tAdjacencyMatrix .....................", end=" ", flush=True)
+        print("\t\tAdjacencyMatrix ...................", end=" ", flush=True)
         step_adjacency_matrix.run(filename, SCRATCH_DIR, PUBLIC_DIR)
         print("DONE!")
 
