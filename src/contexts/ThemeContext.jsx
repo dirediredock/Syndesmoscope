@@ -77,7 +77,7 @@ function deriveVisualizationPalette(theme, luminosity) {
 }
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
   const [luminosity, setLuminosity] = useState(DEFAULT_LUMINOSITY);
 
   // Apply theme to document root
