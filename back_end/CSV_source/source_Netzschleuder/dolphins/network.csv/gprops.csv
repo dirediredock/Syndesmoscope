@@ -1,7 +1,0 @@
-# prop_name, value
-name,dolphins
-description,"An undirected social network of frequent associations observed among 62 dolphins (Tursiops) in a community living off Doubtful Sound, New Zealand, from 1994-2001."
-citation,"['D. Lusseau et al., \"The bottlenose dolphin community of Doubtful Sound features a large proportion of long-lasting associations.\" Behavioral Ecology and Sociobiology 54(4), 396-405 (2003)., http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.174.3721&rep=rep1&type=pdf']"
-url,http://www-personal.umich.edu/~mejn/netdata/
-tags,"['Social', 'Animal', 'Unweighted']"
-directed,0.0

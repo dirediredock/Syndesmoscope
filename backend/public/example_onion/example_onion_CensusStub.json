@@ -1,0 +1,254 @@
+{
+  "metadata": {
+    "name": "example_onion",
+    "census_type": "Census-Stub",
+    "total_nodes": 17,
+    "total_edges": 19,
+    "diameter": 10
+  },
+  "census_vectors": [
+    {
+      "node_idx": 0,
+      "vector_length": 10,
+      "vector": [
+        1,
+        1,
+        1,
+        2,
+        3,
+        1,
+        3,
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "node_idx": 1,
+      "vector_length": 9,
+      "vector": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "node_idx": 2,
+      "vector_length": 9,
+      "vector": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "node_idx": 3,
+      "vector_length": 10,
+      "vector": [
+        1,
+        2,
+        4,
+        7,
+        1,
+        1,
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 4,
+      "vector_length": 10,
+      "vector": [
+        1,
+        2,
+        4,
+        7,
+        1,
+        1,
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 5,
+      "vector_length": 9,
+      "vector": [
+        2,
+        1,
+        2,
+        3,
+        1,
+        3,
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "node_idx": 6,
+      "vector_length": 8,
+      "vector": [
+        2,
+        3,
+        3,
+        1,
+        3,
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "node_idx": 7,
+      "vector_length": 6,
+      "vector": [
+        2,
+        3,
+        6,
+        8,
+        2,
+        0
+      ]
+    },
+    {
+      "node_idx": 8,
+      "vector_length": 6,
+      "vector": [
+        2,
+        4,
+        9,
+        5,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 9,
+      "vector_length": 9,
+      "vector": [
+        2,
+        6,
+        5,
+        1,
+        1,
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 10,
+      "vector_length": 8,
+      "vector": [
+        2,
+        7,
+        5,
+        1,
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 11,
+      "vector_length": 8,
+      "vector": [
+        3,
+        2,
+        2,
+        2,
+        3,
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "node_idx": 12,
+      "vector_length": 7,
+      "vector": [
+        3,
+        4,
+        2,
+        3,
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "node_idx": 13,
+      "vector_length": 9,
+      "vector": [
+        3,
+        4,
+        7,
+        1,
+        1,
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 14,
+      "vector_length": 8,
+      "vector": [
+        3,
+        8,
+        3,
+        1,
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 15,
+      "vector_length": 7,
+      "vector": [
+        4,
+        8,
+        3,
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 16,
+      "vector_length": 8,
+      "vector": [
+        5,
+        9,
+        1,
+        1,
+        2,
+        3,
+        1,
+        0
+      ]
+    }
+  ]
+}

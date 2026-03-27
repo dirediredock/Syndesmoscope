@@ -1,0 +1,6 @@
+# prop_name, value
+name,fly_larva
+description,"A complete synaptic map of the brain connectome of the larva of the fruit fly Drosophila melanogaster. Nodes are neurons, and edges are synaptic connections, traced individually from brain image sections using three-dimensional electron microscopy–based reconstruction. Node metadata include the neuron hempisphere, hemispherical homologue, cell type, annotations, and inferred cluster. Edge metadata include the type of interaction (`'aa'`, `'ad'`, `'da'`, `'dd'`), and synapse count."
+citation,"['M. Winding et al., \"The connectome of an insect brain\", Science 379 eadd9330 (2023), https://doi.org/10.1126/science.add9330']"
+url,https://doi.org/10.1126/science.add9330
+tags,"['Biological', 'Connectome', 'Weighted', 'Metadata']"

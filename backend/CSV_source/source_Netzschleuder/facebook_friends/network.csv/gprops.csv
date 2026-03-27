@@ -1,0 +1,6 @@
+# prop_name, value
+name,facebook_friends
+description,"A small anonymized Facebook ego network, from April 2014. Nodes are Facebook profiles, and an edge exists if the two profiles are \"friends\" on Facebook. Metadata gives the social context for the relationship between ego and alter."
+citation,"['B. F. Maier and D. Brockmann, \"Cover time for random walks on arbitrary complex networks.\" Phys. Rev. E 96, 042307 (2017), https://arxiv.org/abs/1706.02356']"
+url,https://github.com/benmaier/BFMaierFBnetwork
+tags,"['Social', 'Online', 'Unweighted', 'Metadata']"

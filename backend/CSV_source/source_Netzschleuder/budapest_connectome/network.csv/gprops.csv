@@ -1,0 +1,6 @@
+# prop_name, value
+name,budapest_connectome (all_20k)
+description,"A parameterizable consensus brain graph, derived from connectomes of 477 people, each computed from MRI datasets of the Human Connectome Project. Nodes are brain regions, and edges are weighted by the number of \"tracks\" that run between two nodes, as well as fiber length, fractional anisotropy and the number of occurrences in each of the 477 individuals."
+citation,"['B. Szalkai et al., \"The Budapest Reference Connectome Server v2.0.\" Neuroscience Letters 595, 60-62 (2015), https://doi.org/10.1016/j.neulet.2015.03.071']"
+url,http://pitgroup.org/connectome/#manual
+tags,"['Biological', 'Connectome', 'Weighted']"

@@ -1,0 +1,7 @@
+# prop_name, value
+name,plant_pol_robertson
+description,"A bipartite network of plants and pollinators, from southwestern Illinois, USA[^icon]
+[^icon]: Description obtained from the [ICON](https://icon.colorado.edu) project."
+citation,"['C. Robertson, \"Flowers and insects: lists of visitors to four hundred and fifty-three flowers.\" Carlinville, IL, USA, C. Robertson. (1929), https://www.google.com/search?q=C.+Robertson%2C+\"Flowers+and+insects%3A+lists+of+visitors+to+four+hundred+and+fifty-three+flowers.\"+Carlinville%2C+IL%2C+USA%2C+C.+Robertson.+(1929)&oq=C.+Robertson%2C+\"Flowers+and+insects%3A+lists+of+visitors+to+four+hundred+and+fifty-three+flowers.\"+Carlinville%2C+IL%2C+USA%2C+C.+Robertson.+(1929)']"
+url,https://iwdb.nceas.ucsb.edu/html/robertson_1929.html
+tags,"['Biological', 'Food web', 'Unweighted']"

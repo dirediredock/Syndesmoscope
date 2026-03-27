@@ -1,0 +1,386 @@
+{
+  "metadata": {
+    "name": "karate_club",
+    "census_type": "Census-Edge",
+    "total_nodes": 34,
+    "total_edges": 78,
+    "diameter": 6
+  },
+  "census_vectors": [
+    {
+      "node_idx": 0,
+      "vector_length": 5,
+      "vector": [
+        1,
+        15,
+        35,
+        25,
+        2
+      ]
+    },
+    {
+      "node_idx": 1,
+      "vector_length": 6,
+      "vector": [
+        2,
+        5,
+        15,
+        29,
+        25,
+        2
+      ]
+    },
+    {
+      "node_idx": 2,
+      "vector_length": 6,
+      "vector": [
+        2,
+        18,
+        30,
+        22,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 3,
+      "vector_length": 5,
+      "vector": [
+        2,
+        19,
+        30,
+        25,
+        2
+      ]
+    },
+    {
+      "node_idx": 4,
+      "vector_length": 5,
+      "vector": [
+        2,
+        22,
+        29,
+        23,
+        2
+      ]
+    },
+    {
+      "node_idx": 5,
+      "vector_length": 5,
+      "vector": [
+        2,
+        22,
+        29,
+        23,
+        2
+      ]
+    },
+    {
+      "node_idx": 6,
+      "vector_length": 5,
+      "vector": [
+        2,
+        25,
+        44,
+        7,
+        0
+      ]
+    },
+    {
+      "node_idx": 7,
+      "vector_length": 6,
+      "vector": [
+        2,
+        26,
+        26,
+        18,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 8,
+      "vector_length": 6,
+      "vector": [
+        2,
+        26,
+        26,
+        18,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 9,
+      "vector_length": 6,
+      "vector": [
+        2,
+        26,
+        26,
+        18,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 10,
+      "vector_length": 6,
+      "vector": [
+        2,
+        26,
+        26,
+        18,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 11,
+      "vector_length": 6,
+      "vector": [
+        2,
+        26,
+        26,
+        18,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 12,
+      "vector_length": 5,
+      "vector": [
+        3,
+        9,
+        48,
+        18,
+        0
+      ]
+    },
+    {
+      "node_idx": 13,
+      "vector_length": 5,
+      "vector": [
+        3,
+        10,
+        42,
+        23,
+        0
+      ]
+    },
+    {
+      "node_idx": 14,
+      "vector_length": 5,
+      "vector": [
+        3,
+        18,
+        30,
+        25,
+        2
+      ]
+    },
+    {
+      "node_idx": 15,
+      "vector_length": 5,
+      "vector": [
+        3,
+        18,
+        30,
+        25,
+        2
+      ]
+    },
+    {
+      "node_idx": 16,
+      "vector_length": 5,
+      "vector": [
+        3,
+        29,
+        40,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 17,
+      "vector_length": 4,
+      "vector": [
+        3,
+        38,
+        36,
+        1
+      ]
+    },
+    {
+      "node_idx": 18,
+      "vector_length": 5,
+      "vector": [
+        4,
+        18,
+        29,
+        25,
+        2
+      ]
+    },
+    {
+      "node_idx": 19,
+      "vector_length": 5,
+      "vector": [
+        4,
+        18,
+        29,
+        25,
+        2
+      ]
+    },
+    {
+      "node_idx": 20,
+      "vector_length": 5,
+      "vector": [
+        4,
+        30,
+        38,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 21,
+      "vector_length": 6,
+      "vector": [
+        4,
+        28,
+        23,
+        17,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 22,
+      "vector_length": 5,
+      "vector": [
+        4,
+        31,
+        31,
+        12,
+        0
+      ]
+    },
+    {
+      "node_idx": 23,
+      "vector_length": 5,
+      "vector": [
+        4,
+        36,
+        31,
+        7,
+        0
+      ]
+    },
+    {
+      "node_idx": 24,
+      "vector_length": 6,
+      "vector": [
+        5,
+        31,
+        19,
+        17,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 25,
+      "vector_length": 4,
+      "vector": [
+        5,
+        47,
+        25,
+        1
+      ]
+    },
+    {
+      "node_idx": 26,
+      "vector_length": 4,
+      "vector": [
+        5,
+        49,
+        23,
+        1
+      ]
+    },
+    {
+      "node_idx": 27,
+      "vector_length": 4,
+      "vector": [
+        6,
+        30,
+        38,
+        4
+      ]
+    },
+    {
+      "node_idx": 28,
+      "vector_length": 4,
+      "vector": [
+        6,
+        45,
+        27,
+        0
+      ]
+    },
+    {
+      "node_idx": 29,
+      "vector_length": 4,
+      "vector": [
+        9,
+        31,
+        34,
+        4
+      ]
+    },
+    {
+      "node_idx": 30,
+      "vector_length": 4,
+      "vector": [
+        10,
+        45,
+        23,
+        0
+      ]
+    },
+    {
+      "node_idx": 31,
+      "vector_length": 5,
+      "vector": [
+        12,
+        36,
+        24,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 32,
+      "vector_length": 4,
+      "vector": [
+        16,
+        35,
+        25,
+        2
+      ]
+    },
+    {
+      "node_idx": 33,
+      "vector_length": 5,
+      "vector": [
+        17,
+        33,
+        22,
+        6,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# prop_name, value
+name,spanish_highschools (6)
+description,"Directed networks of friendships obtained through a social survey of spanish high school students.
+
+The dataset comprises 13 high school networks that represent the diverse social relationships that exist between students within each school.
+
+The weight of each edge varies between -2, -1, +1, and +2. The sign indicates the nature of the friendship, while the number corresponds to its intensity.
+
+Node properties include the age level, group, sex, and psychological attributes such as CRT and prosociality.
+"
+citation,"['Miguel Ruiz-García, Juan Ozaita, María Pereda, and Angel Sánchez, \"Triadic influence as a proxy for compatibility in social relationships\", PNAS 120 (13) e2215041120 (2023), https://doi.org/10.1073/pnas.2215041120']"
+url,https://doi.org/10.5281/zenodo.7647000
+upstream_license,"CC BY 4.0, https://creativecommons.org/licenses/by/4.0/"
+tags,"['Social', 'Offline', 'Weighted', 'Metadata']"

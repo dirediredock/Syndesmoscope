@@ -1,6 +1,0 @@
-# prop_name, value
-name,nematode_mammal
-description,"A global interaction web of interactions between nematodes and their host mammal species, extracted from the helminthR package and dataset. Nodes are annotated with species-level information."
-citation,"['T. Dallas et al. \"Gauging support for macroecological patterns in helminth parasites.\" Glob. Ecol. Biogeogr. 27, 1437–1447 (2018), https://onlinelibrary.wiley.com/doi/full/10.1111/geb.12819']"
-url,https://github.com/cjcarlson/brevity/tree/master/Figure%201%20Demo%20Networks
-tags,"['Biological', 'Food web', 'Unweighted', 'Metadata']"

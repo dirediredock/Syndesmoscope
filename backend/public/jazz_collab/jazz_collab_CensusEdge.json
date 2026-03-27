@@ -1,0 +1,2340 @@
+{
+  "metadata": {
+    "name": "jazz_collab",
+    "census_type": "Census-Edge",
+    "total_nodes": 198,
+    "total_edges": 2742,
+    "diameter": 7
+  },
+  "census_vectors": [
+    {
+      "node_idx": 0,
+      "vector_length": 7,
+      "vector": [
+        1,
+        3,
+        170,
+        1960,
+        603,
+        5,
+        0
+      ]
+    },
+    {
+      "node_idx": 1,
+      "vector_length": 7,
+      "vector": [
+        1,
+        8,
+        205,
+        1268,
+        1244,
+        16,
+        0
+      ]
+    },
+    {
+      "node_idx": 2,
+      "vector_length": 7,
+      "vector": [
+        1,
+        14,
+        534,
+        1893,
+        296,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 3,
+      "vector_length": 6,
+      "vector": [
+        1,
+        45,
+        906,
+        1639,
+        151,
+        0
+      ]
+    },
+    {
+      "node_idx": 4,
+      "vector_length": 6,
+      "vector": [
+        1,
+        53,
+        1100,
+        1469,
+        119,
+        0
+      ]
+    },
+    {
+      "node_idx": 5,
+      "vector_length": 7,
+      "vector": [
+        2,
+        4,
+        9,
+        145,
+        977,
+        1602,
+        3
+      ]
+    },
+    {
+      "node_idx": 6,
+      "vector_length": 6,
+      "vector": [
+        2,
+        65,
+        774,
+        1760,
+        141,
+        0
+      ]
+    },
+    {
+      "node_idx": 7,
+      "vector_length": 6,
+      "vector": [
+        2,
+        128,
+        2330,
+        278,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 8,
+      "vector_length": 6,
+      "vector": [
+        3,
+        8,
+        127,
+        966,
+        1635,
+        3
+      ]
+    },
+    {
+      "node_idx": 9,
+      "vector_length": 6,
+      "vector": [
+        3,
+        65,
+        777,
+        1756,
+        141,
+        0
+      ]
+    },
+    {
+      "node_idx": 10,
+      "vector_length": 7,
+      "vector": [
+        3,
+        104,
+        1402,
+        1217,
+        13,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 11,
+      "vector_length": 6,
+      "vector": [
+        4,
+        11,
+        145,
+        977,
+        1602,
+        3
+      ]
+    },
+    {
+      "node_idx": 12,
+      "vector_length": 5,
+      "vector": [
+        4,
+        123,
+        977,
+        1635,
+        3
+      ]
+    },
+    {
+      "node_idx": 13,
+      "vector_length": 6,
+      "vector": [
+        4,
+        170,
+        1960,
+        603,
+        5,
+        0
+      ]
+    },
+    {
+      "node_idx": 14,
+      "vector_length": 6,
+      "vector": [
+        5,
+        29,
+        465,
+        1817,
+        426,
+        0
+      ]
+    },
+    {
+      "node_idx": 15,
+      "vector_length": 6,
+      "vector": [
+        5,
+        72,
+        835,
+        1808,
+        22,
+        0
+      ]
+    },
+    {
+      "node_idx": 16,
+      "vector_length": 6,
+      "vector": [
+        5,
+        77,
+        909,
+        1746,
+        5,
+        0
+      ]
+    },
+    {
+      "node_idx": 17,
+      "vector_length": 5,
+      "vector": [
+        5,
+        95,
+        1125,
+        1514,
+        3
+      ]
+    },
+    {
+      "node_idx": 18,
+      "vector_length": 6,
+      "vector": [
+        6,
+        116,
+        882,
+        1617,
+        121,
+        0
+      ]
+    },
+    {
+      "node_idx": 19,
+      "vector_length": 5,
+      "vector": [
+        6,
+        128,
+        1356,
+        1249,
+        3
+      ]
+    },
+    {
+      "node_idx": 20,
+      "vector_length": 5,
+      "vector": [
+        6,
+        144,
+        1653,
+        939,
+        0
+      ]
+    },
+    {
+      "node_idx": 21,
+      "vector_length": 5,
+      "vector": [
+        6,
+        144,
+        1653,
+        939,
+        0
+      ]
+    },
+    {
+      "node_idx": 22,
+      "vector_length": 6,
+      "vector": [
+        6,
+        301,
+        2268,
+        162,
+        5,
+        0
+      ]
+    },
+    {
+      "node_idx": 23,
+      "vector_length": 5,
+      "vector": [
+        7,
+        127,
+        970,
+        1635,
+        3
+      ]
+    },
+    {
+      "node_idx": 24,
+      "vector_length": 6,
+      "vector": [
+        7,
+        254,
+        2144,
+        333,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 25,
+      "vector_length": 6,
+      "vector": [
+        7,
+        254,
+        2144,
+        333,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 26,
+      "vector_length": 7,
+      "vector": [
+        8,
+        184,
+        1581,
+        913,
+        53,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 27,
+      "vector_length": 7,
+      "vector": [
+        8,
+        184,
+        1581,
+        913,
+        53,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 28,
+      "vector_length": 6,
+      "vector": [
+        8,
+        317,
+        2209,
+        204,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 29,
+      "vector_length": 6,
+      "vector": [
+        9,
+        205,
+        1268,
+        1244,
+        16,
+        0
+      ]
+    },
+    {
+      "node_idx": 30,
+      "vector_length": 7,
+      "vector": [
+        9,
+        205,
+        1566,
+        906,
+        53,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 31,
+      "vector_length": 6,
+      "vector": [
+        9,
+        336,
+        1961,
+        430,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 32,
+      "vector_length": 7,
+      "vector": [
+        10,
+        259,
+        1996,
+        467,
+        7,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 33,
+      "vector_length": 6,
+      "vector": [
+        10,
+        356,
+        2295,
+        77,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 34,
+      "vector_length": 6,
+      "vector": [
+        11,
+        487,
+        2165,
+        75,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 35,
+      "vector_length": 6,
+      "vector": [
+        12,
+        371,
+        2208,
+        147,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 36,
+      "vector_length": 5,
+      "vector": [
+        12,
+        423,
+        2025,
+        282,
+        0
+      ]
+    },
+    {
+      "node_idx": 37,
+      "vector_length": 6,
+      "vector": [
+        12,
+        471,
+        2159,
+        96,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 38,
+      "vector_length": 6,
+      "vector": [
+        13,
+        339,
+        1945,
+        440,
+        5,
+        0
+      ]
+    },
+    {
+      "node_idx": 39,
+      "vector_length": 5,
+      "vector": [
+        13,
+        368,
+        1373,
+        985,
+        3
+      ]
+    },
+    {
+      "node_idx": 40,
+      "vector_length": 5,
+      "vector": [
+        13,
+        402,
+        2222,
+        105,
+        0
+      ]
+    },
+    {
+      "node_idx": 41,
+      "vector_length": 6,
+      "vector": [
+        13,
+        426,
+        2194,
+        106,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 42,
+      "vector_length": 6,
+      "vector": [
+        13,
+        427,
+        1776,
+        521,
+        5,
+        0
+      ]
+    },
+    {
+      "node_idx": 43,
+      "vector_length": 6,
+      "vector": [
+        13,
+        499,
+        1883,
+        342,
+        5,
+        0
+      ]
+    },
+    {
+      "node_idx": 44,
+      "vector_length": 5,
+      "vector": [
+        14,
+        344,
+        1248,
+        1133,
+        3
+      ]
+    },
+    {
+      "node_idx": 45,
+      "vector_length": 6,
+      "vector": [
+        14,
+        525,
+        2122,
+        77,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 46,
+      "vector_length": 6,
+      "vector": [
+        14,
+        582,
+        1699,
+        441,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 47,
+      "vector_length": 6,
+      "vector": [
+        14,
+        582,
+        1699,
+        441,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 48,
+      "vector_length": 6,
+      "vector": [
+        15,
+        534,
+        1893,
+        296,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 49,
+      "vector_length": 5,
+      "vector": [
+        16,
+        366,
+        1216,
+        1141,
+        3
+      ]
+    },
+    {
+      "node_idx": 50,
+      "vector_length": 5,
+      "vector": [
+        16,
+        387,
+        1282,
+        1054,
+        3
+      ]
+    },
+    {
+      "node_idx": 51,
+      "vector_length": 5,
+      "vector": [
+        16,
+        477,
+        1968,
+        281,
+        0
+      ]
+    },
+    {
+      "node_idx": 52,
+      "vector_length": 5,
+      "vector": [
+        16,
+        553,
+        2147,
+        26,
+        0
+      ]
+    },
+    {
+      "node_idx": 53,
+      "vector_length": 5,
+      "vector": [
+        17,
+        485,
+        1959,
+        281,
+        0
+      ]
+    },
+    {
+      "node_idx": 54,
+      "vector_length": 6,
+      "vector": [
+        17,
+        501,
+        1901,
+        322,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 55,
+      "vector_length": 5,
+      "vector": [
+        17,
+        507,
+        1939,
+        279,
+        0
+      ]
+    },
+    {
+      "node_idx": 56,
+      "vector_length": 6,
+      "vector": [
+        17,
+        613,
+        2052,
+        57,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 57,
+      "vector_length": 6,
+      "vector": [
+        17,
+        736,
+        1968,
+        18,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 58,
+      "vector_length": 6,
+      "vector": [
+        18,
+        458,
+        2020,
+        243,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 59,
+      "vector_length": 6,
+      "vector": [
+        18,
+        523,
+        1892,
+        308,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 60,
+      "vector_length": 6,
+      "vector": [
+        18,
+        584,
+        1967,
+        169,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 61,
+      "vector_length": 6,
+      "vector": [
+        18,
+        644,
+        1635,
+        439,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 62,
+      "vector_length": 6,
+      "vector": [
+        19,
+        412,
+        1973,
+        335,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 63,
+      "vector_length": 5,
+      "vector": [
+        19,
+        404,
+        987,
+        1320,
+        12
+      ]
+    },
+    {
+      "node_idx": 64,
+      "vector_length": 6,
+      "vector": [
+        19,
+        493,
+        2137,
+        90,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 65,
+      "vector_length": 5,
+      "vector": [
+        19,
+        426,
+        1231,
+        1060,
+        6
+      ]
+    },
+    {
+      "node_idx": 66,
+      "vector_length": 6,
+      "vector": [
+        19,
+        512,
+        2182,
+        26,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 67,
+      "vector_length": 5,
+      "vector": [
+        19,
+        510,
+        1942,
+        271,
+        0
+      ]
+    },
+    {
+      "node_idx": 68,
+      "vector_length": 6,
+      "vector": [
+        19,
+        792,
+        1832,
+        96,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 69,
+      "vector_length": 5,
+      "vector": [
+        20,
+        421,
+        1703,
+        598,
+        0
+      ]
+    },
+    {
+      "node_idx": 70,
+      "vector_length": 6,
+      "vector": [
+        20,
+        490,
+        1647,
+        569,
+        16,
+        0
+      ]
+    },
+    {
+      "node_idx": 71,
+      "vector_length": 5,
+      "vector": [
+        20,
+        503,
+        2096,
+        123,
+        0
+      ]
+    },
+    {
+      "node_idx": 72,
+      "vector_length": 5,
+      "vector": [
+        20,
+        525,
+        2115,
+        82,
+        0
+      ]
+    },
+    {
+      "node_idx": 73,
+      "vector_length": 6,
+      "vector": [
+        20,
+        610,
+        1683,
+        423,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 74,
+      "vector_length": 5,
+      "vector": [
+        20,
+        599,
+        1866,
+        257,
+        0
+      ]
+    },
+    {
+      "node_idx": 75,
+      "vector_length": 6,
+      "vector": [
+        20,
+        640,
+        1970,
+        108,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 76,
+      "vector_length": 6,
+      "vector": [
+        20,
+        651,
+        1937,
+        130,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 77,
+      "vector_length": 6,
+      "vector": [
+        21,
+        678,
+        1970,
+        70,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 78,
+      "vector_length": 6,
+      "vector": [
+        21,
+        868,
+        1752,
+        97,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 79,
+      "vector_length": 5,
+      "vector": [
+        22,
+        449,
+        1205,
+        1060,
+        6
+      ]
+    },
+    {
+      "node_idx": 80,
+      "vector_length": 6,
+      "vector": [
+        22,
+        585,
+        1844,
+        290,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 81,
+      "vector_length": 5,
+      "vector": [
+        23,
+        503,
+        1202,
+        1005,
+        9
+      ]
+    },
+    {
+      "node_idx": 82,
+      "vector_length": 6,
+      "vector": [
+        23,
+        593,
+        1822,
+        303,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 83,
+      "vector_length": 6,
+      "vector": [
+        23,
+        637,
+        2007,
+        72,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 84,
+      "vector_length": 6,
+      "vector": [
+        23,
+        712,
+        1665,
+        339,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 85,
+      "vector_length": 6,
+      "vector": [
+        23,
+        744,
+        1875,
+        96,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 86,
+      "vector_length": 6,
+      "vector": [
+        23,
+        752,
+        1850,
+        113,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 87,
+      "vector_length": 6,
+      "vector": [
+        23,
+        773,
+        1474,
+        463,
+        9,
+        0
+      ]
+    },
+    {
+      "node_idx": 88,
+      "vector_length": 6,
+      "vector": [
+        23,
+        791,
+        1458,
+        461,
+        9,
+        0
+      ]
+    },
+    {
+      "node_idx": 89,
+      "vector_length": 6,
+      "vector": [
+        23,
+        883,
+        1722,
+        110,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 90,
+      "vector_length": 5,
+      "vector": [
+        24,
+        506,
+        1198,
+        1005,
+        9
+      ]
+    },
+    {
+      "node_idx": 91,
+      "vector_length": 6,
+      "vector": [
+        24,
+        613,
+        1640,
+        459,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 92,
+      "vector_length": 5,
+      "vector": [
+        24,
+        551,
+        1681,
+        483,
+        3
+      ]
+    },
+    {
+      "node_idx": 93,
+      "vector_length": 6,
+      "vector": [
+        24,
+        741,
+        1750,
+        223,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 94,
+      "vector_length": 6,
+      "vector": [
+        24,
+        813,
+        1870,
+        32,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 95,
+      "vector_length": 5,
+      "vector": [
+        25,
+        478,
+        1366,
+        870,
+        3
+      ]
+    },
+    {
+      "node_idx": 96,
+      "vector_length": 5,
+      "vector": [
+        25,
+        639,
+        1900,
+        178,
+        0
+      ]
+    },
+    {
+      "node_idx": 97,
+      "vector_length": 6,
+      "vector": [
+        25,
+        765,
+        1882,
+        66,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 98,
+      "vector_length": 6,
+      "vector": [
+        25,
+        784,
+        1791,
+        138,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 99,
+      "vector_length": 6,
+      "vector": [
+        25,
+        915,
+        1712,
+        87,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 100,
+      "vector_length": 6,
+      "vector": [
+        26,
+        849,
+        1790,
+        73,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 101,
+      "vector_length": 6,
+      "vector": [
+        26,
+        882,
+        1670,
+        160,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 102,
+      "vector_length": 6,
+      "vector": [
+        26,
+        950,
+        1678,
+        84,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 103,
+      "vector_length": 6,
+      "vector": [
+        27,
+        786,
+        1718,
+        207,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 104,
+      "vector_length": 6,
+      "vector": [
+        27,
+        904,
+        1696,
+        111,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 105,
+      "vector_length": 6,
+      "vector": [
+        27,
+        959,
+        1668,
+        84,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 106,
+      "vector_length": 6,
+      "vector": [
+        27,
+        959,
+        1668,
+        84,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 107,
+      "vector_length": 6,
+      "vector": [
+        27,
+        967,
+        1660,
+        84,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 108,
+      "vector_length": 5,
+      "vector": [
+        28,
+        556,
+        1420,
+        735,
+        3
+      ]
+    },
+    {
+      "node_idx": 109,
+      "vector_length": 6,
+      "vector": [
+        28,
+        803,
+        1700,
+        207,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 110,
+      "vector_length": 6,
+      "vector": [
+        28,
+        976,
+        1650,
+        84,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 111,
+      "vector_length": 6,
+      "vector": [
+        29,
+        628,
+        1794,
+        290,
+        1,
+        0
+      ]
+    },
+    {
+      "node_idx": 112,
+      "vector_length": 6,
+      "vector": [
+        29,
+        881,
+        1755,
+        73,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 113,
+      "vector_length": 6,
+      "vector": [
+        29,
+        976,
+        1722,
+        12,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 114,
+      "vector_length": 6,
+      "vector": [
+        29,
+        962,
+        1659,
+        89,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 115,
+      "vector_length": 6,
+      "vector": [
+        29,
+        1001,
+        1654,
+        55,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 116,
+      "vector_length": 5,
+      "vector": [
+        30,
+        844,
+        1813,
+        55,
+        0
+      ]
+    },
+    {
+      "node_idx": 117,
+      "vector_length": 6,
+      "vector": [
+        30,
+        918,
+        1350,
+        438,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 118,
+      "vector_length": 5,
+      "vector": [
+        31,
+        651,
+        1940,
+        120,
+        0
+      ]
+    },
+    {
+      "node_idx": 119,
+      "vector_length": 5,
+      "vector": [
+        31,
+        590,
+        1737,
+        384,
+        0
+      ]
+    },
+    {
+      "node_idx": 120,
+      "vector_length": 5,
+      "vector": [
+        31,
+        663,
+        1796,
+        252,
+        0
+      ]
+    },
+    {
+      "node_idx": 121,
+      "vector_length": 5,
+      "vector": [
+        31,
+        677,
+        1875,
+        159,
+        0
+      ]
+    },
+    {
+      "node_idx": 122,
+      "vector_length": 5,
+      "vector": [
+        31,
+        892,
+        1791,
+        28,
+        0
+      ]
+    },
+    {
+      "node_idx": 123,
+      "vector_length": 6,
+      "vector": [
+        31,
+        950,
+        1718,
+        39,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 124,
+      "vector_length": 6,
+      "vector": [
+        31,
+        1118,
+        1573,
+        17,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 125,
+      "vector_length": 6,
+      "vector": [
+        31,
+        939,
+        1328,
+        438,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 126,
+      "vector_length": 6,
+      "vector": [
+        31,
+        1074,
+        1589,
+        45,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 127,
+      "vector_length": 6,
+      "vector": [
+        32,
+        1002,
+        1610,
+        95,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 128,
+      "vector_length": 6,
+      "vector": [
+        32,
+        936,
+        1330,
+        438,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 129,
+      "vector_length": 6,
+      "vector": [
+        32,
+        970,
+        1296,
+        438,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 130,
+      "vector_length": 5,
+      "vector": [
+        33,
+        815,
+        1718,
+        176,
+        0
+      ]
+    },
+    {
+      "node_idx": 131,
+      "vector_length": 6,
+      "vector": [
+        33,
+        968,
+        1625,
+        112,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 132,
+      "vector_length": 6,
+      "vector": [
+        33,
+        1055,
+        1333,
+        316,
+        5,
+        0
+      ]
+    },
+    {
+      "node_idx": 133,
+      "vector_length": 6,
+      "vector": [
+        33,
+        1054,
+        1576,
+        75,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 134,
+      "vector_length": 6,
+      "vector": [
+        34,
+        955,
+        1314,
+        433,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 135,
+      "vector_length": 6,
+      "vector": [
+        34,
+        955,
+        1314,
+        433,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 136,
+      "vector_length": 6,
+      "vector": [
+        34,
+        1066,
+        1563,
+        75,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 137,
+      "vector_length": 6,
+      "vector": [
+        35,
+        986,
+        1656,
+        61,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 138,
+      "vector_length": 5,
+      "vector": [
+        36,
+        1188,
+        1496,
+        22,
+        0
+      ]
+    },
+    {
+      "node_idx": 139,
+      "vector_length": 6,
+      "vector": [
+        36,
+        1205,
+        1477,
+        21,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 140,
+      "vector_length": 6,
+      "vector": [
+        37,
+        1085,
+        1597,
+        20,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 141,
+      "vector_length": 6,
+      "vector": [
+        37,
+        991,
+        1270,
+        438,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 142,
+      "vector_length": 5,
+      "vector": [
+        37,
+        1183,
+        1504,
+        18,
+        0
+      ]
+    },
+    {
+      "node_idx": 143,
+      "vector_length": 6,
+      "vector": [
+        38,
+        980,
+        1280,
+        438,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 144,
+      "vector_length": 5,
+      "vector": [
+        39,
+        743,
+        1801,
+        159,
+        0
+      ]
+    },
+    {
+      "node_idx": 145,
+      "vector_length": 6,
+      "vector": [
+        39,
+        1180,
+        1459,
+        60,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 146,
+      "vector_length": 5,
+      "vector": [
+        39,
+        1150,
+        1529,
+        24,
+        0
+      ]
+    },
+    {
+      "node_idx": 147,
+      "vector_length": 6,
+      "vector": [
+        39,
+        1131,
+        1555,
+        14,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 148,
+      "vector_length": 6,
+      "vector": [
+        39,
+        1082,
+        1177,
+        438,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 149,
+      "vector_length": 5,
+      "vector": [
+        39,
+        1318,
+        1369,
+        15,
+        1
+      ]
+    },
+    {
+      "node_idx": 150,
+      "vector_length": 5,
+      "vector": [
+        40,
+        705,
+        1841,
+        156,
+        0
+      ]
+    },
+    {
+      "node_idx": 151,
+      "vector_length": 5,
+      "vector": [
+        40,
+        758,
+        1794,
+        150,
+        0
+      ]
+    },
+    {
+      "node_idx": 152,
+      "vector_length": 5,
+      "vector": [
+        40,
+        795,
+        1769,
+        138,
+        0
+      ]
+    },
+    {
+      "node_idx": 153,
+      "vector_length": 6,
+      "vector": [
+        40,
+        1092,
+        1166,
+        438,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 154,
+      "vector_length": 6,
+      "vector": [
+        40,
+        1332,
+        1304,
+        62,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 155,
+      "vector_length": 5,
+      "vector": [
+        41,
+        792,
+        1887,
+        22,
+        0
+      ]
+    },
+    {
+      "node_idx": 156,
+      "vector_length": 5,
+      "vector": [
+        41,
+        1160,
+        1517,
+        24,
+        0
+      ]
+    },
+    {
+      "node_idx": 157,
+      "vector_length": 6,
+      "vector": [
+        41,
+        1079,
+        1524,
+        95,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 158,
+      "vector_length": 5,
+      "vector": [
+        41,
+        1281,
+        1370,
+        50,
+        0
+      ]
+    },
+    {
+      "node_idx": 159,
+      "vector_length": 6,
+      "vector": [
+        42,
+        1169,
+        1517,
+        11,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 160,
+      "vector_length": 6,
+      "vector": [
+        42,
+        1212,
+        1470,
+        15,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 161,
+      "vector_length": 6,
+      "vector": [
+        42,
+        1274,
+        1338,
+        85,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 162,
+      "vector_length": 6,
+      "vector": [
+        43,
+        1086,
+        1171,
+        436,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 163,
+      "vector_length": 6,
+      "vector": [
+        43,
+        1086,
+        1171,
+        436,
+        6,
+        0
+      ]
+    },
+    {
+      "node_idx": 164,
+      "vector_length": 6,
+      "vector": [
+        43,
+        1300,
+        1370,
+        26,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 165,
+      "vector_length": 6,
+      "vector": [
+        44,
+        1220,
+        1407,
+        67,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 166,
+      "vector_length": 5,
+      "vector": [
+        45,
+        763,
+        1787,
+        147,
+        0
+      ]
+    },
+    {
+      "node_idx": 167,
+      "vector_length": 6,
+      "vector": [
+        45,
+        1253,
+        1427,
+        14,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 168,
+      "vector_length": 6,
+      "vector": [
+        45,
+        1350,
+        1280,
+        63,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 169,
+      "vector_length": 5,
+      "vector": [
+        46,
+        906,
+        1639,
+        151,
+        0
+      ]
+    },
+    {
+      "node_idx": 170,
+      "vector_length": 6,
+      "vector": [
+        46,
+        1110,
+        1490,
+        93,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 171,
+      "vector_length": 6,
+      "vector": [
+        46,
+        1264,
+        1413,
+        16,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 172,
+      "vector_length": 6,
+      "vector": [
+        46,
+        1229,
+        1451,
+        13,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 173,
+      "vector_length": 6,
+      "vector": [
+        46,
+        1337,
+        1302,
+        54,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 174,
+      "vector_length": 6,
+      "vector": [
+        48,
+        1316,
+        1321,
+        54,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 175,
+      "vector_length": 6,
+      "vector": [
+        48,
+        1484,
+        1153,
+        54,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 176,
+      "vector_length": 6,
+      "vector": [
+        49,
+        1343,
+        1293,
+        54,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 177,
+      "vector_length": 6,
+      "vector": [
+        49,
+        1361,
+        1275,
+        54,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 178,
+      "vector_length": 6,
+      "vector": [
+        51,
+        1199,
+        1408,
+        81,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 179,
+      "vector_length": 5,
+      "vector": [
+        52,
+        1134,
+        1349,
+        207,
+        0
+      ]
+    },
+    {
+      "node_idx": 180,
+      "vector_length": 6,
+      "vector": [
+        52,
+        1526,
+        1150,
+        11,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 181,
+      "vector_length": 6,
+      "vector": [
+        53,
+        1518,
+        1153,
+        15,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 182,
+      "vector_length": 6,
+      "vector": [
+        53,
+        1495,
+        1163,
+        28,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 183,
+      "vector_length": 5,
+      "vector": [
+        54,
+        1100,
+        1469,
+        119,
+        0
+      ]
+    },
+    {
+      "node_idx": 184,
+      "vector_length": 6,
+      "vector": [
+        55,
+        1494,
+        1171,
+        19,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 185,
+      "vector_length": 5,
+      "vector": [
+        55,
+        1475,
+        1191,
+        21,
+        0
+      ]
+    },
+    {
+      "node_idx": 186,
+      "vector_length": 6,
+      "vector": [
+        56,
+        1649,
+        1023,
+        11,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 187,
+      "vector_length": 6,
+      "vector": [
+        56,
+        1569,
+        1060,
+        54,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 188,
+      "vector_length": 6,
+      "vector": [
+        57,
+        1436,
+        1200,
+        46,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 189,
+      "vector_length": 6,
+      "vector": [
+        59,
+        1525,
+        1127,
+        28,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 190,
+      "vector_length": 6,
+      "vector": [
+        59,
+        1651,
+        1021,
+        8,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 191,
+      "vector_length": 6,
+      "vector": [
+        60,
+        1549,
+        1104,
+        26,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 192,
+      "vector_length": 6,
+      "vector": [
+        60,
+        1620,
+        1014,
+        45,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 193,
+      "vector_length": 5,
+      "vector": [
+        62,
+        1635,
+        1031,
+        14,
+        0
+      ]
+    },
+    {
+      "node_idx": 194,
+      "vector_length": 5,
+      "vector": [
+        74,
+        1765,
+        882,
+        21,
+        0
+      ]
+    },
+    {
+      "node_idx": 195,
+      "vector_length": 6,
+      "vector": [
+        75,
+        1842,
+        777,
+        45,
+        3,
+        0
+      ]
+    },
+    {
+      "node_idx": 196,
+      "vector_length": 6,
+      "vector": [
+        96,
+        2028,
+        552,
+        62,
+        4,
+        0
+      ]
+    },
+    {
+      "node_idx": 197,
+      "vector_length": 5,
+      "vector": [
+        100,
+        2144,
+        493,
+        5,
+        0
+      ]
+    }
+  ]
+}

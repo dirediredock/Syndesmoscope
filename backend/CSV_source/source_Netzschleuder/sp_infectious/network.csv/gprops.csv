@@ -1,0 +1,6 @@
+# prop_name, value
+name,sp_infectious
+description,"This dataset contains the daily dynamic contact networks collected during the Infectious SocioPatterns event that took place at the Science Gallery in Dublin, Ireland, during the artscience exhibition INFECTIOUS: STAY AWAY. Each file in the downloadable package contains a tab-separated list representing the active contacts during 20-second intervals of one day of data collection.  Each line has the form “t i j“, where i and j are the anonymous IDs of the persons in contact, and the interval during which this contact was active is [ t – 20s, t ]. If multiple contacts are active in a given interval, you will see multiple lines starting with the same value of t. Time is measured in seconds and expressed in UNIX ctime."
+citation,"['L. Isella et al., \"What\'s in a crowd? Analysis of face-to-face behavioral networks.\" Journal of Theoretical Biology 271, 166-180 (2011)., http://arxiv.org/abs/1006.1260']"
+url,http://www.sociopatterns.org/datasets/infectious-sociopatterns-dynamic-contact-networks/
+tags,"['Social', 'Offline', 'Unweighted', 'Temporal']"

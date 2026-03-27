@@ -1,0 +1,6 @@
+# prop_name, value
+name,fullerene_structures (C240)
+description,"Fifteen networks of carbon atoms and the atomic bonds that connect them within molecules of fullerenes, from 60 atoms up to 6000 atoms. A bond is defined to exist whenever the distance of two atoms is less than 1.5 angstrom."
+citation,"['S. Aref and M. C. Wilson, \"Balance and frustration in signed networks.\" J. Complex Networks 7(2), 163–189 (2019), https://doi.org/10.1093/comnet/cny015']"
+url,https://doi.org/10.6084/m9.figshare.5700832
+tags,"['Biological', 'Chemical', 'Unweighted', 'Spatial']"

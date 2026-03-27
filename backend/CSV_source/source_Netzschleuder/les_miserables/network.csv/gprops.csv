@@ -1,0 +1,6 @@
+# prop_name, value
+name,lesmis
+description,The network of scene coappearances of characters in Victor Hugo's novel \"Les Miserables.\" Edge weights denote the number of such occurrences.
+citation,"['D. E. Knuth, \"The Stanford GraphBase: A Platform for Combinatorial Computing.\" Addison-Wesley, Reading, MA (1993)., http://www-cs-faculty.stanford.edu/~uno/sgb.html']"
+url,http://www-personal.umich.edu/~mejn/netdata
+tags,"['Social', 'Fictional', 'Weighted']"

@@ -1,6 +1,0 @@
-# prop_name, value
-name,bitcoin_alpha
-description,"A network of who-trusts-whom relationships among users of the Bitcoin Alpha platform. Each directed edge (i,j,w) represents the rating of user j by user i, in which i assigns j a weight w on a scale of -10 (total distrust) to +10 (total trust) in steps of 1."
-citation,"['S. Kumar, F. Spezzano, V.S. Subrahmanian, and C. Faloutsos, \"Edge weight prediction in weighted signed networks.\" IEEE 16th International Conference on Data Mining (ICDM), 221-230 (2016), https://cs.stanford.edu/~srijan/pubs/wsn-icdm16.pdf']"
-url,http://snap.stanford.edu/data/soc-sign-bitcoinalpha.html
-tags,"['Social', 'Online', 'Weighted', 'Signed', 'Timestamps']"
