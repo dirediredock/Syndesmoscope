@@ -30,12 +30,12 @@ const VISUALIZATION_PALETTES = {
     hopcensusGridLine: "#1e2530",
   },
   light: {
-    background: "#eef1f4",
+    background: "#ffffff",
     nodeDefault: "#4d5561",
     edgeDefaultLine: "#d8dce4",
     edgeDefaultPoint: "#4d5561",
     ksnakesCore: "#c8c8d0",
-    ksnakesIsland: "#e0e0e8",
+    ksnakesIsland: "#ffffff",
     hopcensusGridLine: "#e4e8f0",
   },
 };
