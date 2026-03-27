@@ -1,0 +1,6 @@
+# prop_name, value
+name,game_thrones
+description,"Network of coappearances of characters in the Game of Thrones series, by George R. R. Martin, and in particular coappearances in the book \"A Storm of Swords.\" Nodes are unique characters, and edges are weighted by the number of times the two characters' names appeared within 15 words of each other in the text."
+citation,"['A. Beveridge and J. Shan, \"Network of Thrones.\" Math Horizons 23(4), 18-22 (2016), http://www.maa.org/sites/default/files/pdf/Mathhorizons/NetworkofThrones%20%281%29.pdf']"
+url,http://www.macalester.edu/~abeverid/data/stormofswords.csv
+tags,"['Social', 'Fictional', 'Weighted']"

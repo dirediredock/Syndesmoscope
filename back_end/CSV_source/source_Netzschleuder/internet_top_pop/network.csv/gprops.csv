@@ -1,0 +1,35 @@
+# prop_name, value
+name,internet_top_pop (Kdl)
+description,"Assorted snapshots of internet graph at the Point of Presence (PoP) level (which lies between the IP and AS levels), collected from around the world and at various times. The earliest snapshots are for ARPANET (1969-1972), with a few more from pre-2000. Most are from 2006 onward. Metadata include link type or speed, longitudes, and latitudes of nodes, URL, and date of record."
+citation,"['S. Knight, et al. \"The Internet Topology Zoo.\" IEEE Journal on Selected Areas in Communications 29(9), 1765-1775 (2011), http://www.topology-zoo.org/publications/topology_zoo.pdf']"
+url,http://www.topology-zoo.org/dataset.html
+tags,"['Technological', 'Communication', 'Unweighted', 'Multigraph', 'Metadata']"
+Access,0
+Backbone,1
+Commercial,0
+Creator,Topology Zoo Toolset
+Customer,1
+DateModifier,=
+DateMonth,08
+DateObtained,25/10/10
+DateType,Current
+DateYear,2010
+Developed,0
+GeoExtent,Country
+GeoLocation,USA
+IX,0
+LastAccess,3/08/10
+LastProcessed,2011_09_01
+Layer,Fibre
+Network,Kentucky Datalink 
+NetworkDate,2010_08
+Note,Fiber provider
+Provenance,Primary
+Source,http://www.kdlinc.com/
+SourceGitVersion,e278b1b
+Testbed,0
+ToolsetVersion,0.3.34dev-20120328
+Transit,0
+Type,COM
+Version,1.0
+label,Kdl

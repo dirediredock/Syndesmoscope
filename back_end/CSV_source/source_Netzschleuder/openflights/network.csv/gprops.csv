@@ -1,0 +1,6 @@
+# prop_name, value
+name,openflights
+description,"A network of regularly occurring flights among airports worldwide, extracted from the openflights.org dataset. Nodes represent airports, and direction of edge (i,j) indicates a regularly occurring commercial flight by a particular airline from airport i to airport j. Multiple edges may exist between a pair of airports if multiple airlines offer that flight, or if one airline offers multiple such flights each day."
+citation,"['Openflights.org, https://openflights.org/data.html']"
+url,https://openflights.org/data.html
+tags,"['Transportation', 'Airport', 'Weighted', 'Multigraph']"

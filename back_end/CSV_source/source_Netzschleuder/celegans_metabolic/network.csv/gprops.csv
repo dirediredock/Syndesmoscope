@@ -1,0 +1,6 @@
+# prop_name, value
+name,celegans_metabolic
+description,List of edges comprising the metabolic network of the nematode C. elegans
+citation,"['J. Duch and A. Arenas, \"Community identification using Extremal Optimization.\" Physical Review E 72, 027104 (2005)., http://arxiv.org/abs/cond-mat/0501368']"
+url,https://deim.urv.cat/~alexandre.arenas/data/welcome.htm
+tags,"['Biological', 'Metabolic', 'Unweighted']"
