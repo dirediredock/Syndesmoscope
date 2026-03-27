@@ -24,15 +24,15 @@ const MIN_RENDER_WIDTH = 30;
 const ACCENT_COLOR = "var(--color-accent-adjmatrix)";
 
 const CELL_SIZES = {
-  XS: { default: 0.5, highlighted: 1 },
-  S: { default: 1.2, highlighted: 2.3 },
-  M: { default: 2, highlighted: 3 },
-  L: { default: 4, highlighted: 5 },
-  XL: { default: 6, highlighted: 7 },
+  XS: { default: 0.5, highlighted: 0.75 },
+  S: { default: 1, highlighted: 1.25 },
+  M: { default: 1.5, highlighted: 2 },
+  L: { default: 3, highlighted: 4 },
+  XL: { default: 5, highlighted: 6 },
 };
 const GRID_SIZES = {
-  XS: { default: 1, highlighted: 1 },
-  S: { default: 2, highlighted: 2 },
+  XS: { default: 0.5, highlighted: 0.5 },
+  S: { default: 1, highlighted: 1 },
   M: { default: 3, highlighted: 3 },
   L: { default: 5, highlighted: 5 },
   XL: { default: 8, highlighted: 8 },
@@ -46,7 +46,7 @@ function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
   const boundsRef = useRef(null);
   const brushGroupRef = useRef(null);
 
-  const [nodeSize, setNodeSize] = useState("S");
+  const [nodeSize, setNodeSize] = useState("M");
   const [gridlines, setGridlines] = useState("off");
   const [matrixRotation, setMatrixRotation] = useState(45);
   const matrixRotationRef = useRef(45);

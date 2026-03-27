@@ -33,19 +33,19 @@ const NODE_SIZES = {
   XS: { default: 1, highlighted: 1.8 },
   S: { default: 1.8, highlighted: 3 },
   M: { default: 3, highlighted: 5 },
-  L: { default: 5, highlighted: 7.5 },
-  XL: { default: 8.5, highlighted: 12 },
-  XXL: { default: 15, highlighted: 20 },
+  L: { default: 7, highlighted: 10 },
+  XL: { default: 18, highlighted: 22 },
+  XXL: { default: 40, highlighted: 45 },
 };
 
 // Stroke-width perceived linearly, so 2× geometric steps
 const EDGE_SIZES = {
-  XS: { default: 0.25, highlighted: 0.5 },
-  S: { default: 0.5, highlighted: 1 },
-  M: { default: 1, highlighted: 2 },
-  L: { default: 2, highlighted: 3.5 },
-  XL: { default: 5, highlighted: 8 },
-  XXL: { default: 13, highlighted: 20 },
+  XS: { default: 0.5, highlighted: 0.75 },
+  S: { default: 1, highlighted: 1.25 },
+  M: { default: 2, highlighted: 3 },
+  L: { default: 7, highlighted: 10 },
+  XL: { default: 20, highlighted: 23 },
+  XXL: { default: 35, highlighted: 40 },
 };
 
 function NodeLinkPane({ data, networkName, cycleButton = null }) {
@@ -75,7 +75,7 @@ function NodeLinkPane({ data, networkName, cycleButton = null }) {
   } = useSelection();
 
   const [nodeSize, setNodeSize] = useState("M");
-  const [edgeSize, setEdgeSize] = useState("L");
+  const [edgeSize, setEdgeSize] = useState("M");
 
   const { transform, resetZoom, fitToContent, setFilter, zoomPercent } =
     useZoomPan(svgRef, { scaleExtent: [0.01, 15] });
@@ -214,8 +214,12 @@ function NodeLinkPane({ data, networkName, cycleButton = null }) {
     // Create groups for layering (bottom to top: edges, nodes, selected edges, selected nodes)
     const edgeGroup = zoomContainer.append("g").attr("class", "edges");
     const nodeGroup = zoomContainer.append("g").attr("class", "nodes");
-    const selectedEdgeGroup = zoomContainer.append("g").attr("class", "selected-edges");
-    const selectedNodeGroup = zoomContainer.append("g").attr("class", "selected-nodes");
+    const selectedEdgeGroup = zoomContainer
+      .append("g")
+      .attr("class", "selected-edges");
+    const selectedNodeGroup = zoomContainer
+      .append("g")
+      .attr("class", "selected-nodes");
 
     edgeGroupRef.current = edgeGroup.node();
     nodeGroupRef.current = nodeGroup.node();
