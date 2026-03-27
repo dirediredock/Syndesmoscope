@@ -1,0 +1,7 @@
+# prop_name, value
+name,wiki_science
+description,"A network of scientific fields, extracted from the English Wikipedia in early 2020. Nodes are wikipedia pages representing natural, formal, social and applied sciences, and two nodes are linked if the cosine similarity of the page content is above a threshold. See http://www.sinnefa.com/wikipediasciencemap/ for an interactive version."
+citation,"['A. Calderone, \"A Wikipedia Based Map of Science.\" Figshare, https://figshare.com/articles/A_Wikipedia_Based_Map_of_Science/11638932 (2020), https://figshare.com/articles/A_Wikipedia_Based_Map_of_Science/11638932']"
+url,https://figshare.com/articles/A_Wikipedia_Based_Map_of_Science/11638932
+tags,"['Informational', 'Relatedness', 'Unweighted']"
+directed,0.0

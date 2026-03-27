@@ -1,0 +1,91 @@
+# prop_name, value
+name,movielens_100k
+description,"Three bipartite networks that make up the MovieLens 100K Dataset, a stable benchmark dataset of 100,000 ratings from 1000 users on 1700 movies. These data capture the tag-movie, user-movie, and user-tag networks. (Also available from MovieLens are 1M, 10M and 20M folksonomy datasets.)"
+citation,"['GroupLens Research, \"MovieLens data sets.\" http://grouplens.org/datasets/movielens/ (2006), http://grouplens.org/datasets/movielens/']"
+url,http://konect.cc/networks/movielens-10m_ti
+tags,"['Informational', 'Folksonomy', 'Unweighted', 'Multigraph', 'Timestamps']"
+konect_meta,"category: Feature
+code: Mti
+name: MovieLens tag–item
+description: Tag–movie assignment
+url: http://www.grouplens.org/node/73
+cite: www.grouplens.org/node/73
+extr: movielens-10m
+fullname: MovieLens tag–movie
+long-description: This bipartite network consists of 100,000 tags applied to 10,000 movies from http://movielens.umn.edu/. Left nodes are tags and right nodes are movies. An edge shows that a tag was applied to a movie.
+entity-names:  tag, movie
+relationship-names:  tag assignment
+"
+konect_readme,"MovieLens tag–movie network, part of the Koblenz Network Collection
+===========================================================================
+
+This directory contains the TSV and related files of the movielens-10m_ti network: This bipartite network consists of 100,000 tags applied to 10,000 movies from http://movielens.umn.edu/. Left nodes are tags and right nodes are movies. An edge shows that a tag was applied to a movie.
+
+
+More information about the network is provided here: 
+http://konect.cc/networks/movielens-10m_ti
+
+Files: 
+    meta.movielens-10m_ti -- Metadata about the network 
+    out.movielens-10m_ti -- The adjacency matrix of the network in whitespace-separated values format, with one edge per line
+      The meaning of the columns in out.movielens-10m_ti are: 
+        First column: ID of from node 
+        Second column: ID of to node
+        Third column (if present): weight or multiplicity of edge
+        Fourth column (if present):  timestamp of edges Unix time
+        Third column: edge weight
+        Fourth column: timestamp of the edge
+
+
+Use the following References for citation:
+
+@MISC{konect:2017:movielens-10m_ti,
+    title = {MovieLens tag–movie network dataset -- {KONECT}},
+    month = oct,
+    year = {2017},
+    url = {http://konect.cc/networks/movielens-10m_ti}
+}
+
+@misc{www.grouplens.org/node/73,
+	author = {{GroupLens Research}},
+	title = {{MovieLens} Data Sets},
+	month = {October},
+	year = {2006},
+	howpublished = {\url{http://www.grouplens.org/node/73}},
+}
+
+@misc{www.grouplens.org/node/73,
+	author = {{GroupLens Research}},
+	title = {{MovieLens} Data Sets},
+	month = {October},
+	year = {2006},
+	howpublished = {\url{http://www.grouplens.org/node/73}},
+}
+
+
+@inproceedings{konect,
+	title = {{KONECT} -- {The} {Koblenz} {Network} {Collection}},
+	author = {Jérôme Kunegis},
+	year = {2013},
+	booktitle = {Proc. Int. Conf. on World Wide Web Companion},
+	pages = {1343--1350},
+	url = {http://dl.acm.org/citation.cfm?id=2488173},
+	url_presentation = {https://www.slideshare.net/kunegis/presentationwow},
+	url_web = {http://konect.cc/},
+	url_citations = {https://scholar.google.com/scholar?cites=7174338004474749050},
+}
+
+@inproceedings{konect,
+	title = {{KONECT} -- {The} {Koblenz} {Network} {Collection}},
+	author = {Jérôme Kunegis},
+	year = {2013},
+	booktitle = {Proc. Int. Conf. on World Wide Web Companion},
+	pages = {1343--1350},
+	url = {http://dl.acm.org/citation.cfm?id=2488173},
+	url_presentation = {https://www.slideshare.net/kunegis/presentationwow},
+	url_web = {http://konect.cc/},
+	url_citations = {https://scholar.google.com/scholar?cites=7174338004474749050},
+}
+
+
+"

@@ -1,5 +1,0 @@
-numpy
-networkx
-scipy
-pandas
-matplotlib

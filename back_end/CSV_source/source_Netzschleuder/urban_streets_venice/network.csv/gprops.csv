@@ -1,6 +1,0 @@
-# prop_name, value
-name,urban_streets (venice)
-description,"20 urban street networks, corresponding to 1-square-mile maps of 20 cities around the world."
-citation,"['P. Crucitti, V. Latora, and S. Porta. \"Centrality measures in spatial networks of urban streets\". Phys. Rev. E 73 (2006), 036125, https://doi.org/10.1103/PhysRevE.73.036125', 'V. Latora, V. Nicosia, G. Russo, \"Complex Networks: Principles, Methods and Applications\", Cambridge University Press (2017), https://doi.org/10.1017/9781316216002']"
-url,https://www.complex-networks.net/datasets.html#chap8
-tags,"['Transportation', 'Roads', 'Unweighted', 'Metadata']"

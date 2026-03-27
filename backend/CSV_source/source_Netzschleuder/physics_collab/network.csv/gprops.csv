@@ -1,0 +1,9 @@
+# prop_name, value
+name,physics_collab (pierreAuger)
+description,"Two multiplex networks of coauthorships among  the Pierre Auger Collaboration of physicists (2010-2012) and among researchers who have posted preprints on arXiv.org (all papers up to May 2014). Layers represent different categories of publication, and an edge's weight indicates the number of reports written by the authors. These layers are one-mode projections from the underlying author-paper bipartite network[^icon]
+[^icon]: Description obtained from the [ICON](https://icon.colorado.edu) project."
+citation,"['M. De Domenico et al., \"Identifying modular flows on multilayer networks reveals highly overlapping organization in interconnected systems.\" Physical Review X 5(1), 011027 (2015)., https://arxiv.org/abs/1408.2925']"
+url,https://manliodedomenico.com/data.php
+upstream_license,"Open Data Commons Open Database License (ODbL), https://opendatacommons.org/licenses/odbl/"
+tags,"['Social', 'Collaboration', 'Weighted', 'Multilayer', 'Projection']"
+layer_key,"{1: 'Neutrinos', 2: 'Detector', 3: 'Enhancements', 4: 'Anisotropy', 5: 'Point-source', 6: 'Mass-composition', 7: 'Horizontal', 8: 'Hybrid-reconstruction', 9: 'Spectrum', 10: 'Photons', 11: 'Atmospheric', 12: 'SD-reconstruction', 13: 'Hadronic-interactions', 14: 'Exotics', 15: 'Magnetic', 16: 'Astrophysical-scenarios'}"

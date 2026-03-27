@@ -1,0 +1,7 @@
+# prop_name, value
+name,facebook_organizations (M1)
+description,"Six networks of friendships among users on Facebook who indicated employment at one of the target corporation. Companies range in size from small to large. Only edges between employees at the same company are included in a given snapshot.[^icon]
+[^icon]: Description obtained from the [ICON](https://icon.colorado.edu) project."
+citation,"['M. Fire, and R. Puzis, \"Organization mining using online social networks.\" Networks and Spatial Economics 16(2), 545-578 (2016), https://arxiv.org/abs/1303.3741']"
+url,https://data4goodlab.github.io/MichaelFire/#section3
+tags,"['Social', 'Online', 'Unweighted']"
