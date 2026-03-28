@@ -5,7 +5,7 @@ node_modules/
 dist/
 
 # Environment files
-back_end/.venv
+backend/.venv
 
 # Editor directories
 .idea/
