@@ -454,9 +454,9 @@ function KSnakesPane({ data, nodeLinkData, networkName, cycleButton = null }) {
         label.append("tspan").text(`k-${core.core_value}`);
 
         if (core.core_value === minCoreValue) {
-          label.append("tspan").attr("font-size", "16px").text(" • Periphery");
+          label.append("tspan").attr("font-size", "16px").text(" • Sparse");
         } else if (core.core_value === maxCoreValue) {
-          label.append("tspan").attr("font-size", "16px").text(" • Core");
+          label.append("tspan").attr("font-size", "16px").text(" • Dense");
         }
       }
     });
