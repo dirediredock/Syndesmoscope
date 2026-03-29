@@ -415,6 +415,9 @@ function KSnakesPane({ data, nodeLinkData, networkName, cycleButton = null }) {
         toggleNodeSelection(nodeIdx);
       });
 
+    // SVG-level mouseleave fallback: clear hover when cursor exits the visualization
+    svg.on("mouseleave", clearHover);
+
     // Core labels: "k-{n}" at leftmost position
     const labelsGroup = contentGroup.append("g").attr("class", "core-labels");
 
@@ -561,7 +564,7 @@ function KSnakesPane({ data, nodeLinkData, networkName, cycleButton = null }) {
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr("data-node-idx");
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx))
+        if (selectedNodes.has(nodeIdx))
           d3.select(this).raise();
       });
 
@@ -634,7 +637,7 @@ function KSnakesPane({ data, nodeLinkData, networkName, cycleButton = null }) {
         try {
           svg.selectAll(".snake-node").each(function () {
             const nodeIdx = +d3.select(this).attr("data-node-idx");
-            if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx))
+            if (selectedNodes.has(nodeIdx))
               d3.select(this).raise();
           });
         } catch (e) {}
@@ -666,7 +669,7 @@ function KSnakesPane({ data, nodeLinkData, networkName, cycleButton = null }) {
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr("data-node-idx");
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) {
+        if (selectedNodes.has(nodeIdx)) {
           d3.select(this).raise();
         }
       });
