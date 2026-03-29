@@ -12,7 +12,7 @@ function NetworkSelect() {
 
   useEffect(() => {
     if (!currentNetworkId && availableNetworks.length > 0) {
-      loadNetwork("les_miserables");
+      loadNetwork("game_thrones");
     }
   }, [availableNetworks, currentNetworkId, loadNetwork]);
 
