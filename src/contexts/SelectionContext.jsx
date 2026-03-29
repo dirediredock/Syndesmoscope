@@ -37,6 +37,7 @@ export function SelectionProvider({ children }) {
   // Node hover handlers
   const hoverNode = useCallback((nodeIdx) => {
     setHoveredNodes(new Set([nodeIdx]));
+    setHoveredEdges(new Set());
   }, []);
 
   const hoverNodes = useCallback((nodeIdxArray) => {
@@ -50,6 +51,7 @@ export function SelectionProvider({ children }) {
   // Edge hover handlers
   const hoverEdge = useCallback((edgeIdx) => {
     setHoveredEdges(new Set([edgeIdx]));
+    setHoveredNodes(new Set());
   }, []);
 
   const hoverEdges = useCallback((edgeIdxArray) => {

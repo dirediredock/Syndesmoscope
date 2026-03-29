@@ -368,6 +368,9 @@ function HopCensusPane({ data, networkName, cycleButton = null }) {
         toggleNodeSelection(nodeIdx);
       });
 
+    // SVG-level mouseleave fallback: clear hover when cursor exits the visualization
+    svg.on("mouseleave", clearHover);
+
     // Create brush overlay (on top of zoom container so it can intercept events)
     const brushGroup = svg.append("g").attr("class", "brush-group");
     brushGroupRef.current = brushGroup.node();
@@ -491,7 +494,7 @@ function HopCensusPane({ data, networkName, cycleButton = null }) {
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr("data-node-idx");
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) {
+        if (selectedNodes.has(nodeIdx)) {
           d3.select(this).raise();
         }
       });

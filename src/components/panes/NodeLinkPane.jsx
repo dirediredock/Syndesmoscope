@@ -362,10 +362,11 @@ function NodeLinkPane({ data, networkName, cycleButton = null }) {
       })
       .each(function () {
         const nodeIdx = +d3.select(this).attr("data-node-idx");
-        if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx)) {
-          selectedNodeGroupRef.current.appendChild(this);
-        } else {
-          nodeGroupRef.current.appendChild(this);
+        const target = selectedNodes.has(nodeIdx)
+          ? selectedNodeGroupRef.current
+          : nodeGroupRef.current;
+        if (this.parentNode !== target) {
+          target.appendChild(this);
         }
       });
 
@@ -386,10 +387,11 @@ function NodeLinkPane({ data, networkName, cycleButton = null }) {
       })
       .each(function () {
         const edgeIdx = +d3.select(this).attr("data-edge-idx");
-        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx)) {
-          selectedEdgeGroupRef.current.appendChild(this);
-        } else {
-          edgeGroupRef.current.appendChild(this);
+        const target = selectedEdges.has(edgeIdx)
+          ? selectedEdgeGroupRef.current
+          : edgeGroupRef.current;
+        if (this.parentNode !== target) {
+          target.appendChild(this);
         }
       });
   }, [
@@ -406,6 +408,9 @@ function NodeLinkPane({ data, networkName, cycleButton = null }) {
     if (!svgRef.current) return;
 
     const svg = d3.select(svgRef.current);
+
+    // SVG-level mouseleave fallback: clear hover when cursor exits the visualization
+    svg.on("mouseleave", clearHover);
 
     // Node events
     svg

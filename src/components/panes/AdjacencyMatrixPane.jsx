@@ -399,6 +399,9 @@ function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
         toggleEdgeSelection(edgeIdx);
       });
 
+    // SVG-level mouseleave fallback: clear hover when cursor exits the visualization
+    svg.on("mouseleave", clearHover);
+
     // Create brush overlay (on top of zoom container so it intercepts events)
     const brushGroup = svg.append("g").attr("class", "adj-brush-group");
     brushGroupRef.current = brushGroup.node();
@@ -491,7 +494,7 @@ function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
       })
       .each(function () {
         const edgeIdx = +d3.select(this).attr("data-edge-idx");
-        if (selectedEdges.has(edgeIdx) || hoveredEdges.has(edgeIdx))
+        if (selectedEdges.has(edgeIdx))
           d3.select(this).raise();
       });
 
@@ -527,7 +530,7 @@ function AdjacencyMatrixPane({ data, networkName, cycleButton = null }) {
         })
         .each(function () {
           const nodeIdx = +d3.select(this).attr("data-node-idx");
-          if (selectedNodes.has(nodeIdx) || hoveredNodes.has(nodeIdx))
+          if (selectedNodes.has(nodeIdx))
             d3.select(this).raise();
         });
     }
