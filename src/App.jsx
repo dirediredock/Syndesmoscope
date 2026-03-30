@@ -29,7 +29,7 @@ function AppContent() {
 
   const resetLayoutRef = useRef(null);
   const [paneTypes, setPaneTypes] = useState(DEFAULT_PANE_TYPES);
-  const [activePane, setActivePane] = useState(2);
+  const [activePane, setActivePane] = useState(3);
   const { isLoading, error } = useNetwork();
   const isPortrait = useIsPortrait();
 
@@ -75,6 +75,7 @@ function AppContent() {
         <ControlPanel
           onResetLayout={isPortrait ? undefined : () => resetLayoutRef.current?.()}
           themeToggle={<ThemeToggle />}
+          isPortrait={isPortrait}
         />
       </header>
       <main className="app-main">
