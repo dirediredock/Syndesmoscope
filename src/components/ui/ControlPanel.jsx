@@ -1,13 +1,13 @@
 import { useTheme } from "../../contexts/ThemeContext";
 import "./ControlPanel.css";
 
-function ControlPanel({ onResetLayout, themeToggle }) {
+function ControlPanel({ onResetLayout, themeToggle, isPortrait }) {
   const { luminosity, setLuminosity } = useTheme();
 
   return (
     <div className="control-panel">
       <div className="control-group">
-        <span className="control-label">Panes:</span>
+        <span className="control-label">{isPortrait ? "Theme:" : "Panes:"}</span>
         {themeToggle}
         <div className="control-btn-wrap">
           <div className="control-slider-wrap">

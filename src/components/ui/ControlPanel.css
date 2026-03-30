@@ -92,7 +92,7 @@
   height: 34px;
   padding: 0 var(--space-3);
   padding-right: var(--space-6);
-  /* width: 20em; */
+  width: 15em;
   background-color: var(--color-button-bg);
   color: var(--color-button-text-hover);
   font-weight: 500;
@@ -115,6 +115,15 @@
 .control-select:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (orientation: portrait) {
+  .control-select {
+    width: 10em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .control-info {
