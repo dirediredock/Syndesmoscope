@@ -2,7 +2,7 @@
 
 Syndesmoscope is an interactive visualization system that supports the topological exploration of a single graph through juxtaposed linked views of both invariant plots and traditional network visual encodings. The name 'Syndesmoscope' is a neoclassical compound word built from Greek roots: 'syndesmos', which is bond or link as a noun, or "to bind" as a verb; and 'scope', which is "instrument for observing"; thus, an "instrument for observing connections". Three of the Syndesmoscope views provide distinct visual patterns that arise from the tight mapping of interesting topological properties to interpretable geometric layouts (A, B, and C in the figure below), alongside a familiar and intuitive force-directed view (D in the figure below). 
 
-<img src="figures/figure_01.png" width="100%" ></a>
+<a href="https://syndesmoscope.vercel.app/"><img src="figures/figure_01.png" width="100%" ></a>
 
 The user interface has four interpretable geometric layouts computed from the same graph (A, B, C, and D) and a control strip (E and F). **(A)** kSnakes pane, a new invariant plot based on the dense-sparse gradient; nodes from the two densest subgraphs selected at the top of the pane (blue), with hopscotching to select their edges (orange). **(B)** HopCensus pane, an invariant plot based on eccentricity. **(C)** AdjacencyMatrix pane, with a Fiedler seriation. **(D)** ForceDirected pane, a familiar variant view. **(E)** Hopscotching controls. **(F)** Selection set counts.
 
