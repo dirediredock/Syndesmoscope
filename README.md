@@ -1,26 +1,12 @@
-# Syndesmoscope: Linking Invariant Plots and Traditional Network Views
+# Syndesmoscope: The Power of Invariant Plots Linked to Traditional Network Views
 
-Syndesmoscope is a browser-based interactive system that enables deep exploration of network topology by coordinating multiple network visualization idioms through linked highlighting.
+Syndesmoscope is an interactive visualization system that supports the topological exploration of a single graph through juxtaposed linked views of both invariant plots and traditional network visual encodings. The name 'Syndesmoscope' is a neoclassical compound word built from Greek roots: 'syndesmos', which is bond or link as a noun, or "to bind" as a verb; and 'scope', which is "instrument for observing"; thus, an "instrument for observing connections". Three of the Syndesmoscope views provide distinct visual patterns that arise from the tight mapping of interesting topological properties to interpretable geometric layouts (A, B, and C in the figure below), alongside a familiar and intuitive force-directed view (D in the figure below). 
 
-The name 'Syndesmoscope' is a neoclassical compound word built from Greek roots: 'syndesmos', which means bond or link as a noun, or "to bind together" as a verb; and 'scope', which means "instrument for observing"; thus, "an instrument for observing connections".
+<img src="figures/figure_01.png" width="100%" ></a>
 
-<img src="figures/Teaser_00_dark.png" width="100%" ></a>
+Syndesmoscope shows four interpretable geometric layouts computed from the same graph. **(A)** kSnakes pane, a new invariant plot based on the dense-sparse gradient; nodes from the two densest subgraphs selected at the top of the pane (blue), with hopscotching to select their edges (orange). **(B)** HopCensus pane, an invariant plot based on eccentricity. **(C)** AdjacencyMatrix pane, with a Fiedler seriation. **(D)** ForceDirected pane, a familiar variant view. **(E)** Hopscotching controls. **(F)** Selection set counts.
 
-Syndesmoscope juxtaposes four panes that surface maximally orthogonal visual patterns computed from the same network dataset. (A) kSnakes pane, a new invariant plot. (B) HopCensus pane, an invariant plot. (C) AdjacencyMatrix pane, with near-invariant seriation (Behrisch2016). (D) ForceDirected pane, a familiar variant view. (E) Above the panes, a control strip with tools for multi-item selection. In this example, the “Nematode Synapses (M)” dataset is loaded: the nervous system of the male C. elegans roundworm, comprising 484 cells (nodes) and 1597 synapses (edges). A selection in A highlights 43 nodes (blue) from the densest core (k-9 shell at the top); using E, their 273 shared edges (orange) are selected, with corresponding visual pattern highlighting shown across the B, C, and D panes.
-
-<img src="figures/teaser_01.png" width="100%" ></a>
-
-<img src="figures/teaser_01b.png" width="100%" ></a>
-
-<img src="figures/teaser_02.png" width="100%" ></a>
-
-<img src="figures/teaser_03.png" width="100%" ></a>
-
-<img src="figures/teaser_04.png" width="100%" ></a>
-
-<img src="figures/teaser_05.png" width="100%" ></a>
-
-<img src="figures/teaser_06.png" width="100%" ></a>
+In the figure above, the 'Nematode Synapses (M)' neurological dataset represents the nervous system of the male C. elegans roundworm: 484 cells (nodes) and 1597 synapses (edges). The selection of the nodes from the 2 denset shells in kSnakes propagates to low eccentricity polylines in HopCensus, and to edge-points around the equator in AdjacencyMatrix. The ForceDirected pane shows these 74 nodes selected as a dense subgraph with a central topological placement.
 
 # Development Setup
 
