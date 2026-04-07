@@ -8,6 +8,8 @@ The user interface has four interpretable geometric layouts computed from the sa
 
 In the figure above, the 'Nematode Synapses (M)' neurological dataset represents the nervous system of the male C. elegans roundworm: 484 cells (nodes) and 1597 synapses (edges). The selection of the nodes from the 2 denset shells in kSnakes propagates to low eccentricity polylines in HopCensus, and to edge-points around the equator in AdjacencyMatrix. The ForceDirected pane shows these 74 nodes selected as a dense subgraph with a central topological placement.
 
+[![Sydesmoscope Video Walkthrough](figures/video.png)](https://www.youtube.com/watch?v=2mrCo8tRtSo)
+
 # Development Setup
 
 These steps assume that `npm` is already installed on your machine. This repository does **not** store or track the required web app scaffolding dependencies, so the first step is to navigate to the `Syndesmoscope` working directory in your terminal and install these locally.
